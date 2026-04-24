@@ -41,9 +41,10 @@ export default function HomePage() {
                 <em className="not-italic text-sage-deep">GLP-1</em>.
               </h1>
               <p className="mt-7 text-lg md:text-xl text-charcoal/85 max-w-2xl leading-[1.55] fade-up-delay-2">
-                Answers your doctor didn&apos;t have time for — calm, cited,
-                specific. Side effects, food, muscle, dosing, and the
-                questions that feel too embarrassing to ask.
+                Answers your doctor didn&apos;t have time for. Cited, specific,
+                and written the way a friend would write them. Side effects,
+                food, muscle, dosing, and the questions that feel too
+                embarrassing to ask.
               </p>
               <div className="mt-9 flex flex-wrap gap-3 fade-up-delay-3">
                 <Link href="/guides/side-effects-and-management" className="btn-primary">
@@ -107,7 +108,7 @@ export default function HomePage() {
                     The one Jen keeps coming back to.
                   </h2>
                   <p className="mt-5 text-charcoal/75 text-[15px] leading-relaxed">
-                    Every issue we anchor one long read — the post readers
+                    Every issue we anchor one long read: the post readers
                     bookmark in week 1 and re-open in week 5 when the dose
                     steps up. This one&apos;s been our most-read since launch.
                   </p>
@@ -283,7 +284,7 @@ export default function HomePage() {
                 <h3 className="font-serif text-xl text-cream mb-2">Cited, not clinical.</h3>
                 <p className="text-cream/80 text-[14.5px] leading-relaxed">
                   Every claim about a drug, a dose, or a side effect links to
-                  the FDA label or the published trial — not a press release.
+                  the FDA label or the published trial, not a press release.
                 </p>
               </div>
               <div>
@@ -361,7 +362,7 @@ export default function HomePage() {
                 One calm, cited email every Sunday.
               </h2>
               <p className="mt-5 text-charcoal/80 text-[15.5px] max-w-xl mx-auto leading-relaxed">
-                One question, answered — never a fire-hose. Plus the free
+                One question, answered. Never a fire-hose. Plus the free
                 &quot;First 30 Days on a GLP-1&quot; guide when you subscribe.
               </p>
             </div>

@@ -41,7 +41,7 @@ export default function EditorialStandardsPage() {
         <li>A regulatory or government document (FDA, EMA, CDC, NIH)</li>
       </ul>
       <p>
-        For any significant health claim, we prefer two independent sources —
+        For any significant health claim, we prefer two independent sources:
         one primary study plus one regulatory or manufacturer reference. When
         evidence is genuinely mixed, we say so in the text. We don&apos;t pretend to
         have certainty we don&apos;t have.
@@ -50,8 +50,8 @@ export default function EditorialStandardsPage() {
       <h2>Use of generic and brand names</h2>
       <p>
         We always use the generic name alongside the brand name, especially in
-        the first mention of a post. &ldquo;Semaglutide (Ozempic, Wegovy)&rdquo; and
-        &ldquo;tirzepatide (Mounjaro, Zepbound)&rdquo; — always both. This is for accuracy
+        the first mention of a post. &quot;Semaglutide (Ozempic, Wegovy)&quot; and
+        &quot;tirzepatide (Mounjaro, Zepbound),&quot; always both. This is for accuracy
         and for accessibility when readers are comparing what their doctor
         prescribed against what we&apos;ve written.
       </p>
@@ -82,14 +82,14 @@ export default function EditorialStandardsPage() {
         Peptips does not accept payment from drug manufacturers. Peptips does
         not accept payment from telehealth clinics in exchange for editorial
         coverage. When we link to a supplement brand (protein powder,
-        electrolytes, fiber) we may earn an affiliate commission — and we
+        electrolytes, fiber) we may earn an affiliate commission, and we
         disclose it on every page where it applies, above the product list, in
         plain English.
       </p>
 
       <h2>AI and our editorial process</h2>
       <p>
-        We use AI tools in parts of our workflow — literature synthesis, draft
+        We use AI tools in parts of our workflow: literature synthesis, draft
         generation, grammar checks, formatting. Every post on this site is
         reviewed, fact-checked, and edited by a human before publication. No
         post is published that hasn&apos;t been through that review.
@@ -102,7 +102,7 @@ export default function EditorialStandardsPage() {
       <h2>Images and privacy</h2>
       <p>
         We do not publish before/after photos, weight-loss numbers, or
-        body-focused imagery. These are platform compliance landmines — and
+        body-focused imagery. These are platform compliance landmines, and
         they invite the wrong reader.
       </p>
 
@@ -110,7 +110,7 @@ export default function EditorialStandardsPage() {
       <ul>
         <li>We don&apos;t accept payment for editorial placement</li>
         <li>We don&apos;t publish content written by drug manufacturers</li>
-        <li>We don&apos;t use words like &ldquo;miracle,&rdquo; &ldquo;secret,&rdquo; or &ldquo;shocking&rdquo;</li>
+        <li>We don&apos;t use words like &quot;miracle,&quot; &quot;secret,&quot; or &quot;shocking&quot;</li>
         <li>We don&apos;t write fake urgency, fake scarcity, or fake reviews</li>
         <li>We don&apos;t tell readers to start or stop any medication</li>
       </ul>

@@ -36,8 +36,8 @@ export default function Error({
             </p>
             <p>
               If it keeps happening, head back to the home page and pick a hub
-              from there — and if you have a second, tell us what you were
-              trying to read at <Link href="/contact" className="text-pine underline decoration-sage decoration-[1.5px] underline-offset-[3px] hover:decoration-coral">hello@peptips.com</Link> so we can fix it.
+              from there. If you have a second, tell us what you were trying
+              to read at <Link href="/contact" className="text-pine underline decoration-sage decoration-[1.5px] underline-offset-[3px] hover:decoration-coral">hello@peptips.com</Link> so we can fix it.
             </p>
           </div>
 

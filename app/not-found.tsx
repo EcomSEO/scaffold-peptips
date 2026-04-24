@@ -31,7 +31,7 @@ export default function NotFound() {
           <div className="mt-8 space-y-5 text-charcoal/85 text-[17px] leading-[1.75] max-w-[60ch]">
             <p>
               Maybe the URL changed, maybe we retired the post, or maybe there
-              was a typo somewhere along the way. No harm done — it happens.
+              was a typo somewhere along the way. No harm done. It happens.
             </p>
             <p>
               If you were looking for something specific (a side effect, a
