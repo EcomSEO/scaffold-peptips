@@ -25,19 +25,27 @@ export function EmailCapture({
 
   const wrapper =
     variant === "end-of-article"
-      ? "my-12 p-8 rounded-lg bg-sage/10 border border-sage/20 text-center"
-      : "my-12 p-8 rounded-lg bg-white/70 border border-pine/10 text-center";
+      ? "my-12 p-7 md:p-9 rounded-sm bg-sage/10 border border-sage-deep/25"
+      : "my-10 p-7 md:p-9 rounded-sm bg-paper border border-pine/12 shadow-soft";
 
   return (
     <section id="email-capture" className={wrapper}>
-      <h2 className="font-serif text-2xl text-pine mb-2">{headline}</h2>
-      <p className="text-charcoal/80 max-w-xl mx-auto">{subhead}</p>
+      <div className="flex items-center gap-3 mb-3">
+        <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-coral-deep" />
+        <span className="caps-label text-coral-deep">The free companion guide</span>
+      </div>
+      <h2 className="font-serif text-2xl md:text-[1.75rem] text-pine leading-tight">
+        {headline}
+      </h2>
+      <p className="mt-3 text-[15px] text-charcoal/85 max-w-xl leading-relaxed">
+        {subhead}
+      </p>
       {status === "ok" ? (
-        <p className="mt-6 text-pine">Thanks — check your inbox.</p>
+        <p className="mt-6 text-pine font-medium">Thanks — check your inbox.</p>
       ) : (
         <form
           onSubmit={onSubmit}
-          className="mt-6 flex flex-col sm:flex-row gap-2 justify-center max-w-md mx-auto"
+          className="mt-6 flex flex-col sm:flex-row gap-2 max-w-md"
         >
           <label htmlFor="email" className="sr-only">
             Email address
@@ -49,23 +57,23 @@ export function EmailCapture({
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 rounded-md border border-pine/20 px-4 py-3 bg-white"
+            className="flex-1 rounded-sm border border-pine/20 px-4 py-3 bg-paper focus:outline-none focus:ring-2 focus:ring-sage-deep/40 focus:border-sage-deep"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="rounded-md bg-pine px-6 py-3 text-cream hover:bg-sage transition disabled:opacity-50"
+            className="btn-primary justify-center disabled:opacity-50"
           >
             {status === "loading" ? "Sending…" : buttonLabel}
           </button>
         </form>
       )}
-      <p className="mt-4 text-xs text-charcoal/50 max-w-md mx-auto">
+      <p className="mt-4 text-[12px] text-stone max-w-md leading-relaxed">
         By subscribing, you agree to our{" "}
-        <a href="/privacy" className="underline">
+        <a href="/privacy" className="underline decoration-sage-deep/60 underline-offset-2">
           Privacy Policy
         </a>
-        . One calm email a week. Unsubscribe anytime.
+        . One calm email on Sundays. Unsubscribe anytime.
       </p>
     </section>
   );

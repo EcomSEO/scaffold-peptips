@@ -8,4 +8,9 @@ export const SITE = {
   email: "hello@peptips.com",
   launched: false,
   requiresMedicalDisclaimer: true,
+  // Editorial masthead — a journal framing (Field Notes format)
+  volume: "Volume I",
+  issue: "Issue 01",
+  issueName: "Field Notes",
+  issueTagline: "Answers your doctor didn't have time for.",
 } as const;

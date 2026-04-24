@@ -5,32 +5,44 @@
 :root {
   color-scheme: light;
   --color-sage: #9CAF94;
+  --color-sage-light: #C5D2BE;
+  --color-sage-deep: #7D9175;
   --color-cream: #FAF6F0;
+  --color-cream-deep: #F1EADC;
+  --color-paper: #FBF8F2;
   --color-pine: #3D4A3A;
+  --color-pine-deep: #2E382B;
   --color-coral: #E8927C;
+  --color-coral-deep: #C77560;
   --color-charcoal: #2A2A2A;
-  --color-forest: #3D4A3A;
-  --color-terracotta: #E8927C;
+  --color-stone: #6F6B63;
 }
 
 html {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
+  font-feature-settings: "ss01", "cv11";
 }
 
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-paper);
+  /* Very soft warm wash — sage-and-cream, no terracotta. Calmer than plasticfreelab. */
+  background-image:
+    radial-gradient(at 10% 6%, rgba(156, 175, 148, 0.06) 0, transparent 50%),
+    radial-gradient(at 92% 94%, rgba(232, 146, 124, 0.03) 0, transparent 55%);
   color: var(--color-charcoal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
-  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 60;
+  letter-spacing: -0.012em;
   font-weight: 600;
+  color: var(--color-pine);
 }
 
 ::selection {
@@ -38,9 +50,172 @@ h1, h2, h3, h4 {
   color: var(--color-cream);
 }
 
+/* Editorial utilities — shared class names across the network, peptips tokens */
+
+.eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-sage-deep);
+}
+
+.eyebrow-sage { color: var(--color-sage-deep); }
+.eyebrow-pine { color: var(--color-pine); }
+.eyebrow-stone { color: var(--color-stone); }
+.eyebrow-coral { color: var(--color-coral-deep); }
+
+.caps-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.dateline {
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.display-headline {
+  font-family: "Source Serif 4", serif;
+  font-variation-settings: "opsz" 60;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.05;
+}
+
+.ornament-dot::before,
+.ornament-dot::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  margin: 0 0.8em;
+  vertical-align: middle;
+}
+
+.rule-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-sage);
+}
+
+.rule-ornament::before,
+.rule-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.rule-ornament-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  display: inline-block;
+}
+
+/* Drop cap — warm-journal register, not lab */
+.drop-cap::first-letter {
+  font-family: "Source Serif 4", serif;
+  font-weight: 600;
+  font-size: 4.4rem;
+  line-height: 0.9;
+  float: left;
+  margin: 0.1em 0.1em 0 0;
+  color: var(--color-pine);
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+.rank-numeral {
+  font-family: "Source Serif 4", serif;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--color-sage-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prose — roomier than plasticfreelab (Jen reads on her phone at 11pm) */
+.prose { max-width: 66ch; }
+
+.prose p {
+  margin-bottom: 1.2em;
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  margin-top: 2.6rem;
+  margin-bottom: 0.9rem;
+  color: var(--color-pine);
+  letter-spacing: -0.012em;
+}
+
+.prose h3 {
+  font-size: 1.3rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.65rem;
+  color: var(--color-pine);
+}
+
+.prose ul, .prose ol {
+  margin: 1em 0 1.4em;
+  padding-left: 1.5em;
+}
+
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li { margin-bottom: 0.45em; }
+
+.prose a {
+  color: var(--color-pine);
+  text-decoration: underline;
+  text-decoration-color: var(--color-sage);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-coral);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-sage);
+  padding-left: 1.2em;
+  font-family: "Source Serif 4", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-pine);
+  margin: 1.6em 0;
+}
+
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -57,35 +232,119 @@ h1, h2, h3, h4 {
   border: 0;
 }
 
-.prose p {
-  margin-bottom: 1.1em;
-  line-height: 1.75;
+/* Soft paper texture — warmer than plasticfreelab's */
+.paper-texture {
+  background-color: var(--color-paper);
+  background-image:
+    repeating-radial-gradient(
+      circle at 0 0,
+      rgba(61, 74, 58, 0.008) 0,
+      rgba(61, 74, 58, 0.008) 1px,
+      transparent 1px,
+      transparent 3px
+    );
 }
 
-.prose h2 {
-  font-size: 1.75rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+/* Nav underline — soft sage */
+.nav-link {
+  position: relative;
   color: var(--color-pine);
+  transition: color 0.15s ease;
 }
 
-.prose h3 {
-  font-size: 1.375rem;
-  margin-top: 1.75rem;
-  margin-bottom: 0.75rem;
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1.5px;
+  background: var(--color-sage);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Buttons — calm, pine primary */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  background: var(--color-pine);
+  color: var(--color-cream);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-pine-deep);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
   color: var(--color-pine);
+  background: transparent;
+  border: 1px solid var(--color-pine);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  border-radius: 3px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.prose ul, .prose ol {
-  margin: 1em 0;
-  padding-left: 1.5em;
+.btn-secondary:hover {
+  background: var(--color-pine);
+  color: var(--color-cream);
 }
 
-.prose ul { list-style: disc; }
-.prose ol { list-style: decimal; }
-
-.prose a {
-  color: var(--color-sage);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+/* Tier badge — for supplement ComparisonTemplate only */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  background: var(--color-pine);
+  color: var(--color-cream);
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 3px;
 }
+
+.tier-badge::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--color-sage-light);
+  border-radius: 50%;
+}
+
+.tier-badge-mid { background: var(--color-sage-deep); }
+.tier-badge-mid::before { background: var(--color-cream); }
+.tier-badge-budget { background: var(--color-coral); }
+.tier-badge-budget::before { background: var(--color-pine); }
+.tier-badge-skip { background: var(--color-stone); }
+.tier-badge-skip::before { background: var(--color-cream); }
+
+/* Animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.6s ease-out both; }
+.fade-up-delay-1 { animation: fadeUp 0.6s ease-out 0.1s both; }
+.fade-up-delay-2 { animation: fadeUp 0.6s ease-out 0.2s both; }

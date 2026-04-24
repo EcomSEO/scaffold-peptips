@@ -1,10 +1,14 @@
 export function AuthorBio() {
   return (
-    <section className="mt-12 p-6 border border-pine/10 rounded-lg bg-white/50">
-      <h3 className="font-serif text-lg text-pine mb-2">
+    <section className="mt-14 p-7 border border-pine/12 rounded-sm bg-cream-deep/40">
+      <div className="flex items-center gap-3 mb-3">
+        <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-sage-deep" />
+        <span className="caps-label text-pine">The byline</span>
+      </div>
+      <h3 className="font-serif text-xl text-pine mb-2">
         About The Peptips Editorial Team
       </h3>
-      <p className="text-charcoal/80 leading-relaxed text-[15px]">
+      <p className="text-charcoal/85 leading-relaxed text-[15px] max-w-[62ch]">
         The Peptips Editorial Team is a small group of researchers dedicated to
         making GLP-1 information clearer, calmer, and more useful. We read the
         trials, the FDA labels, and the published literature, and we translate
