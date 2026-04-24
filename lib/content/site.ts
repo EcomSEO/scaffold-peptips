@@ -6,7 +6,7 @@ export const SITE = {
     "Calm, cited GLP-1 information — side effects, food, muscle preservation, dosing, and the questions your doctor didn't have time to answer.",
   author: "The Peptips Editorial Team",
   email: "hello@peptips.com",
-  launched: false,
+  launched: true,
   requiresMedicalDisclaimer: true,
   // Editorial masthead — a journal framing (Field Notes format)
   volume: "Volume I",
