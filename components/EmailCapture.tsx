@@ -2,6 +2,13 @@
 
 import { FormEvent, useState } from "react";
 
+/**
+ * Calm inline email capture.
+ *
+ * Focus treatment: soft pine glow on the input plus a coral accent line
+ * that sweeps in along the bottom (left-to-right) when the user engages
+ * the form. Submit button gently presses down on :active via .btn-primary.
+ */
 export function EmailCapture({
   headline = "The First 30 Days on a GLP-1.",
   subhead = "A 15-page calm companion guide — week-by-week expectations, what to eat, what to track, what to ask at your first follow-up. Free. Delivered instantly.",
@@ -50,15 +57,18 @@ export function EmailCapture({
           <label htmlFor="email" className="sr-only">
             Email address
           </label>
-          <input
-            id="email"
-            type="email"
-            required
-            placeholder="you@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 rounded-sm border border-pine/20 px-4 py-3 bg-paper focus:outline-none focus:ring-2 focus:ring-sage-deep/40 focus:border-sage-deep"
-          />
+          <div className="email-input relative flex-1">
+            <input
+              id="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full rounded-sm border border-pine/20 px-4 py-3 bg-paper focus:outline-none"
+            />
+            <span aria-hidden className="coral-sweep" />
+          </div>
           <button
             type="submit"
             disabled={status === "loading"}

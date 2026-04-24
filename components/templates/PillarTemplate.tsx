@@ -13,9 +13,11 @@ import { BreadcrumbJsonLd } from "../schema/BreadcrumbJsonLd";
 import { FaqJsonLd } from "../schema/FaqJsonLd";
 import { WideArticleShell } from "./PageShell";
 import { Eyebrow } from "../editorial/Eyebrow";
-import { DotRule, FieldRule } from "../editorial/DotRule";
+import { DotRule } from "../editorial/DotRule";
+import { AnimatedFieldRule } from "../editorial/AnimatedFieldRule";
 import { KeyTakeaway } from "../editorial/KeyTakeaway";
 import { PullQuote } from "../editorial/PullQuote";
+import { OpeningParagraph } from "../editorial/OpeningParagraph";
 
 export function PillarTemplate({ post }: { post: Post }) {
   const hub = getHub(post.hub);
@@ -119,11 +121,11 @@ export function PillarTemplate({ post }: { post: Post }) {
           <PostReviewStamp reviewedOn={post.updatedAt} />
         )}
 
-        <FieldRule className="mt-8" />
+        <AnimatedFieldRule className="mt-8" />
 
-        <p className="drop-cap mt-10 text-[1.12rem] md:text-[1.17rem] leading-[1.75] text-charcoal/90 max-w-[62ch]">
+        <OpeningParagraph className="mt-10 text-[1.12rem] md:text-[1.17rem] leading-[1.75] text-charcoal/90 max-w-[62ch]">
           {post.description}
-        </p>
+        </OpeningParagraph>
 
         <PullQuote attribution="Peptips house view">
           We answer the question you actually asked in the first paragraph.

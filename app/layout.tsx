@@ -1,12 +1,41 @@
 import type { Metadata } from "next";
+import { Source_Serif_4, Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { MedicalDisclaimerFooter } from "@/components/MedicalDisclaimer";
 import { OrganizationJsonLd } from "@/components/schema/OrganizationJsonLd";
+import { PaperGrain } from "@/components/editorial/PaperGrain";
 import { SITE } from "@/lib/content/site";
 import { robotsMeta } from "@/lib/seo";
+
+// Locked body/headline stack from the brand book — self-hosted via next/font
+// so we get no FOUT and no Google Fonts preconnect flash.
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+// ONE decorative italic serif — used purely for pull-quote flourish
+// (see components/editorial/PullQuote.tsx). Inter body stays.
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["italic"],
+  variable: "--font-quote",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -32,17 +61,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${sourceSerif.variable} ${inter.variable} ${cormorant.variable}`}
+    >
       <body>
         <OrganizationJsonLd />
+        <PaperGrain />
         <Header />
         {children}
         <MedicalDisclaimerFooter />

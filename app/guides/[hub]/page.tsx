@@ -8,7 +8,8 @@ import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { EmailCapture } from "@/components/EmailCapture";
 import { pageMetadata } from "@/lib/seo";
 import { Eyebrow } from "@/components/editorial/Eyebrow";
-import { FieldRule, DotRule } from "@/components/editorial/DotRule";
+import { DotRule } from "@/components/editorial/DotRule";
+import { AnimatedFieldRule } from "@/components/editorial/AnimatedFieldRule";
 import { RankNumeral } from "@/components/editorial/RankNumeral";
 
 const typeLabel: Record<string, string> = {
@@ -103,7 +104,7 @@ export default async function HubPage({
               </div>
             </div>
 
-            <FieldRule className="mt-14" />
+            <AnimatedFieldRule className="mt-14" />
           </div>
         </section>
 

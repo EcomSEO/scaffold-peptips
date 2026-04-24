@@ -5,6 +5,7 @@ import { useState } from "react";
 import { hubs } from "@/lib/content/hubs";
 import { Wordmark } from "./editorial/Wordmark";
 import { Dateline } from "./editorial/Dateline";
+import { ReadingProgress } from "./ReadingProgress";
 
 export function Header() {
   const [guidesOpen, setGuidesOpen] = useState(false);
@@ -12,6 +13,8 @@ export function Header() {
 
   return (
     <header className="bg-paper/95 backdrop-blur sticky top-0 z-40 border-b border-pine/10">
+      {/* Reading-progress line — thin coral warm cue, fills as reader scrolls */}
+      <ReadingProgress />
       {/* Masthead strip — journal cue */}
       <div className="border-b border-pine/10 hidden md:block">
         <div className="mx-auto max-w-6xl px-6 py-2 flex items-center justify-between">

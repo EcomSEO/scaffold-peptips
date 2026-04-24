@@ -32,9 +32,10 @@ export function PostReviewStamp({
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <span className="inline-flex items-center gap-2">
+          {/* Softly pulses every 8s — a near-subliminal "still tended to" */}
           <span
             aria-hidden
-            className="h-2 w-2 rounded-full bg-sage-deep"
+            className="review-pulse-dot h-2 w-2 rounded-full bg-sage-deep"
           />
           <span className="caps-label text-pine">Last medically reviewed</span>
         </span>

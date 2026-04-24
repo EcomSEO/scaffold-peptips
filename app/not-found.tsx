@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { hubs } from "@/lib/content/hubs";
 import { Eyebrow } from "@/components/editorial/Eyebrow";
-import { FieldRule } from "@/components/editorial/DotRule";
+import { AnimatedFieldRule } from "@/components/editorial/AnimatedFieldRule";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -16,7 +16,14 @@ export default function NotFound() {
     <main>
       <section className="border-b border-pine/10">
         <div className="mx-auto max-w-3xl px-6 pt-20 md:pt-28 pb-16 md:pb-20">
-          <Eyebrow tone="coral">404 &nbsp;·&nbsp; Not on file</Eyebrow>
+          <div className="flex items-center gap-3">
+            {/* Signature flourish — a small coral dot that softly breathes */}
+            <span
+              aria-hidden
+              className="breathe-dot inline-block h-2 w-2 rounded-full bg-coral shadow-[0_0_0_4px_rgba(232,146,124,0.16)]"
+            />
+            <Eyebrow tone="coral">404 &nbsp;·&nbsp; Not on file</Eyebrow>
+          </div>
           <h1 className="display-headline text-pine mt-5 text-[2.5rem] sm:text-5xl md:text-[3.6rem] leading-[1.05]">
             We couldn&apos;t find that page.
           </h1>
@@ -35,7 +42,7 @@ export default function NotFound() {
           </div>
 
           <div className="mt-12">
-            <FieldRule />
+            <AnimatedFieldRule />
           </div>
 
           <div className="mt-10">

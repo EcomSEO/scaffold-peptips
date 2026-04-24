@@ -1,6 +1,7 @@
 import { SITE } from "@/lib/content/site";
+import { LiveMonth } from "./LiveMonth";
 
-function currentMonth() {
+function buildTimeMonth() {
   const d = new Date();
   return d.toLocaleString("en-US", { month: "long", year: "numeric" });
 }
@@ -8,10 +9,13 @@ function currentMonth() {
 /**
  * Peptips dateline — soft journal framing:
  *   Volume I · Issue 01 · Field Notes · April 2026
- * Warmer than plasticfreelab's "Volume · Issue · Month · plasticfreelab.com".
- * Anchors the site as a field-journal rather than a lab report.
+ *
+ * The month refreshes client-side via <LiveMonth> so the masthead stays
+ * current between rebuilds (Intl.DateTimeFormat). SSR still ships the
+ * build-time month so there's no flash.
  */
 export function Dateline({ className = "" }: { className?: string }) {
+  const initial = buildTimeMonth();
   return (
     <div className={`dateline flex items-center gap-3 ${className}`}>
       <span>{SITE.volume}</span>
@@ -20,7 +24,7 @@ export function Dateline({ className = "" }: { className?: string }) {
       <span aria-hidden>·</span>
       <span>{SITE.issueName}</span>
       <span aria-hidden>·</span>
-      <span>{currentMonth()}</span>
+      <LiveMonth initial={initial} />
     </div>
   );
 }

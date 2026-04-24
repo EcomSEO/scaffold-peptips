@@ -13,8 +13,10 @@ import { BreadcrumbJsonLd } from "../schema/BreadcrumbJsonLd";
 import { FaqJsonLd } from "../schema/FaqJsonLd";
 import { ArticleShell } from "./PageShell";
 import { Eyebrow } from "../editorial/Eyebrow";
-import { DotRule, FieldRule } from "../editorial/DotRule";
+import { DotRule } from "../editorial/DotRule";
+import { AnimatedFieldRule } from "../editorial/AnimatedFieldRule";
 import { KeyTakeaway } from "../editorial/KeyTakeaway";
+import { OpeningParagraph } from "../editorial/OpeningParagraph";
 
 export function ClusterTemplate({ post }: { post: Post }) {
   const hub = getHub(post.hub);
@@ -64,11 +66,11 @@ export function ClusterTemplate({ post }: { post: Post }) {
           <PostReviewStamp reviewedOn={post.updatedAt} />
         )}
 
-        <FieldRule className="mt-7" />
+        <AnimatedFieldRule className="mt-7" />
 
-        <p className="drop-cap mt-9 text-[1.08rem] leading-[1.8] text-charcoal/90">
+        <OpeningParagraph className="mt-9 text-[1.08rem] leading-[1.8] text-charcoal/90">
           {post.description}
-        </p>
+        </OpeningParagraph>
 
         <KeyTakeaway variant="short-answer">
           The TL;DR sits here so readers who need the answer now can have it.
