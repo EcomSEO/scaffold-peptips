@@ -20,19 +20,19 @@ export function Header() {
         <div className="mx-auto max-w-6xl px-6 py-2 flex items-center justify-between">
           <Dateline />
           <div className="flex items-center gap-5 text-[11px] tracking-[0.14em] uppercase text-stone">
-            <Link href="/editorial-standards" className="nav-link">
+            <Link href="/editorial-standards" className="nav-link py-1.5">
               Editorial standards
             </Link>
             <span aria-hidden className="text-sage-deep/50">·</span>
-            <Link href="/medical-disclaimer" className="nav-link">
+            <Link href="/medical-disclaimer" className="nav-link py-1.5">
               Medical disclaimer
             </Link>
             <span aria-hidden className="text-sage-deep/50">·</span>
-            <Link href="/about" className="nav-link">
+            <Link href="/about" className="nav-link py-1.5">
               About
             </Link>
             <span aria-hidden className="text-sage-deep/50">·</span>
-            <Link href="/contact" className="nav-link">
+            <Link href="/contact" className="nav-link py-1.5">
               Contact
             </Link>
           </div>
@@ -51,12 +51,26 @@ export function Header() {
           >
             <button
               onClick={() => setGuidesOpen((v) => !v)}
-              className="nav-link flex items-center gap-1"
+              className="nav-link inline-flex items-center gap-1.5 py-2"
               aria-expanded={guidesOpen}
               aria-haspopup="menu"
+              aria-label="Open guides menu"
             >
               Guides
-              <span aria-hidden className="text-sage-deep">▾</span>
+              <svg
+                aria-hidden
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`text-sage-deep transition-transform duration-200 ${guidesOpen ? "rotate-180" : ""}`}
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
             {guidesOpen && (
               <div
@@ -71,7 +85,7 @@ export function Header() {
                     key={hub.slug}
                     href={`/guides/${hub.slug}`}
                     role="menuitem"
-                    className="flex items-start gap-3 px-3 py-2.5 hover:bg-sage/10 rounded-sm group"
+                    className="flex items-start gap-3 px-3 py-3 min-h-[44px] hover:bg-sage/10 rounded-sm group transition-colors duration-150"
                   >
                     <span className="rank-numeral !text-base !text-sage-deep/60 group-hover:!text-sage-deep shrink-0 mt-0.5">
                       {String(i + 1).padStart(2, "0")}
@@ -105,10 +119,11 @@ export function Header() {
 
         <button
           onClick={() => setMobileOpen(true)}
-          className="md:hidden text-pine"
+          className="md:hidden text-pine inline-flex items-center justify-center h-11 w-11 -mr-2 rounded-sm hover:bg-sage/10 transition-colors duration-150"
           aria-label="Open menu"
+          aria-expanded={mobileOpen}
         >
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
             <line x1="3" y1="7" x2="21" y2="7" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="17" x2="21" y2="17" />
@@ -117,7 +132,11 @@ export function Header() {
       </div>
 
       {/* MANDATORY medical disclaimer strip — sits directly below masthead, on every page */}
-      <div className="bg-sage/10 border-t border-sage-deep/20">
+      <div
+        role="note"
+        aria-label="Medical disclaimer notice"
+        className="bg-sage/10 border-t border-sage-deep/20"
+      >
         <div className="mx-auto max-w-6xl px-6 py-2 flex items-start gap-3">
           <span
             aria-hidden
@@ -145,9 +164,9 @@ export function Header() {
             <button
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
-              className="text-pine"
+              className="text-pine inline-flex items-center justify-center h-11 w-11 -mr-2 rounded-sm hover:bg-sage/10 transition-colors duration-150"
             >
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -160,7 +179,7 @@ export function Header() {
                 key={hub.slug}
                 href={`/guides/${hub.slug}`}
                 onClick={() => setMobileOpen(false)}
-                className="py-3 text-lg text-pine font-serif flex items-center gap-3"
+                className="min-h-[44px] py-3 text-lg text-pine font-serif flex items-center gap-3 rounded-sm hover:bg-sage/10 transition-colors duration-150 px-2 -mx-2"
               >
                 <span className="rank-numeral !text-xl !text-sage-deep/60">
                   {String(i + 1).padStart(2, "0")}
@@ -169,19 +188,19 @@ export function Header() {
               </Link>
             ))}
             <div className="eyebrow text-stone mt-6 mb-2">The masthead</div>
-            <Link href="/about" onClick={() => setMobileOpen(false)} className="py-2 text-lg text-pine">
+            <Link href="/about" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-3 text-lg text-pine flex items-center rounded-sm hover:bg-sage/10 transition-colors duration-150 px-2 -mx-2">
               About
             </Link>
-            <Link href="/editorial-standards" onClick={() => setMobileOpen(false)} className="py-2 text-lg text-pine">
+            <Link href="/editorial-standards" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-3 text-lg text-pine flex items-center rounded-sm hover:bg-sage/10 transition-colors duration-150 px-2 -mx-2">
               Editorial standards
             </Link>
-            <Link href="/medical-disclaimer" onClick={() => setMobileOpen(false)} className="py-2 text-lg text-pine">
+            <Link href="/medical-disclaimer" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-3 text-lg text-pine flex items-center rounded-sm hover:bg-sage/10 transition-colors duration-150 px-2 -mx-2">
               Medical disclaimer
             </Link>
-            <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="py-2 text-lg text-pine">
+            <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-3 text-lg text-pine flex items-center rounded-sm hover:bg-sage/10 transition-colors duration-150 px-2 -mx-2">
               Newsletter
             </Link>
-            <Link href="/contact" onClick={() => setMobileOpen(false)} className="py-2 text-lg text-pine">
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-3 text-lg text-pine flex items-center rounded-sm hover:bg-sage/10 transition-colors duration-150 px-2 -mx-2">
               Contact
             </Link>
             <div className="mt-6">

@@ -3,10 +3,10 @@ import { ReactNode } from "react";
 type Variant = "note" | "key-takeaway" | "warning" | "source";
 
 const variantClass: Record<Variant, string> = {
-  note: "border-sage bg-sage/5",
-  "key-takeaway": "border-forest bg-cream",
-  warning: "border-terracotta bg-terracotta/5",
-  source: "border-charcoal/20 bg-white/60",
+  note: "border-sage-deep bg-sage/10",
+  "key-takeaway": "border-pine bg-cream-deep/60",
+  warning: "border-coral-deep bg-coral/10",
+  source: "border-pine/30 bg-paper",
 };
 
 const variantLabel: Record<Variant, string> = {
@@ -27,12 +27,13 @@ export function Callout({
 }) {
   return (
     <aside
+      role="note"
       className={`border-l-4 rounded-r px-5 py-4 my-6 ${variantClass[variant]}`}
     >
-      <p className="font-serif text-sm text-forest mb-1">
+      <p className="font-serif text-sm text-pine mb-1">
         {title ?? variantLabel[variant]}
       </p>
-      <div className="text-charcoal/90 text-[15px] leading-relaxed">{children}</div>
+      <div className="text-charcoal text-[15px] leading-relaxed">{children}</div>
     </aside>
   );
 }

@@ -323,6 +323,13 @@ main, header, footer { position: relative; z-index: 1; }
   color: var(--color-pine);
   transition: color 0.15s ease;
   padding-left: 0;
+  cursor: pointer;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-pine-deep);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .nav-link::after {
@@ -365,6 +372,8 @@ main, header, footer { position: relative; z-index: 1; }
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
+  min-height: 44px;
+  cursor: pointer;
   background: var(--color-pine);
   color: var(--color-cream);
   font-weight: 500;
@@ -378,6 +387,11 @@ main, header, footer { position: relative; z-index: 1; }
   background: var(--color-pine-deep);
 }
 
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-pine);
+}
+
 .btn-primary:active {
   transform: translateY(1px);
   box-shadow: 0 0 0 0 var(--color-pine-deep), inset 0 1px 0 rgba(0, 0, 0, 0.15);
@@ -388,6 +402,8 @@ main, header, footer { position: relative; z-index: 1; }
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
+  min-height: 44px;
+  cursor: pointer;
   color: var(--color-pine);
   background: transparent;
   border: 1px solid var(--color-pine);
@@ -401,8 +417,50 @@ main, header, footer { position: relative; z-index: 1; }
   background: var(--color-pine);
   color: var(--color-cream);
 }
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-paper), 0 0 0 5px var(--color-pine);
+}
 .btn-secondary:active {
   transform: translateY(1px);
+}
+
+/* Universal focus-visible — coral ring on interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-pine-deep);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Buttons already handle their own focus-visible ring above */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: none;
+}
+
+/* Ensure all clickable roles get the pointer */
+a[href],
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* Anchor scroll-margin so sticky header + disclaimer strip don't cover the target */
+:target,
+[id] {
+  scroll-margin-top: 140px;
 }
 
 /* Tier badge — for supplement ComparisonTemplate only */

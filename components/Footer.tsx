@@ -45,20 +45,20 @@ export function Footer() {
           <div className="md:col-span-3">
             <h4 className="eyebrow text-stone mb-4">The masthead</h4>
             <ul className="space-y-2.5 text-[15px]">
-              <li><Link href="/about" className="text-pine hover:text-sage-deep transition">About</Link></li>
-              <li><Link href="/editorial-standards" className="text-pine hover:text-sage-deep transition">Editorial standards</Link></li>
-              <li><Link href="/medical-disclaimer" className="text-pine hover:text-sage-deep transition">Medical disclaimer</Link></li>
-              <li><Link href="/contact" className="text-pine hover:text-sage-deep transition">Contact &amp; tips</Link></li>
-              <li><Link href="/newsletter" className="text-pine hover:text-sage-deep transition">Newsletter</Link></li>
+              <li><Link href="/about" className="text-pine hover:text-sage-deep transition-colors duration-150">About</Link></li>
+              <li><Link href="/editorial-standards" className="text-pine hover:text-sage-deep transition-colors duration-150">Editorial standards</Link></li>
+              <li><Link href="/medical-disclaimer" className="text-pine hover:text-sage-deep transition-colors duration-150">Medical disclaimer</Link></li>
+              <li><Link href="/contact" className="text-pine hover:text-sage-deep transition-colors duration-150">Contact &amp; tips</Link></li>
+              <li><Link href="/newsletter" className="text-pine hover:text-sage-deep transition-colors duration-150">Newsletter</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-4">
             <h4 className="eyebrow text-stone mb-4">Fine print</h4>
             <ul className="space-y-2.5 text-[15px]">
-              <li><Link href="/affiliate-disclosure" className="text-pine hover:text-sage-deep transition">Affiliate disclosure</Link></li>
-              <li><Link href="/privacy" className="text-pine hover:text-sage-deep transition">Privacy policy</Link></li>
-              <li><Link href="/terms" className="text-pine hover:text-sage-deep transition">Terms of service</Link></li>
+              <li><Link href="/affiliate-disclosure" className="text-pine hover:text-sage-deep transition-colors duration-150">Affiliate disclosure</Link></li>
+              <li><Link href="/privacy" className="text-pine hover:text-sage-deep transition-colors duration-150">Privacy policy</Link></li>
+              <li><Link href="/terms" className="text-pine hover:text-sage-deep transition-colors duration-150">Terms of service</Link></li>
             </ul>
             <p className="mt-5 text-[12.5px] text-stone leading-relaxed border-t border-pine/10 pt-4">
               <strong className="text-pine">Not medical advice.</strong>{" "}
@@ -78,7 +78,7 @@ export function Footer() {
             <span aria-hidden className="text-sage-deep/50">·</span>
             <span>{SITE.volume} · {SITE.issue} · {SITE.issueName}</span>
           </div>
-          <div className="normal-case tracking-normal text-stone/80 text-xs max-w-xl md:text-right leading-relaxed">
+          <div className="normal-case tracking-normal text-stone text-xs max-w-xl md:text-right leading-relaxed">
             Written for people already on a GLP-1 — calm, cited, not a clinic.
             We update posts when new trial data drops.
           </div>
