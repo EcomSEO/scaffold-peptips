@@ -779,8 +779,8 @@ export const posts: Post[] = [
       },
       {
         label:
-          "Trommelen J et al. The anabolic response to protein ingestion during recovery from exercise has no upper limit. Cell Reports Medicine 2023 [VERIFY]",
-        url: "https://pubmed.ncbi.nlm.nih.gov/",
+          "Trommelen J, van Lieshout GAA, Nyakayiru J, et al. The anabolic response to protein ingestion during recovery from exercise has no upper limit in magnitude and duration in vivo in humans. Cell Rep Med. 2023;4(12):101324.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/38118410/",
       },
       {
         label: "FDA Prescribing Information: Wegovy (semaglutide)",
