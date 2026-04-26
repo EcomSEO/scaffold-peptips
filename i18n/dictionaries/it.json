@@ -34,7 +34,11 @@
     "secondaryStrip": "A scopo informativo · non sostituisce il consiglio medico · ne parli con chi le ha prescritto la terapia",
     "pipelineCount": "8 in ricerca",
     "methodologyVersion": "Metodologia v1.2",
-    "editorialStandardsLink": "Standard editoriali"
+    "editorialStandardsLink": "Standard editoriali",
+    "navReviews": "Recensioni",
+    "navBuyingGuides": "Guide all’acquisto",
+    "searchPlaceholder": "Cerca domande sui GLP-1, marche, effetti collaterali…",
+    "searchButton": "Cerca"
   },
   "footer": {
     "leadParagraph": "Una piccola redazione che legge gli studi, le schede tecniche e la letteratura, e pubblica quello che diremmo a un'amica. Nessun denaro dalle case farmaceutiche. Nessun accordo con piattaforme di telemedicina.",

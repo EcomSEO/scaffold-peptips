@@ -34,7 +34,11 @@
     "secondaryStrip": "Informativní · nenahrazuje lékařskou radu · poraďte se se svým lékařem",
     "pipelineCount": "8 ve výzkumu",
     "methodologyVersion": "Metodika v1.2",
-    "editorialStandardsLink": "Redakční standardy"
+    "editorialStandardsLink": "Redakční standardy",
+    "navReviews": "Recenze",
+    "navBuyingGuides": "Nákupní průvodci",
+    "searchPlaceholder": "Hledat dotazy o GLP-1, značky, vedlejší účinky…",
+    "searchButton": "Hledat"
   },
   "footer": {
     "leadParagraph": "Malý tým, který čte studie, souhrny údajů o přípravku a literaturu, a publikuje to, co bychom řekli kamarádce. Žádné peníze od farmaceutických firem. Žádné dohody s telemedicínskými platformami.",

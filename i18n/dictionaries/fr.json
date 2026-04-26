@@ -34,7 +34,11 @@
     "secondaryStrip": "À titre informatif · pas un avis médical · parlez-en à votre médecin",
     "pipelineCount": "8 en cours",
     "methodologyVersion": "Méthodologie v1.2",
-    "editorialStandardsLink": "Standards éditoriaux"
+    "editorialStandardsLink": "Standards éditoriaux",
+    "navReviews": "Avis",
+    "navBuyingGuides": "Guides d’achat",
+    "searchPlaceholder": "Rechercher questions GLP-1, marques, effets secondaires…",
+    "searchButton": "Rechercher"
   },
   "footer": {
     "leadParagraph": "Une petite équipe qui lit les essais, les notices et la littérature, et publie ce qu'elle dirait à un proche. Aucun argent des laboratoires. Aucun contrat avec une plateforme de téléconsultation.",

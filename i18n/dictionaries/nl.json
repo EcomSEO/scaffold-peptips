@@ -34,7 +34,11 @@
     "secondaryStrip": "Educatief · geen medisch advies · overleg met uw voorschrijver",
     "pipelineCount": "8 in onderzoek",
     "methodologyVersion": "Methodiek v1.2",
-    "editorialStandardsLink": "Redactionele standaarden"
+    "editorialStandardsLink": "Redactionele standaarden",
+    "navReviews": "Recensies",
+    "navBuyingGuides": "Koopgidsen",
+    "searchPlaceholder": "GLP-1-vragen, merken, bijwerkingen zoeken…",
+    "searchButton": "Zoeken"
   },
   "footer": {
     "leadParagraph": "Een klein team dat de studies, de bijsluiters en de literatuur leest en publiceert wat we een vriend zouden vertellen. Geen geld van farmaceutische bedrijven. Geen deals met telezorgaanbieders.",

@@ -34,7 +34,11 @@
     "secondaryStrip": "Caracter informativ · nu înlocuiește sfatul medical · vorbiți cu medicul dumneavoastră",
     "pipelineCount": "8 în studiu",
     "methodologyVersion": "Metodologie v1.2",
-    "editorialStandardsLink": "Standarde editoriale"
+    "editorialStandardsLink": "Standarde editoriale",
+    "navReviews": "Recenzii",
+    "navBuyingGuides": "Ghiduri de cumpărare",
+    "searchPlaceholder": "Caută întrebări GLP-1, mărci, efecte adverse…",
+    "searchButton": "Caută"
   },
   "footer": {
     "leadParagraph": "O echipă mică ce citește studiile, prospectele și literatura, și publică ce ar spune unei prietene. Fără bani de la producătorii de medicamente. Fără înțelegeri cu platforme de telemedicină.",

@@ -34,7 +34,11 @@
     "secondaryStrip": "Informativ · keine medizinische Beratung · sprechen Sie mit Ihrem behandelnden Arzt",
     "pipelineCount": "8 in Recherche",
     "methodologyVersion": "Methodik v1.2",
-    "editorialStandardsLink": "Redaktionelle Standards"
+    "editorialStandardsLink": "Redaktionelle Standards",
+    "navReviews": "Bewertungen",
+    "navBuyingGuides": "Kaufratgeber",
+    "searchPlaceholder": "GLP-1-Fragen, Marken, Nebenwirkungen suchen…",
+    "searchButton": "Suchen"
   },
   "footer": {
     "leadParagraph": "Ein kleines Team, das Studien, Fachinformationen und Literatur liest und das veröffentlicht, was wir einer Freundin erzählen würden. Kein Geld von Pharmaherstellern. Keine Telemedizin-Deals.",

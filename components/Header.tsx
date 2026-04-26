@@ -9,134 +9,154 @@ import { LocaleSwitcher } from "./LocaleSwitcher";
 import { ReadingProgress } from "./ReadingProgress";
 
 /**
- * The floating pill masthead — peptips' primary navigation.
+ * Runrepeat-style header — full-width dark pine bar, big rounded search input
+ * dominating the center, "Reviews" + "Buying guides" nav on the right.
  *
- * Geometry: a single dark pine capsule, centered at the top of the viewport,
- * ~95% of viewport width with side margins, full-pill rounded (rounded-full),
- * ~64px tall. White wordmark + center nav links + coral primary CTA on the right.
+ * - Bar: pine #3D4A3A solid, h-16 (64px), full-width, sticky top.
+ * - Logo: peptips wordmark + leaf in cream (left).
+ * - Search: white rounded-pill input + coral submit button on the right of
+ *   the input. Submits to /search?q=… (TODO: real search route — currently
+ *   redirects to /guides as the catalog).
+ * - Nav: Reviews · Buying guides · LocaleSwitcher (right of search).
+ * - Mobile: search collapses to a magnifying-glass icon; nav into hamburger.
  *
- * Two visual modes are exposed via the `hero` prop:
- *  - hero=true  → translucent pine + backdrop-blur (sits over photography on the home hero)
- *  - hero=false → solid pine (the normal article-page state, on cream)
- *
- * A thin secondary white strip sits directly below the pill, carrying the
- * mandatory medical disclaimer + the pipeline counters. Required on every page
- * (CLAUDE.md §Legal positioning).
- *
- * Mobile: the centered nav collapses behind a hamburger; the pill keeps its
- * geometry. Entrance animations are skipped under prefers-reduced-motion.
+ * Below the bar: thin paper-cream strip carrying the mandatory medical
+ * disclaimer + pipeline counter + methodology link (CLAUDE.md §Legal).
  */
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const t = useTranslations("header");
   const locale = useLocale() as Locale;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (mobileOpen || mobileSearchOpen) {
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+    };
+  }, [mobileOpen, mobileSearchOpen]);
 
   return (
     <header className="sticky top-0 z-40">
       <ReadingProgress />
 
-      {/* === The floating pill === */}
-      <div className="px-3 md:px-6 pt-3 md:pt-4">
-        <div className="mx-auto max-w-7xl">
-          <div
-            className={[
-              "relative flex items-center justify-between gap-4",
-              "h-14 md:h-16 px-3 md:px-5",
-              "rounded-full",
-              "bg-pine/95 supports-[backdrop-filter]:bg-pine/85 backdrop-blur-md",
-              "border border-pine-deep/40",
-              "shadow-[0_8px_24px_-12px_rgba(46,56,43,0.45)]",
-              scrolled ? "shadow-[0_12px_32px_-14px_rgba(46,56,43,0.5)]" : "",
-            ].join(" ")}
-          >
-            {/* LEFT — wordmark on dark */}
+      {/* === Main bar === */}
+      <div
+        role="banner"
+        className="bg-pine border-b border-pine-deep/40"
+      >
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <div className="flex items-center gap-3 md:gap-5 h-14 md:h-16">
+
+            {/* LEFT — wordmark */}
             <Link
               href="/"
               aria-label="Peptips — home"
-              className="flex items-center gap-2 shrink-0 pl-1 md:pl-2"
+              className="flex items-center gap-2 shrink-0"
             >
-              <PillMark />
-              <span className="font-serif text-cream text-lg md:text-[1.3rem] font-semibold tracking-tight leading-none">
+              <Mark />
+              <span
+                className="text-cream text-lg md:text-xl font-semibold tracking-tight leading-none"
+                style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+              >
                 Peptips
               </span>
             </Link>
 
-            {/* CENTER — nav (desktop) */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-[14px]">
-              <PillNavLink href="/guides/glp1-101">{t("navGlp1")}</PillNavLink>
-              <PillNavLink href="/guides/side-effects-and-management">
-                {t("navSideEffects")}
-              </PillNavLink>
-              <PillNavLink href="/guides/food-nutrition-and-muscle">
-                {t("navFood")}
-              </PillNavLink>
-              <PillNavLink href="/guides/lifestyle-on-glp1">
-                {t("navLifestyle")}
-              </PillNavLink>
-              <PillNavLink href="/guides/plateaus-and-long-term">
-                {t("navLongTerm")}
-              </PillNavLink>
-              <PillNavLink href="/newsletter">{t("navNewsletter")}</PillNavLink>
-            </nav>
+            {/* CENTER — search (desktop) */}
+            <form
+              role="search"
+              action={`/${locale === "en" ? "" : locale}/guides`}
+              className="hidden md:flex items-center flex-1 max-w-[640px] mx-auto"
+            >
+              <label className="relative flex w-full items-stretch">
+                <span className="sr-only">{t("searchPlaceholder")}</span>
+                <input
+                  type="search"
+                  name="q"
+                  placeholder={t("searchPlaceholder")}
+                  className="w-full bg-white rounded-l-md text-pine placeholder:text-stone/70 px-4 h-9 md:h-10 outline-none focus:ring-2 focus:ring-coral/60"
+                  style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14 }}
+                />
+                <button
+                  type="submit"
+                  aria-label={t("searchButton")}
+                  className="inline-flex items-center justify-center bg-coral hover:bg-coral-deep text-pine rounded-r-md px-4 h-9 md:h-10 transition-colors"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden>
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </label>
+            </form>
 
-            {/* RIGHT — secondary + primary CTAs */}
-            <div className="flex items-center gap-2 md:gap-3 shrink-0">
-              <Link
-                href="/medical-disclaimer"
-                className="hidden md:inline-flex items-center text-cream/75 hover:text-cream text-[13.5px] px-2 py-1.5 rounded-full transition-colors"
-              >
-                {t("disclaimerLink")}
-              </Link>
-              <Link
-                href="/newsletter"
-                className="inline-flex items-center gap-1.5 bg-coral hover:bg-coral-deep text-pine font-medium text-[13.5px] md:text-sm rounded-full px-4 md:px-5 h-9 md:h-10 transition-colors"
-              >
-                {t("ctaGetTips")}
-                <span aria-hidden>→</span>
-              </Link>
+            {/* RIGHT — nav (desktop) + locale + mobile triggers */}
+            <div className="flex items-center gap-3 md:gap-5 shrink-0 ml-auto md:ml-0">
+
+              {/* Reviews + Buying guides — desktop */}
+              <nav className="hidden md:flex items-center gap-5 text-[14px]">
+                <Link
+                  href="/guides"
+                  className="text-cream/85 hover:text-cream transition-colors font-medium"
+                  style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+                >
+                  {t("navReviews")}
+                </Link>
+                <Link
+                  href="/guides"
+                  className="text-cream/85 hover:text-cream transition-colors font-medium"
+                  style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+                >
+                  {t("navBuyingGuides")}
+                </Link>
+              </nav>
+
+              {/* Locale switcher — desktop */}
               <div className="hidden md:inline-flex">
                 <LocaleSwitcher />
               </div>
 
-              {/* Hamburger — visible below lg */}
+              {/* Mobile search trigger */}
+              <button
+                onClick={() => setMobileSearchOpen(true)}
+                className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md text-cream hover:bg-cream/10 transition-colors"
+                aria-label={t("searchButton")}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              {/* Hamburger — mobile */}
               <button
                 onClick={() => setMobileOpen(true)}
-                className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-cream hover:bg-cream/10 transition-colors"
+                className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md text-cream hover:bg-cream/10 transition-colors"
                 aria-label="Open menu"
                 aria-expanded={mobileOpen}
               >
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  aria-hidden
-                >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
                   <line x1="4" y1="7" x2="20" y2="7" />
                   <line x1="4" y1="12" x2="20" y2="12" />
                   <line x1="4" y1="17" x2="20" y2="17" />
                 </svg>
               </button>
             </div>
+
           </div>
         </div>
       </div>
 
-      {/* === Secondary strip — disclaimer + pipeline counters (every page) === */}
+      {/* === Secondary strip — disclaimer + pipeline + methodology + standards (every page) === */}
       <div
         role="note"
         aria-label="Editorial standards strip"
-        className="mt-3 border-y border-pine/10 bg-paper/85 backdrop-blur"
+        className="border-b border-pine/10 bg-paper/85 backdrop-blur"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8 py-2 flex flex-wrap items-center justify-between gap-x-6 gap-y-1">
           <div className="flex items-center gap-2 text-[10.5px] md:text-[11px] uppercase tracking-[0.16em] text-stone">
@@ -162,9 +182,52 @@ export function Header() {
         </div>
       </div>
 
+      {/* === Mobile search overlay === */}
+      {mobileSearchOpen && (
+        <div className="fixed inset-0 z-50 bg-pine md:hidden">
+          <div className="flex items-center gap-2 px-4 h-14 border-b border-pine-deep/40">
+            <button
+              onClick={() => setMobileSearchOpen(false)}
+              aria-label="Close search"
+              className="text-cream inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-cream/10"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <form
+              role="search"
+              action={`/${locale === "en" ? "" : locale}/guides`}
+              className="flex-1 flex items-stretch"
+              onSubmit={() => setMobileSearchOpen(false)}
+            >
+              <input
+                type="search"
+                name="q"
+                autoFocus
+                placeholder={t("searchPlaceholder")}
+                className="flex-1 bg-white text-pine placeholder:text-stone/70 px-4 h-10 outline-none rounded-l-md"
+                style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14 }}
+              />
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center bg-coral text-pine rounded-r-md px-4 h-10"
+                aria-label={t("searchButton")}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden>
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* === Mobile drawer === */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-cream lg:hidden overflow-auto">
+        <div className="fixed inset-0 z-50 bg-cream md:hidden overflow-auto">
           <div className="flex items-center justify-between px-5 py-4 border-b border-pine/10">
             <Link
               href="/"
@@ -173,48 +236,45 @@ export function Header() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/mark.svg" alt="" aria-hidden className="h-7 w-7" />
-              <span className="font-serif text-pine text-xl font-semibold">
+              <span
+                className="text-pine text-xl font-semibold"
+                style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+              >
                 Peptips
               </span>
             </Link>
             <button
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
-              className="text-pine inline-flex items-center justify-center h-11 w-11 rounded-full hover:bg-sage/10"
+              className="text-pine inline-flex items-center justify-center h-11 w-11 rounded-md hover:bg-sage/10"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                aria-hidden
-              >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
           </div>
           <nav className="flex flex-col px-5 py-6 gap-1">
-            <div className="eyebrow text-stone mb-3">{t("fiveHubs")}</div>
-            {hubs.map((hub, i) => {
+            <div className="text-[11px] uppercase tracking-[0.16em] text-stone mb-3 font-medium">
+              {t("navReviews")} & {t("navBuyingGuides")}
+            </div>
+            {hubs.map((hub) => {
               const hl = localizeHub(hub, locale);
               return (
-              <Link
-                key={hub.slug}
-                href={`/guides/${hub.slug}`}
-                onClick={() => setMobileOpen(false)}
-                className="min-h-[48px] py-3 text-lg text-pine font-serif flex items-center gap-3 rounded-sm hover:bg-sage/10 px-2 -mx-2"
-              >
-                <span className="rank-numeral !text-xl !text-sage-deep/60">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                {hl.name}
-              </Link>
+                <Link
+                  key={hub.slug}
+                  href={`/guides/${hub.slug}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="min-h-[48px] py-3 text-lg text-pine flex items-center rounded-sm hover:bg-sage/10 px-2 -mx-2"
+                  style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+                >
+                  {hl.name}
+                </Link>
               );
             })}
-            <div className="eyebrow text-stone mt-6 mb-3">{t("masthead")}</div>
+            <div className="text-[11px] uppercase tracking-[0.16em] text-stone mt-6 mb-3 font-medium">
+              {t("masthead")}
+            </div>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navAbout")}</Link>
             <Link href="/methodology" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navMethodology")}</Link>
             <Link href="/pipeline" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navPipeline")}</Link>
@@ -222,7 +282,7 @@ export function Header() {
             <Link href="/medical-disclaimer" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navMedicalDisclaimer")}</Link>
             <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navNewsletter")}</Link>
             <div className="mt-6">
-              <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="inline-flex w-full items-center justify-center gap-1.5 bg-coral hover:bg-coral-deep text-pine font-medium rounded-full px-5 h-12 transition-colors">
+              <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="inline-flex w-full items-center justify-center gap-1.5 bg-coral hover:bg-coral-deep text-pine font-medium rounded-md px-5 h-12 transition-colors">
                 {t("ctaGetTips")}
                 <span aria-hidden>→</span>
               </Link>
@@ -239,28 +299,10 @@ export function Header() {
 
 /* === Pieces === */
 
-function PillNavLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="text-cream/85 hover:text-cream text-[14px] font-medium tracking-tight transition-colors"
-    >
-      {children}
-    </Link>
-  );
-}
-
 /**
- * The peptips mark recolored for the dark pill — recolors the source
- * mark.svg paths via inline SVG so all strokes/fills sit on cream.
+ * Peptips brand mark recolored cream-on-pine for the dark bar.
  */
-function PillMark() {
+function Mark() {
   return (
     <svg
       viewBox="0 0 60 60"

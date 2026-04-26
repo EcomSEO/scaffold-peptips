@@ -34,7 +34,11 @@
     "secondaryStrip": "Informativt · ej medicinskt råd · prata med din behandlande läkare",
     "pipelineCount": "8 i undersökning",
     "methodologyVersion": "Metodik v1.2",
-    "editorialStandardsLink": "Redaktionella riktlinjer"
+    "editorialStandardsLink": "Redaktionella riktlinjer",
+    "navReviews": "Recensioner",
+    "navBuyingGuides": "Köpguider",
+    "searchPlaceholder": "Sök GLP-1-frågor, varumärken, biverkningar…",
+    "searchButton": "Sök"
   },
   "footer": {
     "leadParagraph": "Ett litet team som läser studierna, produktresuméerna och litteraturen och publicerar det vi skulle berätta för en vän. Inga pengar från läkemedelsbolag. Inga avtal med telemedicinaktörer.",

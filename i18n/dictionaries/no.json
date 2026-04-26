@@ -34,7 +34,11 @@
     "secondaryStrip": "Informativt · ikke medisinsk råd · snakk med behandlende lege",
     "pipelineCount": "8 i forskning",
     "methodologyVersion": "Metodikk v1.2",
-    "editorialStandardsLink": "Redaksjonelle retningslinjer"
+    "editorialStandardsLink": "Redaksjonelle retningslinjer",
+    "navReviews": "Anmeldelser",
+    "navBuyingGuides": "Kjøpsguider",
+    "searchPlaceholder": "Søk GLP-1-spørsmål, merker, bivirkninger…",
+    "searchButton": "Søk"
   },
   "footer": {
     "leadParagraph": "Et lite team som leser studiene, preparatomtalene og litteraturen, og publiserer det vi ville fortalt en venn. Ingen penger fra legemiddelfirmaer. Ingen avtaler med telemedisinaktører.",

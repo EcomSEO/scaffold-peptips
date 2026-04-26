@@ -34,7 +34,11 @@
     "secondaryStrip": "Carácter informativo · no sustituye al consejo médico · hable con quien le prescriba el tratamiento",
     "pipelineCount": "8 en investigación",
     "methodologyVersion": "Metodología v1.2",
-    "editorialStandardsLink": "Estándares editoriales"
+    "editorialStandardsLink": "Estándares editoriales",
+    "navReviews": "Reseñas",
+    "navBuyingGuides": "Guías de compra",
+    "searchPlaceholder": "Buscar preguntas GLP-1, marcas, efectos secundarios…",
+    "searchButton": "Buscar"
   },
   "footer": {
     "leadParagraph": "Un equipo pequeño que lee los ensayos, las fichas técnicas y la literatura, y publica lo que le contaríamos a una amiga. Ningún dinero de farmacéuticas. Ningún acuerdo con plataformas de telemedicina.",

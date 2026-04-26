@@ -34,7 +34,11 @@
     "secondaryStrip": "Educational · not medical advice · talk to your prescriber",
     "pipelineCount": "8 in research",
     "methodologyVersion": "Methodology v1.2",
-    "editorialStandardsLink": "Editorial standards"
+    "editorialStandardsLink": "Editorial standards",
+    "navReviews": "Reviews",
+    "navBuyingGuides": "Buying guides",
+    "searchPlaceholder": "Search GLP-1 questions, brands, side effects…",
+    "searchButton": "Search"
   },
   "footer": {
     "leadParagraph": "A small team reading the trials, the labels, and the literature, publishing what we'd tell a friend. No drug-manufacturer money. No telehealth-clinic deals.",

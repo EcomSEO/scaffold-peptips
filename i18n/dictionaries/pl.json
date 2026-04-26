@@ -34,7 +34,11 @@
     "secondaryStrip": "Charakter informacyjny · nie zastępuje porady lekarskiej · proszę porozmawiać z lekarzem prowadzącym",
     "pipelineCount": "8 w badaniu",
     "methodologyVersion": "Metodyka v1.2",
-    "editorialStandardsLink": "Standardy redakcyjne"
+    "editorialStandardsLink": "Standardy redakcyjne",
+    "navReviews": "Recenzje",
+    "navBuyingGuides": "Poradniki zakupowe",
+    "searchPlaceholder": "Szukaj pytań o GLP-1, marek, skutków ubocznych…",
+    "searchButton": "Szukaj"
   },
   "footer": {
     "leadParagraph": "Mały zespół, który czyta badania, charakterystyki produktów i literaturę, a potem publikuje to, co powiedzielibyśmy bliskiej osobie. Bez pieniędzy od firm farmaceutycznych. Bez umów z platformami telemedycznymi.",
