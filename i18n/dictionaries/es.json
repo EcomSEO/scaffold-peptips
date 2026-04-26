@@ -645,5 +645,33 @@
   },
   "closing": {
     "lastUpdated": "Last updated"
+  },
+  "homeRR": {
+    "h1": "Real answers about life on a GLP-1.",
+    "pipelineMeta": "8 currently in research · 23 queued · methodology v1.2",
+    "guides": "Guides",
+    "inDepth": "In-depth guides",
+    "latest": "Latest field notes",
+    "popular": "Popular guides",
+    "testing": "How we research",
+    "testingStep1": "We read every cited trial in full and the FDA label.",
+    "testingStep2": "A medical reviewer signs off before publication.",
+    "testingStep3": "We update quarterly when new data lands.",
+    "editorial": "Editorial standards",
+    "editorialMethodology": "Public methodology, versioned like software.",
+    "editorialStandardsBlurb": "Cited, calm, never paid by clinics.",
+    "editorialDisclaimer": "Educational content. Not medical advice.",
+    "pressLabel": "As referenced in",
+    "catGlp1": "GLP-1 101",
+    "catSideEffects": "Side effects",
+    "catFood": "Food & muscle",
+    "catLifestyle": "Lifestyle",
+    "catLongTerm": "Long-term",
+    "catDrugProfiles": "Drug profiles",
+    "catPregnancy": "Pregnancy & GLP-1",
+    "catMentalHealth": "Mental health",
+    "methodologyLink": "Methodology",
+    "editorialLink": "Editorial standards",
+    "disclaimerLink": "Medical disclaimer"
   }
 }

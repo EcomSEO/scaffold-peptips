@@ -645,5 +645,33 @@
   },
   "closing": {
     "lastUpdated": "Zuletzt aktualisiert"
+  },
+  "homeRR": {
+    "h1": "Echte Antworten zum Leben mit einem GLP-1.",
+    "pipelineMeta": "8 in Recherche · 23 in Warteschlange · Methodik v1.2",
+    "guides": "Themen",
+    "inDepth": "Tiefgehende Leitfäden",
+    "latest": "Neueste Notizen",
+    "popular": "Beliebte Leitfäden",
+    "testing": "Wie wir recherchieren",
+    "testingStep1": "Wir lesen jede zitierte Studie vollständig und das FDA-Etikett.",
+    "testingStep2": "Eine medizinische Reviewerin gibt vor der Veröffentlichung frei.",
+    "testingStep3": "Wir aktualisieren vierteljährlich, sobald neue Daten kommen.",
+    "editorial": "Redaktionelle Standards",
+    "editorialMethodology": "Öffentliche Methodik, wie Software versioniert.",
+    "editorialStandardsBlurb": "Zitiert, ruhig, nie von Kliniken bezahlt.",
+    "editorialDisclaimer": "Bildungsinhalt. Keine medizinische Beratung.",
+    "pressLabel": "Referenziert in",
+    "catGlp1": "GLP-1-Grundlagen",
+    "catSideEffects": "Nebenwirkungen",
+    "catFood": "Ernährung",
+    "catLifestyle": "Alltag",
+    "catLongTerm": "Langfristig",
+    "catDrugProfiles": "Wirkstoff-Profile",
+    "catPregnancy": "Schwangerschaft & GLP-1",
+    "catMentalHealth": "Mentale Gesundheit",
+    "methodologyLink": "Methodik",
+    "editorialLink": "Redaktionelle Standards",
+    "disclaimerLink": "Medizinischer Hinweis"
   }
 }

@@ -645,5 +645,33 @@
   },
   "closing": {
     "lastUpdated": "Dernière mise à jour"
+  },
+  "homeRR": {
+    "h1": "Des réponses claires sur la vie sous GLP-1.",
+    "pipelineMeta": "8 en recherche · 23 en attente · méthodologie v1.2",
+    "guides": "Sujets",
+    "inDepth": "Guides détaillés",
+    "latest": "Dernières notes",
+    "popular": "Guides populaires",
+    "testing": "Comment nous travaillons",
+    "testingStep1": "Nous lisons chaque essai cité en entier et la notice FDA.",
+    "testingStep2": "Une relectrice médicale valide avant publication.",
+    "testingStep3": "Nous mettons à jour chaque trimestre à l'arrivée de nouvelles données.",
+    "editorial": "Standards éditoriaux",
+    "editorialMethodology": "Méthodologie publique, versionnée comme un logiciel.",
+    "editorialStandardsBlurb": "Sourcé, posé, jamais payé par une clinique.",
+    "editorialDisclaimer": "Contenu éducatif. Pas un avis médical.",
+    "pressLabel": "Cité dans",
+    "catGlp1": "GLP-1, les bases",
+    "catSideEffects": "Effets secondaires",
+    "catFood": "Alimentation",
+    "catLifestyle": "Mode de vie",
+    "catLongTerm": "Long terme",
+    "catDrugProfiles": "Profils de molécules",
+    "catPregnancy": "Grossesse & GLP-1",
+    "catMentalHealth": "Santé mentale",
+    "methodologyLink": "Méthodologie",
+    "editorialLink": "Standards éditoriaux",
+    "disclaimerLink": "Avertissement médical"
   }
 }
