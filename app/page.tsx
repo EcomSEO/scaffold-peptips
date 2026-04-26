@@ -5,9 +5,11 @@ import { Eyebrow } from "@/components/editorial/Eyebrow";
 import { DotRule } from "@/components/editorial/DotRule";
 import { AnimatedFieldRule } from "@/components/editorial/AnimatedFieldRule";
 import { RankNumeral } from "@/components/editorial/RankNumeral";
-import { GradientMesh } from "@/components/editorial/GradientMesh";
 import { ScrollReveal } from "@/components/editorial/ScrollReveal";
 import { EmailCapture } from "@/components/EmailCapture";
+import { SearchHero } from "@/components/home/SearchHero";
+import { UtilityTiles } from "@/components/home/UtilityTiles";
+import { TeaserCards } from "@/components/home/TeaserCards";
 
 const typeLabel: Record<string, string> = {
   pillar: "The Guide",
@@ -19,98 +21,34 @@ const typeLabel: Record<string, string> = {
 export default function HomePage() {
   const featured = featuredPost();
   const recent = latestPosts(6);
-  const comparisons = posts.filter((p) => p.postType === "comparison").slice(0, 3);
   const explainers = posts.filter((p) => p.postType === "cluster").slice(0, 3);
 
   return (
     <main>
-      {/* === HERO — "In this issue" editorial front page === */}
-      <section className="relative border-b border-pine/10 overflow-hidden">
-        {/* Warm gradient-mesh — morning sun on a kitchen table (not a dashboard) */}
-        <GradientMesh />
-        <div className="relative mx-auto max-w-6xl px-6 pt-14 md:pt-20 pb-14 md:pb-20">
-          <div className="grid md:grid-cols-12 gap-10 items-start">
-            <div className="md:col-span-8">
-              <div className="fade-up">
-                <Eyebrow tone="coral">
-                  Issue 01 &nbsp;·&nbsp; Field Notes
-                </Eyebrow>
-              </div>
-              <h1 className="display-headline text-pine mt-5 text-[2.75rem] sm:text-5xl md:text-[4.1rem] leading-[1.03] fade-up-delay-1">
-                Real answers about life on a{" "}
-                <em className="not-italic text-sage-deep">GLP-1</em>.
-              </h1>
-              <p className="mt-7 text-lg md:text-xl text-charcoal/85 max-w-2xl leading-[1.55] fade-up-delay-2">
-                Answers your doctor didn&apos;t have time for. Cited, specific,
-                and written the way a friend would write them. Side effects,
-                food, muscle, dosing, and the questions that feel too
-                embarrassing to ask.
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3 fade-up-delay-3">
-                <Link href="/guides/side-effects-and-management" className="btn-primary">
-                  Start with side effects
-                  <span aria-hidden>→</span>
-                </Link>
-                <Link href="#hubs" className="btn-secondary">
-                  In this issue
-                </Link>
-              </div>
-            </div>
+      {/* === HERO — drugs.com-style centered tagline + search === */}
+      <SearchHero />
 
-            {/* In-this-issue sidebar */}
-            <aside className="md:col-span-4 md:pl-8 md:border-l md:border-pine/10">
-              <div className="eyebrow text-stone mb-4 fade-up-delay-2">In this issue</div>
-              <ul className="space-y-4 stagger">
-                {[featured, ...comparisons.filter((c) => c.slug !== featured?.slug)]
-                  .slice(0, 4)
-                  .filter((p): p is NonNullable<typeof p> => Boolean(p))
-                  .map((p, i) => {
-                    const hub = getHub(p.hub);
-                    return (
-                      <li key={p.slug} className="flex gap-3">
-                        <span className="rank-numeral !text-xl !text-sage-deep/50 tnum shrink-0">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div>
-                          <Link
-                            href={`/${p.slug}`}
-                            className="font-serif text-[17px] leading-snug text-pine hover:text-sage-deep transition block"
-                          >
-                            {p.title}
-                          </Link>
-                          <div className="text-[11px] uppercase tracking-[0.14em] text-stone mt-1">
-                            {hub?.shortName} · {p.readingTime} min
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </aside>
-          </div>
+      {/* === 4 utility tiles === */}
+      <UtilityTiles />
 
-          {/* Animated field-rule at the bottom of the hero — dot traces the line */}
-          <div className="mt-14 md:mt-16 fade-up-delay-4">
-            <AnimatedFieldRule />
-          </div>
-        </div>
-      </section>
+      {/* === 2 large colored teaser cards === */}
+      <TeaserCards />
 
-      {/* === FEATURED INVESTIGATION === */}
+      {/* === FEATURED LONG READ === */}
       {featured && (
         <ScrollReveal>
           <section className="border-b border-pine/10 bg-cream-deep/40">
             <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
               <div className="grid md:grid-cols-12 gap-10 items-start">
                 <div className="md:col-span-5">
-                  <Eyebrow tone="coral">The Long Read</Eyebrow>
+                  <Eyebrow tone="coral">The long read</Eyebrow>
                   <h2 className="font-serif text-3xl md:text-4xl text-pine mt-4 leading-[1.1]">
                     The one Jen keeps coming back to.
                   </h2>
-                  <p className="mt-5 text-charcoal/75 text-[15px] leading-relaxed">
-                    Every issue we anchor one long read: the post readers
-                    bookmark in week 1 and re-open in week 5 when the dose
-                    steps up. This one&apos;s been our most-read since launch.
+                  <p className="mt-5 text-charcoal/80 text-[15px] leading-relaxed">
+                    One long read every issue. The post readers bookmark in
+                    week 1 and re-open in week 5 when the dose steps up.
+                    This one&apos;s been our most-read since launch.
                   </p>
                 </div>
 
@@ -189,7 +127,7 @@ export default function HomePage() {
         </section>
       </ScrollReveal>
 
-      {/* === LATEST — two-column editorial (Field Notes) === */}
+      {/* === LATEST — two-column editorial === */}
       <ScrollReveal>
         <section className="border-b border-pine/10">
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
@@ -212,7 +150,6 @@ export default function HomePage() {
                           {typeLabel[recent[0].postType]}
                         </span>
                       </div>
-                      {/* Glass-of-water-style icon — photography stand-in */}
                       <svg
                         className="absolute top-5 right-5 text-sage-deep/50"
                         width="44"
@@ -291,8 +228,8 @@ export default function HomePage() {
                 <div className="rank-numeral !text-sage-light mb-2">02</div>
                 <h3 className="font-serif text-xl text-cream mb-2">Uncertainty, named.</h3>
                 <p className="text-cream/80 text-[14.5px] leading-relaxed">
-                  Long-term data doesn&apos;t exist yet for most of this class.
-                  We flag it. We don&apos;t bury it in a footnote.
+                  Long-term data does not yet exist for most of this class. We
+                  flag it. We do not bury it in a footnote.
                 </p>
               </div>
               <div>
@@ -324,7 +261,7 @@ export default function HomePage() {
             <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
               <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
                 <div>
-                  <Eyebrow tone="sage">The Explainers</Eyebrow>
+                  <Eyebrow tone="sage">The explainers</Eyebrow>
                   <h2 className="font-serif text-3xl text-pine mt-3 leading-tight">
                     The questions that don&apos;t have good answers elsewhere.
                   </h2>

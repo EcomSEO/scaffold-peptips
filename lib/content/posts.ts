@@ -31,7 +31,7 @@ export const posts: Post[] = [
     title: "Ozempic Week by Week: What to Expect",
     h1: "Ozempic week by week: what to expect",
     description:
-      "A week-by-week timeline of the first year on semaglutide. What's normal, what isn't, and when to call your doctor.",
+      "A week-by-week timeline of the first year on semaglutide. What is normal. What is not. When to call your doctor.",
     hub: "side-effects-and-management",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -100,7 +100,7 @@ export const posts: Post[] = [
     title: "The Complete GLP-1 Guide for Beginners",
     h1: "The complete GLP-1 guide for beginners",
     description:
-      "What GLP-1s are, how they work in the body, who they're approved for, and the four drugs on the market. Explained without the hype.",
+      "What GLP-1s are. How they work in the body. Who they are approved for. The four drugs on the market. Explained without the hype.",
     hub: "glp1-101",
     postType: "pillar",
     publishedAt: "2026-04-21",

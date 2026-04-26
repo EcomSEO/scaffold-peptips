@@ -22,6 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...[
       "/about",
       "/editorial-standards",
+      "/methodology",
+      "/methodology/v1-2",
+      "/pipeline",
       "/privacy",
       "/terms",
       "/affiliate-disclosure",

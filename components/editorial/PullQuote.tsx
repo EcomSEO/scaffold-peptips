@@ -3,10 +3,9 @@ import type { ReactNode } from "react";
 /**
  * Warm pull-quote with a subtle coral tick mark.
  *
- * Uses the single decorative italic serif loaded in layout.tsx
- * (Cormorant Garamond Italic, exposed as --font-quote) for a rounder,
- * warmer pen-stroke feel than Source Serif italic. Body copy stays on
- * the locked stack — this is purely for quote flourish.
+ * Uses the brand-book-locked Source Serif 4 italic for the quote body.
+ * Body copy stays on the same locked stack — this component is purely
+ * for visual flourish (the sage rule, the coral tick, the big curly quote).
  */
 export function PullQuote({
   children,
@@ -30,7 +29,7 @@ export function PullQuote({
         className="text-2xl md:text-[1.7rem] leading-[1.3] text-pine"
         style={{
           fontFamily:
-            'var(--font-quote), "Source Serif 4", Georgia, serif',
+            '"Source Serif 4", Georgia, serif',
           fontStyle: "italic",
           fontWeight: 400,
         }}
@@ -38,7 +37,7 @@ export function PullQuote({
         <span
           aria-hidden
           className="mr-1 text-sage-deep/70 text-4xl leading-none align-[-0.2em]"
-          style={{ fontFamily: 'var(--font-quote), Georgia, serif' }}
+          style={{ fontFamily: '"Source Serif 4", Georgia, serif' }}
         >
           &ldquo;
         </span>

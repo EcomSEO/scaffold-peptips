@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Serif_4, Inter, Cormorant_Garamond } from "next/font/google";
+import { Source_Serif_4, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,11 +10,11 @@ import { PaperGrain } from "@/components/editorial/PaperGrain";
 import { SITE } from "@/lib/content/site";
 import { robotsMeta } from "@/lib/seo";
 
-// Locked body/headline stack from the brand book — self-hosted via next/font
-// so we get no FOUT and no Google Fonts preconnect flash.
+// Brand-book-locked stack: Source Serif 4 (display) + Inter (body).
+// Pull-quote italics also use Source Serif 4 italic — no third family.
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
@@ -22,18 +22,8 @@ const sourceSerif = Source_Serif_4({
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-// ONE decorative italic serif — used purely for pull-quote flourish
-// (see components/editorial/PullQuote.tsx). Inter body stays.
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["italic"],
-  variable: "--font-quote",
   display: "swap",
 });
 
@@ -63,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sourceSerif.variable} ${inter.variable} ${cormorant.variable}`}
+      className={`${sourceSerif.variable} ${inter.variable}`}
     >
       <body>
         <OrganizationJsonLd />
