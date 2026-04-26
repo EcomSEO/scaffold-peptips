@@ -1,13 +1,12 @@
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { Eyebrow } from "@/components/editorial/Eyebrow";
 import { pipelineCounts } from "@/lib/content/pipeline";
 
 /**
  * Centered tagline-first hero, drugs.com pattern, peptips voice.
  *
  * - Centered eyebrow
- * - Centered Source-Serif-4 H1, big
+ * - Centered Inter 400 H1, big
  * - Centered subhead
  * - Centered rounded search input with coral submit on the right
  * - "Trending questions" pill row of in-text links to real posts
@@ -30,27 +29,22 @@ export async function SearchHero() {
   const tPipeline = await getTranslations("pipelinePage");
 
   return (
-    <section className="relative bg-cream border-b border-pine/10">
-      {/* Soft warm wash, no animation under reduced-motion (gradient-mesh respects it globally) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-80"
-        style={{
-          backgroundImage:
-            "radial-gradient(48rem 30rem at 12% 8%, rgba(197,210,190,0.35) 0%, transparent 60%), radial-gradient(36rem 24rem at 92% 12%, rgba(232,146,124,0.10) 0%, transparent 65%)",
-        }}
-      />
-      <div className="relative mx-auto max-w-4xl px-6 pt-12 md:pt-16 pb-14 md:pb-20 text-center">
-        <Eyebrow tone="coral">{t("eyebrow")}</Eyebrow>
+    <section className="relative bg-body-bg border-b border-[#D6D6D6]">
+      <div className="relative mx-auto max-w-4xl px-6 pt-16 md:pt-24 pb-16 md:pb-20 text-center">
+        <div className="flex justify-center">
+          <span className="tag-pill">{t("eyebrow")}</span>
+        </div>
         <h1
-          className="display-headline text-pine mt-5 leading-[1.04]"
+          className="mt-6 font-normal text-ink text-balance"
           style={{
-            fontSize: "clamp(2.4rem, 5.6vw, 3.75rem)",
+            fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.01em",
           }}
         >
           {t("h1")}
         </h1>
-        <p className="mt-6 text-[17px] md:text-[18px] text-charcoal/85 leading-[1.55] max-w-2xl mx-auto">
+        <p className="mt-6 text-[1.125rem] md:text-[1.1875rem] text-ink-soft leading-[1.5] max-w-2xl mx-auto">
           {t("subhead")}
         </p>
 
@@ -60,7 +54,7 @@ export async function SearchHero() {
           method="get"
           role="search"
           aria-label="Search GLP-1 questions"
-          className="mt-9 mx-auto max-w-2xl flex items-center gap-2 bg-paper border border-sage-light/60 rounded-full pl-5 pr-1.5 h-14 md:h-[60px] shadow-soft focus-within:border-sage-deep focus-within:shadow-card transition"
+          className="mt-10 mx-auto max-w-2xl flex items-center gap-2 bg-white border border-[#D6D6D6] rounded-full pl-5 pr-1.5 h-14 md:h-[60px] focus-within:border-ink transition"
         >
           <svg
             aria-hidden

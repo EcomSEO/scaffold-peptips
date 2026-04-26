@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Serif_4, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -9,24 +9,15 @@ import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { MedicalDisclaimerFooter } from "@/components/MedicalDisclaimer";
 import { OrganizationJsonLd } from "@/components/schema/OrganizationJsonLd";
-import { PaperGrain } from "@/components/editorial/PaperGrain";
 import { SITE, siteTagline, siteDescription } from "@/lib/content/site";
 import { robotsMeta, localeUrl } from "@/lib/seo";
 import { routing, locales, type Locale } from "@/i18n/routing";
 
-// Brand-book-locked stack: Source Serif 4 (display) + Inter (body).
-// Pull-quote italics also use Source Serif 4 italic — no third family.
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
+// Single-font system — Inter only. Pliability-style editorial register.
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -96,11 +87,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${sourceSerif.variable} ${inter.variable}`}>
-      <body>
+    <html lang={locale} className={inter.variable}>
+      <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <OrganizationJsonLd />
-          <PaperGrain />
           <Header />
           {children}
           <MedicalDisclaimerFooter />

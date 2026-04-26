@@ -44,20 +44,20 @@ export async function UtilityTiles() {
   ];
 
   return (
-    <section className="bg-paper border-y border-pine/10">
-      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
+    <section className="bg-body-bg border-y border-[#D6D6D6]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {TILES.map((t) => (
             <Link
               key={t.href}
               href={t.href}
-              className="card-lift group flex flex-col gap-3 bg-paper border border-sage-light/40 rounded-sm p-5 hover:border-sage-deep/60"
+              className="group flex flex-col gap-3 bg-white border border-[#D6D6D6] rounded-sm p-5 hover:border-ink transition-colors"
             >
-              <div className="text-sage-deep group-hover:text-coral-deep transition-colors">
+              <div className="text-ink-soft group-hover:text-coral-deep transition-colors">
                 {t.icon}
               </div>
               <div>
-                <div className="font-serif text-pine text-[17px] font-semibold leading-snug">
+                <div className="text-ink text-[17px] font-semibold leading-snug">
                   {t.label}
                 </div>
                 <div className="mt-1.5 text-[13.5px] text-stone leading-snug">

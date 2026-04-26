@@ -3,11 +3,6 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { hubs, getHub, localizeHub } from "@/lib/content/hubs";
 import { featuredPost, latestPosts, posts } from "@/lib/content/posts";
 import { localizePost } from "@/lib/content/posts-i18n";
-import { Eyebrow } from "@/components/editorial/Eyebrow";
-import { DotRule } from "@/components/editorial/DotRule";
-import { AnimatedFieldRule } from "@/components/editorial/AnimatedFieldRule";
-import { RankNumeral } from "@/components/editorial/RankNumeral";
-import { ScrollReveal } from "@/components/editorial/ScrollReveal";
 import { EmailCapture } from "@/components/EmailCapture";
 import { SearchHero } from "@/components/home/SearchHero";
 import { UtilityTiles } from "@/components/home/UtilityTiles";
@@ -60,278 +55,282 @@ export default async function HomePage({
 
       {/* === FEATURED LONG READ === */}
       {featured && (
-        <ScrollReveal>
-          <section className="border-b border-pine/10 bg-cream-deep/40">
-            <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-              <div className="grid md:grid-cols-12 gap-10 items-start">
-                <div className="md:col-span-5">
-                  <Eyebrow tone="coral">{tFeatured("eyebrow")}</Eyebrow>
-                  <h2 className="font-serif text-3xl md:text-4xl text-pine mt-4 leading-[1.1]">
-                    {tFeatured("title")}
-                  </h2>
-                  <p className="mt-5 text-charcoal/80 text-[15px] leading-relaxed">
-                    {tFeatured("intro")}
-                  </p>
-                </div>
-
-                <article className="md:col-span-7">
-                  <Link
-                    href={`/${featured.slug}`}
-                    className="card-lift group block bg-paper border border-pine/15 rounded-sm p-8 md:p-10 shadow-soft hover:border-sage-deep/60"
-                  >
-                    <div className="flex items-center gap-3 mb-5 flex-wrap">
-                      <span className="tier-badge">{tMag("editorsPick")}</span>
-                      <span className="caps-label text-stone">
-                        {getHub(featured.hub)?.shortName} · {tPostChrome("minRead", { n: featured.readingTime })}
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-[1.9rem] md:text-[2.3rem] leading-[1.08] text-pine">
-                      {featuredI18n?.title ?? featured.title}
-                    </h3>
-                    <p className="mt-5 text-charcoal/80 text-[15.5px] leading-relaxed">
-                      {featuredI18n?.description ?? featured.description}
-                    </p>
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sage-deep group-hover:text-coral-deep transition text-sm font-medium">
-                      {tFeatured("cta")}
-                      <span aria-hidden>→</span>
-                    </span>
-                  </Link>
-                </article>
-              </div>
-            </div>
-          </section>
-        </ScrollReveal>
-      )}
-
-      {/* === THE FIVE HUBS === */}
-      <ScrollReveal>
-        <section id="hubs" className="border-b border-pine/10">
-          <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-            <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-              <div>
-                <Eyebrow tone="sage">{tMag("tableOfContents")}</Eyebrow>
-                <h2 className="font-serif text-3xl md:text-4xl text-pine mt-3 leading-tight">
-                  {tMag("title")}
-                </h2>
-              </div>
-              <Link
-                href="/about"
-                className="text-sage-deep hover:text-coral-deep text-sm font-medium"
-              >
-                {tLatest("whyWeBuilt")} →
-              </Link>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-0 border-t border-pine/10">
-              {hubs.map((hub, i) => {
-                const hl = localizeHub(hub, locale);
-                return (
-                <Link
-                  key={hub.slug}
-                  href={`/guides/${hub.slug}`}
-                  className="group relative flex flex-col p-6 border-b lg:border-b-0 lg:border-r border-pine/10 last:border-r-0 hover:bg-cream-deep/50 transition"
+        <section className="border-b border-[#D6D6D6]">
+          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <div className="grid md:grid-cols-12 gap-10 items-start">
+              <div className="md:col-span-5">
+                <span className="caps-meta">{tFeatured("eyebrow")}</span>
+                <h2
+                  className="mt-4 font-normal text-ink"
+                  style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
                 >
-                  <span className="rank-numeral !text-4xl mb-3">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-serif text-xl text-pine leading-tight mb-2">
-                    {hl.name}
+                  {tFeatured("title")}
+                </h2>
+                <p className="mt-5 text-ink-soft text-[1.0625rem] leading-relaxed">
+                  {tFeatured("intro")}
+                </p>
+              </div>
+
+              <article className="md:col-span-7">
+                <Link
+                  href={`/${featured.slug}`}
+                  className="group block bg-white border border-[#D6D6D6] rounded-sm p-8 md:p-10 hover:border-ink transition-colors"
+                >
+                  <div className="flex items-center gap-3 mb-5 flex-wrap">
+                    <span className="tag-pill">{tMag("editorsPick")}</span>
+                    <span className="caps-meta">
+                      {getHub(featured.hub)?.shortName} · {tPostChrome("minRead", { n: featured.readingTime })}
+                    </span>
+                  </div>
+                  <h3
+                    className="font-normal text-ink"
+                    style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", lineHeight: 1.15, letterSpacing: "-0.01em" }}
+                  >
+                    {featuredI18n?.title ?? featured.title}
                   </h3>
-                  <p className="text-sm text-charcoal/70 leading-relaxed flex-1">
-                    {hl.oneLiner}
+                  <p className="mt-5 text-ink-soft text-[1.0625rem] leading-relaxed">
+                    {featuredI18n?.description ?? featured.description}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-sage-deep group-hover:text-coral-deep text-xs font-medium uppercase tracking-[0.14em]">
-                    {tCommon("openHub")}
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-coral-deep group-hover:text-ink transition text-sm font-medium">
+                    {tFeatured("cta")}
                     <span aria-hidden>→</span>
                   </span>
                 </Link>
-                );
-              })}
+              </article>
             </div>
           </div>
         </section>
-      </ScrollReveal>
+      )}
+
+      {/* === THE FIVE HUBS === */}
+      <section id="hubs" className="border-b border-[#D6D6D6]">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+            <div>
+              <span className="caps-meta">{tMag("tableOfContents")}</span>
+              <h2
+                className="mt-3 font-normal text-ink"
+                style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
+              >
+                {tMag("title")}
+              </h2>
+            </div>
+            <Link
+              href="/about"
+              className="text-coral-deep hover:text-ink text-sm font-medium"
+            >
+              {tLatest("whyWeBuilt")} →
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-0 border-t border-[#D6D6D6]">
+            {hubs.map((hub, i) => {
+              const hl = localizeHub(hub, locale);
+              return (
+              <Link
+                key={hub.slug}
+                href={`/guides/${hub.slug}`}
+                className="group relative flex flex-col p-6 border-b lg:border-b-0 lg:border-r border-[#D6D6D6] last:border-r-0 hover:bg-white transition-colors"
+              >
+                <span className="text-stone tnum text-3xl mb-3">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-ink text-xl font-semibold leading-tight mb-2">
+                  {hl.name}
+                </h3>
+                <p className="text-sm text-ink-soft leading-relaxed flex-1">
+                  {hl.oneLiner}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1 text-coral-deep group-hover:text-ink text-xs font-medium uppercase tracking-[0.1em]">
+                  {tCommon("openHub")}
+                  <span aria-hidden>→</span>
+                </span>
+              </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* === LATEST — two-column editorial === */}
-      <ScrollReveal>
-        <section className="border-b border-pine/10">
-          <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-            <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-              <div>
-                <Eyebrow tone="coral">{tLatest("subhead")}</Eyebrow>
-                <h2 className="font-serif text-3xl md:text-4xl text-pine mt-3 leading-tight">
-                  {tLatest("heading")}
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-12 gap-10">
-              {recent[0] && (
-                <article className="md:col-span-7">
-                  <Link href={`/${recent[0].slug}`} className="group block">
-                    <div className="aspect-[16/9] bg-gradient-to-br from-sage/20 via-cream-deep to-coral/10 rounded-sm mb-5 relative overflow-hidden border border-pine/10">
-                      <div className="absolute bottom-5 left-5">
-                        <span className="caps-label text-pine bg-paper/85 backdrop-blur px-2 py-1 rounded-sm">
-                          {typeLabel[recent[0].postType]}
-                        </span>
-                      </div>
-                      <svg
-                        className="absolute top-5 right-5 text-sage-deep/50"
-                        width="44"
-                        height="44"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        aria-hidden
-                      >
-                        <path d="M6 3H18L16.5 21H7.5L6 3Z" />
-                        <path d="M7 9H17" />
-                      </svg>
-                    </div>
-                    <h3 className="font-serif text-2xl md:text-3xl text-pine leading-[1.12] group-hover:text-coral-deep transition">
-                      {recent[0].title}
-                    </h3>
-                    <p className="mt-3 text-charcoal/80 text-[15.5px] leading-relaxed line-clamp-3">
-                      {recent[0].description}
-                    </p>
-                    <div className="mt-4 caps-label text-stone">
-                      {getHub(recent[0].hub)?.shortName} · {tPostChrome("minRead", { n: recent[0].readingTime })}
-                    </div>
-                  </Link>
-                </article>
-              )}
-
-              <div className="md:col-span-5 space-y-0">
-                {recent.slice(1, 5).map((p) => (
-                  <article
-                    key={p.slug}
-                    className="py-5 border-b border-pine/10 first:border-t first:pt-0 first:mt-0 last:border-b-0"
-                  >
-                    <Link href={`/${p.slug}`} className="group block">
-                      <div className="caps-label text-stone mb-1.5">
-                        {typeLabel[p.postType]} · {getHub(p.hub)?.shortName}
-                      </div>
-                      <h3 className="font-serif text-lg text-pine leading-snug group-hover:text-sage-deep transition">
-                        {p.title}
-                      </h3>
-                      <p className="mt-1.5 text-[13.5px] text-charcoal/70 leading-snug line-clamp-2">
-                        {p.description}
-                      </p>
-                    </Link>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* === THE CREDO — "How we report" === */}
-      <ScrollReveal>
-        <section className="border-b border-pine/10 bg-pine text-cream relative overflow-hidden">
-          <div className="mx-auto max-w-5xl px-6 py-20 md:py-28 relative">
-            <div className="absolute top-8 left-6 right-6">
-              <AnimatedFieldRule className="text-sage-light" />
-            </div>
-            <Eyebrow tone="coral" className="!text-coral">{tCredo("heading")}</Eyebrow>
-            <h2 className="font-serif text-3xl md:text-4xl mt-4 leading-[1.15] text-cream">
-              {tMag("credoTitle")}
-            </h2>
-            <div className="grid md:grid-cols-3 gap-10 mt-12">
-              <div>
-                <div className="rank-numeral !text-sage-light mb-2">01</div>
-                <h3 className="font-serif text-xl text-cream mb-2">{tCredo("tile1.label")}</h3>
-                <p className="text-cream/80 text-[14.5px] leading-relaxed">
-                  {tCredo("tile1.body")}
-                </p>
-              </div>
-              <div>
-                <div className="rank-numeral !text-sage-light mb-2">02</div>
-                <h3 className="font-serif text-xl text-cream mb-2">{tCredo("tile2.label")}</h3>
-                <p className="text-cream/80 text-[14.5px] leading-relaxed">
-                  {tCredo("tile2.body")}
-                </p>
-              </div>
-              <div>
-                <div className="rank-numeral !text-sage-light mb-2">03</div>
-                <h3 className="font-serif text-xl text-cream mb-2">{tCredo("tile3.label")}</h3>
-                <p className="text-cream/80 text-[14.5px] leading-relaxed">
-                  {tCredo("tile3.body")}
-                </p>
-              </div>
-            </div>
-            <div className="mt-12 pt-8 border-t border-sage-light/30">
-              <Link
-                href="/editorial-standards"
-                className="inline-flex items-center gap-1.5 text-sage-light hover:text-coral text-sm font-medium"
+      <section className="border-b border-[#D6D6D6]">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+            <div>
+              <span className="caps-meta">{tLatest("subhead")}</span>
+              <h2
+                className="mt-3 font-normal text-ink"
+                style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
               >
-                {tCredo("readMore")}
-                <span aria-hidden>→</span>
-              </Link>
+                {tLatest("heading")}
+              </h2>
             </div>
           </div>
-        </section>
-      </ScrollReveal>
 
-      {/* === EXPLAINERS === */}
-      {explainers.length > 0 && (
-        <ScrollReveal>
-          <section className="border-b border-pine/10">
-            <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-              <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
-                <div>
-                  <Eyebrow tone="sage">{tMag("explainerEyebrow")}</Eyebrow>
-                  <h2 className="font-serif text-3xl text-pine mt-3 leading-tight">
-                    {tMag("explainerTitle")}
-                  </h2>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-3 gap-0 border-t border-pine/10">
-                {explainers.map((p, i) => (
-                  <Link
-                    key={p.slug}
-                    href={`/${p.slug}`}
-                    className="group p-6 border-b md:border-b-0 md:border-r border-pine/10 last:border-r-0 hover:bg-cream-deep/50 transition"
+          <div className="grid md:grid-cols-12 gap-10">
+            {recent[0] && (
+              <article className="md:col-span-7">
+                <Link href={`/${recent[0].slug}`} className="group block">
+                  <div
+                    className="aspect-[16/9] mb-5 relative overflow-hidden border border-[#D6D6D6]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(135deg, #C5D2BE 0%, #9CAF94 60%, #7D9175 100%)",
+                    }}
                   >
-                    <RankNumeral n={i + 1} />
-                    <h3 className="font-serif text-xl text-pine leading-tight mt-3 group-hover:text-sage-deep transition">
+                    <div className="absolute bottom-5 left-5">
+                      <span className="caps-meta bg-white px-2 py-1">
+                        {typeLabel[recent[0].postType]}
+                      </span>
+                    </div>
+                  </div>
+                  <h3
+                    className="font-normal text-ink group-hover:text-coral-deep transition"
+                    style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.15, letterSpacing: "-0.01em" }}
+                  >
+                    {recent[0].title}
+                  </h3>
+                  <p className="mt-3 text-ink-soft text-[1.0625rem] leading-relaxed line-clamp-3">
+                    {recent[0].description}
+                  </p>
+                  <div className="mt-4 caps-meta">
+                    {getHub(recent[0].hub)?.shortName} · {tPostChrome("minRead", { n: recent[0].readingTime })}
+                  </div>
+                </Link>
+              </article>
+            )}
+
+            <div className="md:col-span-5 space-y-0">
+              {recent.slice(1, 5).map((p) => (
+                <article
+                  key={p.slug}
+                  className="py-5 border-b border-[#D6D6D6] first:border-t first:pt-0 first:mt-0 last:border-b-0"
+                >
+                  <Link href={`/${p.slug}`} className="group block">
+                    <div className="caps-meta mb-2">
+                      {typeLabel[p.postType]} · {getHub(p.hub)?.shortName}
+                    </div>
+                    <h3 className="text-ink text-lg font-semibold leading-snug group-hover:text-coral-deep transition">
                       {p.title}
                     </h3>
-                    <p className="text-sm text-charcoal/75 mt-2 leading-relaxed line-clamp-3">
+                    <p className="mt-1.5 text-[14px] text-ink-soft leading-snug line-clamp-2">
                       {p.description}
                     </p>
                   </Link>
-                ))}
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === THE CREDO — "How we report" === */}
+      <section className="border-b border-pine/30 bg-pine text-cream">
+        <div className="mx-auto max-w-5xl px-6 py-20 md:py-28">
+          <span className="caps-meta !text-coral">{tCredo("heading")}</span>
+          <h2
+            className="mt-4 font-normal text-cream"
+            style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
+          >
+            {tMag("credoTitle")}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-10 mt-12">
+            <div>
+              <div className="text-sage-light tnum text-3xl mb-3">01</div>
+              <h3 className="text-cream text-xl font-semibold mb-2">{tCredo("tile1.label")}</h3>
+              <p className="text-cream/80 text-[15px] leading-relaxed">
+                {tCredo("tile1.body")}
+              </p>
+            </div>
+            <div>
+              <div className="text-sage-light tnum text-3xl mb-3">02</div>
+              <h3 className="text-cream text-xl font-semibold mb-2">{tCredo("tile2.label")}</h3>
+              <p className="text-cream/80 text-[15px] leading-relaxed">
+                {tCredo("tile2.body")}
+              </p>
+            </div>
+            <div>
+              <div className="text-sage-light tnum text-3xl mb-3">03</div>
+              <h3 className="text-cream text-xl font-semibold mb-2">{tCredo("tile3.label")}</h3>
+              <p className="text-cream/80 text-[15px] leading-relaxed">
+                {tCredo("tile3.body")}
+              </p>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-sage-light/30">
+            <Link
+              href="/editorial-standards"
+              className="inline-flex items-center gap-1.5 text-sage-light hover:text-coral text-sm font-medium"
+            >
+              {tCredo("readMore")}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* === EXPLAINERS === */}
+      {explainers.length > 0 && (
+        <section className="border-b border-[#D6D6D6]">
+          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <div className="flex items-end justify-between mb-10 flex-wrap gap-3">
+              <div>
+                <span className="caps-meta">{tMag("explainerEyebrow")}</span>
+                <h2
+                  className="mt-3 font-normal text-ink"
+                  style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
+                >
+                  {tMag("explainerTitle")}
+                </h2>
               </div>
             </div>
-          </section>
-        </ScrollReveal>
+            <div className="grid md:grid-cols-3 gap-0 border-t border-[#D6D6D6]">
+              {explainers.map((p, i) => (
+                <Link
+                  key={p.slug}
+                  href={`/${p.slug}`}
+                  className="group p-6 border-b md:border-b-0 md:border-r border-[#D6D6D6] last:border-r-0 hover:bg-white transition-colors"
+                >
+                  <span className="text-stone tnum text-3xl">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-ink text-xl font-semibold leading-tight mt-3 group-hover:text-coral-deep transition">
+                    {p.title}
+                  </h3>
+                  <p className="text-[15px] text-ink-soft mt-2 leading-relaxed line-clamp-3">
+                    {p.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* === DISPATCH (Newsletter) === */}
-      <ScrollReveal>
-        <section className="bg-cream-deep/60 border-b border-pine/10">
-          <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-            <div className="text-center mb-8">
-              <Eyebrow tone="coral">{tNewsletter("eyebrow")}</Eyebrow>
-              <h2 className="font-serif text-3xl md:text-[2.5rem] text-pine mt-3 leading-[1.1] max-w-2xl mx-auto">
-                {tNewsletter("title")}
-              </h2>
-              <p className="mt-5 text-charcoal/80 text-[15.5px] max-w-xl mx-auto leading-relaxed">
-                {tNewsletter("body")}
-              </p>
-            </div>
-            <EmailCapture />
+      <section className="border-b border-[#D6D6D6]">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+          <div className="text-center mb-10">
+            <span className="caps-meta">{tNewsletter("eyebrow")}</span>
+            <h2
+              className="mt-3 font-normal text-ink max-w-2xl mx-auto"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
+            >
+              {tNewsletter("title")}
+            </h2>
+            <p className="mt-5 text-ink-soft text-[1.0625rem] max-w-xl mx-auto leading-relaxed">
+              {tNewsletter("body")}
+            </p>
           </div>
-        </section>
-      </ScrollReveal>
+          <EmailCapture />
+        </div>
+      </section>
 
       {/* === CLOSING DATELINE === */}
       <section>
-        <div className="mx-auto max-w-6xl px-6 py-10">
-          <DotRule />
-          <p className="text-center caps-label text-stone mt-6">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <hr className="border-0 border-t border-[#D6D6D6]" />
+          <p className="text-center caps-meta mt-6">
             {tClosing("lastUpdated")} · {new Date().toLocaleString(locale, { month: "long", day: "numeric", year: "numeric" })}
           </p>
         </div>
