@@ -1,8 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
-import { hubs } from "@/lib/content/hubs";
+import { useLocale, useTranslations } from "next-intl";
+import { hubs, localizeHub } from "@/lib/content/hubs";
+import type { Locale } from "@/i18n/routing";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 import { ReadingProgress } from "./ReadingProgress";
 
 /**
@@ -26,6 +29,8 @@ import { ReadingProgress } from "./ReadingProgress";
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations("header");
+  const locale = useLocale() as Locale;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -66,20 +71,20 @@ export function Header() {
 
             {/* CENTER — nav (desktop) */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-[14px]">
-              <PillNavLink href="/guides/glp1-101">GLP-1 101</PillNavLink>
+              <PillNavLink href="/guides/glp1-101">{t("navGlp1")}</PillNavLink>
               <PillNavLink href="/guides/side-effects-and-management">
-                Side effects
+                {t("navSideEffects")}
               </PillNavLink>
               <PillNavLink href="/guides/food-nutrition-and-muscle">
-                Food + nutrition
+                {t("navFood")}
               </PillNavLink>
               <PillNavLink href="/guides/lifestyle-on-glp1">
-                Lifestyle
+                {t("navLifestyle")}
               </PillNavLink>
               <PillNavLink href="/guides/plateaus-and-long-term">
-                Long-term
+                {t("navLongTerm")}
               </PillNavLink>
-              <PillNavLink href="/newsletter">Newsletter</PillNavLink>
+              <PillNavLink href="/newsletter">{t("navNewsletter")}</PillNavLink>
             </nav>
 
             {/* RIGHT — secondary + primary CTAs */}
@@ -88,15 +93,18 @@ export function Header() {
                 href="/medical-disclaimer"
                 className="hidden md:inline-flex items-center text-cream/75 hover:text-cream text-[13.5px] px-2 py-1.5 rounded-full transition-colors"
               >
-                Disclaimer
+                {t("disclaimerLink")}
               </Link>
               <Link
                 href="/newsletter"
                 className="inline-flex items-center gap-1.5 bg-coral hover:bg-coral-deep text-pine font-medium text-[13.5px] md:text-sm rounded-full px-4 md:px-5 h-9 md:h-10 transition-colors"
               >
-                Get tips
+                {t("ctaGetTips")}
                 <span aria-hidden>→</span>
               </Link>
+              <div className="hidden md:inline-flex">
+                <LocaleSwitcher />
+              </div>
 
               {/* Hamburger — visible below lg */}
               <button
@@ -136,19 +144,19 @@ export function Header() {
               aria-hidden
               className="h-1.5 w-1.5 rounded-full bg-coral animate-[reviewPulse_3.6s_ease-in-out_infinite]"
             />
-            <span>Educational · not medical advice · talk to your prescriber</span>
+            <span>{t("secondaryStrip")}</span>
           </div>
           <div className="hidden sm:flex items-center gap-3 text-[10.5px] md:text-[11px] uppercase tracking-[0.16em] text-stone">
             <Link href="/pipeline" className="hover:text-pine transition-colors">
-              8 in research
+              {t("pipelineCount")}
             </Link>
             <span aria-hidden className="text-sage-deep/40">·</span>
             <Link href="/methodology" className="hover:text-pine transition-colors">
-              Methodology v1.2
+              {t("methodologyVersion")}
             </Link>
             <span aria-hidden className="text-sage-deep/40">·</span>
             <Link href="/editorial-standards" className="hover:text-pine transition-colors">
-              Editorial standards
+              {t("editorialStandardsLink")}
             </Link>
           </div>
         </div>
@@ -189,8 +197,10 @@ export function Header() {
             </button>
           </div>
           <nav className="flex flex-col px-5 py-6 gap-1">
-            <div className="eyebrow text-stone mb-3">The five hubs</div>
-            {hubs.map((hub, i) => (
+            <div className="eyebrow text-stone mb-3">{t("fiveHubs")}</div>
+            {hubs.map((hub, i) => {
+              const hl = localizeHub(hub, locale);
+              return (
               <Link
                 key={hub.slug}
                 href={`/guides/${hub.slug}`}
@@ -200,61 +210,25 @@ export function Header() {
                 <span className="rank-numeral !text-xl !text-sage-deep/60">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                {hub.name}
+                {hl.name}
               </Link>
-            ))}
-            <div className="eyebrow text-stone mt-6 mb-3">The masthead</div>
-            <Link
-              href="/about"
-              onClick={() => setMobileOpen(false)}
-              className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10"
-            >
-              About
-            </Link>
-            <Link
-              href="/methodology"
-              onClick={() => setMobileOpen(false)}
-              className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10"
-            >
-              Methodology
-            </Link>
-            <Link
-              href="/pipeline"
-              onClick={() => setMobileOpen(false)}
-              className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10"
-            >
-              What we&apos;re researching
-            </Link>
-            <Link
-              href="/editorial-standards"
-              onClick={() => setMobileOpen(false)}
-              className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10"
-            >
-              Editorial standards
-            </Link>
-            <Link
-              href="/medical-disclaimer"
-              onClick={() => setMobileOpen(false)}
-              className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10"
-            >
-              Medical disclaimer
-            </Link>
-            <Link
-              href="/newsletter"
-              onClick={() => setMobileOpen(false)}
-              className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10"
-            >
-              Newsletter
-            </Link>
+              );
+            })}
+            <div className="eyebrow text-stone mt-6 mb-3">{t("masthead")}</div>
+            <Link href="/about" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navAbout")}</Link>
+            <Link href="/methodology" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navMethodology")}</Link>
+            <Link href="/pipeline" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navPipeline")}</Link>
+            <Link href="/editorial-standards" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navEditorialStandards")}</Link>
+            <Link href="/medical-disclaimer" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navMedicalDisclaimer")}</Link>
+            <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="min-h-[44px] py-2.5 text-pine flex items-center px-2 -mx-2 rounded-sm hover:bg-sage/10">{t("navNewsletter")}</Link>
             <div className="mt-6">
-              <Link
-                href="/newsletter"
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex w-full items-center justify-center gap-1.5 bg-coral hover:bg-coral-deep text-pine font-medium rounded-full px-5 h-12 transition-colors"
-              >
-                Get tips
+              <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="inline-flex w-full items-center justify-center gap-1.5 bg-coral hover:bg-coral-deep text-pine font-medium rounded-full px-5 h-12 transition-colors">
+                {t("ctaGetTips")}
                 <span aria-hidden>→</span>
               </Link>
+            </div>
+            <div className="mt-6 pt-6 border-t border-pine/10">
+              <LocaleSwitcher onNavigate={() => setMobileOpen(false)} />
             </div>
           </nav>
         </div>

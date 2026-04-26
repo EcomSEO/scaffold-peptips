@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
 /**
  * 4-up utility tile row, drugs.com pattern, peptips palette.
@@ -12,34 +13,36 @@ type Tile = {
   icon: React.ReactNode;
 };
 
-const TILES: Tile[] = [
-  {
-    href: "/methodology/v1-2",
-    label: "The Evidence Score",
-    sub: "How we score the strength of a medical claim, on a 0-100 scale.",
-    icon: <GaugeIcon />,
-  },
-  {
-    href: "/pipeline",
-    label: "What we're researching",
-    sub: "Eight in research, twenty-three queued. The list is public.",
-    icon: <FlaskIcon />,
-  },
-  {
-    href: "/methodology",
-    label: "Methodology v1.2",
-    sub: "How we read trials, who reviews, how we cite — in plain language.",
-    icon: <BookIcon />,
-  },
-  {
-    href: "/newsletter",
-    label: "Get the GLP-1 audit",
-    sub: "One Sunday email. The free First-30-Days guide when you subscribe.",
-    icon: <ClipboardIcon />,
-  },
-];
+export async function UtilityTiles() {
+  const t = await getTranslations("utilityTiles");
 
-export function UtilityTiles() {
+  const TILES: Tile[] = [
+    {
+      href: "/methodology/v1-2",
+      label: t("evidenceScore.label"),
+      sub: t("evidenceScore.description"),
+      icon: <GaugeIcon />,
+    },
+    {
+      href: "/pipeline",
+      label: t("researching.label"),
+      sub: t("researching.description"),
+      icon: <FlaskIcon />,
+    },
+    {
+      href: "/methodology",
+      label: t("methodology.label"),
+      sub: t("methodology.description"),
+      icon: <BookIcon />,
+    },
+    {
+      href: "/newsletter",
+      label: t("audit.label"),
+      sub: t("audit.description"),
+      icon: <ClipboardIcon />,
+    },
+  ];
+
   return (
     <section className="bg-paper border-y border-pine/10">
       <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">

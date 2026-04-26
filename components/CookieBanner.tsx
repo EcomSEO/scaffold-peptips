@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const STORAGE_KEY = "peptips:cookie-consent";
 
 export function CookieBanner() {
+  const t = useTranslations("cookieBanner");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,28 +36,27 @@ export function CookieBanner() {
       className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-sm z-50 bg-cream border border-pine/20 rounded-sm shadow-card p-4"
     >
       <p className="text-sm text-charcoal leading-relaxed">
-        We use a small number of cookies for analytics and session continuity.
-        No advertising cookies. See our{" "}
+        {t("bodyBefore")}{" "}
         <a
           href="/privacy"
           className="text-pine underline decoration-sage-deep/60 underline-offset-2 hover:decoration-coral transition-colors duration-150"
         >
-          Privacy Policy
+          {t("privacyLink")}
         </a>
-        .
+        {t("bodyAfter")}
       </p>
       <div className="mt-3 flex gap-2 justify-end">
         <button
           onClick={() => accept("reject")}
           className="text-sm px-3 min-h-[44px] inline-flex items-center justify-center rounded-sm text-pine hover:bg-sage/10 transition-colors duration-150"
         >
-          Reject
+          {t("reject")}
         </button>
         <button
           onClick={() => accept("accept")}
           className="text-sm px-4 min-h-[44px] inline-flex items-center justify-center rounded-sm bg-pine text-cream hover:bg-pine-deep transition-colors duration-150 font-medium"
         >
-          Accept
+          {t("accept")}
         </button>
       </div>
     </div>

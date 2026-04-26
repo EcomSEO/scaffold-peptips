@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useTranslations } from "next-intl";
 
 /**
  * Calm inline email capture.
@@ -10,16 +11,17 @@ import { FormEvent, useState } from "react";
  * the form. Submit button gently presses down on :active via .btn-primary.
  */
 export function EmailCapture({
-  headline = "The First 30 Days on a GLP-1.",
-  subhead = "A 15-page calm companion guide — week-by-week expectations, what to eat, what to track, what to ask at your first follow-up. Free. Delivered instantly.",
+  headline,
+  subhead,
   variant = "inline",
-  buttonLabel = "Send me the guide",
+  buttonLabel,
 }: {
   headline?: string;
   subhead?: string;
   variant?: "inline" | "end-of-article";
   buttonLabel?: string;
 }) {
+  const t = useTranslations("emailCapture");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
 
@@ -35,34 +37,38 @@ export function EmailCapture({
       ? "my-12 p-7 md:p-9 rounded-sm bg-sage/10 border border-sage-deep/25"
       : "my-10 p-7 md:p-9 rounded-sm bg-paper border border-pine/12 shadow-soft";
 
+  const resolvedHeadline = headline ?? t("headline");
+  const resolvedSubhead = subhead ?? t("subhead");
+  const resolvedButton = buttonLabel ?? t("submit");
+
   return (
     <section id="email-capture" className={wrapper}>
       <div className="flex items-center gap-3 mb-3">
         <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-coral-deep" />
-        <span className="caps-label text-coral-deep">The free companion guide</span>
+        <span className="caps-label text-coral-deep">{t("eyebrow")}</span>
       </div>
       <h2 className="font-serif text-2xl md:text-[1.75rem] text-pine leading-tight">
-        {headline}
+        {resolvedHeadline}
       </h2>
       <p className="mt-3 text-[15px] text-charcoal/85 max-w-xl leading-relaxed">
-        {subhead}
+        {resolvedSubhead}
       </p>
       {status === "ok" ? (
-        <p className="mt-6 text-pine font-medium">Thanks — check your inbox.</p>
+        <p className="mt-6 text-pine font-medium">{t("success")}</p>
       ) : (
         <form
           onSubmit={onSubmit}
           className="mt-6 flex flex-col sm:flex-row gap-2 max-w-md"
         >
           <label htmlFor="email" className="sr-only">
-            Email address
+            {t("emailLabel")}
           </label>
           <div className="email-input relative flex-1">
             <input
               id="email"
               type="email"
               required
-              placeholder="you@example.com"
+              placeholder={t("placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-sm border border-pine/20 px-4 py-3 bg-paper focus:outline-none"
@@ -74,16 +80,16 @@ export function EmailCapture({
             disabled={status === "loading"}
             className="btn-primary justify-center disabled:opacity-50"
           >
-            {status === "loading" ? "Sending…" : buttonLabel}
+            {status === "loading" ? t("submitLoading") : resolvedButton}
           </button>
         </form>
       )}
       <p className="mt-4 text-[12px] text-stone max-w-md leading-relaxed">
-        By subscribing, you agree to our{" "}
+        {t("consentBefore")}{" "}
         <a href="/privacy" className="underline decoration-sage-deep/60 underline-offset-2">
-          Privacy Policy
+          {t("privacyLink")}
         </a>
-        . One calm email on Sundays. Unsubscribe anytime.
+        {t("consentAfter")}
       </p>
     </section>
   );

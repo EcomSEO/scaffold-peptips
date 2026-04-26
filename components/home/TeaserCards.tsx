@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { EvidenceScore } from "@/components/editorial/EvidenceScore";
 
 /**
@@ -9,27 +10,28 @@ import { EvidenceScore } from "@/components/editorial/EvidenceScore";
  * Coral "Read the guide →" CTA. EvidenceScore badge in the top-right.
  */
 
-export function TeaserCards() {
+export async function TeaserCards() {
+  const t = await getTranslations("teaserCards");
   return (
     <section className="border-b border-pine/10">
       <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
         <div className="grid md:grid-cols-2 gap-5">
           <TeaserCard
-            eyebrow="Side effects · week by week"
-            title="The Ozempic week-by-week guide they don't give you at the clinic."
-            body="Twelve weeks tracked from the first 0.25mg dose through the second titration. What's normal, what isn't, and the four moments to call your prescriber."
-            footnote="12 weeks tracked · 14 sources"
-            cta="Read the week-by-week guide"
+            eyebrow={t("left.eyebrow")}
+            title={t("left.title")}
+            body={t("left.description")}
+            footnote={t("left.footnote")}
+            cta={t("left.cta")}
             href="/ozempic-week-by-week"
             score={92}
             tone="sage"
           />
           <TeaserCard
-            eyebrow="Food + nutrition · muscle-first"
-            title="Eating to keep your muscle on a GLP-1 — what to actually plate."
-            body="Protein per meal, when timing matters and when it doesn't, and the lifting minimum that the trial literature says protects lean mass."
-            footnote="Phillips 2017 + Trommelen 2023 reading"
-            cta="Read the muscle-first guide"
+            eyebrow={t("right.eyebrow")}
+            title={t("right.title")}
+            body={t("right.description")}
+            footnote={t("right.footnote")}
+            cta={t("right.cta")}
             href="/guides/food-nutrition-and-muscle"
             score={88}
             tone="cream"
