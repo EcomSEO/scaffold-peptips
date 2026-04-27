@@ -1,27 +1,13 @@
 import { Link } from "@/i18n/navigation";
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { hubs, localizeHub } from "@/lib/content/hubs";
-import { latestPosts, posts } from "@/lib/content/posts";
+import { posts } from "@/lib/content/posts";
 import { localizePost } from "@/lib/content/posts-i18n";
-import { HeroLite } from "@/components/home/HeroLite";
-import { CategoryGrid, type CategoryTile } from "@/components/home/CategoryGrid";
-import { GuidesGrid, type GuideTile } from "@/components/home/GuidesGrid";
-import { ScrollRow, type ScrollRowCard } from "@/components/home/ScrollRow";
-import { TestingProcess } from "@/components/home/TestingProcess";
-import { PressBar } from "@/components/home/PressBar";
 import type { Locale } from "@/i18n/routing";
-
-// NOTE: SearchHero / UtilityTiles / TeaserCards are intentionally NOT
-// imported. The home page now follows the runrepeat image-grid structure;
-// those components remain on disk for re-use elsewhere later.
-
-const PRESS_OUTLETS = [
-  "PUBMED",
-  "CLINICALTRIALS.GOV",
-  "FDA",
-  "EUROPEAN MEDICINES AGENCY",
-  "BMJ",
-];
+import { Hero } from "@/components/Hero";
+import { CategoryTileGrid } from "@/components/CategoryTileGrid";
+import { FeaturedArticleCarousel } from "@/components/FeaturedArticleCarousel";
+import type { ArticleCardData } from "@/components/ArticleCard";
 
 export default async function HomePage({
   params,
@@ -31,144 +17,183 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const tRR = await getTranslations("homeRR");
+  // Pick the featured pillar — flagged or first published.
+  const featuredPost =
+    posts.find((p) => p.featured) ??
+    posts.find((p) => p.status === "published") ??
+    posts[0];
 
-  // ───────────────────────────────────────────── Category tiles (8)
-  // 5 existing hubs + 3 expansion categories (placeholders for now).
-  const hubTiles: CategoryTile[] = hubs.map((hub) => {
-    const hl = localizeHub(hub, locale);
-    return {
-      href: `/guides/${hub.slug}`,
-      label: hl.shortName,
-    };
-  });
-  const expansionTiles: CategoryTile[] = [
-    { href: "/guides", label: tRR("catDrugProfiles") },
-    { href: "/guides", label: tRR("catPregnancy") },
-    { href: "/guides", label: tRR("catMentalHealth") },
-  ];
-  const categoryTiles: CategoryTile[] = [...hubTiles, ...expansionTiles].slice(0, 8);
-
-  // ───────────────────────────────────────────── In-depth guides (8)
-  // Pull pillar + comparison posts. There are fewer than 8 in the launch
-  // dataset, so pad with cluster posts to keep the 4×2 grid full.
-  const indepth = [
-    ...posts.filter((p) => p.postType === "pillar"),
-    ...posts.filter((p) => p.postType === "comparison"),
-    ...posts.filter((p) => p.postType === "cluster"),
-    ...posts.filter((p) => p.postType === "listicle"),
-  ];
-  const indepthTiles: GuideTile[] = indepth.slice(0, 8).map((p) => {
-    const i18n = localizePost(p.slug, locale, {
+  const li = (slug: string) => {
+    const p = posts.find((x) => x.slug === slug)!;
+    return localizePost(p.slug, locale, {
       title: p.title,
       h1: p.h1,
       description: p.description,
     });
-    return {
-      href: `/${p.slug}`,
-      title: i18n.title ?? p.title,
-      caption: i18n.description ?? p.description,
-    };
-  });
+  };
 
-  // ───────────────────────────────────────────── Latest field notes (7)
-  const latest = latestPosts(7);
-  const latestCards: ScrollRowCard[] = latest.map((p) => {
-    const i18n = localizePost(p.slug, locale, { title: p.title, h1: p.h1, description: p.description });
-    return {
-      href: `/${p.slug}`,
-      title: i18n.title ?? p.title,
-      meta: new Date(p.publishedAt).toLocaleDateString(locale, {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }),
-    };
-  });
+  const featuredI18n = li(featuredPost.slug);
+  const featured: ArticleCardData & { authorCredentials?: string } = {
+    slug: featuredPost.slug,
+    title: featuredI18n.title ?? featuredPost.title,
+    description: featuredI18n.description ?? featuredPost.description,
+    category: localizeHub(hubs.find((h) => h.slug === featuredPost.hub)!, locale).name,
+    author: "Sara Lin",
+    authorCredentials: "RN, BSN",
+    readingTime: featuredPost.readingTime,
+    reviewed: true,
+    evidenceTier: 5,
+  };
 
-  // ───────────────────────────────────────────── Popular guides (7)
-  // Featured first, then by reading-time desc as a stand-in for popularity.
-  const popular = [...posts]
-    .sort((a, b) => {
-      const af = a.featured ? 1 : 0;
-      const bf = b.featured ? 1 : 0;
-      if (af !== bf) return bf - af;
-      return b.readingTime - a.readingTime;
-    })
-    .slice(0, 7);
-  const popularCards: ScrollRowCard[] = popular.map((p) => {
-    const i18n = localizePost(p.slug, locale, { title: p.title, h1: p.h1, description: p.description });
+  const trending = posts
+    .filter((p) => p.slug !== featuredPost.slug)
+    .slice(0, 3)
+    .map((p) => {
+      const i18n = li(p.slug);
+      return {
+        category: localizeHub(hubs.find((h) => h.slug === p.hub)!, locale).name,
+        title: i18n.title ?? p.title,
+        href: `/${p.slug}`,
+      };
+    });
+
+  const tileCards: ArticleCardData[] = posts
+    .filter((p) => p.slug !== featuredPost.slug)
+    .slice(0, 8)
+    .map((p) => {
+      const i18n = li(p.slug);
+      return {
+        slug: p.slug,
+        title: i18n.title ?? p.title,
+        description: i18n.description ?? p.description,
+        category: localizeHub(hubs.find((h) => h.slug === p.hub)!, locale).name,
+        author: "Sara Lin",
+        readingTime: p.readingTime,
+        reviewed: p.medicalDisclaimer === "required",
+        evidenceTier: (p.featured ? 5 : 4) as 1 | 2 | 3 | 4 | 5,
+      };
+    });
+
+  const carouselCards: ArticleCardData[] = posts.slice(0, 8).map((p, i) => {
+    const i18n = li(p.slug);
     return {
-      href: `/${p.slug}`,
+      slug: p.slug,
       title: i18n.title ?? p.title,
-      meta: new Date(p.publishedAt).toLocaleDateString(locale, {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }),
+      description: i18n.description ?? p.description,
+      category: localizeHub(hubs.find((h) => h.slug === p.hub)!, locale).name,
+      author: "Sara Lin",
+      readingTime: p.readingTime,
+      reviewed: true,
+      evidenceTier: ((5 - (i % 3)) || 3) as 1 | 2 | 3 | 4 | 5,
     };
   });
 
   return (
     <main>
-      {/* Hero — H1 + pipeline meta line + image-slot */}
-      <HeroLite
-        h1={tRR("h1")}
-        metaLine={tRR("pipelineMeta")}
+      <Hero
+        eyebrow="Calm, cited GLP-1 guidance"
+        headline="Real answers about life on a GLP-1, without the hype."
+        dek="Side effects, food and muscle, dosing decisions, and the questions your doctor did not have time to answer — written for the people already on these medications, reviewed by clinicians, scored on the evidence."
+        featured={featured}
+        trending={trending}
       />
 
-      {/* Guides — 8 hub/category tiles in a 4×2 grid */}
-      <CategoryGrid heading={tRR("guides")} tiles={categoryTiles} />
-
-      {/* In-depth guides — 8 pillar/comparison thumbnails in a 4×2 grid */}
-      <GuidesGrid heading={tRR("inDepth")} tiles={indepthTiles} />
-
-      {/* Latest field notes — 7-card horizontal scroll row */}
-      <ScrollRow heading={tRR("latest")} cards={latestCards} />
-
-      {/* Popular guides — 7-card horizontal scroll row */}
-      <ScrollRow heading={tRR("popular")} cards={popularCards} />
-
-      {/* How we research — 3-photo strip with numbered captions */}
-      <TestingProcess
-        heading={tRR("testing")}
-        steps={[tRR("testingStep1"), tRR("testingStep2"), tRR("testingStep3")]}
+      <CategoryTileGrid
+        id="categories"
+        eyebrow="Library"
+        heading="Start where you are."
+        description="Eight foundational guides across the five hubs — from the first 0.25 mg dose to year-two plateau questions."
+        articles={tileCards}
       />
 
-      {/* Editorial standards — minimal 3-link row */}
-      <section className="border-b border-[#D6D6D6]">
-        <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link href="/methodology" className="group block">
-              <div className="caps-meta group-hover:text-ink transition-colors">
-                {tRR("methodologyLink")}
-              </div>
-              <p className="mt-2 text-[13px] text-ink-soft leading-snug">
-                {tRR("editorialMethodology")}
-              </p>
-            </Link>
-            <Link href="/editorial-standards" className="group block">
-              <div className="caps-meta group-hover:text-ink transition-colors">
-                {tRR("editorialLink")}
-              </div>
-              <p className="mt-2 text-[13px] text-ink-soft leading-snug">
-                {tRR("editorialStandardsBlurb")}
-              </p>
-            </Link>
-            <Link href="/medical-disclaimer" className="group block">
-              <div className="caps-meta group-hover:text-ink transition-colors">
-                {tRR("disclaimerLink")}
-              </div>
-              <p className="mt-2 text-[13px] text-ink-soft leading-snug">
-                {tRR("editorialDisclaimer")}
-              </p>
-            </Link>
+      <FeaturedArticleCarousel
+        eyebrow="Most-read this week"
+        heading="What the readers came for."
+        articles={carouselCards}
+      />
+
+      {/* Hubs strip */}
+      <section className="border-b border-rule bg-surface-alt">
+        <div className="mx-auto max-w-container px-6 py-16">
+          <div className="max-w-2xl mb-10">
+            <div className="eyebrow mb-2">By topic</div>
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink leading-tight">
+              The five hubs.
+            </h2>
+            <p className="mt-3 text-[16px] text-ink-muted leading-relaxed">
+              Every post on peptips lives in one of five hubs. Pick the one that matches the question you woke up with.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {hubs.map((hub) => {
+              const hl = localizeHub(hub, locale);
+              return (
+                <Link
+                  key={hub.slug}
+                  href={`/guides/${hub.slug}`}
+                  className="group block bg-white rounded-md border border-rule p-5 hover:border-pine hover:shadow-card transition-all"
+                >
+                  <div className="eyebrow mb-3">{hl.shortName}</div>
+                  <h3 className="text-[18px] font-semibold text-ink group-hover:text-pine-deep transition-colors leading-snug">
+                    {hl.name}
+                  </h3>
+                  <p className="mt-2 text-[13px] text-ink-muted leading-relaxed line-clamp-3">
+                    {hl.oneLiner}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-pine-deep">
+                    Open hub <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* As referenced in — text-only press bar */}
-      <PressBar heading={tRR("pressLabel")} outlets={PRESS_OUTLETS} />
+      {/* Trust + methodology strip */}
+      <section className="border-b border-rule">
+        <div className="mx-auto max-w-container px-6 py-16 grid md:grid-cols-2 gap-10">
+          <div>
+            <div className="eyebrow mb-3">How we work</div>
+            <h2 className="text-[28px] font-bold text-ink leading-tight">
+              Two independent sources before a sentence ships.
+            </h2>
+            <p className="mt-4 text-[16px] text-ink-muted leading-relaxed">
+              Every guide on peptips is written from FDA prescribing
+              information, peer-reviewed trial data, and the nursing-education
+              literature. Two independent sources must agree before a claim
+              ships, and a credentialed reviewer signs the article once
+              editorial review is complete. Our Evidence Score is on every
+              article so you can see the strength of the evidence at a glance.
+            </p>
+            <Link
+              href="/methodology"
+              className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-pine-deep hover:text-pine"
+            >
+              Read methodology v1.2 <span aria-hidden>→</span>
+            </Link>
+          </div>
+          <div>
+            <div className="eyebrow eyebrow-danger mb-3">Stop &amp; call your prescriber</div>
+            <h2 className="text-[24px] font-bold text-ink leading-tight">
+              When this site is the wrong source.
+            </h2>
+            <p className="mt-4 text-[16px] text-ink-muted leading-relaxed">
+              Nothing on peptips is a substitute for the prescription your
+              clinician wrote, the Instructions for Use that came with your
+              medication, or the judgment of the healthcare professional who
+              knows your case. If a symptom does not match what you read here,
+              treat what you read as out of date and call your prescriber.
+            </p>
+            <Link
+              href="/medical-disclaimer"
+              className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-pine-deep hover:text-pine"
+            >
+              Read the full disclaimer <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

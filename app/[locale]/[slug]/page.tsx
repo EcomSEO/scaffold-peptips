@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getPost, posts } from "@/lib/content/posts";
-import { PillarTemplate } from "@/components/templates/PillarTemplate";
-import { ComparisonTemplate } from "@/components/templates/ComparisonTemplate";
-import { ClusterTemplate } from "@/components/templates/ClusterTemplate";
-import { ListicleTemplate } from "@/components/templates/ListicleTemplate";
+import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { TranslationPendingBanner } from "@/components/TranslationPendingBanner";
 import { pageMetadata } from "@/lib/seo";
 import { localizePost } from "@/lib/content/posts-i18n";
 import { type Locale, defaultLocale } from "@/i18n/routing";
 
-// Avoid colliding with /about, /contact, etc — static pages take precedence over this dynamic route.
+// Avoid colliding with /about, /contact, etc — static pages take precedence.
 const RESERVED = new Set([
   "about",
   "contact",
@@ -71,9 +68,6 @@ export default async function PostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
-  // Localize title/h1/description for the article header. Body content
-  // remains in English; the TranslationPendingBanner above the body
-  // signals that for non-English locales.
   const li = localizePost(slug, locale, {
     title: post.title,
     h1: post.h1,
@@ -84,35 +78,10 @@ export default async function PostPage({
   const banner =
     locale !== defaultLocale ? <TranslationPendingBanner /> : null;
 
-  switch (post.postType) {
-    case "pillar":
-      return (
-        <>
-          {banner}
-          <PillarTemplate post={localizedPost} />
-        </>
-      );
-    case "comparison":
-      return (
-        <>
-          {banner}
-          <ComparisonTemplate post={localizedPost} />
-        </>
-      );
-    case "listicle":
-      return (
-        <>
-          {banner}
-          <ListicleTemplate post={localizedPost} />
-        </>
-      );
-    case "cluster":
-    default:
-      return (
-        <>
-          {banner}
-          <ClusterTemplate post={localizedPost} />
-        </>
-      );
-  }
+  return (
+    <>
+      {banner}
+      <ArticleTemplate post={localizedPost} />
+    </>
+  );
 }

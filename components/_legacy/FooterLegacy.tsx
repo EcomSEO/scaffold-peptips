@@ -1,0 +1,91 @@
+import { Link } from "@/i18n/navigation";
+import { hubs, localizeHub } from "@/lib/content/hubs";
+import { Wordmark } from "./editorial/Wordmark";
+import { SITE } from "@/lib/content/site";
+import { getLocale, getTranslations } from "next-intl/server";
+import type { Locale } from "@/i18n/routing";
+
+export async function Footer() {
+  const t = await getTranslations("footer");
+  const locale = (await getLocale()) as Locale;
+  return (
+    <footer className="mt-24 bg-cream-deep/50 border-t border-pine/10">
+      {/* Masthead row */}
+      <div className="mx-auto max-w-6xl px-6 pt-14 pb-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-10 border-b border-pine/15">
+          <div>
+            <Wordmark size="lg" asLink={false} />
+            <p className="mt-3 font-serif text-lg text-pine italic max-w-md">
+              {SITE.issueTagline}
+            </p>
+          </div>
+          <div className="max-w-md text-sm text-stone leading-relaxed">
+            {t("leadParagraph")}
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-12 gap-10 mt-10">
+          <div className="md:col-span-5">
+            <h4 className="eyebrow text-stone mb-4">{t("fiveHubs")}</h4>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+              {hubs.map((hub, i) => {
+                const hl = localizeHub(hub, locale);
+                return (
+                  <li key={hub.slug}>
+                    <Link
+                      href={`/guides/${hub.slug}`}
+                      className="group flex items-center gap-2 text-pine hover:text-sage-deep transition"
+                    >
+                      <span className="rank-numeral !text-sm !text-sage-deep/50 group-hover:!text-sage-deep tnum">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[15px]">{hl.name}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <h4 className="eyebrow text-stone mb-4">{t("masthead")}</h4>
+            <ul className="space-y-2.5 text-[15px]">
+              <li><Link href="/about" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("about")}</Link></li>
+              <li><Link href="/editorial-standards" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("editorialStandards")}</Link></li>
+              <li><Link href="/medical-disclaimer" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("medicalDisclaimer")}</Link></li>
+              <li><Link href="/contact" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("contact")}</Link></li>
+              <li><Link href="/newsletter" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("newsletter")}</Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-4">
+            <h4 className="eyebrow text-stone mb-4">{t("finePrint")}</h4>
+            <ul className="space-y-2.5 text-[15px]">
+              <li><Link href="/affiliate-disclosure" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("affiliateDisclosure")}</Link></li>
+              <li><Link href="/privacy" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("privacy")}</Link></li>
+              <li><Link href="/terms" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("terms")}</Link></li>
+            </ul>
+            <p className="mt-5 text-[12.5px] text-stone leading-relaxed border-t border-pine/10 pt-4">
+              <strong className="text-pine">{t("notMedicalAdvice")}</strong>{" "}
+              {t("footerNote")}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Imprint strip */}
+      <div className="border-t border-pine/10">
+        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col md:flex-row justify-between gap-3 text-[11px] tracking-[0.14em] uppercase text-stone">
+          <div className="flex items-center gap-3">
+            <span>©&nbsp;{new Date().getFullYear()} Peptips</span>
+            <span aria-hidden className="text-sage-deep/50">·</span>
+            <span>{SITE.volume} · {SITE.issue} · {SITE.issueName}</span>
+          </div>
+          <div className="normal-case tracking-normal text-stone text-xs max-w-xl md:text-right leading-relaxed">
+            {t("imprintBody")}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

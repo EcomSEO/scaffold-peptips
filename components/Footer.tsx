@@ -1,91 +1,147 @@
 import { Link } from "@/i18n/navigation";
-import { hubs, localizeHub } from "@/lib/content/hubs";
-import { Wordmark } from "./editorial/Wordmark";
+import { hubs } from "@/lib/content/hubs";
 import { SITE } from "@/lib/content/site";
-import { getLocale, getTranslations } from "next-intl/server";
-import type { Locale } from "@/i18n/routing";
+import { PeptipsMark } from "./Header";
 
-export async function Footer() {
-  const t = await getTranslations("footer");
-  const locale = (await getLocale()) as Locale;
+const tools = [
+  { slug: "/methodology", name: "Methodology v1.2" },
+  { slug: "/pipeline", name: "What we are researching" },
+  { slug: "/editorial-standards", name: "Editorial standards" },
+  { slug: "/medical-disclaimer", name: "Medical disclaimer" },
+];
+
+const sisterSites = [
+  { name: "InjectCompass", href: "https://injectcompass.com" },
+  { name: "PlasticFreeLab", href: "https://plasticfreelab.com" },
+  { name: "LarderLab", href: "https://larderlab.com" },
+  { name: "CircadianStack", href: "https://circadianstack.com" },
+];
+
+/**
+ * Healthline-grade publisher footer for peptips.
+ * 4 column link grid, medical disclaimer block, sister-site links,
+ * locale switcher, copyright + editorial standards / privacy / terms.
+ */
+export function Footer() {
   return (
-    <footer className="mt-24 bg-cream-deep/50 border-t border-pine/10">
-      {/* Masthead row */}
-      <div className="mx-auto max-w-6xl px-6 pt-14 pb-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-10 border-b border-pine/15">
-          <div>
-            <Wordmark size="lg" asLink={false} />
-            <p className="mt-3 font-serif text-lg text-pine italic max-w-md">
-              {SITE.issueTagline}
+    <footer className="mt-24 bg-surface-alt border-t border-rule">
+      <div className="mx-auto max-w-container px-6 pt-14 pb-8">
+        {/* Brand row */}
+        <div className="grid md:grid-cols-12 gap-8 pb-10 border-b border-rule">
+          <div className="md:col-span-4">
+            <Link href="/" className="inline-flex items-center gap-2" aria-label="Peptips — home">
+              <PeptipsMark size={32} />
+              <span className="font-serif font-semibold text-[20px] tracking-tight text-pine">peptips</span>
+            </Link>
+            <p className="mt-4 text-[14px] text-ink-muted leading-relaxed max-w-md">
+              {SITE.description}
             </p>
           </div>
-          <div className="max-w-md text-sm text-stone leading-relaxed">
-            {t("leadParagraph")}
-          </div>
-        </div>
 
-        <div className="grid md:grid-cols-12 gap-10 mt-10">
-          <div className="md:col-span-5">
-            <h4 className="eyebrow text-stone mb-4">{t("fiveHubs")}</h4>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
-              {hubs.map((hub, i) => {
-                const hl = localizeHub(hub, locale);
-                return (
-                  <li key={hub.slug}>
-                    <Link
-                      href={`/guides/${hub.slug}`}
-                      className="group flex items-center gap-2 text-pine hover:text-sage-deep transition"
-                    >
-                      <span className="rank-numeral !text-sm !text-sage-deep/50 group-hover:!text-sage-deep tnum">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-[15px]">{hl.name}</span>
-                    </Link>
-                  </li>
-                );
-              })}
+          <div className="md:col-span-3">
+            <h4 className="eyebrow mb-3">The five hubs</h4>
+            <ul className="space-y-2 text-[14px]">
+              {hubs.map((hub) => (
+                <li key={hub.slug}>
+                  <Link href={`/guides/${hub.slug}`} className="text-ink hover:text-pine-deep transition-colors">
+                    {hub.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="eyebrow mb-3">Reference</h4>
+            <ul className="space-y-2 text-[14px]">
+              {tools.map((t) => (
+                <li key={t.slug}>
+                  <Link href={t.slug} className="text-ink hover:text-pine-deep transition-colors">
+                    {t.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="eyebrow text-stone mb-4">{t("masthead")}</h4>
-            <ul className="space-y-2.5 text-[15px]">
-              <li><Link href="/about" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("about")}</Link></li>
-              <li><Link href="/editorial-standards" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("editorialStandards")}</Link></li>
-              <li><Link href="/medical-disclaimer" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("medicalDisclaimer")}</Link></li>
-              <li><Link href="/contact" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("contact")}</Link></li>
-              <li><Link href="/newsletter" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("newsletter")}</Link></li>
+            <h4 className="eyebrow mb-3">Company</h4>
+            <ul className="space-y-2 text-[14px]">
+              <li><Link href="/about" className="text-ink hover:text-pine-deep">About</Link></li>
+              <li><Link href="/editorial-standards" className="text-ink hover:text-pine-deep">Editorial standards</Link></li>
+              <li><Link href="/contact" className="text-ink hover:text-pine-deep">Contact &amp; corrections</Link></li>
+              <li><Link href="/newsletter" className="text-ink hover:text-pine-deep">Newsletter</Link></li>
+              <li><Link href="/affiliate-disclosure" className="text-ink hover:text-pine-deep">Affiliate disclosure</Link></li>
             </ul>
-          </div>
-
-          <div className="md:col-span-4">
-            <h4 className="eyebrow text-stone mb-4">{t("finePrint")}</h4>
-            <ul className="space-y-2.5 text-[15px]">
-              <li><Link href="/affiliate-disclosure" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("affiliateDisclosure")}</Link></li>
-              <li><Link href="/privacy" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("privacy")}</Link></li>
-              <li><Link href="/terms" className="text-pine hover:text-sage-deep transition-colors duration-150">{t("terms")}</Link></li>
-            </ul>
-            <p className="mt-5 text-[12.5px] text-stone leading-relaxed border-t border-pine/10 pt-4">
-              <strong className="text-pine">{t("notMedicalAdvice")}</strong>{" "}
-              {t("footerNote")}
-            </p>
           </div>
         </div>
-      </div>
 
-      {/* Imprint strip */}
-      <div className="border-t border-pine/10">
-        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col md:flex-row justify-between gap-3 text-[11px] tracking-[0.14em] uppercase text-stone">
-          <div className="flex items-center gap-3">
-            <span>©&nbsp;{new Date().getFullYear()} Peptips</span>
-            <span aria-hidden className="text-sage-deep/50">·</span>
-            <span>{SITE.volume} · {SITE.issue} · {SITE.issueName}</span>
+        {/* Disclaimer block */}
+        <div className="py-8 border-b border-rule">
+          <div className="grid md:grid-cols-12 gap-6">
+            <div className="md:col-span-7">
+              <h4 className="eyebrow eyebrow-danger mb-2">Medical disclaimer</h4>
+              <p className="text-[13px] text-ink-muted leading-relaxed">
+                Peptips publishes patient-education content. Nothing here is a
+                substitute for the prescription your clinician wrote, the
+                Instructions for Use that came with your medication, or the
+                judgment of the healthcare professional who knows your case.
+                If a symptom does not match what you read here, treat what
+                you read as out of date and call your prescriber.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <h4 className="eyebrow mb-2">From the network</h4>
+              <ul className="flex flex-wrap gap-x-4 gap-y-2 text-[13px]">
+                {sisterSites.map((s) => (
+                  <li key={s.name}>
+                    <a
+                      href={s.href}
+                      rel="noopener"
+                      className="text-ink-muted hover:text-pine-deep transition-colors"
+                    >
+                      {s.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1.5 text-[13px] text-ink-muted hover:text-ink"
+                  aria-label="Change language"
+                >
+                  <GlobeIcon className="w-4 h-4" />
+                  English (US)
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="normal-case tracking-normal text-stone text-xs max-w-xl md:text-right leading-relaxed">
-            {t("imprintBody")}
-          </div>
+        </div>
+
+        {/* Imprint strip */}
+        <div className="pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[12px] text-ink-muted">
+          <div>© {new Date().getFullYear()} {SITE.name}. Patient-education only. Not medical advice.</div>
+          <ul className="flex flex-wrap gap-x-4">
+            <li><Link href="/editorial-standards" className="hover:text-pine-deep">Editorial standards</Link></li>
+            <li><Link href="/privacy" className="hover:text-pine-deep">Privacy</Link></li>
+            <li><Link href="/terms" className="hover:text-pine-deep">Terms</Link></li>
+            <li><Link href="/affiliate-disclosure" className="hover:text-pine-deep">Affiliate disclosure</Link></li>
+            <li><Link href="/medical-disclaimer" className="hover:text-pine-deep">Medical disclaimer</Link></li>
+          </ul>
         </div>
       </div>
     </footer>
+  );
+}
+
+function GlobeIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" className={className}>
+      <circle cx="10" cy="10" r="7.5" />
+      <path d="M2.5 10h15" />
+      <path d="M10 2.5c2.5 2.7 2.5 12.3 0 15" />
+      <path d="M10 2.5c-2.5 2.7-2.5 12.3 0 15" />
+    </svg>
   );
 }

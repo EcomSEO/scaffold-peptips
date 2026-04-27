@@ -6,21 +6,10 @@ import { getHub, hubs, localizeHub } from "@/lib/content/hubs";
 import { postsByHub } from "@/lib/content/posts";
 import { localizePost } from "@/lib/content/posts-i18n";
 import type { Locale } from "@/i18n/routing";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
-import { EmailCapture } from "@/components/EmailCapture";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { CategoryTileGrid } from "@/components/CategoryTileGrid";
+import type { ArticleCardData } from "@/components/ArticleCard";
 import { pageMetadata } from "@/lib/seo";
-import { Eyebrow } from "@/components/editorial/Eyebrow";
-import { DotRule } from "@/components/editorial/DotRule";
-import { AnimatedFieldRule } from "@/components/editorial/AnimatedFieldRule";
-import { RankNumeral } from "@/components/editorial/RankNumeral";
-
-const typeLabel: Record<string, string> = {
-  pillar: "The Guide",
-  comparison: "The Comparison",
-  cluster: "The Explainer",
-  listicle: "The Checklist",
-};
 
 export function generateStaticParams() {
   return hubs.map((h) => ({ hub: h.slug }));
@@ -54,219 +43,111 @@ export default async function HubPage({
   if (!hub) notFound();
   const hl = localizeHub(hub, locale);
 
-  const hubIndex = hubs.findIndex((h) => h.slug === hub.slug);
   const hubPosts = postsByHub(hub.slug);
-  const pillar = hubPosts.find((p) => p.postType === "pillar");
-  const comparisons = hubPosts.filter((p) => p.postType === "comparison");
-  const explainers = hubPosts.filter((p) => p.postType === "cluster");
-  const listicles = hubPosts.filter((p) => p.postType === "listicle");
+  const cards: ArticleCardData[] = hubPosts.map((p, i) => {
+    const i18n = localizePost(p.slug, locale, {
+      title: p.title,
+      h1: p.h1,
+      description: p.description,
+    });
+    return {
+      slug: p.slug,
+      title: i18n.title ?? p.title,
+      description: i18n.description ?? p.description,
+      category: hl.name,
+      author: "Sara Lin",
+      readingTime: p.readingTime,
+      reviewed: p.medicalDisclaimer === "required",
+      evidenceTier: ((5 - (i % 3)) || 4) as 1 | 2 | 3 | 4 | 5,
+    };
+  });
 
   const crumbs = [
     { label: "Home", href: "/" },
-    { label: "Guides", href: "/#hubs" },
+    { label: "Hubs", href: "/#categories" },
     { label: hl.name },
   ];
 
   return (
-    <>
-      <BreadcrumbJsonLd crumbs={crumbs} />
-      <main>
-        {/* Hub masthead */}
-        <section className="border-b border-pine/10">
-          <div className="mx-auto max-w-6xl px-6 pt-10 pb-14 md:pb-20">
-            <Breadcrumbs crumbs={crumbs} />
+    <main className="bg-white">
+      <div className="border-b border-rule">
+        <div className="mx-auto max-w-container px-6 py-4">
+          <BreadcrumbNav crumbs={crumbs} />
+        </div>
+      </div>
 
-            <div className="mt-8 grid md:grid-cols-12 gap-10 items-end">
-              <div className="md:col-span-8">
-                <div className="flex items-center gap-4">
-                  <span className="rank-numeral !text-[3.5rem]">
-                    {String(hubIndex + 1).padStart(2, "0")}
-                  </span>
-                  <Eyebrow tone="coral">
-                    Hub {hubIndex + 1} of {hubs.length}
-                  </Eyebrow>
-                </div>
-                <h1 className="display-headline text-pine mt-3 text-[2.5rem] md:text-[3.6rem] leading-[1.02]">
-                  {hl.name}
-                </h1>
-                <p className="mt-6 font-serif italic text-xl md:text-2xl text-charcoal/80 max-w-2xl leading-[1.4]">
-                  {hl.oneLiner}
-                </p>
-              </div>
-              <div className="md:col-span-4 md:pl-6 md:border-l md:border-pine/10">
-                <Eyebrow tone="stone">Our thesis</Eyebrow>
-                <p className="mt-3 text-[14.5px] text-charcoal/85 leading-relaxed">
-                  {hl.thesis}
-                </p>
-                <dl className="mt-5 pt-5 border-t border-pine/10 space-y-2 text-[13px]">
-                  <div className="flex justify-between">
-                    <dt className="text-stone">Posts live</dt>
-                    <dd className="text-pine tnum">{hubPosts.length}</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="text-stone">Planned in hub</dt>
-                    <dd className="text-pine tnum">30</dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-
-            <AnimatedFieldRule className="mt-14" />
-          </div>
-        </section>
-
-        {/* Start here — pillar */}
-        {pillar && (
-          <section className="border-b border-pine/10">
-            <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-              <Eyebrow tone="sage">Start here</Eyebrow>
-              <h2 className="font-serif text-3xl md:text-4xl text-pine mt-3 mb-8 leading-tight">
-                The complete guide.
-              </h2>
-              <Link
-                href={`/${pillar.slug}`}
-                className="group block bg-paper border border-pine/15 rounded-sm p-8 md:p-10 shadow-soft hover:shadow-card hover:border-sage-deep/50 transition"
-              >
-                <Eyebrow tone="coral">The Guide</Eyebrow>
-                <h3 className="font-serif text-[1.8rem] md:text-[2.2rem] text-pine leading-[1.08] mt-3">
-                  {pillar.title}
-                </h3>
-                <p className="mt-5 text-charcoal/85 text-[15.5px] leading-relaxed max-w-[62ch]">
-                  {pillar.description}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sage-deep group-hover:text-coral-deep transition text-sm font-medium">
-                  Read the pillar
-                  <span aria-hidden>→</span>
-                </span>
-              </Link>
-            </div>
-          </section>
-        )}
-
-        {/* Comparisons (3-col) */}
-        {comparisons.length > 0 && (
-          <section className="border-b border-pine/10">
-            <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-              <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
-                <div>
-                  <Eyebrow tone="coral">The comparisons</Eyebrow>
-                  <h2 className="font-serif text-3xl md:text-4xl text-pine mt-3 leading-tight">
-                    What&apos;s actually different (and what&apos;s not).
-                  </h2>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-pine/10">
-                {comparisons.map((p, i) => (
-                  <Link
-                    key={p.slug}
-                    href={`/${p.slug}`}
-                    className="group p-6 border-b md:border-b-0 md:border-r border-pine/10 last:border-r-0 hover:bg-cream-deep/50 transition"
-                  >
-                    <RankNumeral n={i + 1} />
-                    <h3 className="font-serif text-xl text-pine leading-tight mt-3 group-hover:text-sage-deep transition">
-                      {p.title}
-                    </h3>
-                    <p className="text-sm text-charcoal/75 mt-2 leading-relaxed line-clamp-3">
-                      {p.description}
-                    </p>
-                    <div className="mt-4 caps-label text-stone">
-                      {p.readingTime} min read
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Explainers — divided list */}
-        {explainers.length > 0 && (
-          <section className="border-b border-pine/10">
-            <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-              <Eyebrow tone="sage">The Explainers</Eyebrow>
-              <h2 className="font-serif text-3xl md:text-4xl text-pine mt-3 mb-8 leading-tight">
-                Plain-English answers to what readers search.
-              </h2>
-              <ul className="divide-y divide-pine/10 border-y border-pine/10">
-                {explainers.map((p) => (
-                  <li key={p.slug}>
-                    <Link
-                      href={`/${p.slug}`}
-                      className="group grid md:grid-cols-[auto_1fr_auto] gap-5 py-5 items-baseline hover:bg-cream-deep/40 px-2 transition"
-                    >
-                      <span className="caps-label text-stone">
-                        {typeLabel[p.postType]}
-                      </span>
-                      <div>
-                        <h3 className="font-serif text-lg text-pine group-hover:text-sage-deep transition leading-snug">
-                          {p.title}
-                        </h3>
-                        <p className="text-sm text-charcoal/70 mt-1 line-clamp-1">
-                          {p.description}
-                        </p>
-                      </div>
-                      <span className="caps-label text-stone tnum whitespace-nowrap">
-                        {p.readingTime} min
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
-
-        {/* Checklists (audits) — 2-col */}
-        {listicles.length > 0 && (
-          <section className="border-b border-pine/10">
-            <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-              <Eyebrow tone="coral">The Checklists</Eyebrow>
-              <h2 className="font-serif text-3xl md:text-4xl text-pine mt-3 mb-8 leading-tight">
-                Printable, practical, for your first follow-up.
-              </h2>
-              <div className="grid md:grid-cols-2 gap-0 border-t border-pine/10">
-                {listicles.map((p, i) => (
-                  <Link
-                    key={p.slug}
-                    href={`/${p.slug}`}
-                    className="group p-6 border-b md:border-b-0 md:border-r border-pine/10 last:border-r-0 hover:bg-cream-deep/50 transition"
-                  >
-                    <RankNumeral n={i + 1} />
-                    <h3 className="font-serif text-xl text-pine leading-tight mt-3 group-hover:text-sage-deep transition">
-                      {p.title}
-                    </h3>
-                    <p className="text-sm text-charcoal/75 mt-2 leading-relaxed line-clamp-2">
-                      {p.description}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {hubPosts.length === 0 && (
-          <section className="mx-auto max-w-6xl px-6 py-20">
-            <p className="text-charcoal/70 text-lg">
-              Posts land here as they clear editorial review. See the{" "}
-              <Link href="/" className="text-sage-deep underline">
-                home page
-              </Link>{" "}
-              for what&apos;s live today.
+      {/* Hub masthead */}
+      <section className="border-b border-rule">
+        <div className="mx-auto max-w-container px-6 pt-12 pb-12 md:pt-16">
+          <div className="max-w-[800px]">
+            <div className="eyebrow mb-3">{hl.shortName}</div>
+            <h1 className="font-serif text-[40px] md:text-[56px] font-semibold leading-[1.05] tracking-tight text-ink">
+              {hl.name}
+            </h1>
+            <p className="mt-5 text-[18px] md:text-[20px] leading-[1.55] text-ink-muted max-w-[60ch]">
+              {hl.oneLiner}
             </p>
-          </section>
-        )}
-
-        <section className="bg-cream-deep/60">
-          <div className="mx-auto max-w-5xl px-6 py-16">
-            <EmailCapture />
+            <p className="mt-4 text-[15px] text-ink-muted leading-relaxed max-w-[60ch]">
+              {hl.thesis}
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-10">
-          <DotRule />
+      {cards.length > 0 ? (
+        <CategoryTileGrid
+          eyebrow="In this hub"
+          heading="Where to start."
+          description={`${cards.length} guide${cards.length === 1 ? "" : "s"} so far. We add to this hub as new trials land or readers ask.`}
+          articles={cards}
+        />
+      ) : (
+        <section className="mx-auto max-w-container px-6 py-20">
+          <p className="text-[16px] text-ink-muted leading-relaxed max-w-prose">
+            Posts land in this hub as they clear editorial review.{" "}
+            <Link href="/" className="text-pine-deep underline">
+              See what is live today
+            </Link>
+            .
+          </p>
         </section>
-      </main>
-    </>
+      )}
+
+      <section className="border-b border-rule bg-surface-alt">
+        <div className="mx-auto max-w-container px-6 py-16">
+          <div className="grid md:grid-cols-2 gap-10">
+            <div>
+              <div className="eyebrow mb-3">All five hubs</div>
+              <h2 className="text-[24px] font-bold text-ink leading-tight">
+                Step out into the rest of peptips.
+              </h2>
+              <p className="mt-3 text-[15px] text-ink-muted leading-relaxed">
+                Every hub gets the same calm, cited treatment. Pick the question that comes next.
+              </p>
+            </div>
+            <ul className="grid grid-cols-1 gap-2">
+              {hubs
+                .filter((h) => h.slug !== hub.slug)
+                .map((h) => {
+                  const local = localizeHub(h, locale);
+                  return (
+                    <li key={h.slug}>
+                      <Link
+                        href={`/guides/${h.slug}`}
+                        className="group flex items-center justify-between bg-white border border-rule rounded-md px-4 py-3 hover:border-pine transition-colors"
+                      >
+                        <span className="text-[15px] font-medium text-ink group-hover:text-pine-deep">
+                          {local.name}
+                        </span>
+                        <span aria-hidden className="text-pine-deep">→</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

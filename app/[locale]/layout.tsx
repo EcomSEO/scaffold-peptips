@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -13,12 +13,19 @@ import { SITE, siteTagline, siteDescription } from "@/lib/content/site";
 import { robotsMeta, localeUrl } from "@/lib/seo";
 import { routing, locales, type Locale } from "@/i18n/routing";
 
-// Single-font system — Inter only. Pliability-style editorial register.
+// Type system — Inter for body/UI + Source Serif 4 for editorial H1 only.
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -87,8 +94,8 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={inter.variable}>
-      <body className={inter.className}>
+    <html lang={locale} className={`${inter.variable} ${sourceSerif.variable}`}>
+      <body className={`${inter.className} bg-surface text-ink antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <OrganizationJsonLd />
           <Header />
