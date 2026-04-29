@@ -10,17 +10,12 @@ const tools = [
   { slug: "/medical-disclaimer", name: "Medical disclaimer" },
 ];
 
-const sisterSites = [
-  { name: "InjectCompass", href: "https://injectcompass.com" },
-  { name: "PlasticFreeLab", href: "https://plasticfreelab.com" },
-  { name: "LarderLab", href: "https://larderlab.com" },
-  { name: "CircadianStack", href: "https://circadianstack.com" },
-];
-
 /**
  * Healthline-grade publisher footer for peptips.
- * 4 column link grid, medical disclaimer block, sister-site links,
- * locale switcher, copyright + editorial standards / privacy / terms.
+ *
+ * 4-col link grid, medical disclaimer block, locale switcher,
+ * copyright + editorial standards / privacy / terms. Sister-site
+ * cross-links removed per the 2026-04-29 operator-isolation lock.
  */
 export function Footer() {
   return (
@@ -91,20 +86,18 @@ export function Footer() {
               </p>
             </div>
             <div className="md:col-span-5">
-              <h4 className="eyebrow mb-2">From the network</h4>
-              <ul className="flex flex-wrap gap-x-4 gap-y-2 text-[13px]">
-                {sisterSites.map((s) => (
-                  <li key={s.name}>
-                    <a
-                      href={s.href}
-                      rel="noopener"
-                      className="text-ink-muted hover:text-pine-deep transition-colors"
-                    >
-                      {s.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <h4 className="eyebrow mb-2">Newsletter</h4>
+              <p className="text-[13px] text-ink-muted leading-relaxed">
+                Calm, cited GLP-1 patient education — every week. New
+                week-by-week guides, side-effect explainers, comparison
+                deep-dives. No vendor pitches.{" "}
+                <Link
+                  href="/newsletter"
+                  className="text-pine-deep hover:text-ink underline decoration-pine-deep/40 hover:decoration-ink underline-offset-4"
+                >
+                  Subscribe →
+                </Link>
+              </p>
               <div className="mt-4">
                 <button
                   type="button"

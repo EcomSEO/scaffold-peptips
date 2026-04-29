@@ -23,8 +23,8 @@ const REVIEWER = {
 };
 
 const AUTHOR = {
-  name: "Sara Lin",
-  jobTitle: "RN, BSN",
+  name: "Eleanor Voss",
+  jobTitle: "RN",
 };
 
 // Reasonable per-post defaults; in a future pass each post gets its own.
