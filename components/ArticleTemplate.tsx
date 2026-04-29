@@ -48,6 +48,12 @@ const DEFAULT_DIMENSIONS: EvidenceDimensions = {
  */
 export function ArticleTemplate({ post }: { post: Post }) {
   const hub = getHub(post.hub);
+  // Per the 2026-04-29 hard rule: every post emits its OWN scored
+  // dimensions (per-post evidenceDimensions on the Post record). The
+  // DEFAULT_DIMENSIONS fallback is retained only for legacy posts
+  // that have not been hydrated yet.
+  const dimensions: EvidenceDimensions =
+    post.evidenceDimensions ?? DEFAULT_DIMENSIONS;
 
   const crumbs = [
     { label: "Home", href: "/" },
@@ -180,7 +186,7 @@ export function ArticleTemplate({ post }: { post: Post }) {
           <article className="lg:col-span-8 article-prose">
             {/* Mobile EvidenceScoreCard collapses inline below the meta */}
             <div className="lg:hidden mb-8">
-              <EvidenceScoreCard dimensions={DEFAULT_DIMENSIONS} />
+              <EvidenceScoreCard dimensions={dimensions} />
             </div>
 
             {/* Mobile in-article TOC accordion */}
@@ -262,7 +268,7 @@ export function ArticleTemplate({ post }: { post: Post }) {
           {/* Right rail */}
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-              <EvidenceScoreCard dimensions={DEFAULT_DIMENSIONS} />
+              <EvidenceScoreCard dimensions={dimensions} />
               <TableOfContents items={toc} />
             </div>
           </aside>

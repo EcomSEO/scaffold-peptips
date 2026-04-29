@@ -23,6 +23,26 @@ export type Post = {
   sources?: Array<{ label: string; url: string }>;
   featured?: boolean;
   medicalDisclaimer?: "required" | "light";
+  /**
+   * Per-post evidence dimensions for the EvidenceScoreCard. Per the
+   * 2026-04-29 hard rule (02-peptips.md Phase 2): every post gets its
+   * own scored dimensions tied to real citations. ArticleTemplate
+   * default applies only when this is unset (legacy posts only).
+   */
+  evidenceDimensions?: {
+    trialStrength: number;
+    sampleSize: number;
+    mechanism: number;
+    reproducibility: number;
+    realWorldFit: number;
+    rationale?: {
+      trialStrength: string;
+      sampleSize: string;
+      mechanism: string;
+      reproducibility: string;
+      realWorldFit: string;
+    };
+  };
 };
 
 export const posts: Post[] = [
@@ -33,13 +53,106 @@ export const posts: Post[] = [
     description:
       "A week-by-week timeline of the first year on semaglutide. What is normal. What is not. When to call your doctor.",
     hub: "side-effects-and-management",
-    postType: "cluster",
+    postType: "listicle",
     publishedAt: "2026-04-21",
-    updatedAt: "2026-04-21",
-    readingTime: 14,
+    updatedAt: "2026-04-29",
+    readingTime: 22,
     status: "published",
     featured: true,
     medicalDisclaimer: "required",
+    evidenceDimensions: {
+      trialStrength: 95,
+      sampleSize: 88,
+      mechanism: 96,
+      reproducibility: 84,
+      realWorldFit: 78,
+      rationale: {
+        trialStrength:
+          "SUSTAIN-1 through SUSTAIN-7 (T2D) plus the STEP-1 through STEP-5 programme (obesity-medicine indication) cover semaglutide across n>20,000 patients in randomised controlled trials with active and placebo comparators.",
+        sampleSize:
+          "Trials skewed to people with HbA1c 7-10% (T2D arm) and BMI 30-45 (obesity arm). Under-represented: BMI <27, BMI >45, age >75. The week-by-week timeline below applies most cleanly to the trial-modal patient.",
+        mechanism:
+          "GLP-1 receptor agonism with measurable gastric emptying delay (Hjerpsted et al. 2018) and central appetite signalling (Blundell et al. 2017). The mechanism is well-published and its relationship to the side-effect profile is direct.",
+        reproducibility:
+          "STEP-1 effect size replicated in STEP-3, STEP-4, STEP-5, STEP-6, STEP-8 across populations and dose schedules. Real-world cohort weight loss tends to run 20-30% lower than trial averages (Wharton et al. 2022).",
+        realWorldFit:
+          "Adherence is the primary real-world cap. Discontinuation in observational US cohorts is high in year 1 (Gleason et al. 2024). The trial protocols include intensive lifestyle intervention; real-world prescriptions usually do not.",
+      },
+    },
+    items: [
+      {
+        rank: 1,
+        name: "Week 1 — first injection (0.25 mg)",
+        summary:
+          "The starting dose is 0.25 mg once weekly per the Ozempic prescribing information — sub-therapeutic by design, used for tolerability. Appetite suppression is reported within 48-72 hours by many patients (Blundell et al. 2017 measured energy-intake reduction in the first dosing interval). Mild nausea, mild bloating, and early satiety are the dominant reports. This week is rarely the hardest week.",
+      },
+      {
+        rank: 2,
+        name: "Week 2 — body adjusting at 0.25 mg",
+        summary:
+          "Most week-1 GI symptoms have eased. Energy is often described as flat or slightly low — partly the appetite signal eating less than usual, partly the body's adjustment. The STEP-1 trial reported that nausea typically peaked in the first 8-16 weeks and faded; week 2 of any new dose is usually the back half of the peak.",
+      },
+      {
+        rank: 3,
+        name: "Week 3 — settling at 0.25 mg",
+        summary:
+          "Most patients describe week 3 as the settle-in week. Eating habits have started to adjust to the smaller portions the appetite signal is allowing. Weight change at this point is typically minimal — a few pounds at most, often water rather than fat per Wilding 2021 (STEP-1) early-timepoint data.",
+      },
+      {
+        rank: 4,
+        name: "Week 4 — last week at 0.25 mg",
+        summary:
+          "Most prescribers titrate to 0.5 mg at the end of week 4 per the FDA-approved schedule. The 0.25 mg dose is not therapeutic for glycaemic control or weight management — it is a tolerability dose. If GI symptoms have been rough, this is the conversation point with the prescriber about holding for an extra month.",
+      },
+      {
+        rank: 5,
+        name: "Week 5 — first 0.5 mg injection",
+        summary:
+          "The dose-escalation week tends to mirror week 1 in terms of side-effect profile: nausea, possibly diarrhoea or constipation, possible reflux. The Ozempic prescribing information lists these as the most common adverse reactions and notes they are typically heaviest right after a dose change. Plan a quiet 48 hours after the shot.",
+      },
+      {
+        rank: 6,
+        name: "Weeks 6-8 — adjusting at 0.5 mg",
+        summary:
+          "By week 8 most patients on the 0.5 mg dose describe the appetite signal as more pronounced than at 0.25 mg. The STEP-1 weight curve separates from placebo around this point (Wilding 2021). Week 8 is typically when the scale starts moving in a way that reads as fat loss, not just water and reduced food intake.",
+      },
+      {
+        rank: 7,
+        name: "Week 9 — first 1 mg injection",
+        summary:
+          "If the prescriber escalates again at week 9 (the FDA-approved schedule), this is the second dose-step. Side-effect pattern usually resembles week 5 but tends to be milder — the body has been on the medication for two months and the GLP-1-receptor adaptation is partial. Holding at 0.5 mg is a defensible clinical choice if 1 mg is not tolerated; the SUSTAIN-FORTE trial (Frias 2021) showed 1 mg is meaningfully better than 0.5 mg for HbA1c, but the marginal weight-loss difference is smaller.",
+      },
+      {
+        rank: 8,
+        name: "Weeks 10-12 — adjusting at 1 mg",
+        summary:
+          "Week 12 is the canonical T2D HbA1c re-check timepoint per the Ozempic prescribing information. For obesity-medicine indication, the STEP-1 protocol used 16-week and 20-week timepoints. Average week-12 weight loss in STEP-1 was approximately 6% of baseline body weight on the 2.4 mg dose; the 1 mg Ozempic dose runs lower.",
+      },
+      {
+        rank: 9,
+        name: "Weeks 13-20 — the long titration",
+        summary:
+          "The FDA-approved Ozempic schedule allows escalation to 2 mg as the maximum dose after at least 4 weeks at 1 mg. Most prescribers do not push to 2 mg unless HbA1c control or weight progress is below target. Week 16 is the commonly-cited timepoint for assessing whether the medication is working for the patient — STEP-1 showed clear weight-loss separation from placebo by this point.",
+      },
+      {
+        rank: 10,
+        name: "Weeks 21-40 — maintenance phase",
+        summary:
+          "The STEP-1 weight curve continued to descend through week 68 (the trial endpoint), but the slope flattens substantially after week 30. Most patients describe a plateau around week 24-32 that is normal — appetite suppression remains, but the body has reached a new energy-balance steady state. The plateau is not a sign the medication has stopped working; it is the medication working at its new equilibrium.",
+      },
+      {
+        rank: 11,
+        name: "Weeks 41-52 — first-year close",
+        summary:
+          "By week 52, STEP-1 patients on semaglutide 2.4 mg had lost an average of 14.9% of body weight vs 2.4% for placebo. The Ozempic 2 mg dose runs lower in absolute terms but follows the same shape. Year-1 is also the commonly-cited timepoint for the first formal re-evaluation: continue, hold dose, or step down. The STEP-4 trial (Rubino 2021) showed that withdrawing semaglutide led to weight regain — the medication maintains its effect for as long as it is taken.",
+      },
+      {
+        rank: 12,
+        name: "Beyond year 1 — long-term considerations",
+        summary:
+          "The published longest-duration RCT data is the SELECT trial (Lincoff 2023, NEJM) which followed semaglutide 2.4 mg for a mean of 39.8 months in patients with cardiovascular disease and overweight. Cardiovascular event reduction was 20% vs placebo. The long-term safety signal is favourable across the published cohort, but observational data on real-world adherence beyond 2 years is still maturing.",
+      },
+    ],
     faq: [
       {
         q: "When does Ozempic start working?",
@@ -77,8 +190,23 @@ export const posts: Post[] = [
       },
       {
         label:
+          "FDA Prescribing Information: Wegovy (semaglutide) injection",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+      },
+      {
+        label:
           "Wilding JPH et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP-1). NEJM 2021",
         url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+      },
+      {
+        label:
+          "Davies M et al. Semaglutide 2.4 mg Once a Week in Adults with Overweight or Obesity, and Type 2 Diabetes (STEP-2). Lancet 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33667417/",
+      },
+      {
+        label:
+          "Wadden TA et al. Effect of Subcutaneous Semaglutide on Weight Loss with Intensive Behavioral Therapy (STEP-3). JAMA 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33755727/",
       },
       {
         label:
@@ -86,12 +214,43 @@ export const posts: Post[] = [
         url: "https://pubmed.ncbi.nlm.nih.gov/33755728/",
       },
       {
-        label: "Novo Nordisk Ozempic patient resources",
-        url: "https://www.ozempic.com/",
+        label:
+          "Garvey WT et al. Two-Year Effects of Semaglutide on Body Weight (STEP-5). Nat Med 2022",
+        url: "https://pubmed.ncbi.nlm.nih.gov/36280750/",
       },
       {
-        label: "FDA Wegovy (semaglutide) prescribing information",
-        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+        label:
+          "Lincoff AM et al. Semaglutide and Cardiovascular Outcomes in Obesity Without Diabetes (SELECT). NEJM 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37952131/",
+      },
+      {
+        label:
+          "Frias JP et al. Efficacy and Safety of Once-Weekly Semaglutide 2.0 mg vs 1.0 mg (SUSTAIN-FORTE). Lancet Diabetes Endocrinol 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/34293304/",
+      },
+      {
+        label:
+          "Blundell J et al. Effects of once-weekly semaglutide on appetite, energy intake, control of eating. Diabetes Obes Metab 2017",
+        url: "https://pubmed.ncbi.nlm.nih.gov/28371175/",
+      },
+      {
+        label:
+          "Hjerpsted JB et al. Semaglutide improves postprandial glucose and lipid metabolism, and delays gastric emptying. Diabetes Obes Metab 2018",
+        url: "https://pubmed.ncbi.nlm.nih.gov/29377644/",
+      },
+      {
+        label:
+          "Wharton S et al. Real-world clinical effectiveness of semaglutide. Diabetes Obes Metab 2022",
+        url: "https://pubmed.ncbi.nlm.nih.gov/34866317/",
+      },
+      {
+        label:
+          "Gleason PP et al. Real-World Persistence and Adherence to Glucagon-Like Peptide-1 Receptor Agonists. JAMA Netw Open 2024",
+        url: "https://pubmed.ncbi.nlm.nih.gov/39504020/",
+      },
+      {
+        label: "EMA Ozempic European Public Assessment Report (EPAR)",
+        url: "https://www.ema.europa.eu/en/medicines/human/EPAR/ozempic",
       },
     ],
   },

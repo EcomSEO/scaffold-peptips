@@ -64,6 +64,9 @@ export function pageMetadata(opts: {
   path: string;
   locale?: Locale;
   ogType?: "website" | "article";
+  /** Force noindex,nofollow regardless of SITE.launched. Used by the
+   *  Sweden compound stub on /sv/{restricted-slug}. */
+  noindex?: boolean;
 }): Metadata {
   const locale = opts.locale ?? defaultLocale;
   const url = localeUrl(locale, opts.path);
@@ -81,7 +84,7 @@ export function pageMetadata(opts: {
       canonical: url,
       languages,
     },
-    robots: robotsMeta(),
+    robots: opts.noindex ? NO_INDEX_PRE_LAUNCH : robotsMeta(),
     openGraph: {
       type: opts.ogType ?? "website",
       url,

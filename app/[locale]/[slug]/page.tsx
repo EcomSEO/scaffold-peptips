@@ -7,6 +7,10 @@ import { TranslationPendingBanner } from "@/components/TranslationPendingBanner"
 import { pageMetadata } from "@/lib/seo";
 import { localizePost } from "@/lib/content/posts-i18n";
 import { type Locale, defaultLocale } from "@/i18n/routing";
+import {
+  isRestrictedInSweden,
+  SE_RESTRICTED_NOTICE,
+} from "@/lib/compliance/sweden-restrictions";
 
 // Avoid colliding with /about, /contact, etc — static pages take precedence.
 const RESERVED = new Set([
@@ -39,6 +43,16 @@ export async function generateMetadata({
   if (RESERVED.has(slug)) return {};
   const post = getPost(slug);
   if (!post) return {};
+  // Sweden compound stub: noindex + Läkemedelsverket reference.
+  if (locale === "sv" && isRestrictedInSweden(slug)) {
+    return pageMetadata({
+      title: "Innehållet är inte tillgängligt i Sverige",
+      description: SE_RESTRICTED_NOTICE,
+      path: `/${post.slug}`,
+      locale,
+      noindex: true,
+    });
+  }
   const li = localizePost(slug, locale, {
     title: post.title,
     h1: post.h1,
@@ -67,6 +81,36 @@ export default async function PostPage({
   if (RESERVED.has(slug)) notFound();
   const post = getPost(slug);
   if (!post) notFound();
+
+  // Sweden compound stub render: noindex + Läkemedelsverket reference,
+  // no substantive article body. Aligned with compliance-gap-fill §5.
+  if (locale === "sv" && isRestrictedInSweden(slug)) {
+    return (
+      <main className="bg-white">
+        <article className="mx-auto max-w-prose px-6 py-16 prose">
+          <h1>Innehållet är inte tillgängligt i Sverige</h1>
+          <p>
+            Den här artikeln behandlar ett ämne som är reglerat i Sverige
+            enligt Läkemedelsverkets riktlinjer för apoteksberedning och
+            förskrivning. Vi serverar inte den fullständiga artikeln på
+            svenska för att undvika råd som inte är tillämpliga i
+            Sverige.
+          </p>
+          <p>
+            För information om vad som gäller i Sverige, se{" "}
+            <a
+              href="https://www.lakemedelsverket.se"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Läkemedelsverket
+            </a>
+            .
+          </p>
+        </article>
+      </main>
+    );
+  }
 
   const li = localizePost(slug, locale, {
     title: post.title,
