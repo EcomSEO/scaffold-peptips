@@ -17,6 +17,10 @@ export type Post = {
     name: string;
     tier: string;
     summary: string;
+    /** Links this product to lib/affiliate/registry.ts for buy buttons. */
+    productKey?: string;
+    /** Path under /public (e.g. /products/lmnt.png) or remote image URL. */
+    image?: string;
   }>;
   items?: Array<{ rank: number; name: string; summary: string }>;
   faq?: Array<{ q: string; a: string }>;
@@ -46,6 +50,148 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  {
+    slug: "best-fiber-supplements-for-glp1",
+    title: "Best Fiber Supplements for GLP-1 Constipation",
+    h1: "Best fiber supplements for GLP-1 constipation",
+    description:
+      "Constipation is one of the most common GLP-1 side effects — and the wrong fiber can make the bloating worse. Here's what to buy, what to skip, and why the gentle option usually wins.",
+    hub: "side-effects-and-management",
+    postType: "comparison",
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-01",
+    readingTime: 13,
+    status: "published",
+    medicalDisclaimer: "light",
+    ourPick: {
+      name: "Citrucel (methylcellulose)",
+      tier: "Non-fermenting bulk-forming fiber",
+      reason:
+        "Methylcellulose is a soluble fiber that bulks and softens stool but is not fermented by gut bacteria — which means it does not produce the gas that makes bloating worse. That single property is why it edges out psyllium for GLP-1 users specifically. Psyllium has marginally stronger evidence for chronic constipation in the general population, but GLP-1 users are already dealing with a slowed gut, early fullness, and bloating, and the last thing that gut needs is a fermentable fiber adding gas on top. Start at half the label dose with a full glass of water, take it well away from your injection day's worst hours, and ramp up over a week or two.",
+    },
+    products: [
+      {
+        rank: 1,
+        name: "Citrucel (methylcellulose)",
+        productKey: "citrucel-methylcellulose",
+        image: "/products/citrucel-methylcellulose.png",
+        tier: "Non-fermenting bulk-forming fiber",
+        summary:
+          "Methylcellulose is a semi-synthetic soluble fiber that holds water and bulks stool without being fermented in the colon. No fermentation means little to no gas — the reason it is often the most comfortable choice for a gut that is already bloated and slow on a GLP-1. Comes as a powder (sugar-free and regular) and as caplets. The caplets are convenient when appetite is low and a glass of gritty powder is unappealing. Always take with a full glass of water; fiber without enough water can worsen constipation, not relieve it.",
+      },
+      {
+        rank: 2,
+        name: "Metamucil / Konsyl (psyllium husk)",
+        productKey: "metamucil-psyllium",
+        image: "/products/metamucil-psyllium.png",
+        tier: "Premium gel-forming soluble fiber",
+        summary:
+          "Psyllium is the most-studied fiber for chronic constipation and forms a soft gel that eases passage. The tradeoff for GLP-1 users: psyllium is partially fermentable, so it can cause gas and bloating in the first week, especially if you start at a full dose. Konsyl is nearly pure psyllium with no added sweeteners; Metamucil offers sugar-free (stevia or aspartame) versions — skip the sugar-loaded ones. Start low, build slowly, and drink more water than you think you need. If bloating is your main complaint, methylcellulose may sit better.",
+      },
+      {
+        rank: 3,
+        name: "Sunfiber (partially hydrolyzed guar gum, PHGG)",
+        productKey: "sunfiber-phgg",
+        image: "/products/sunfiber-phgg.jpg",
+        tier: "Low-gas soluble fiber",
+        summary:
+          "PHGG is a soluble fiber that dissolves clear and tasteless into any liquid, with a low-viscosity profile that tends to produce far less gas than inulin or wheat dextrin despite being mildly prebiotic. A good option for someone who wants to stir fiber into coffee, water, or a protein shake without grit or flavor. Effective for regularity; gentle enough that many people with sensitive guts tolerate it well. Slightly slower to show results than psyllium or methylcellulose, but comfortable.",
+      },
+      {
+        rank: 4,
+        name: "Ground flaxseed (whole-food fiber)",
+        productKey: "ground-flaxseed",
+        image: "/products/ground-flaxseed.jpg",
+        tier: "Whole-food soluble + insoluble fiber",
+        summary:
+          "Not a supplement in a tub, but worth including: a tablespoon or two of ground flaxseed brings roughly 2-4g of mixed soluble and insoluble fiber plus omega-3s and lignans. The small serving size fits a small appetite, and it stirs into yogurt, oatmeal, or a shake. Must be ground (whole seeds pass through undigested) and kept refrigerated to avoid rancidity. Gentle and food-first, which suits the brand's bias toward eating real food when possible; not as fast or as dose-predictable as a measured fiber powder.",
+      },
+      {
+        rank: 5,
+        name: "FiberCon (calcium polycarbophil)",
+        productKey: "fibercon-polycarbophil",
+        image: "/products/fibercon-polycarbophil.png",
+        tier: "Non-fermenting bulk-forming caplet",
+        summary:
+          "Like methylcellulose, calcium polycarbophil is a bulk-forming fiber that is not fermented, so it is low-gas. Its main appeal is format: it is a caplet, no powder to mix, which is genuinely easier on days when appetite is low and texture is unappealing. Take each dose with a full 8oz glass of water — this matters more for the caplet forms than the powders, because swallowing fiber pills with too little fluid is a setup for the opposite of what you want.",
+      },
+      {
+        rank: 6,
+        name: "Acacia fiber (gum arabic)",
+        productKey: "acacia-fiber",
+        image: "/products/acacia-fiber.jpg",
+        tier: "Gentle slow-fermenting soluble fiber",
+        summary:
+          "Acacia is a soluble prebiotic fiber that ferments slowly and gently, producing less gas than inulin. Dissolves cleanly and is largely tasteless. A reasonable middle option for someone who wants some prebiotic benefit without the bloating that inulin tends to cause. Effects on regularity are real but milder; some readers use it as a daily base and layer a bulk-former on top when needed.",
+      },
+      {
+        rank: 7,
+        name: "Benefiber (wheat dextrin)",
+        productKey: "benefiber-wheat-dextrin",
+        image: "/products/benefiber-wheat-dextrin.png",
+        tier: "Convenient but fermentable soluble fiber",
+        summary:
+          "Wheat dextrin dissolves invisibly into liquids with no grit or taste, which is its whole selling point. The catch for GLP-1 users: it is readily fermented, so it is one of the more likely powders to add gas and bloating to a gut that is already uncomfortable. Fine for someone who tolerates it, but not a first pick when minimizing bloating is the goal. Contains wheat (gluten) — not suitable for celiac disease.",
+      },
+      {
+        rank: 8,
+        name: "Inulin / chicory root fiber",
+        productKey: "inulin-chicory",
+        image: "/products/inulin-chicory.jpg",
+        tier: "Highly fermentable prebiotic",
+        summary:
+          "Inulin is everywhere — added to bars, shakes, and 'gut health' powders — because it is a strong prebiotic. That is also why it is usually the wrong choice on a GLP-1: it is highly fermentable and one of the most common causes of gas, bloating, and cramping, exactly the symptoms GLP-1 users are already fighting. If a product you already use lists inulin or chicory root high on the label and you feel gassier than expected, that is a likely culprit. Listed last here on purpose.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why does a GLP-1 cause constipation?",
+        a: "Two reasons stack. First, GLP-1 medications slow gastric emptying and gut motility by design — food and stool move more slowly. Second, you are eating less, which means less food volume, less fiber, and often less water moving through. The Ozempic, Wegovy, and Mounjaro prescribing information all list constipation as a common adverse reaction. It tends to be worst in the first weeks and after each dose increase.",
+      },
+      {
+        q: "Soluble or insoluble fiber — which one for constipation?",
+        a: "For GLP-1-related constipation, soluble, gel-forming or bulk-forming fibers (methylcellulose, psyllium, polycarbophil) are the workhorses: they hold water and soften stool. Insoluble fiber (wheat bran, raw vegetable skins) adds bulk but can feel harsh and gassy on a slowed gut. Whole-food options like ground flax bring a bit of both gently. The bigger variable for comfort is not soluble-vs-insoluble — it is whether the fiber ferments.",
+      },
+      {
+        q: "Will fiber make my bloating worse?",
+        a: "It can, if you pick a fermentable one. Inulin, chicory root, and to a lesser extent wheat dextrin and psyllium are fermented by gut bacteria, producing gas. On a GLP-1, where bloating and early fullness are already common, that can backfire. The non-fermenting fibers — methylcellulose and calcium polycarbophil — bulk stool without feeding that gas production, which is why they are usually the more comfortable starting point.",
+      },
+      {
+        q: "How much fiber, and how much water?",
+        a: "Start at roughly half the label dose and build up over one to two weeks; jumping straight to a full dose is the fastest way to feel gassy and quit. Water is non-negotiable: fiber works by holding water in the stool, so a fiber supplement taken without enough fluid can make constipation worse. A practical rule is a full 8oz glass with each dose and steady fluid through the day. General fiber targets run around 25-38g per day from all sources, but the goal on a GLP-1 is comfort and regularity, not hitting a number.",
+      },
+      {
+        q: "Fiber, magnesium, or a stool softener — what comes first?",
+        a: "These work differently and are not interchangeable. Fiber bulks and softens stool over days. Magnesium (often magnesium citrate at bedtime) draws water into the bowel and tends to work faster — see our electrolytes guide for the overlap with hydration. Stool softeners and osmotic laxatives like polyethylene glycol are a separate step. Many people start with fiber plus adequate water and magnesium, and escalate only if that is not enough. What is right for you depends on your medications and history, so loop in your prescriber before stacking products — especially if you have kidney disease or take blood-pressure medication.",
+      },
+      {
+        q: "When is constipation a reason to call my doctor?",
+        a: "Most GLP-1 constipation is uncomfortable but manageable. Treat it as urgent if you go several days with no bowel movement and develop a hard, distended, painful belly, vomiting, or an inability to pass gas — that combination can signal a bowel obstruction or ileus, which has been reported with GLP-1 medications and needs prompt medical attention. Persistent constipation that does not respond to fiber, fluids, and magnesium over a couple of weeks is also worth a call, as is any blood in the stool.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Ozempic (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+      {
+        label: "FDA Prescribing Information: Wegovy (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+      },
+      {
+        label: "FDA Prescribing Information: Mounjaro (tirzepatide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215866",
+      },
+      {
+        label: "NIDDK: Symptoms & Causes of Constipation",
+        url: "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes",
+      },
+      {
+        label: "USDA & HHS: Dietary Guidelines for Americans 2020-2025 (dietary fiber)",
+        url: "https://www.dietaryguidelines.gov/",
+      },
+    ],
+  },
   {
     slug: "ozempic-week-by-week",
     title: "Ozempic Week by Week: What to Expect",
@@ -560,20 +706,26 @@ export const posts: Post[] = [
       {
         rank: 1,
         name: "Klean Athlete Klean Isolate",
+        productKey: "klean-isolate",
+        image: "/products/klean-isolate.png",
         tier: "Premium whey isolate",
         summary:
           "20g per scoop, whey protein isolate, NSF Certified for Sport. Short ingredient list, no artificial colors or sweeteners. It mixes thin in water, which matters when a shake is replacing part of a meal on a day nothing sounds good. Blended with frozen berries and a banana, it hits a 30g breakfast target without asking a shrunken appetite to chew.",
       },
       {
         rank: 2,
-        name: "Needed Grass-Fed Whey Isolate",
+        name: "Transparent Labs Grass-Fed Whey Isolate",
+        productKey: "transparent-labs-whey",
+        image: "/products/transparent-labs-whey.png",
         tier: "Premium whey isolate",
         summary:
-          "25g per scoop, grass-fed whey, third-party tested. The vanilla and chocolate flavors are sweetened with monk fruit rather than sucralose, which comes up often in patient conversations about shakes that don't aggravate nausea. Mixes clean. Designed by the supplement brand Needed as part of a clinical nutrition line, it tends to be gentler on sensitive stomachs than big-box whey.",
+          "28g per scoop, grass-fed whey isolate, third-party tested, sweetened with stevia rather than sucralose — which comes up often in patient conversations about shakes that don't aggravate nausea. No artificial sweeteners, flavors, or coloring, and a short ingredient list that tends to sit better on a sensitive stomach than big-box whey. Mixes clean.",
       },
       {
         rank: 3,
         name: "Momentous Essential Whey",
+        productKey: "momentous-whey",
+        image: "/products/momentous-whey.png",
         tier: "Premium whey blend",
         summary:
           "20g per scoop, grass-fed whey, NSF Certified for Sport. Stevia-sweetened (not sucralose), which is a plus for readers tracking sweetener tolerance on a slow-emptying stomach. Clean label, reliable mixing, and one of the more researched brands in the sports-nutrition space. A reasonable daily driver if budget allows.",
@@ -581,6 +733,8 @@ export const posts: Post[] = [
       {
         rank: 4,
         name: "Promix Whey Isolate",
+        productKey: "promix-whey",
+        image: "/products/promix-whey.png",
         tier: "Mid-tier whey isolate",
         summary:
           "25g per scoop, grass-fed whey isolate, unflavored and lightly flavored versions available. The unflavored blends invisibly into yogurt, soup, or oatmeal, which is useful when a full shake is too much volume but protein still needs to land. No artificial sweeteners in the unflavored version. One of the better mid-tier options for GLP-1 users who want flexibility in how protein gets in.",
@@ -588,6 +742,8 @@ export const posts: Post[] = [
       {
         rank: 5,
         name: "Optimum Nutrition Gold Standard Whey",
+        productKey: "on-gold-standard-whey",
+        image: "/products/on-gold-standard-whey.png",
         tier: "Budget whey blend",
         summary:
           "24g per scoop, whey isolate + concentrate blend, widely available. Not the cleanest label in this list (contains sucralose and acesulfame-K) but the most accessible — available at Costco, Target, and Amazon at under half the price of the premium tier. A fine starting point if you're figuring out whether protein powder works for you before spending more on a cleaner formulation.",
@@ -595,6 +751,8 @@ export const posts: Post[] = [
       {
         rank: 6,
         name: "Truvani Plant-Based Protein",
+        productKey: "truvani-plant",
+        image: "/products/truvani-plant.png",
         tier: "Premium plant protein",
         summary:
           "20g per scoop, pea + chia + pumpkin seed blend, monk fruit sweetened. A solid option for readers who don't tolerate dairy on a GLP-1 (lactose sensitivity tends to get worse when gastric emptying slows). Mixes on the thicker side and benefits from blending. Clean ingredient list, no gums. Works well with almond milk and nut butter for a morning protein hit.",
@@ -602,6 +760,8 @@ export const posts: Post[] = [
       {
         rank: 7,
         name: "Orgain Organic Plant Protein",
+        productKey: "orgain-plant",
+        image: "/products/orgain-plant.png",
         tier: "Mid-tier plant protein",
         summary:
           "21g per scoop, organic pea + brown rice + chia blend. Widely available at grocery stores. Uses stevia and erythritol. Erythritol can bother some slow-emptying stomachs, so worth a small first scoop to test tolerance. Decent flavor for a plant powder. A reasonable non-premium plant option if Truvani is out of budget.",
@@ -609,6 +769,8 @@ export const posts: Post[] = [
       {
         rank: 8,
         name: "Ritual Essential Protein Daily Shake 18+",
+        productKey: "ritual-protein",
+        image: "/products/ritual-protein.jpg",
         tier: "Premium plant protein",
         summary:
           "20g per scoop, pea protein with added Choline and methylated B-vitamins. Traceable sourcing is the brand's pitch. Monk-fruit sweetened. More expensive per serving than Orgain or Truvani. The added micronutrients are a nice bonus for GLP-1 users eating less overall, though the dose is modest and shouldn't replace a multivitamin if one is clinically indicated.",
@@ -616,6 +778,8 @@ export const posts: Post[] = [
       {
         rank: 9,
         name: "Garden of Life Sport Organic Plant Protein",
+        productKey: "gol-sport-plant",
+        image: "/products/gol-sport-plant.jpg",
         tier: "Mid-tier plant protein",
         summary:
           "30g per scoop, pea + navy bean + lentil + garbanzo + cranberry blend, NSF Certified for Sport. High protein density for a plant option, which matters when every calorie needs to do work. Organic and stevia-sweetened. Some readers find the legume blend thick; blending with ice helps.",
@@ -623,6 +787,8 @@ export const posts: Post[] = [
       {
         rank: 10,
         name: "Quest Protein Powder",
+        productKey: "quest-protein",
+        image: "/products/quest-protein.png",
         tier: "Budget whey/casein blend",
         summary:
           "23g per scoop, whey + milk protein isolate, widely available. Contains sucralose. Chosen by some GLP-1 users specifically because the slower-digesting casein in the blend stays in the stomach longer and helps with the hours-long hunger suppression. Not the cleanest label, but a practical option for readers who already trust the brand from protein bars.",
@@ -707,6 +873,8 @@ export const posts: Post[] = [
       {
         rank: 1,
         name: "LMNT Recharge",
+        productKey: "lmnt-electrolytes",
+        image: "/products/lmnt-electrolytes.jpg",
         tier: "Premium low-sugar electrolyte",
         summary:
           "1,000mg sodium, 200mg potassium, 60mg magnesium per stick. Zero sugar, stevia-sweetened (Raw Unflavored has no sweetener at all). High sodium makes this the most useful option for GLP-1 users in the first 1-2 months when intake is lowest. Flavors are polarizing. The unflavored can be added to broth; the citrus and mango chili versions are popular. One packet in 16-32oz of water.",
@@ -714,6 +882,8 @@ export const posts: Post[] = [
       {
         rank: 2,
         name: "Redmond Re-Lyte Electrolyte Mix",
+        productKey: "redmond-re-lyte",
+        image: "/products/redmond-re-lyte.jpg",
         tier: "Premium low-sugar electrolyte",
         summary:
           "810mg sodium, 400mg potassium, 50mg magnesium per scoop. Uses Redmond real salt (unrefined sea salt) plus added potassium and magnesium. Sweetened with a touch of stevia. Slightly lower sodium than LMNT but higher potassium, which some readers prefer. Dissolves well. The lemon-lime and mixed-berry flavors are the most accessible for daily use.",
@@ -721,6 +891,8 @@ export const posts: Post[] = [
       {
         rank: 3,
         name: "Needed Electrolytes",
+        productKey: "needed-electrolytes",
+        image: "/products/needed-electrolytes.png",
         tier: "Premium clinical formulation",
         summary:
           "815mg sodium, 250mg potassium, 75mg magnesium per stick. Designed by Needed's clinical nutrition team with GLP-1 and perinatal users in mind. Monk-fruit sweetened. Includes trace minerals beyond the big three. Slightly less salty than LMNT, which readers with sensitive stomachs often prefer. A premium-priced option, but the formulation is thoughtful.",
@@ -728,6 +900,8 @@ export const posts: Post[] = [
       {
         rank: 4,
         name: "Liquid IV Hydration Multiplier",
+        productKey: "liquid-iv",
+        image: "/products/liquid-iv.jpg",
         tier: "Budget hydration mix",
         summary:
           "500mg sodium, 370mg potassium, plus 11g added sugar per stick. The sugar is the tradeoff: the sodium dose is lower than the premium category, and the sugar load runs counter to most GLP-1 eating patterns. A reasonable option for someone who struggles with plain water and can tolerate the carbs, but not a first choice when minimizing sugar matters.",
@@ -735,6 +909,8 @@ export const posts: Post[] = [
       {
         rank: 5,
         name: "Nuun Sport Electrolyte Tablets",
+        productKey: "nuun-sport",
+        image: "/products/nuun-sport.png",
         tier: "Budget low-sugar tablets",
         summary:
           "300mg sodium, 150mg potassium per tablet. Low sugar (1g), sweetened with stevia. The sodium dose is much lower than LMNT or Re-Lyte, so you may need two tablets. Fizzing tablet format is pleasant and portable. A reasonable travel or gym-bag option; probably not enough sodium on its own for heavy GLP-1 side-effect days.",
@@ -742,6 +918,8 @@ export const posts: Post[] = [
       {
         rank: 6,
         name: "Ultima Replenisher",
+        productKey: "ultima-replenisher",
+        image: "/products/ultima-replenisher.jpg",
         tier: "Mid-tier low-sugar electrolyte",
         summary:
           "55mg sodium, 250mg potassium, 100mg magnesium per stick. Zero sugar, stevia-sweetened, multiple flavors. The sodium dose here is very low; this is more of a light-hydration supplement than a replacement-level electrolyte. Useful for daily base hydration for some readers; not sufficient on its own for the worst fatigue or dehydration days.",
@@ -749,6 +927,8 @@ export const posts: Post[] = [
       {
         rank: 7,
         name: "Pedialyte Electrolyte Solution",
+        productKey: "pedialyte-solution",
+        image: "/products/pedialyte-solution.jpeg",
         tier: "Medical-grade rehydration",
         summary:
           "490mg sodium, 370mg potassium per 12oz serving. Originally formulated for pediatric dehydration, commonly used by adults during vomiting or diarrhea illness. Contains dextrose (sugar) on purpose, because glucose helps sodium absorption at the gut level. Worth keeping on hand for a severe GI-symptom day but not for daily use.",
@@ -756,6 +936,8 @@ export const posts: Post[] = [
       {
         rank: 8,
         name: "Dr. Berg's Electrolyte Powder",
+        productKey: "dr-berg-electrolytes",
+        image: "/products/dr-berg-electrolytes.png",
         tier: "Budget low-sugar electrolyte",
         summary:
           "50mg sodium, 1,000mg potassium, 120mg magnesium per scoop. An unusual profile: much lower sodium, much higher potassium than the rest of this list. That ratio is a better fit for someone already salting food heavily. No sugar, stevia-sweetened. Reasonable if the high-potassium profile matches what's missing from your diet; not a first pick for most GLP-1 users.",

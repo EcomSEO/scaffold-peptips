@@ -9,7 +9,8 @@
  *   - CGM (Levels, Abbott Lingo, NutriSense)
  *   - Magnesium glycinate (Thorne, Pure Encapsulations)
  *   - B12 supplements (Thorne, NOW Foods)
- *   - Electrolyte mixes (LMNT, Liquid IV)
+ *   - Electrolyte mixes (LMNT, Liquid IV, Re-Lyte, Needed, ...)
+ *   - Fiber supplements (Citrucel, Metamucil, Sunfiber, ...)
  *   - Travel cool-bags (Frio, MedAngel)
  *
  * It MUST NOT contain (site-ending boundary):
@@ -24,23 +25,22 @@
  * link starts as a third-party affiliate (`thirdPartyUrl`); when the
  * owned shop launches the same `productKey` swaps to the first-party
  * URL automatically (no body rewrites needed).
+ *
+ * Outbound links are rendered through the cloaked `/go/[productKey]`
+ * redirect (see app/go/[key]/route.ts) so links can be swapped without
+ * editing post bodies and every click is server-logged.
  */
 
 export type AffiliateLink = {
   productKey: string;
   brand: string;
   name: string;
+  /** Primary affiliate URL today. Amazon links carry the peptips-20 tag. */
   thirdPartyUrl: string;
-  thirdPartyLabel:
-    | "Amazon"
-    | "Direct"
-    | "Thorne"
-    | "Pure Encapsulations"
-    | "Levels"
-    | "Abbott"
-    | "NutriSense"
-    | "LMNT"
-    | "Frio";
+  /** Button label for the primary retailer, e.g. "Amazon" or "LMNT". */
+  thirdPartyLabel: string;
+  /** Optional second retailer button (e.g. brand-direct primary + Amazon). */
+  amazonUrl?: string;
   ownedShopUrl?: string;
   ownedShopAvailableFromDate?: string;
   category:
@@ -49,6 +49,8 @@ export type AffiliateLink = {
     | "magnesium"
     | "b12"
     | "electrolytes"
+    | "fiber"
+    | "protein"
     | "travel-cool-bag";
   blurb: string;
 };
@@ -56,6 +58,13 @@ export type AffiliateLink = {
 const AMAZON_TAG = "peptips-20";
 const amazonUrl = (asin: string) =>
   `https://www.amazon.com/dp/${asin}/?tag=${AMAZON_TAG}`;
+/**
+ * Tagged Amazon search link. Used when there is no single canonical ASIN
+ * (formulas/flavours vary): always valid, never points at the wrong SKU,
+ * and still attributes the sale to peptips-20 within the cookie window.
+ */
+const amazonSearch = (query: string) =>
+  `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AMAZON_TAG}`;
 
 export const AFFILIATES: Record<string, AffiliateLink> = {
   // ── Cooking scales ─────────────────────────────────────────────────
@@ -163,9 +172,32 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Recharge Electrolytes",
     thirdPartyUrl: "https://drinklmnt.com/",
     thirdPartyLabel: "LMNT",
+    amazonUrl: amazonSearch("LMNT Recharge electrolyte drink mix"),
     category: "electrolytes",
     blurb:
       "1000 mg Na, 200 mg K, 60 mg Mg per stick. Useful during the GLP-1 titration phase when reduced fluid intake can produce headaches and lethargy.",
+  },
+  "redmond-re-lyte": {
+    productKey: "redmond-re-lyte",
+    brand: "Redmond",
+    name: "Re-Lyte Electrolyte Mix",
+    thirdPartyUrl: "https://redmond.life/products/re-lyte-electrolyte-mix",
+    thirdPartyLabel: "Redmond",
+    amazonUrl: amazonSearch("Redmond Re-Lyte electrolyte mix"),
+    category: "electrolytes",
+    blurb:
+      "810 mg Na, 400 mg K, 50 mg Mg per scoop using unrefined real salt. Higher potassium than LMNT; lightly stevia-sweetened.",
+  },
+  "needed-electrolytes": {
+    productKey: "needed-electrolytes",
+    brand: "Needed",
+    name: "Hydration Support / Electrolytes",
+    thirdPartyUrl: "https://thisisneeded.com/products/electrolytes",
+    thirdPartyLabel: "Needed",
+    amazonUrl: amazonSearch("Needed electrolytes hydration"),
+    category: "electrolytes",
+    blurb:
+      "815 mg Na, 250 mg K, 75 mg Mg per stick, monk-fruit sweetened, formulated with GLP-1 and perinatal users in mind. Premium-priced, thoughtfully built.",
   },
   "liquid-iv": {
     productKey: "liquid-iv",
@@ -176,6 +208,241 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     category: "electrolytes",
     blurb:
       "Lower sodium per stick (500 mg) and added sugar — the alternative when the LMNT salt level is too much for a sedentary day.",
+  },
+  "nuun-sport": {
+    productKey: "nuun-sport",
+    brand: "Nuun",
+    name: "Sport Electrolyte Tablets",
+    thirdPartyUrl: "https://nuunlife.com/products/nuun-sport",
+    thirdPartyLabel: "Nuun",
+    amazonUrl: amazonSearch("Nuun Sport electrolyte tablets"),
+    category: "electrolytes",
+    blurb:
+      "300 mg Na, 150 mg K per tablet, low sugar, stevia-sweetened. Portable fizzing-tablet format; you may need two tablets to match the powder mixes.",
+  },
+  "ultima-replenisher": {
+    productKey: "ultima-replenisher",
+    brand: "Ultima",
+    name: "Replenisher Electrolyte Powder",
+    thirdPartyUrl: "https://ultimareplenisher.com/",
+    thirdPartyLabel: "Ultima",
+    amazonUrl: amazonSearch("Ultima Replenisher electrolyte powder"),
+    category: "electrolytes",
+    blurb:
+      "55 mg Na, 250 mg K, 100 mg Mg per stick, zero sugar. Light-hydration level sodium — a daily base, not a heavy side-effect-day replacement.",
+  },
+  "pedialyte-solution": {
+    productKey: "pedialyte-solution",
+    brand: "Pedialyte",
+    name: "Electrolyte Solution",
+    thirdPartyUrl: amazonSearch("Pedialyte electrolyte solution"),
+    thirdPartyLabel: "Amazon",
+    category: "electrolytes",
+    blurb:
+      "490 mg Na, 370 mg K per 12 oz, with dextrose to aid sodium absorption. Worth keeping on hand for a severe vomiting/diarrhea day, not for daily use.",
+  },
+  "dr-berg-electrolytes": {
+    productKey: "dr-berg-electrolytes",
+    brand: "Dr. Berg",
+    name: "Electrolyte Powder",
+    thirdPartyUrl: "https://shop.drberg.com/electrolyte-powder-regular",
+    thirdPartyLabel: "Dr. Berg",
+    amazonUrl: amazonSearch("Dr Berg electrolyte powder"),
+    category: "electrolytes",
+    blurb:
+      "50 mg Na, 1000 mg K, 120 mg Mg per scoop — an unusually high-potassium, low-sodium profile. Fits someone already salting food heavily.",
+  },
+
+  // ── Fiber supplements (GLP-1 constipation) ─────────────────────────
+  // Bias: non-fermenting fibers first (less gas on an already-slowed gut).
+  "citrucel-methylcellulose": {
+    productKey: "citrucel-methylcellulose",
+    brand: "Citrucel",
+    name: "Methylcellulose Fiber",
+    thirdPartyUrl: amazonSearch("Citrucel methylcellulose fiber"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Non-fermenting soluble fiber: bulks and softens stool without producing gas — the most comfortable default for a bloated GLP-1 gut. Powder and caplet forms.",
+  },
+  "metamucil-psyllium": {
+    productKey: "metamucil-psyllium",
+    brand: "Metamucil / Konsyl",
+    name: "Psyllium Husk Fiber",
+    thirdPartyUrl: amazonSearch("psyllium husk fiber sugar free Metamucil Konsyl"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "The most-studied fiber for chronic constipation; forms a soft gel. Partially fermentable, so start low and build. Choose sugar-free; Konsyl is near-pure psyllium.",
+  },
+  "sunfiber-phgg": {
+    productKey: "sunfiber-phgg",
+    brand: "Sunfiber",
+    name: "Partially Hydrolyzed Guar Gum (PHGG)",
+    thirdPartyUrl: amazonSearch("Sunfiber PHGG partially hydrolyzed guar gum powder"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Clear, tasteless, low-gas soluble fiber that stirs into any liquid. Mildly prebiotic but far gentler than inulin. Comfortable, if slightly slower-acting.",
+  },
+  "ground-flaxseed": {
+    productKey: "ground-flaxseed",
+    brand: "Bob's Red Mill",
+    name: "Ground Flaxseed",
+    thirdPartyUrl: amazonSearch("ground flaxseed meal Bob's Red Mill"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Whole-food mixed soluble/insoluble fiber plus omega-3s and lignans. Small servings suit a small appetite; must be ground and refrigerated.",
+  },
+  "fibercon-polycarbophil": {
+    productKey: "fibercon-polycarbophil",
+    brand: "FiberCon",
+    name: "Calcium Polycarbophil Caplets",
+    thirdPartyUrl: amazonSearch("FiberCon calcium polycarbophil fiber caplets"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Non-fermenting bulk-former in caplet form — no powder to mix, easy on low-appetite days. Take each dose with a full glass of water.",
+  },
+  "acacia-fiber": {
+    productKey: "acacia-fiber",
+    brand: "Acacia (gum arabic)",
+    name: "Acacia Fiber Powder",
+    thirdPartyUrl: amazonSearch("acacia fiber powder gum arabic organic"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Slow, gentle-fermenting soluble prebiotic fiber — less gas than inulin. Dissolves cleanly and tasteless; a mild daily base.",
+  },
+  "benefiber-wheat-dextrin": {
+    productKey: "benefiber-wheat-dextrin",
+    brand: "Benefiber",
+    name: "Wheat Dextrin Fiber",
+    thirdPartyUrl: amazonSearch("Benefiber wheat dextrin fiber powder"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Dissolves invisibly with no grit, but readily fermented — more likely to add gas to an uncomfortable gut. Contains wheat (gluten).",
+  },
+  "inulin-chicory": {
+    productKey: "inulin-chicory",
+    brand: "Inulin / chicory root",
+    name: "Inulin Prebiotic Fiber",
+    thirdPartyUrl: amazonSearch("inulin chicory root fiber prebiotic powder"),
+    thirdPartyLabel: "Amazon",
+    category: "fiber",
+    blurb:
+      "Strong prebiotic but highly fermentable — a common cause of exactly the gas and bloating GLP-1 users are already fighting. Usually the wrong pick here.",
+  },
+
+  // ── Protein powders (lean-mass protection on a GLP-1) ──────────────
+  // Amazon-search primary: protein SKUs/flavours rotate constantly, so a
+  // tagged search never 404s or points at a discontinued tub.
+  "klean-isolate": {
+    productKey: "klean-isolate",
+    brand: "Klean Athlete",
+    name: "Klean Isolate Whey",
+    thirdPartyUrl: amazonSearch("Klean Athlete Klean Isolate whey protein"),
+    thirdPartyLabel: "Amazon",
+    category: "protein",
+    blurb:
+      "NSF Certified for Sport whey isolate, ~20 g protein, minimal additives. The clean, low-additive pick for a sensitive GLP-1 gut.",
+  },
+  "transparent-labs-whey": {
+    productKey: "transparent-labs-whey",
+    brand: "Transparent Labs",
+    name: "Grass-Fed Whey Protein Isolate",
+    thirdPartyUrl: "https://www.transparentlabs.com/products/grass-fed-whey-protein-isolate",
+    thirdPartyLabel: "Transparent Labs",
+    amazonUrl: amazonSearch("Transparent Labs grass-fed whey protein isolate"),
+    category: "protein",
+    blurb:
+      "28 g grass-fed whey isolate, third-party tested, stevia-sweetened with no artificial sweeteners or fillers. A short, clean ingredient list that tends to sit well on a sensitive GLP-1 gut.",
+  },
+  "momentous-whey": {
+    productKey: "momentous-whey",
+    brand: "Momentous",
+    name: "Essential Grass-Fed Whey",
+    thirdPartyUrl: "https://www.livemomentous.com/products/whey-protein-isolate",
+    thirdPartyLabel: "Momentous",
+    amazonUrl: amazonSearch("Momentous Essential Whey protein"),
+    category: "protein",
+    blurb:
+      "NSF Certified for Sport grass-fed whey, ~20-24 g protein. Well-tolerated, mixes clean; a frequent dietitian recommendation.",
+  },
+  "promix-whey": {
+    productKey: "promix-whey",
+    brand: "Promix",
+    name: "Whey Protein Isolate",
+    thirdPartyUrl: "https://promixnutrition.com/products/whey-protein-isolate-powder",
+    thirdPartyLabel: "Promix",
+    amazonUrl: amazonSearch("Promix whey protein isolate"),
+    category: "protein",
+    blurb:
+      "Grass-fed whey isolate, ~30 g protein per scoop, minimal ingredients. Strong cost-per-gram for a clean isolate.",
+  },
+  "on-gold-standard-whey": {
+    productKey: "on-gold-standard-whey",
+    brand: "Optimum Nutrition",
+    name: "Gold Standard 100% Whey",
+    thirdPartyUrl: amazonSearch("Optimum Nutrition Gold Standard 100% Whey"),
+    thirdPartyLabel: "Amazon",
+    category: "protein",
+    blurb:
+      "The category benchmark: ~24 g protein, whey blend, wide flavor range, budget-friendly per serving. A few additives, but the value is hard to beat.",
+  },
+  "truvani-plant": {
+    productKey: "truvani-plant",
+    brand: "Truvani",
+    name: "Plant-Based Protein",
+    thirdPartyUrl: "https://truvani.com/products/plant-based-protein-powder",
+    thirdPartyLabel: "Truvani",
+    amazonUrl: amazonSearch("Truvani plant based protein powder"),
+    category: "protein",
+    blurb:
+      "Short-ingredient pea-protein blend, ~20 g protein, no added sugar. A clean plant option for whey-sensitive or dairy-avoiding readers.",
+  },
+  "orgain-plant": {
+    productKey: "orgain-plant",
+    brand: "Orgain",
+    name: "Organic Plant Protein",
+    thirdPartyUrl: amazonSearch("Orgain organic plant protein powder"),
+    thirdPartyLabel: "Amazon",
+    category: "protein",
+    blurb:
+      "21 g organic plant protein, widely available and affordable. Some readers find the texture chalkier than premium picks; the value is excellent.",
+  },
+  "ritual-protein": {
+    productKey: "ritual-protein",
+    brand: "Ritual",
+    name: "Essential Protein Daily Shake 18+",
+    thirdPartyUrl: "https://ritual.com/products/protein-powder-18plus",
+    thirdPartyLabel: "Ritual",
+    amazonUrl: amazonSearch("Ritual Essential Protein Daily Shake 18+"),
+    category: "protein",
+    blurb:
+      "Traceable pea protein, ~20 g, third-party tested with a clean label. Subscription-first brand; premium-priced.",
+  },
+  "gol-sport-plant": {
+    productKey: "gol-sport-plant",
+    brand: "Garden of Life",
+    name: "Sport Organic Plant-Based Protein",
+    thirdPartyUrl: amazonSearch("Garden of Life Sport organic plant based protein"),
+    thirdPartyLabel: "Amazon",
+    category: "protein",
+    blurb:
+      "NSF Certified for Sport organic plant blend, ~30 g protein with added BCAAs. A good plant pick when muscle preservation is the priority.",
+  },
+  "quest-protein": {
+    productKey: "quest-protein",
+    brand: "Quest",
+    name: "Protein Powder",
+    thirdPartyUrl: amazonSearch("Quest protein powder whey casein"),
+    thirdPartyLabel: "Amazon",
+    category: "protein",
+    blurb:
+      "Whey/casein blend, ~23-24 g protein, low sugar. Budget-friendly and easy to find; flavors are sweeter than the premium isolates.",
   },
 
   // ── Travel cool-bags ───────────────────────────────────────────────
@@ -210,6 +477,27 @@ export function getAffiliate(
     return { url: a.ownedShopUrl, label: "Peptips Shop", isOwned: true };
   }
   return { url: a.thirdPartyUrl, label: a.thirdPartyLabel, isOwned: false };
+}
+
+/**
+ * All retailer buttons for a product, primary first. When the owned shop
+ * launches it leads; otherwise the brand/Amazon primary leads, with an
+ * optional secondary Amazon button.
+ */
+export function getRetailers(
+  productKey: string,
+): Array<{ url: string; label: string; isOwned: boolean }> {
+  const a = AFFILIATES[productKey];
+  if (!a) return [];
+  const out: Array<{ url: string; label: string; isOwned: boolean }> = [];
+  if (a.ownedShopUrl) {
+    out.push({ url: a.ownedShopUrl, label: "Peptips Shop", isOwned: true });
+  }
+  out.push({ url: a.thirdPartyUrl, label: a.thirdPartyLabel, isOwned: false });
+  if (a.amazonUrl && a.thirdPartyLabel !== "Amazon") {
+    out.push({ url: a.amazonUrl, label: "Amazon", isOwned: false });
+  }
+  return out;
 }
 
 export function affiliatesByCategory(

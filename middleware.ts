@@ -11,6 +11,6 @@ export const config = {
   //    OG/twitter images, icons). Those still pass through Next's normal routing
   //    because they live at app/ root.
   matcher: [
-    "/((?!api|_next|_vercel|sitemap.xml|robots.txt|llms.txt|opengraph-image|twitter-image|icon|apple-icon|.*\\..*).*)",
+    "/((?!api|_next|_vercel|go|sitemap.xml|robots.txt|llms.txt|opengraph-image|twitter-image|icon|apple-icon|.*\\..*).*)",
   ],
 };

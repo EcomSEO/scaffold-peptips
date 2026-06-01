@@ -66,6 +66,12 @@ export function ArticleTemplate({ post }: { post: Post }) {
   // Build TOC from sections we render.
   const toc: TocItem[] = [
     { id: "introduction", label: "What this guide covers", level: 2 },
+    ...(post.ourPick
+      ? [{ id: "our-pick", label: "Our pick", level: 2 as const }]
+      : []),
+    ...(post.products && post.products.length > 0
+      ? [{ id: "rankings", label: "The rankings", level: 2 as const }]
+      : []),
     ...(post.items && post.items.length > 0
       ? [{ id: "key-points", label: "Key points", level: 2 as const }]
       : []),
@@ -214,6 +220,52 @@ export function ArticleTemplate({ post }: { post: Post }) {
               names appear next to brand names — semaglutide (Ozempic,
               Wegovy), tirzepatide (Mounjaro, Zepbound) — every time.
             </p>
+
+            {post.ourPick && (
+              <>
+                <h2 id="our-pick">Our pick</h2>
+                <div className="my-6 rounded-card border border-pine/30 bg-cream/60 p-5 not-prose">
+                  <div className="text-[12px] font-semibold uppercase tracking-wide text-pine-deep">
+                    {post.ourPick.tier}
+                  </div>
+                  <div className="mt-1 text-[20px] font-serif text-ink">
+                    {post.ourPick.name}
+                  </div>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-muted">
+                    {post.ourPick.reason}
+                  </p>
+                </div>
+              </>
+            )}
+
+            {post.products && post.products.length > 0 && (
+              <>
+                <h2 id="rankings">The rankings</h2>
+                <ol className="not-prose space-y-5">
+                  {post.products.map((p) => (
+                    <li key={p.rank} className="flex gap-4">
+                      <span
+                        aria-hidden
+                        className="flex-none mt-1 w-7 h-7 inline-flex items-center justify-center rounded-pill border border-pine/30 text-[13px] font-semibold text-pine-deep"
+                      >
+                        {p.rank}
+                      </span>
+                      <div>
+                        <div className="text-[17px] font-semibold text-ink">
+                          {p.name}
+                        </div>
+                        <div className="text-[12px] font-semibold uppercase tracking-wide text-ink-muted">
+                          {p.tier}
+                        </div>
+                        <p className="mt-1 text-[15px] leading-relaxed text-ink-muted">
+                          {p.summary}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            )}
 
             {post.items && post.items.length > 0 && (
               <>

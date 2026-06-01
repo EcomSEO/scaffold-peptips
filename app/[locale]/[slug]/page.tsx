@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getPost, posts } from "@/lib/content/posts";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ComparisonTemplate } from "@/components/templates/ComparisonTemplate";
 import { TranslationPendingBanner } from "@/components/TranslationPendingBanner";
 import { pageMetadata } from "@/lib/seo";
 import { localizePost } from "@/lib/content/posts-i18n";
@@ -125,7 +126,11 @@ export default async function PostPage({
   return (
     <>
       {banner}
-      <ArticleTemplate post={localizedPost} />
+      {post.postType === "comparison" ? (
+        <ComparisonTemplate post={localizedPost} />
+      ) : (
+        <ArticleTemplate post={localizedPost} />
+      )}
     </>
   );
 }
