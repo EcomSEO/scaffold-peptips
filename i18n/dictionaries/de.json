@@ -15,7 +15,7 @@
     "more": "Mehr"
   },
   "header": {
-    "logoAria": "Peptips — Startseite",
+    "logoAria": "Peptips, Startseite",
     "navGlp1": "GLP-1-Grundlagen",
     "navSideEffects": "Nebenwirkungen",
     "navFood": "Ernährung",
@@ -56,7 +56,7 @@
     "notMedicalAdvice": "Keine medizinische Beratung.",
     "footerNote": "Peptips ist eine Informationsquelle. Sprechen Sie mit Ihrem behandelnden Arzt, bevor Sie Ihre GLP-1-Therapie ändern. Wir nehmen kein Geld von Pharmaherstellern oder Telemedizin-Anbietern an.",
     "imprintEdition": "{volume} · {issue} · {issueName}",
-    "imprintBody": "Geschrieben für Menschen, die bereits ein GLP-1 erhalten — ruhig, belegt, keine Klinik. Wir aktualisieren Beiträge, sobald neue Studiendaten erscheinen."
+    "imprintBody": "Geschrieben für Menschen, die bereits ein GLP-1 erhalten, ruhig, belegt, keine Klinik. Wir aktualisieren Beiträge, sobald neue Studiendaten erscheinen."
   },
   "medicalDisclaimer": {
     "footerStrong": "Keine medizinische Beratung.",
@@ -66,7 +66,7 @@
   "searchHero": {
     "eyebrow": "Ruhig. Belegt. Wöchentlich aktualisiert.",
     "h1": "Echte Antworten zum Alltag mit GLP-1.",
-    "subhead": "Ohne Hype, ohne erhobenen Zeigefinger. Geschrieben für die Menschen, die diese Medikamente bereits einnehmen — nicht für die, die sie verkaufen.",
+    "subhead": "Ohne Hype, ohne erhobenen Zeigefinger. Geschrieben für die Menschen, die diese Medikamente bereits einnehmen, nicht für die, die sie verkaufen.",
     "searchPlaceholder": "Nebenwirkung, Wirkstoff, Frage suchen…",
     "searchButton": "Suchen",
     "trendingLabel": "Diese Woche am häufigsten gefragt"
@@ -74,7 +74,7 @@
   "utilityTiles": {
     "weekByWeek": {
       "label": "Verlauf Woche für Woche",
-      "blurb": "Was im ersten Jahr unter Semaglutid normal ist und was nicht — Woche für Woche."
+      "blurb": "Was im ersten Jahr unter Semaglutid normal ist und was nicht, Woche für Woche."
     },
     "sideEffects": {
       "label": "Nebenwirkungen, schlicht erklärt",
@@ -98,7 +98,7 @@
     },
     "methodology": {
       "label": "Methodik v1.2",
-      "description": "Wie wir Studien lesen, wer prüft, wie wir zitieren — in einfacher Sprache."
+      "description": "How we read trials, how we check claims, how we cite, in plain language."
     },
     "audit": {
       "label": "GLP-1-Newsletter",
@@ -121,7 +121,7 @@
     "left": {
       "eyebrow": "Nebenwirkungen · Woche für Woche",
       "title": "Der Ozempic-Wochenleitfaden, den die Praxis nicht mitgibt.",
-      "description": "Zwölf Wochen verfolgt, von der ersten 0,25-mg-Dosis bis zur zweiten Steigerung. Was normal ist, was nicht — und vier Momente, in denen Sie anrufen sollten.",
+      "description": "Zwölf Wochen verfolgt, von der ersten 0,25-mg-Dosis bis zur zweiten Steigerung. Was normal ist, was nicht, und vier Momente, in denen Sie anrufen sollten.",
       "footnote": "12 Wochen verfolgt · 14 Quellen",
       "cta": "Wochenleitfaden lesen"
     },
@@ -142,7 +142,7 @@
     "credoEyebrow": "Wie wir berichten",
     "credoTitle": "Wir versprechen eine Seite, auf der jede Aussage belegt ist, jede Unsicherheit benannt wird und keine Telemedizin-Klinik je für eine Erwähnung gezahlt hat.",
     "credoOneTitle": "Belegt, nicht klinisch.",
-    "credoOneBody": "Jede Aussage zu Wirkstoff, Dosis oder Nebenwirkung verlinkt auf die FDA-Fachinformation oder die veröffentlichte Studie — nicht auf eine Pressemitteilung.",
+    "credoOneBody": "Jede Aussage zu Wirkstoff, Dosis oder Nebenwirkung verlinkt auf die FDA-Fachinformation oder die veröffentlichte Studie, nicht auf eine Pressemitteilung.",
     "credoTwoTitle": "Unsicherheit, benannt.",
     "credoTwoBody": "Langzeitdaten gibt es für die meisten dieser Wirkstoffe noch nicht. Wir sagen es. Wir verstecken es nicht in einer Fußnote.",
     "credoThreeTitle": "Kein Klinikgeld.",
@@ -162,8 +162,8 @@
       "bio": "Liest die Primärliteratur. Zitiert die Studie, nicht die Pressemitteilung. Eine Abweichung vom Konsens steht nur dann, wenn die Daten sie tragen."
     },
     "medical": {
-      "title": "Die medizinische Prüfung",
-      "bio": "Examinierte Pflegekraft mit Verschreibungs­erfahrung. Prüft, dass keine Aussage über die Fachinformation hinausgeht, kein Dosierungs­beispiel falsch ist und kein angstmachender Satz die Redaktion verlässt."
+      "title": "The Fact-Checker",
+      "bio": "Checks every claim against the FDA prescribing information and the published trials, so no statement oversteps the label, no dosing example is wrong, and no scary sentence makes it past the edit."
     },
     "patient": {
       "title": "Die Patienten-Leitung",
@@ -175,8 +175,8 @@
     }
   },
   "methodologyByline": {
-    "testedBy": "Geprüft von {name}",
-    "methodology": "Geprüft nach Peptips-Methodik {version}",
+    "testedBy": "Written and edited by {name}",
+    "methodology": "Checked against Peptips methodology {version}",
     "publishedAt": "Veröffentlicht {date}",
     "refreshedAt": "Aktualisiert {date}",
     "team": "Die Peptips-Redaktion"
@@ -210,10 +210,10 @@
     "currentVersion": "Aktuelle Version",
     "currentVersionBody": "v1.2, gültig seit April 2026. Ergänzt die Post-Review-Stempel-Pflicht, weitet die Belegpflicht auf das Tracking von Fachinformations­änderungen aus und überarbeitet die Beschwerde­regel.",
     "philosophyTitle": "Warum eine öffentliche Methodik",
-    "philosophyP1": "Wenn wir nicht zeigen können, woher der Beleg kommt, ist der Beleg wenig wert. Jede Aussage auf dieser Seite verlinkt ein Primärdokument, das die Leserin selbst öffnen und prüfen kann. Wir veröffentlichen das Raster, die Rollen der Prüferinnen — und das, was wir nicht aufgenommen haben, samt Begründung.",
+    "philosophyP1": "If we cannot show how we picked the source, the source is not worth much. Every claim on this site links to a primary document a reader can open and check. We publish the rubric, the editorial roles, and what we did not include, and why.",
     "philosophyP2": "Methodik-Drift ist die häufigste Schwachstelle in Gesundheits­texten. Die Versions­nummer ist unsere Antwort darauf. Wenn wir das Raster ändern, kommt eine neue Version, die alte wird archiviert, und die betroffenen Beiträge werden erneut geprüft. Leserinnen sehen, was sich geändert hat.",
     "weightsTitle": "Die fünf Schritte",
-    "weightsBody": "Jeder veröffentlichte Beitrag durchläuft diese fünf Prüfungen, bevor er online geht — und erneut, sobald er aktualisiert wird.",
+    "weightsBody": "Jeder veröffentlichte Beitrag durchläuft diese fünf Prüfungen, bevor er online geht, und erneut, sobald er aktualisiert wird.",
     "step": {
       "label": {
         "title": "Prüfung der Fachinformation",
@@ -221,7 +221,7 @@
       },
       "trial": {
         "title": "Studien-Check",
-        "body": "Wo ein Beitrag Wirksamkeit oder Nebenwirkungs­raten zitiert, ist die Quelle die veröffentlichte Studie — STEP, SUSTAIN, SURMOUNT, SURPASS, mit Namen — nicht eine Sekundär­zusammen­fassung."
+        "body": "Wo ein Beitrag Wirksamkeit oder Nebenwirkungs­raten zitiert, ist die Quelle die veröffentlichte Studie, STEP, SUSTAIN, SURMOUNT, SURPASS, mit Namen, nicht eine Sekundär­zusammen­fassung."
       },
       "uncertainty": {
         "title": "Unsicherheit benannt",
@@ -232,14 +232,14 @@
         "body": "Jeder Entwurf durchläuft eine Wärme-und-Ruhe-Prüfung. Keine Angstmache. Keine Vorher-nachher-Bilder. Keine Gewichts­zahlen in Titeln oder Pin-Headlines."
       },
       "medicalReview": {
-        "title": "Medizinische Prüfung",
-        "body": "Eine Prüferin mit Verschreibungs­erfahrung zeichnet den Beitrag ab. Ihre Initialen erscheinen oben auf dem Post-Review-Stempel jeder wirkstoff­spezifischen Seite."
+        "title": "Label & trial check",
+        "body": "Every dose, indication, and adverse-reaction figure is verified against the current FDA prescribing information and the published trial before it ships. The check date appears on the stamp at the top of every drug-specific page."
       }
     },
     "changeLogTitle": "Änderungsprotokoll",
     "changeLog": {
       "v12": "Post-Review-Stempel auf jedem wirkstoff­spezifischen Beitrag eingeführt. Belegpflicht auf das Tracking von Fachinformations­änderungen ausgeweitet. Beschwerde­regel überarbeitet.",
-      "v11": "Erste öffentliche Version. Fünf-Schritte-Raster, vier Prüferrollen, Beschwerde­regel."
+      "v11": "Initial public release. Five-step rubric, four editorial roles, dispute policy."
     },
     "disputeTitle": "Korrekturen und Hinweise",
     "disputeBody": "Fehler gefunden? Schreiben Sie uns. Wir veröffentlichen Korrekturen oben im betroffenen Beitrag und versehen sie mit einem Datum. Wir ändern keine Inhalte unter Androhung rechtlicher Schritte; wir aktualisieren sie, sobald bessere Belege vorliegen."
@@ -301,9 +301,9 @@
         "## What we do not do",
         "We do not diagnose any condition. We do not prescribe medications. We do not tell you to start, stop, or change any medication. We do not recommend specific telehealth providers or clinics. We do not accept payment from drug manufacturers.",
         "## Always talk to your healthcare provider",
-        "Before starting, stopping, or changing any medication — including a GLP-1 — consult your physician, endocrinologist, or prescribing nurse practitioner. They have your medical history, your lab results, and the clinical context we do not have.",
+        "Before starting, stopping, or changing any medication, including a GLP-1, consult your physician, endocrinologist, or prescribing nurse practitioner. They have your medical history, your lab results, and the clinical context we do not have.",
         "If you are experiencing a serious side effect, contact your provider or emergency services immediately. Do not rely on information from this website to make acute medical decisions.",
-        "## Red flags — call your doctor",
+        "## Red flags, call your doctor",
         "Severe or persistent abdominal pain. Yellowing of the skin or eyes. Vision changes. A rapid heartbeat that does not subside. Signs of an allergic reaction. Persistent vomiting or severe dehydration. Symptoms suggesting pancreatitis, gallbladder problems, or thyroid issues. This is not exhaustive. When in doubt, call your provider.",
         "## Content accuracy",
         "GLP-1 research is moving quickly. Peptips updates posts as new trials publish. We timestamp every revision. However, we cannot guarantee that any post reflects the latest state of science at the moment you read it.",
@@ -313,7 +313,7 @@
     },
     "affiliateDisclosure": {
       "metaTitle": "Affiliate-Hinweis",
-      "metaDescription": "Wie Affiliate-Links auf Peptips funktionieren und was sie ändern — und was nicht.",
+      "metaDescription": "Wie Affiliate-Links auf Peptips funktionieren und was sie ändern, und was nicht.",
       "h1": "Affiliate-Hinweis",
       "body": [
         "Peptips participates in affiliate programs. That means that some (not all) of the product links on this site are tracked, and we earn a small commission when you buy through them, at no additional cost to you.",
@@ -334,13 +334,13 @@
         "This Privacy Policy describes how Peptips collects, uses, and shares information when you visit peptips.com.",
         "## 1. Information we collect",
         "When you subscribe to our newsletter, we collect your email address. Like most websites, we collect standard web analytics: pages visited, referring URL, approximate location, device type, browser, and anonymized session identifiers. We do not collect your name, precise location, or any data that directly identifies you.",
-        "We use a small number of cookies — one for session continuity, one for analytics, and one to remember your cookie consent choice. We do not use third-party advertising cookies.",
+        "We use a small number of cookies, one for session continuity, one for analytics, and one to remember your cookie consent choice. We do not use third-party advertising cookies.",
         "## 2. How we use it",
         "To deliver the site and the newsletter. To understand which content is useful. To improve the product. To comply with legal obligations. We do not sell, rent, or trade your personal information.",
         "## 3. Third parties",
         "We use Vercel (hosting), Neon (analytics), Beehiiv (newsletter), and Supabase (asset storage). Each operates under its own privacy policy.",
         "## 4. Your rights",
-        "Depending on your location, you may have rights under the GDPR (EU/UK), CCPA (California), or other privacy laws — including access, correction, deletion, objection, portability, and consent withdrawal. Email privacy@peptips.com to exercise these.",
+        "Depending on your location, you may have rights under the GDPR (EU/UK), CCPA (California), or other privacy laws, including access, correction, deletion, objection, portability, and consent withdrawal. Email privacy@peptips.com to exercise these.",
         "## 5. Children",
         "Peptips is not directed at children under 13.",
         "## 6. Data retention",
@@ -379,11 +379,11 @@
       "h1": "Kontakt & Hinweise",
       "body": [
         "## General",
-        "hello@peptips.com — feedback, questions, product tips, everything else.",
+        "hello@peptips.com, feedback, questions, product tips, everything else.",
         "## Corrections",
-        "corrections@peptips.com — spotted something wrong? We want to know. We respond within 5 business days and publish corrections publicly when warranted.",
+        "corrections@peptips.com, spotted something wrong? We want to know. We respond within 5 business days and publish corrections publicly when warranted.",
         "## Privacy",
-        "privacy@peptips.com — questions about data, deletion requests, anything GDPR or CCPA-related.",
+        "privacy@peptips.com, questions about data, deletion requests, anything GDPR or CCPA-related.",
         "## What we are not",
         "We are not a clinic. We cannot diagnose anything. We cannot recommend a specific product for your specific medical condition. If you have a health concern, please talk to your physician.",
         "## Response times",
@@ -395,8 +395,8 @@
       "metaDescription": "Eine ruhige, belegte E-Mail jeden Sonntag. Plus den kostenlosen Leitfaden „Die ersten 30 Tage mit GLP-1“.",
       "h1": "Die Sonntags-Depesche",
       "body": [
-        "A single useful thing — the most important post we published, the swap we would make first, or a study we read so you do not have to. No upsells, no affiliate spam, no 4,000-word emails.",
-        "Subscribers also get the First 30 Days on a GLP-1 guide — a printable companion for your first month, free."
+        "A single useful thing, the most important post we published, the swap we would make first, or a study we read so you do not have to. No upsells, no affiliate spam, no 4,000-word emails.",
+        "Subscribers also get the First 30 Days on a GLP-1 guide, a printable companion for your first month, free."
       ]
     }
   },
@@ -519,7 +519,7 @@
     "heading": "Wie wir berichten",
     "tile1": {
       "label": "Belegt, nicht klinisch.",
-      "body": "Jede Aussage zu Wirkstoff, Dosis oder Nebenwirkung verlinkt auf die FDA-Fachinformation oder die veröffentlichte Studie — nicht auf eine Pressemitteilung."
+      "body": "Jede Aussage zu Wirkstoff, Dosis oder Nebenwirkung verlinkt auf die FDA-Fachinformation oder die veröffentlichte Studie, nicht auf eine Pressemitteilung."
     },
     "tile2": {
       "label": "Unsicherheit, benannt.",
@@ -550,9 +550,9 @@
     "tableLow": "Niedrig",
     "tierEyebrow": "Stufenzuordnung",
     "tierTitle": "Was jede Stufe bedeutet.",
-    "reviewersEyebrow": "Prüfer-Qualifikationen",
-    "reviewersTitle": "Wer abzeichnet, in einfacher Sprache.",
-    "reviewersBody": "Beiträge mit Pflicht zur medizinischen Prüfung erhalten vor Veröffentlichung eine klinische Prüfung.",
+    "reviewersEyebrow": "How claims are checked",
+    "reviewersTitle": "How claims get checked, in plain language.",
+    "reviewersBody": "Posts flagged with the medical-disclaimer requirement get an extra evidence check before publish: every dose, indication, and rate is verified against the current FDA prescribing information and the published trials, and the check is dated on the post. We do not claim review by a named outside clinician. If a credentialed reviewer joins the team, their name and credentials will appear on the post.",
     "changeLogEyebrow": "Änderungsprotokoll",
     "changeLogTitle": "Was sich in v1.2 geändert hat.",
     "dim1Name": "Studienstärke",
@@ -596,13 +596,13 @@
     "scoreTitle": "Ein Vertrauenswert von 0-100 für die medizinischen Aussagen auf dieser Seite.",
     "scoreBody": "Der Evidenzwert ist keine Produktbewertung. Er ist ein Vertrauenswert für eine konkrete Aussage. Fünf gewichtete Dimensionen gehen rein, eine Zahl kommt raus, und das Stufenetikett sagt, wie viel Gewicht Sie ihr beimessen sollten.",
     "readSpec": "Die vollständige v1.2-Spezifikation lesen",
-    "reviewersEyebrow": "Prüfer",
-    "reviewersTitle": "Wer abzeichnet.",
-    "reviewersBody": "Beiträge zu einem konkreten Wirkstoff, einer Dosis oder einem Protokoll tragen oben einen Prüfstempel. Die Prüferin ist eine qualifizierte Klinikerin — Apothekerin, Ärztin oder Diätassistentin, je nach Thema.",
+    "reviewersEyebrow": "How we check",
+    "reviewersTitle": "How we check claims.",
+    "reviewersBody": "Posts that discuss a specific drug, dose, or protocol carry a check stamp at the top. Every dose, indication, and side-effect figure is verified against the current FDA prescribing information and the published trial before it ships, and the check date shows on the post. We do not claim review by a named outside clinician.",
     "r1t": "Die Fachinformation oder die Studie, jedes Mal.",
-    "r1b": "Jede Aussage zu Wirkstoff, Dosis oder Nebenwirkung verlinkt die FDA-Fachinformation oder die veröffentlichte Studie — nie eine Pressemitteilung.",
+    "r1b": "Jede Aussage zu Wirkstoff, Dosis oder Nebenwirkung verlinkt die FDA-Fachinformation oder die veröffentlichte Studie, nie eine Pressemitteilung.",
     "r2t": "Wirkstoff- und Markenname zusammen.",
-    "r2b": "Wir schreiben Semaglutid (Ozempic, Wegovy) — nicht nur Ozempic.",
+    "r2b": "Wir schreiben Semaglutid (Ozempic, Wegovy), nicht nur Ozempic.",
     "r3t": "Unsicherheit benannt, nie versteckt.",
     "r3b": "Langzeitdaten gibt es für die meisten dieser Wirkstoffklasse noch nicht. Wo die Literatur dünn ist, sagen wir es im Beitrag.",
     "r4t": "Kein Geld von Telemedizin-Kliniken.",
@@ -659,7 +659,7 @@
     "popular": "Beliebte Leitfäden",
     "testing": "Wie wir recherchieren",
     "testingStep1": "Wir lesen jede zitierte Studie vollständig und das FDA-Etikett.",
-    "testingStep2": "Eine medizinische Reviewerin gibt vor der Veröffentlichung frei.",
+    "testingStep2": "Every claim is checked against the FDA label and the trial before publication.",
     "testingStep3": "Wir aktualisieren vierteljährlich, sobald neue Daten kommen.",
     "editorial": "Redaktionelle Standards",
     "editorialMethodology": "Öffentliche Methodik, wie Software versioniert.",

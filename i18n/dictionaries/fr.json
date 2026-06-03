@@ -15,7 +15,7 @@
     "more": "Plus"
   },
   "header": {
-    "logoAria": "Peptips — accueil",
+    "logoAria": "Peptips, accueil",
     "navGlp1": "GLP-1, les bases",
     "navSideEffects": "Effets secondaires",
     "navFood": "Alimentation",
@@ -56,7 +56,7 @@
     "notMedicalAdvice": "Pas un avis médical.",
     "footerNote": "Peptips est une ressource d'information. Parlez à votre médecin avant de modifier votre traitement GLP-1. Nous n'acceptons aucun argent de laboratoires ou de plateformes de téléconsultation.",
     "imprintEdition": "{volume} · {issue} · {issueName}",
-    "imprintBody": "Écrit pour les personnes déjà sous GLP-1 — posé, sourcé, ce n'est pas une clinique. Nous mettons à jour les articles dès qu'un nouvel essai paraît."
+    "imprintBody": "Écrit pour les personnes déjà sous GLP-1, posé, sourcé, ce n'est pas une clinique. Nous mettons à jour les articles dès qu'un nouvel essai paraît."
   },
   "medicalDisclaimer": {
     "footerStrong": "Pas un avis médical.",
@@ -98,7 +98,7 @@
     },
     "methodology": {
       "label": "Méthodologie v1.2",
-      "description": "Comment nous lisons les essais, qui relit, comment nous citons — en clair."
+      "description": "How we read trials, how we check claims, how we cite, in plain language."
     },
     "audit": {
       "label": "L'audit GLP-1",
@@ -162,8 +162,8 @@
       "bio": "Lit la littérature primaire. Cite l'essai, pas le communiqué. Une divergence avec le consensus n'apparaît que si les données la portent."
     },
     "medical": {
-      "title": "La relectrice médicale",
-      "bio": "Infirmière diplômée avec expérience de la prescription. Vérifie qu'aucune affirmation ne dépasse la notice, qu'aucun exemple posologique n'est faux et qu'aucune phrase anxiogène ne franchit l'édition."
+      "title": "The Fact-Checker",
+      "bio": "Checks every claim against the FDA prescribing information and the published trials, so no statement oversteps the label, no dosing example is wrong, and no scary sentence makes it past the edit."
     },
     "patient": {
       "title": "La référente patiente",
@@ -175,8 +175,8 @@
     }
   },
   "methodologyByline": {
-    "testedBy": "Relu par {name}",
-    "methodology": "Vérifié selon la méthodologie Peptips {version}",
+    "testedBy": "Written and edited by {name}",
+    "methodology": "Checked against Peptips methodology {version}",
     "publishedAt": "Publié le {date}",
     "refreshedAt": "Mis à jour le {date}",
     "team": "La rédaction de Peptips"
@@ -210,7 +210,7 @@
     "currentVersion": "Version en vigueur",
     "currentVersionBody": "v1.2, en vigueur depuis avril 2026. Ajoute la règle du tampon de relecture, étend l'exigence de sourçage au suivi des mises à jour de notice et révise la procédure de signalement.",
     "philosophyTitle": "Pourquoi une méthodologie publique",
-    "philosophyP1": "Si nous ne pouvons pas montrer d'où vient la source, la source n'a pas grande valeur. Chaque affirmation renvoie à un document primaire que la lectrice peut ouvrir et vérifier. Nous publions le cadre, les rôles des relecteurs et ce que nous n'avons pas inclus — avec la raison.",
+    "philosophyP1": "If we cannot show how we picked the source, the source is not worth much. Every claim on this site links to a primary document a reader can open and check. We publish the rubric, the editorial roles, and what we did not include, and why.",
     "philosophyP2": "La dérive méthodologique est le défaut le plus fréquent dans l'écriture santé. Le numéro de version est notre garde-fou. Quand le cadre change, une nouvelle version sort, l'ancienne est archivée et les articles concernés sont relus. La lectrice voit ce qui a bougé.",
     "weightsTitle": "Les cinq étapes",
     "weightsBody": "Chaque article passe ces cinq vérifications avant publication, et de nouveau à chaque mise à jour.",
@@ -221,7 +221,7 @@
       },
       "trial": {
         "title": "Contrôle des essais",
-        "body": "Quand un article cite l'efficacité ou le taux d'effets, la source est l'essai publié — STEP, SUSTAIN, SURMOUNT, SURPASS, nommément — pas un résumé secondaire."
+        "body": "Quand un article cite l'efficacité ou le taux d'effets, la source est l'essai publié, STEP, SUSTAIN, SURMOUNT, SURPASS, nommément, pas un résumé secondaire."
       },
       "uncertainty": {
         "title": "L'incertitude nommée",
@@ -232,14 +232,14 @@
         "body": "Chaque brouillon passe une relecture chaleur-et-calme. Pas d'alarmisme. Pas de avant-après. Aucun chiffre de perte de poids dans les titres ou les vignettes."
       },
       "medicalReview": {
-        "title": "Relecture médicale",
-        "body": "Une relectrice avec expérience de la prescription signe l'article. Ses initiales figurent sur le tampon de relecture en haut de chaque page propre à un médicament."
+        "title": "Label & trial check",
+        "body": "Every dose, indication, and adverse-reaction figure is verified against the current FDA prescribing information and the published trial before it ships. The check date appears on the stamp at the top of every drug-specific page."
       }
     },
     "changeLogTitle": "Journal des modifications",
     "changeLog": {
       "v12": "Tampon de relecture ajouté à chaque article portant sur un médicament. Sourçage étendu au suivi des notices. Procédure de signalement révisée.",
-      "v11": "Première version publique. Cadre en cinq étapes, quatre rôles de relecture, procédure de signalement."
+      "v11": "Initial public release. Five-step rubric, four editorial roles, dispute policy."
     },
     "disputeTitle": "Corrections et signalements",
     "disputeBody": "Une erreur ? Dites-le-nous. Nous publions les corrections en haut de l'article concerné, datées. Nous ne modifions pas les articles sous menace juridique ; nous les mettons à jour quand de meilleures données arrivent."
@@ -301,9 +301,9 @@
         "## What we do not do",
         "We do not diagnose any condition. We do not prescribe medications. We do not tell you to start, stop, or change any medication. We do not recommend specific telehealth providers or clinics. We do not accept payment from drug manufacturers.",
         "## Always talk to your healthcare provider",
-        "Before starting, stopping, or changing any medication — including a GLP-1 — consult your physician, endocrinologist, or prescribing nurse practitioner. They have your medical history, your lab results, and the clinical context we do not have.",
+        "Before starting, stopping, or changing any medication, including a GLP-1, consult your physician, endocrinologist, or prescribing nurse practitioner. They have your medical history, your lab results, and the clinical context we do not have.",
         "If you are experiencing a serious side effect, contact your provider or emergency services immediately. Do not rely on information from this website to make acute medical decisions.",
-        "## Red flags — call your doctor",
+        "## Red flags, call your doctor",
         "Severe or persistent abdominal pain. Yellowing of the skin or eyes. Vision changes. A rapid heartbeat that does not subside. Signs of an allergic reaction. Persistent vomiting or severe dehydration. Symptoms suggesting pancreatitis, gallbladder problems, or thyroid issues. This is not exhaustive. When in doubt, call your provider.",
         "## Content accuracy",
         "GLP-1 research is moving quickly. Peptips updates posts as new trials publish. We timestamp every revision. However, we cannot guarantee that any post reflects the latest state of science at the moment you read it.",
@@ -313,7 +313,7 @@
     },
     "affiliateDisclosure": {
       "metaTitle": "Liens d'affiliation",
-      "metaDescription": "Comment fonctionnent les liens d'affiliation sur Peptips, et ce qu'ils changent — ou pas.",
+      "metaDescription": "Comment fonctionnent les liens d'affiliation sur Peptips, et ce qu'ils changent, ou pas.",
       "h1": "Liens d'affiliation",
       "body": [
         "Peptips participates in affiliate programs. That means that some (not all) of the product links on this site are tracked, and we earn a small commission when you buy through them, at no additional cost to you.",
@@ -334,13 +334,13 @@
         "This Privacy Policy describes how Peptips collects, uses, and shares information when you visit peptips.com.",
         "## 1. Information we collect",
         "When you subscribe to our newsletter, we collect your email address. Like most websites, we collect standard web analytics: pages visited, referring URL, approximate location, device type, browser, and anonymized session identifiers. We do not collect your name, precise location, or any data that directly identifies you.",
-        "We use a small number of cookies — one for session continuity, one for analytics, and one to remember your cookie consent choice. We do not use third-party advertising cookies.",
+        "We use a small number of cookies, one for session continuity, one for analytics, and one to remember your cookie consent choice. We do not use third-party advertising cookies.",
         "## 2. How we use it",
         "To deliver the site and the newsletter. To understand which content is useful. To improve the product. To comply with legal obligations. We do not sell, rent, or trade your personal information.",
         "## 3. Third parties",
         "We use Vercel (hosting), Neon (analytics), Beehiiv (newsletter), and Supabase (asset storage). Each operates under its own privacy policy.",
         "## 4. Your rights",
-        "Depending on your location, you may have rights under the GDPR (EU/UK), CCPA (California), or other privacy laws — including access, correction, deletion, objection, portability, and consent withdrawal. Email privacy@peptips.com to exercise these.",
+        "Depending on your location, you may have rights under the GDPR (EU/UK), CCPA (California), or other privacy laws, including access, correction, deletion, objection, portability, and consent withdrawal. Email privacy@peptips.com to exercise these.",
         "## 5. Children",
         "Peptips is not directed at children under 13.",
         "## 6. Data retention",
@@ -379,11 +379,11 @@
       "h1": "Contact & signalements",
       "body": [
         "## General",
-        "hello@peptips.com — feedback, questions, product tips, everything else.",
+        "hello@peptips.com, feedback, questions, product tips, everything else.",
         "## Corrections",
-        "corrections@peptips.com — spotted something wrong? We want to know. We respond within 5 business days and publish corrections publicly when warranted.",
+        "corrections@peptips.com, spotted something wrong? We want to know. We respond within 5 business days and publish corrections publicly when warranted.",
         "## Privacy",
-        "privacy@peptips.com — questions about data, deletion requests, anything GDPR or CCPA-related.",
+        "privacy@peptips.com, questions about data, deletion requests, anything GDPR or CCPA-related.",
         "## What we are not",
         "We are not a clinic. We cannot diagnose anything. We cannot recommend a specific product for your specific medical condition. If you have a health concern, please talk to your physician.",
         "## Response times",
@@ -395,8 +395,8 @@
       "metaDescription": "Un e-mail posé et sourcé chaque dimanche. Plus le guide gratuit « Les 30 premiers jours sous GLP-1 ».",
       "h1": "La Dépêche du dimanche",
       "body": [
-        "A single useful thing — the most important post we published, the swap we would make first, or a study we read so you do not have to. No upsells, no affiliate spam, no 4,000-word emails.",
-        "Subscribers also get the First 30 Days on a GLP-1 guide — a printable companion for your first month, free."
+        "A single useful thing, the most important post we published, the swap we would make first, or a study we read so you do not have to. No upsells, no affiliate spam, no 4,000-word emails.",
+        "Subscribers also get the First 30 Days on a GLP-1 guide, a printable companion for your first month, free."
       ]
     }
   },
@@ -519,7 +519,7 @@
     "heading": "Comment nous travaillons",
     "tile1": {
       "label": "Cité, pas clinique.",
-      "body": "Chaque affirmation sur un médicament, une dose ou un effet renvoie à la notice FDA ou à l'essai publié — pas à un communiqué."
+      "body": "Chaque affirmation sur un médicament, une dose ou un effet renvoie à la notice FDA ou à l'essai publié, pas à un communiqué."
     },
     "tile2": {
       "label": "Incertitude, nommée.",
@@ -550,9 +550,9 @@
     "tableLow": "Low",
     "tierEyebrow": "Tier mapping",
     "tierTitle": "What each band means.",
-    "reviewersEyebrow": "Reviewer credentials",
-    "reviewersTitle": "Who signs off, in plain language.",
-    "reviewersBody": "Posts flagged with the medical-disclaimer requirement get a clinician review before publish. Reviewers are pharmacists (RPh / PharmD), physicians (MD / DO), or registered dietitians (RD), depending on the topic. The reviewer name and credentials live on the post and on the author bio. Reviews are dated.",
+    "reviewersEyebrow": "How claims are checked",
+    "reviewersTitle": "How claims get checked, in plain language.",
+    "reviewersBody": "Posts flagged with the medical-disclaimer requirement get an extra evidence check before publish: every dose, indication, and rate is verified against the current FDA prescribing information and the published trials, and the check is dated on the post. We do not claim review by a named outside clinician. If a credentialed reviewer joins the team, their name and credentials will appear on the post.",
     "changeLogEyebrow": "Change log",
     "changeLogTitle": "What changed in v1.2.",
     "dim1Name": "Trial strength",
@@ -576,7 +576,7 @@
     "dim5Mid": "Trial enrolled people similar to our reader on most dimensions.",
     "dim5Low": "Lab-only data, healthy young men only, or non-generalizable population.",
     "tier1": "We treat this as settled enough to act on. Independent replication exists, mechanism is clear, the trial population fits.",
-    "tier2": "Solid evidence, but one of the five dimensions is short of perfect — usually replication or real-world fit.",
+    "tier2": "Solid evidence, but one of the five dimensions is short of perfect, usually replication or real-world fit.",
     "tier3": "Worth reporting, worth acting on with caveats. We name the limitation in the body of the post.",
     "tier4": "Early signal. We report it because readers ask, and we flag exactly what is missing.",
     "tier5": "Mechanism is plausible or anecdote is loud, but the trial literature is too thin to be confident. We say so in plain language.",
@@ -594,17 +594,17 @@
     "rulesEyebrow": "The five rules",
     "scoreEyebrow": "The Evidence Score",
     "scoreTitle": "A 0-100 confidence score for the medical claims on this site.",
-    "scoreBody": "The Evidence Score is not a product rating. It is a confidence score for a specific claim — semaglutide preserves weight loss at 68 weeks, for instance. Five weighted dimensions go in, one number comes out, and the tier label tells you how much weight to put on it.",
+    "scoreBody": "The Evidence Score is not a product rating. It is a confidence score for a specific claim, semaglutide preserves weight loss at 68 weeks, for instance. Five weighted dimensions go in, one number comes out, and the tier label tells you how much weight to put on it.",
     "readSpec": "Read the full v1.2 spec",
-    "reviewersEyebrow": "Reviewers",
-    "reviewersTitle": "Who signs off.",
-    "reviewersBody": "Posts that discuss a specific drug, dose, or protocol carry a review stamp at the top. The reviewer is a credentialed clinician — a pharmacist, physician, or registered dietitian, depending on the topic. Reviewer names and credentials show up on every reviewed post, and on the author bio at the bottom.",
+    "reviewersEyebrow": "How we check",
+    "reviewersTitle": "How we check claims.",
+    "reviewersBody": "Posts that discuss a specific drug, dose, or protocol carry a check stamp at the top. Every dose, indication, and side-effect figure is verified against the current FDA prescribing information and the published trial before it ships, and the check date shows on the post. We do not claim review by a named outside clinician.",
     "r1t": "The label or the trial, every time.",
-    "r1b": "Every claim about a drug, a dose, or a side effect links to the FDA prescribing information or to the published trial — never to a press release, never to a content marketer, never to another secondary source.",
+    "r1b": "Every claim about a drug, a dose, or a side effect links to the FDA prescribing information or to the published trial, never to a press release, never to a content marketer, never to another secondary source.",
     "r2t": "Generic and brand names together.",
-    "r2b": "We say semaglutide (Ozempic, Wegovy) — not just Ozempic. The molecule is the thing. The brand is the marketing.",
+    "r2b": "We say semaglutide (Ozempic, Wegovy), not just Ozempic. The molecule is the thing. The brand is the marketing.",
     "r3t": "Uncertainty named, never buried.",
-    "r3b": "Long-term data does not yet exist for most of this drug class. Where the literature is thin, we say so in the body of the post — not in a footnote.",
+    "r3b": "Long-term data does not yet exist for most of this drug class. Where the literature is thin, we say so in the body of the post, not in a footnote.",
     "r4t": "No telehealth-clinic money.",
     "r4b": "We do not accept payment from drug manufacturers or from any of the cash-pay GLP-1 telehealth providers. Trust is the asset.",
     "r5t": "We update when new data drops.",
@@ -659,7 +659,7 @@
     "popular": "Guides populaires",
     "testing": "Comment nous travaillons",
     "testingStep1": "Nous lisons chaque essai cité en entier et la notice FDA.",
-    "testingStep2": "Une relectrice médicale valide avant publication.",
+    "testingStep2": "Every claim is checked against the FDA label and the trial before publication.",
     "testingStep3": "Nous mettons à jour chaque trimestre à l'arrivée de nouvelles données.",
     "editorial": "Standards éditoriaux",
     "editorialMethodology": "Méthodologie publique, versionnée comme un logiciel.",

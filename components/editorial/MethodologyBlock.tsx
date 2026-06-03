@@ -1,19 +1,19 @@
 type Item = { label: string; detail: string };
 
 /**
- * Peptips-unique Methodology frame — 4 points, warm-journal register.
- * Not "how we picked products" — "how we read the literature".
+ * Peptips-unique Methodology frame, 4 points, warm-journal register.
+ * Not "how we picked products", "how we read the literature".
  */
 const defaultItems: Item[] = [
   {
     label: "The questions we answered",
     detail:
-      "We start from the real questions readers bring us — the ones from 11pm Google searches, not from a keyword planner. Every post has to answer at least one specific question in the first 100 words.",
+      "We start from the real questions readers bring us, the ones from 11pm Google searches, not from a keyword planner. Every post has to answer at least one specific question in the first 100 words.",
   },
   {
     label: "The trials we read",
     detail:
-      "We cite the STEP, SURMOUNT, PIONEER and SUSTAIN programs directly — not press releases. Where data is a secondary analysis or a subgroup, we flag it.",
+      "We cite the STEP, SURMOUNT, PIONEER and SUSTAIN programs directly, not press releases. Where data is a secondary analysis or a subgroup, we flag it.",
   },
   {
     label: "What the labeling says",
@@ -23,7 +23,7 @@ const defaultItems: Item[] = [
   {
     label: "Where we say we're uncertain",
     detail:
-      "Long-term data doesn't exist yet for most of this class. We mark uncertainty out loud — not bury it in a footnote — and we update the page when new data drops.",
+      "Long-term data doesn't exist yet for most of this class. We mark uncertainty out loud, not bury it in a footnote, and we update the page when new data drops.",
   },
 ];
 

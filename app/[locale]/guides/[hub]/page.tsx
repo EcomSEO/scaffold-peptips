@@ -29,6 +29,7 @@ export async function generateMetadata({
     description: hl.oneLiner,
     path: `/guides/${hub.slug}`,
     locale,
+    image: `/editorial/${hub.slug}.jpg`,
   });
 }
 
@@ -55,7 +56,7 @@ export default async function HubPage({
       title: i18n.title ?? p.title,
       description: i18n.description ?? p.description,
       category: hl.name,
-      author: "Eleanor Voss",
+      author: "The Peptips Editorial Team",
       readingTime: p.readingTime,
       reviewed: p.medicalDisclaimer === "required",
       evidenceTier: ((5 - (i % 3)) || 4) as 1 | 2 | 3 | 4 | 5,

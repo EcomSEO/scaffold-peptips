@@ -15,7 +15,7 @@ export function AuthorBio() {
         it into posts you can actually use. We do not provide medical advice,
         we do not accept payment from drug manufacturers or telehealth clinics,
         and we cite every claim we make. If you find something on this site
-        that&apos;s wrong, we want to know — write to us and we&apos;ll update it.
+        that&apos;s wrong, we want to know, write to us and we&apos;ll update it.
       </p>
     </section>
   );

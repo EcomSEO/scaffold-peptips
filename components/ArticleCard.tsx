@@ -12,6 +12,8 @@ export type ArticleCardData = {
   readingTime?: number;
   reviewed?: boolean;
   evidenceTier?: 1 | 2 | 3 | 4 | 5; // 1=preliminary, 5=high confidence
+  /** Real cover image (path under /public). Falls back to the gradient thumb. */
+  image?: string;
 };
 
 /**
@@ -34,10 +36,20 @@ export function ArticleCard({
       className={`group block rounded-md overflow-hidden bg-white border border-rule hover:shadow-cardHover hover:border-rule-strong transition-all duration-200 ease-out ${className}`}
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-surface-alt">
-        <ArticleThumb
-          seed={data.slug}
-          className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-[1.03]"
-        />
+        {data.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={data.image}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+          />
+        ) : (
+          <ArticleThumb
+            seed={data.slug}
+            className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+          />
+        )}
         {data.reviewed && (
           <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-1 rounded-pill bg-white/95 text-reviewed-text text-[11px] font-semibold">
             <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>

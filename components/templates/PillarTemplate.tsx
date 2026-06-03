@@ -15,7 +15,7 @@ import { BodyImageSlot } from "../editorial/BodyImageSlot";
 import { PullQuote } from "../editorial/PullQuote";
 
 /**
- * PillarTemplate — pliability-style long-form article shell.
+ * PillarTemplate, pliability-style long-form article shell.
  *
  * Section order (replicates pliability.com/stories anatomy 1:1):
  *   1.  Floating pine pill nav (rendered globally in layout)
@@ -33,7 +33,7 @@ import { PullQuote } from "../editorial/PullQuote";
  *  13.  Inline image slots between sections
  *  14.  Pullquote callout
  *  15.  FAQ as readable prose, NOT bordered cards
- *  16.  EvidenceScore badge inline near H1 (when pflScore exists — peptips uses
+ *  16.  EvidenceScore badge inline near H1 (when pflScore exists, peptips uses
  *       PostReviewStamp for medical posts; EvidenceScore is comparison-only)
  *  17.  MethodologyByline between subhead and hero photo
  *  18.  Sources at bottom (numbered, Inter 14px)
@@ -70,7 +70,7 @@ export function PillarTemplate({ post }: { post: Post }) {
           </span>
         </div>
 
-        {/* 6. Centered H1 — Inter 400, 60px clamp, line-height 1.1 */}
+        {/* 6. Centered H1, Inter 400, 60px clamp, line-height 1.1 */}
         <h1
           className="mt-6 text-center font-normal text-ink text-balance"
           style={{
@@ -82,7 +82,7 @@ export function PillarTemplate({ post }: { post: Post }) {
           {post.h1}
         </h1>
 
-        {/* 7. Centered subhead — Inter 400, 18-19px, color #1F1F1F */}
+        {/* 7. Centered subhead, Inter 400, 18-19px, color #1F1F1F */}
         <p className="mt-6 mx-auto max-w-2xl text-center text-[1.125rem] md:text-[1.1875rem] leading-[1.5] text-ink-soft">
           {post.description}
         </p>
@@ -109,20 +109,20 @@ export function PillarTemplate({ post }: { post: Post }) {
           </div>
         )}
 
-        {/* 11. First body paragraph — Inter 400 18-19px / 1.7 / #1F1F1F */}
+        {/* 11. First body paragraph, Inter 400 18-19px / 1.7 / #1F1F1F */}
         <div className="mt-12 prose">
           <p>{post.description}</p>
 
-          {/* 14. Pullquote callout — sits early to break up the lede */}
+          {/* 14. Pullquote callout, sits early to break up the lede */}
           <div className="not-prose">
             <PullQuote attribution="Peptips house view, methodology v1.2">
               We answer the question you actually asked in the first paragraph.
-              Everything that follows is the why — sourced from the FDA label
+              Everything that follows is the why, sourced from the FDA label
               and the trials, written for someone reading on her phone at 11pm.
             </PullQuote>
           </div>
 
-          {/* 12. Items rendered as H2 sections — readable prose, not cards */}
+          {/* 12. Items rendered as H2 sections, readable prose, not cards */}
           {post.items && post.items.length > 0 && (
             <>
               {post.items.map((item, i) => (
@@ -181,12 +181,12 @@ export function PillarTemplate({ post }: { post: Post }) {
           )}
         </div>
 
-        {/* 18. Sources — numbered list at bottom */}
+        {/* 18. Sources, numbered list at bottom */}
         <div id="sources" className="mt-20">
           <SourcesList sources={post.sources ?? []} />
         </div>
 
-        {/* Reading meta — kept compact, no decorative chrome */}
+        {/* Reading meta, kept compact, no decorative chrome */}
         <div className="mt-12 flex flex-wrap items-center gap-4">
           <ReviewStamp
             updatedAt={post.updatedAt}

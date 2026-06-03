@@ -60,7 +60,7 @@ export function Hero({
                   <path d="M8 1.5 2.5 3.5v4c0 3 2.3 5.7 5.5 7 3.2-1.3 5.5-4 5.5-7v-4L8 1.5Z" />
                   <path d="m5.5 8 2 2 3.5-4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Reviewed by clinicians
+                Evidence-based, independently scored
               </span>
               <span aria-hidden>·</span>
               <span>Cited to FDA labels &amp; the trials themselves</span>
@@ -74,16 +74,25 @@ export function Hero({
               className="group block rounded-md overflow-hidden bg-white border border-rule hover:shadow-cardHover hover:border-rule-strong transition-all"
             >
               <div className="relative aspect-[5/3] overflow-hidden">
-                <ArticleThumb
-                  seed={featured.slug}
-                  variant="hero"
-                  className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-[1.03]"
-                />
+                {featured.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={featured.image}
+                    alt=""
+                    className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <ArticleThumb
+                    seed={featured.slug}
+                    variant="hero"
+                    className="w-full h-full transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                  />
+                )}
                 <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-pill bg-white/95 text-reviewed-text text-[12px] font-semibold">
                   <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path d="m4 8 3 3 5-6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                  Medically reviewed
+                  Evidence-based
                 </div>
                 <div className="absolute right-4 bottom-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-pill bg-white/95">
                   <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-pine-deep">Evidence</span>

@@ -6,8 +6,8 @@ import type { Locale } from "@/i18n/routing";
  *
  * `i18n` carries native-register copy for the masthead tagline and the
  * meta description in every supported locale. Voice target stays the
- * same across languages — warm nurse-friend, calm, cited, never selling
- * anything — but each translation reads as if a native medical journalist
+ * same across languages, warm nurse-friend, calm, cited, never selling
+ * anything, but each translation reads as if a native medical journalist
  * at a respected publication wrote it (Stiftung Warentest Gesundheit for
  * German, Que Choisir Santé for French, and so on).
  */
@@ -22,7 +22,7 @@ export const SITE = {
   email: "hello@peptips.com",
   launched: true,
   requiresMedicalDisclaimer: true,
-  // Editorial masthead — a journal framing (Field Notes format)
+  // Editorial masthead, a journal framing (Field Notes format)
   volume: "Volume I",
   issue: "Issue 01",
   issueName: "Field Notes",
@@ -36,7 +36,7 @@ export const SITE = {
     },
     de: {
       tagline:
-        "Echte Antworten zum Alltag mit GLP-1 — ohne Hype und ohne erhobenen Zeigefinger.",
+        "Echte Antworten zum Alltag mit GLP-1, ohne Hype und ohne erhobenen Zeigefinger.",
       description:
         "Ruhige, belegte Informationen zu GLP-1. Nebenwirkungen, Ernährung und Muskelerhalt, Dosierung und die Fragen, für die in der Sprechstunde keine Zeit blieb.",
     },
@@ -74,31 +74,7 @@ export const SITE = {
       tagline:
         "Riktiga svar om livet med en GLP-1, utan hype och utan pekpinnar.",
       description:
-        "Lugn, källbelagd information om GLP-1. Biverkningar, mat och muskelbevarande, dosering — och frågorna din läkare inte hann besvara.",
-    },
-    pt: {
-      tagline:
-        "Respostas reais sobre a vida com um GLP-1, sem alarde e sem sermões.",
-      description:
-        "Informação calma e fundamentada sobre os GLP-1. Efeitos secundários, alimentação e preservação muscular, doseamento, e as perguntas para as quais o seu médico não teve tempo.",
-    },
-    ro: {
-      tagline:
-        "Răspunsuri reale despre viața cu un GLP-1, fără agitație și fără lecții de morală.",
-      description:
-        "Informații calme și documentate despre GLP-1. Efecte secundare, alimentație și masă musculară, dozaj — și întrebările pentru care medicul dumneavoastră nu a avut timp.",
-    },
-    cs: {
-      tagline:
-        "Skutečné odpovědi o životě s GLP-1, bez hysterie a bez kázání.",
-      description:
-        "Klidné, doložené informace o GLP-1. Nežádoucí účinky, strava a ochrana svalů, dávkování — a otázky, na které vám lékař nestihl odpovědět.",
-    },
-    no: {
-      tagline:
-        "Ekte svar om livet med en GLP-1, uten oppstyr og uten moralsk pekefinger.",
-      description:
-        "Rolig, kildebelagt informasjon om GLP-1. Bivirkninger, kosthold og muskelbevaring, dosering — og spørsmålene legen ikke rakk å svare på.",
+        "Lugn, källbelagd information om GLP-1. Biverkningar, mat och muskelbevarande, dosering, och frågorna din läkare inte hann besvara.",
     },
   } satisfies Record<Locale, { tagline: string; description: string }>,
 } as const;

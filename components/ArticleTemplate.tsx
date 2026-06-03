@@ -1,7 +1,7 @@
 import type { Post } from "@/lib/content/posts";
 import { posts } from "@/lib/content/posts";
 import { getHub } from "@/lib/content/hubs";
-import { ArticleThumb } from "./ArticleThumb";
+import { autolink } from "@/lib/content/autolink";
 import { BreadcrumbNav } from "./BreadcrumbNav";
 import { AuthorByline } from "./AuthorByline";
 import { MedicallyReviewedBadge } from "./MedicallyReviewedBadge";
@@ -17,14 +17,8 @@ import { ArticleJsonLd } from "./schema/ArticleJsonLd";
 import { MedicalWebPageJsonLd } from "./schema/MedicalWebPageJsonLd";
 import { type EvidenceDimensions } from "./editorial/EvidenceScore";
 
-const REVIEWER = {
-  name: "Dr. Maya Okafor",
-  jobTitle: "MD, Internal Medicine",
-};
-
 const AUTHOR = {
-  name: "Eleanor Voss",
-  jobTitle: "RN",
+  name: "The Peptips Editorial Team",
 };
 
 // Reasonable per-post defaults; in a future pass each post gets its own.
@@ -64,6 +58,7 @@ export function ArticleTemplate({ post }: { post: Post }) {
   ];
 
   // Build TOC from sections we render.
+  const used = new Set<string>();
   const toc: TocItem[] = [
     { id: "introduction", label: "What this guide covers", level: 2 },
     ...(post.ourPick
@@ -75,7 +70,6 @@ export function ArticleTemplate({ post }: { post: Post }) {
     ...(post.items && post.items.length > 0
       ? [{ id: "key-points", label: "Key points", level: 2 as const }]
       : []),
-    { id: "deep-dive", label: "What the trials actually show", level: 2 },
     ...(post.faq && post.faq.length > 0
       ? [{ id: "faq", label: "Frequently asked questions", level: 2 as const }]
       : []),
@@ -110,17 +104,12 @@ export function ArticleTemplate({ post }: { post: Post }) {
         datePublished={post.publishedAt}
         dateModified={post.updatedAt}
         authorName={AUTHOR.name}
-        authorJobTitle={AUTHOR.jobTitle}
-        reviewerName={REVIEWER.name}
-        reviewerJobTitle={REVIEWER.jobTitle}
       />
       <MedicalWebPageJsonLd
         path={`/${post.slug}`}
         headline={post.h1}
         description={post.description}
         lastReviewed={post.updatedAt}
-        reviewerName={REVIEWER.name}
-        reviewerCredentials={REVIEWER.jobTitle}
         about={hub?.name}
       />
 
@@ -143,8 +132,13 @@ export function ArticleTemplate({ post }: { post: Post }) {
           </div>
 
           {/* Hero image */}
-          <div className="mt-8 aspect-[5/2] w-full rounded-md overflow-hidden">
-            <ArticleThumb seed={post.slug} variant="hero" className="w-full h-full" />
+          <div className="mt-8 aspect-[5/2] w-full rounded-md overflow-hidden bg-surface-alt">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/heroes/${post.slug}.jpg`}
+              alt=""
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Author + meta strip */}
@@ -152,17 +146,11 @@ export function ArticleTemplate({ post }: { post: Post }) {
             <div className="md:col-span-6">
               <AuthorByline
                 authorName={AUTHOR.name}
-                authorCredentials={AUTHOR.jobTitle}
-                reviewedBy={REVIEWER.name}
-                reviewerCredentials={REVIEWER.jobTitle}
                 date={post.updatedAt}
               />
             </div>
             <div className="md:col-span-6 flex flex-wrap items-center gap-3 md:justify-end">
-              <MedicallyReviewedBadge
-                reviewerName={REVIEWER.name}
-                credentials={REVIEWER.jobTitle}
-              />
+              <MedicallyReviewedBadge />
               <span className="text-[13px] text-ink-muted">
                 {post.readingTime} min read
               </span>
@@ -176,11 +164,7 @@ export function ArticleTemplate({ post }: { post: Post }) {
 
           {/* Reviewer stamp — peptips differentiator */}
           <div className="mt-6">
-            <ReviewerStamp
-              reviewerName={REVIEWER.name}
-              reviewerCredentials={REVIEWER.jobTitle}
-              lastReviewed={post.updatedAt}
-            />
+            <ReviewerStamp lastReviewed={post.updatedAt} />
           </div>
         </div>
       </section>
@@ -208,17 +192,10 @@ export function ArticleTemplate({ post }: { post: Post }) {
 
             <h2 id="introduction">What this guide covers</h2>
             <p>
-              {post.description} This article walks through what the
-              published trials, the FDA prescribing information, and the
-              real-world experience of people on a GLP-1 agree on. It is
-              patient-education only — it is not a substitute for the
-              prescriber who knows your case.
-            </p>
-            <p>
-              You will find the practical summary first, then the trial
-              evidence, then the questions readers ask the most. Generic
-              names appear next to brand names — semaglutide (Ozempic,
-              Wegovy), tirzepatide (Mounjaro, Zepbound) — every time.
+              {post.description} This is patient education, not a
+              substitute for the prescriber who knows your case. Generic
+              names sit next to brand names throughout: semaglutide
+              (Ozempic, Wegovy), tirzepatide (Mounjaro, Zepbound).
             </p>
 
             {post.ourPick && (
@@ -273,31 +250,13 @@ export function ArticleTemplate({ post }: { post: Post }) {
                 <ul>
                   {post.items.slice(0, 5).map((it) => (
                     <li key={it.rank}>
-                      <strong>{it.name}.</strong> {it.summary}
+                      <strong>{it.name}.</strong>{" "}
+                      {autolink(it.summary, post.slug, used)}
                     </li>
                   ))}
                 </ul>
               </>
             )}
-
-            <h2 id="deep-dive">What the trials actually show</h2>
-            <p>
-              The pivotal evidence for this class is the STEP program for
-              semaglutide and the SURMOUNT program for tirzepatide. The
-              trials enrolled adults with overweight or obesity, ran for
-              68-72 weeks, and reported their results in peer-reviewed
-              journals (NEJM, JAMA). The FDA prescribing information for
-              each drug — Ozempic, Wegovy, Mounjaro, and Zepbound — is the
-              authoritative source for dosing, indications, and warnings.
-            </p>
-            <p>
-              The honest summary: GLP-1 receptor agonists move blood-sugar
-              and weight outcomes in trial populations far more than any
-              prior class of medications. The honest caveat: the studied
-              populations were not perfectly representative, side effects
-              are common in the first weeks of any new dose, and the
-              long-term picture beyond two years is still being written.
-            </p>
 
             <NewsletterInline />
 
@@ -307,7 +266,7 @@ export function ArticleTemplate({ post }: { post: Post }) {
                 {post.faq.map((q, i) => (
                   <div key={i}>
                     <h3>{q.q}</h3>
-                    <p>{q.a}</p>
+                    <p>{autolink(q.a, post.slug, used)}</p>
                   </div>
                 ))}
               </>

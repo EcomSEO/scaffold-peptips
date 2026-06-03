@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
 import { MegaMenu, type MegaMenuColumn } from "./MegaMenu";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 /**
  * Healthline-grade publisher header for peptips.
@@ -27,7 +28,7 @@ function isMega(item: NavItem): item is MegaNav {
 
 const NAV: NavItem[] = [
   {
-    label: "Hubs",
+    label: "Guides",
     megaMenu: [
       {
         title: "Get oriented",
@@ -46,117 +47,89 @@ const NAV: NavItem[] = [
         ],
       },
       {
-        title: "Long-term",
+        title: "Long-term & lifestyle",
         items: [
           { label: "Plateaus & long-term", href: "/guides/plateaus-and-long-term" },
-          { label: "Maintenance dosing", href: "/guides/plateaus-and-long-term" },
-          { label: "Coming off a GLP-1", href: "/guides/plateaus-and-long-term" },
+          { label: "Lifestyle on GLP-1", href: "/guides/lifestyle-on-glp1" },
+          {
+            label: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
+            href: "/mounjaro-vs-ozempic-vs-wegovy-vs-zepbound",
+          },
         ],
       },
     ],
     featured: {
       eyebrow: "Field notes",
-      title: "Ozempic week by week — what to expect, what is normal, when to call.",
+      title: "Ozempic week by week, what to expect, what is normal, when to call.",
       href: "/ozempic-week-by-week",
       dek: "A calm, week-numbered companion to the first year on semaglutide.",
     },
   },
   {
-    label: "Conditions",
+    label: "Best products",
     megaMenu: [
       {
-        title: "Type 2 diabetes",
+        title: "Buying guides",
         items: [
-          { label: "GLP-1 for type 2 diabetes", href: "/guides/glp1-101" },
-          { label: "Ozempic & A1c", href: "/ozempic-week-by-week" },
-          { label: "Mounjaro for diabetes", href: "/glp1-guide-for-beginners" },
+          { label: "Best electrolytes for GLP-1", href: "/best-electrolytes-for-glp1" },
+          { label: "Best fiber for constipation", href: "/best-fiber-supplements-for-glp1" },
+          { label: "Best protein powders", href: "/best-protein-powders-for-glp1" },
         ],
       },
       {
-        title: "Weight management",
+        title: "Why trust our picks",
         items: [
-          { label: "Wegovy explained", href: "/glp1-guide-for-beginners" },
-          { label: "Zepbound explained", href: "/glp1-guide-for-beginners" },
-          { label: "Plateaus & maintenance", href: "/guides/plateaus-and-long-term" },
-        ],
-      },
-      {
-        title: "Cardiometabolic",
-        items: [
-          { label: "Heart-risk reduction", href: "/glp1-guide-for-beginners" },
-          { label: "Sleep apnea", href: "/guides/lifestyle-on-glp1" },
-          { label: "Fatty liver", href: "/guides/glp1-101" },
+          { label: "How we test & score", href: "/methodology" },
+          { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
         ],
       },
     ],
+    featured: {
+      eyebrow: "Reviewed by an RN",
+      title: "The best electrolytes for GLP-1 users, scored and compared.",
+      href: "/best-electrolytes-for-glp1",
+      dek: "Eight products compared on sodium, sugar, and how they sit on a slow-emptying stomach.",
+    },
   },
   {
     label: "Side effects",
     megaMenu: [
       {
-        title: "GI",
+        title: "Manage the common ones",
         items: [
-          { label: "Nausea & vomiting", href: "/guides/side-effects-and-management" },
-          { label: "Constipation", href: "/guides/side-effects-and-management" },
-          { label: "Sulfur burps", href: "/guides/side-effects-and-management" },
+          { label: "Side effects & management", href: "/guides/side-effects-and-management" },
+          { label: "The complete side-effect guide", href: "/glp1-side-effect-guide" },
+          { label: "Why Ozempic makes you nauseous", href: "/why-does-ozempic-make-you-nauseous" },
         ],
       },
       {
-        title: "Body composition",
+        title: "Eat & protect muscle",
         items: [
-          { label: "Muscle loss & protein", href: "/guides/food-nutrition-and-muscle" },
-          { label: "Hair thinning", href: "/guides/side-effects-and-management" },
-          { label: "Fatigue", href: "/guides/side-effects-and-management" },
-        ],
-      },
-      {
-        title: "Less common",
-        items: [
-          { label: "Pancreatitis warnings", href: "/guides/side-effects-and-management" },
-          { label: "Gallbladder symptoms", href: "/guides/side-effects-and-management" },
-          { label: "Injection-site bruising", href: "/guides/side-effects-and-management" },
+          { label: "Food, nutrition & muscle", href: "/guides/food-nutrition-and-muscle" },
+          { label: "How much protein on a GLP-1", href: "/how-much-protein-on-a-glp1" },
+          { label: "Best fiber for constipation", href: "/best-fiber-supplements-for-glp1" },
         ],
       },
     ],
   },
   {
-    label: "Compare",
+    label: "About",
     megaMenu: [
       {
-        title: "Drug vs. drug",
+        title: "How we work",
         items: [
-          { label: "Ozempic vs. Wegovy", href: "/glp1-guide-for-beginners" },
-          { label: "Mounjaro vs. Zepbound", href: "/glp1-guide-for-beginners" },
-          { label: "Semaglutide vs. tirzepatide", href: "/glp1-guide-for-beginners" },
-        ],
-      },
-      {
-        title: "GLP-1 vs. alternatives",
-        items: [
-          { label: "GLP-1 vs. metformin", href: "/glp1-guide-for-beginners" },
-          { label: "GLP-1 vs. SGLT2", href: "/glp1-guide-for-beginners" },
-          { label: "GLP-1 vs. lifestyle alone", href: "/guides/lifestyle-on-glp1" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Tools",
-    megaMenu: [
-      {
-        title: "Reference",
-        items: [
+          { label: "About peptips", href: "/about" },
           { label: "Methodology v1.2", href: "/methodology" },
           { label: "Editorial standards", href: "/editorial-standards" },
           { label: "What we are researching", href: "/pipeline" },
         ],
       },
       {
-        title: "Trust",
+        title: "Fine print",
         items: [
-          { label: "About peptips", href: "/about" },
           { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
           { label: "Medical disclaimer", href: "/medical-disclaimer" },
+          { label: "Contact & corrections", href: "/contact" },
         ],
       },
     ],
@@ -189,7 +162,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-rule">
       <div className="mx-auto max-w-container px-6 h-16 flex items-center gap-6">
-        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Peptips — home">
+        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Peptips, home">
           <PeptipsMark />
           <span className="font-serif font-semibold text-[18px] tracking-tight text-pine group-hover:text-pine-deep transition-colors">
             peptips
@@ -252,14 +225,9 @@ export function Header() {
         </form>
 
         <div className="flex items-center gap-2 shrink-0">
-          <button
-            type="button"
-            className="hidden md:inline-flex items-center gap-1.5 px-2.5 h-9 text-[13px] font-medium text-ink-muted hover:text-ink rounded-md transition-colors"
-            aria-label="Change language"
-          >
-            <GlobeIcon className="w-4 h-4" />
-            <span>EN</span>
-          </button>
+          <div className="hidden md:block">
+            <LocaleSwitcher />
+          </div>
           <Link
             href="/newsletter"
             className="hidden md:inline-flex items-center h-9 px-4 rounded-pill bg-pine text-white text-[14px] font-semibold hover:bg-pine-deep transition-colors"
@@ -385,6 +353,10 @@ export function Header() {
             >
               Sign up for the newsletter
             </Link>
+            <div className="mt-8 pt-6 border-t border-rule">
+              <div className="eyebrow eyebrow-muted mb-2">Language</div>
+              <LocaleSwitcher onNavigate={() => setMobileOpen(false)} />
+            </div>
           </div>
         </div>
       )}
@@ -411,17 +383,6 @@ function SearchIcon({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" className={className}>
       <circle cx="9" cy="9" r="6" />
       <line x1="13.5" y1="13.5" x2="17.5" y2="17.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function GlobeIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" className={className}>
-      <circle cx="10" cy="10" r="7.5" />
-      <path d="M2.5 10h15" />
-      <path d="M10 2.5c2.5 2.7 2.5 12.3 0 15" />
-      <path d="M10 2.5c-2.5 2.7-2.5 12.3 0 15" />
     </svg>
   );
 }

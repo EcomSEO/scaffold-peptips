@@ -15,14 +15,22 @@ import { locales, type Locale } from "@/i18n/routing";
  */
 export function LocaleSwitcher({
   onNavigate,
+  variant = "light",
 }: {
   onNavigate?: () => void;
+  /** "light" for the white header/footer, "dark" for the cream-on-pine pill. */
+  variant?: "light" | "dark";
 } = {}) {
   const router = useRouter();
   const pathname = usePathname();
   const active = useLocale() as Locale;
   const t = useTranslations("localeSwitcher");
   const [isPending, startTransition] = useTransition();
+  const isDark = variant === "dark";
+  const selectClass = isDark
+    ? "border-cream/30 text-cream/90 hover:border-cream/60 focus:ring-cream/50"
+    : "border-rule text-ink-muted hover:text-ink hover:border-pine focus:ring-pine/40";
+  const caretClass = isDark ? "text-cream/60" : "text-ink-muted/60";
 
   const handleChange = (next: Locale) => {
     if (next === active) return;
@@ -46,7 +54,7 @@ export function LocaleSwitcher({
       <select
         value={active}
         onChange={(e) => handleChange(e.target.value as Locale)}
-        className="appearance-none bg-transparent border border-cream/30 rounded-full pl-3 pr-7 py-1 text-cream/90 font-medium cursor-pointer hover:border-cream/60 focus:outline-none focus:ring-1 focus:ring-cream/50 transition"
+        className={`appearance-none bg-transparent border rounded-full pl-3 pr-7 py-1 font-medium cursor-pointer focus:outline-none focus:ring-1 transition ${selectClass}`}
         aria-label={t("label")}
       >
         {locales.map((l) => (
@@ -57,7 +65,7 @@ export function LocaleSwitcher({
       </select>
       <span
         aria-hidden
-        className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-cream/60 text-[9px]"
+        className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[9px] ${caretClass}`}
       >
         ▾
       </span>

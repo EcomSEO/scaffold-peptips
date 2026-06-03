@@ -55,16 +55,9 @@ export type AffiliateLink = {
   blurb: string;
 };
 
-const AMAZON_TAG = "peptips-20";
+const AMAZON_TAG = "ecomseo02-20";
 const amazonUrl = (asin: string) =>
   `https://www.amazon.com/dp/${asin}/?tag=${AMAZON_TAG}`;
-/**
- * Tagged Amazon search link. Used when there is no single canonical ASIN
- * (formulas/flavours vary): always valid, never points at the wrong SKU,
- * and still attributes the sale to peptips-20 within the cookie window.
- */
-const amazonSearch = (query: string) =>
-  `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AMAZON_TAG}`;
 
 export const AFFILIATES: Record<string, AffiliateLink> = {
   // ── Cooking scales ─────────────────────────────────────────────────
@@ -172,7 +165,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Recharge Electrolytes",
     thirdPartyUrl: "https://drinklmnt.com/",
     thirdPartyLabel: "LMNT",
-    amazonUrl: amazonSearch("LMNT Recharge electrolyte drink mix"),
+    amazonUrl: amazonUrl("B07TT8B1JJ"),
     category: "electrolytes",
     blurb:
       "1000 mg Na, 200 mg K, 60 mg Mg per stick. Useful during the GLP-1 titration phase when reduced fluid intake can produce headaches and lethargy.",
@@ -183,7 +176,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Re-Lyte Electrolyte Mix",
     thirdPartyUrl: "https://redmond.life/products/re-lyte-electrolyte-mix",
     thirdPartyLabel: "Redmond",
-    amazonUrl: amazonSearch("Redmond Re-Lyte electrolyte mix"),
+    amazonUrl: amazonUrl("B088G2F4ZJ"),
     category: "electrolytes",
     blurb:
       "810 mg Na, 400 mg K, 50 mg Mg per scoop using unrefined real salt. Higher potassium than LMNT; lightly stevia-sweetened.",
@@ -194,7 +187,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Hydration Support / Electrolytes",
     thirdPartyUrl: "https://thisisneeded.com/products/electrolytes",
     thirdPartyLabel: "Needed",
-    amazonUrl: amazonSearch("Needed electrolytes hydration"),
+    amazonUrl: amazonUrl("B0B994NCDY"),
     category: "electrolytes",
     blurb:
       "815 mg Na, 250 mg K, 75 mg Mg per stick, monk-fruit sweetened, formulated with GLP-1 and perinatal users in mind. Premium-priced, thoughtfully built.",
@@ -203,7 +196,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "liquid-iv",
     brand: "Liquid I.V.",
     name: "Hydration Multiplier",
-    thirdPartyUrl: amazonUrl("B07RZQ7B5N"),
+    thirdPartyUrl: amazonUrl("B01IT9NLHW"),
     thirdPartyLabel: "Amazon",
     category: "electrolytes",
     blurb:
@@ -215,7 +208,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Sport Electrolyte Tablets",
     thirdPartyUrl: "https://nuunlife.com/products/nuun-sport",
     thirdPartyLabel: "Nuun",
-    amazonUrl: amazonSearch("Nuun Sport electrolyte tablets"),
+    amazonUrl: amazonUrl("B018NZJC70"),
     category: "electrolytes",
     blurb:
       "300 mg Na, 150 mg K per tablet, low sugar, stevia-sweetened. Portable fizzing-tablet format; you may need two tablets to match the powder mixes.",
@@ -226,7 +219,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Replenisher Electrolyte Powder",
     thirdPartyUrl: "https://ultimareplenisher.com/",
     thirdPartyLabel: "Ultima",
-    amazonUrl: amazonSearch("Ultima Replenisher electrolyte powder"),
+    amazonUrl: amazonUrl("B01IIGCCIK"),
     category: "electrolytes",
     blurb:
       "55 mg Na, 250 mg K, 100 mg Mg per stick, zero sugar. Light-hydration level sodium — a daily base, not a heavy side-effect-day replacement.",
@@ -235,7 +228,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "pedialyte-solution",
     brand: "Pedialyte",
     name: "Electrolyte Solution",
-    thirdPartyUrl: amazonSearch("Pedialyte electrolyte solution"),
+    thirdPartyUrl: amazonUrl("B000ARPKB2"),
     thirdPartyLabel: "Amazon",
     category: "electrolytes",
     blurb:
@@ -247,7 +240,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Electrolyte Powder",
     thirdPartyUrl: "https://shop.drberg.com/electrolyte-powder-regular",
     thirdPartyLabel: "Dr. Berg",
-    amazonUrl: amazonSearch("Dr Berg electrolyte powder"),
+    amazonUrl: amazonUrl("B06W9F3X88"),
     category: "electrolytes",
     blurb:
       "50 mg Na, 1000 mg K, 120 mg Mg per scoop — an unusually high-potassium, low-sodium profile. Fits someone already salting food heavily.",
@@ -259,7 +252,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "citrucel-methylcellulose",
     brand: "Citrucel",
     name: "Methylcellulose Fiber",
-    thirdPartyUrl: amazonSearch("Citrucel methylcellulose fiber"),
+    thirdPartyUrl: amazonUrl("B001F0QZBC"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -269,7 +262,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "metamucil-psyllium",
     brand: "Metamucil / Konsyl",
     name: "Psyllium Husk Fiber",
-    thirdPartyUrl: amazonSearch("psyllium husk fiber sugar free Metamucil Konsyl"),
+    thirdPartyUrl: amazonUrl("B003CT2YQY"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -279,7 +272,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "sunfiber-phgg",
     brand: "Sunfiber",
     name: "Partially Hydrolyzed Guar Gum (PHGG)",
-    thirdPartyUrl: amazonSearch("Sunfiber PHGG partially hydrolyzed guar gum powder"),
+    thirdPartyUrl: amazonUrl("B00GYHWJRA"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -289,7 +282,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "ground-flaxseed",
     brand: "Bob's Red Mill",
     name: "Ground Flaxseed",
-    thirdPartyUrl: amazonSearch("ground flaxseed meal Bob's Red Mill"),
+    thirdPartyUrl: amazonUrl("B000QSS260"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -299,7 +292,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "fibercon-polycarbophil",
     brand: "FiberCon",
     name: "Calcium Polycarbophil Caplets",
-    thirdPartyUrl: amazonSearch("FiberCon calcium polycarbophil fiber caplets"),
+    thirdPartyUrl: amazonUrl("B0000VLWZQ"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -309,7 +302,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "acacia-fiber",
     brand: "Acacia (gum arabic)",
     name: "Acacia Fiber Powder",
-    thirdPartyUrl: amazonSearch("acacia fiber powder gum arabic organic"),
+    thirdPartyUrl: amazonUrl("B0025OUVPI"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -319,7 +312,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "benefiber-wheat-dextrin",
     brand: "Benefiber",
     name: "Wheat Dextrin Fiber",
-    thirdPartyUrl: amazonSearch("Benefiber wheat dextrin fiber powder"),
+    thirdPartyUrl: amazonUrl("B00CX3ASFE"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -329,7 +322,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "inulin-chicory",
     brand: "Inulin / chicory root",
     name: "Inulin Prebiotic Fiber",
-    thirdPartyUrl: amazonSearch("inulin chicory root fiber prebiotic powder"),
+    thirdPartyUrl: amazonUrl("B000MGSI1K"),
     thirdPartyLabel: "Amazon",
     category: "fiber",
     blurb:
@@ -343,7 +336,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "klean-isolate",
     brand: "Klean Athlete",
     name: "Klean Isolate Whey",
-    thirdPartyUrl: amazonSearch("Klean Athlete Klean Isolate whey protein"),
+    thirdPartyUrl: amazonUrl("B00XIKLTLS"),
     thirdPartyLabel: "Amazon",
     category: "protein",
     blurb:
@@ -355,7 +348,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Grass-Fed Whey Protein Isolate",
     thirdPartyUrl: "https://www.transparentlabs.com/products/grass-fed-whey-protein-isolate",
     thirdPartyLabel: "Transparent Labs",
-    amazonUrl: amazonSearch("Transparent Labs grass-fed whey protein isolate"),
+    amazonUrl: amazonUrl("B0CQ3MQR7C"),
     category: "protein",
     blurb:
       "28 g grass-fed whey isolate, third-party tested, stevia-sweetened with no artificial sweeteners or fillers. A short, clean ingredient list that tends to sit well on a sensitive GLP-1 gut.",
@@ -366,7 +359,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Essential Grass-Fed Whey",
     thirdPartyUrl: "https://www.livemomentous.com/products/whey-protein-isolate",
     thirdPartyLabel: "Momentous",
-    amazonUrl: amazonSearch("Momentous Essential Whey protein"),
+    amazonUrl: amazonUrl("B09F1SWMFG"),
     category: "protein",
     blurb:
       "NSF Certified for Sport grass-fed whey, ~20-24 g protein. Well-tolerated, mixes clean; a frequent dietitian recommendation.",
@@ -377,7 +370,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Whey Protein Isolate",
     thirdPartyUrl: "https://promixnutrition.com/products/whey-protein-isolate-powder",
     thirdPartyLabel: "Promix",
-    amazonUrl: amazonSearch("Promix whey protein isolate"),
+    amazonUrl: amazonUrl("B06W9J1SQK"),
     category: "protein",
     blurb:
       "Grass-fed whey isolate, ~30 g protein per scoop, minimal ingredients. Strong cost-per-gram for a clean isolate.",
@@ -386,7 +379,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "on-gold-standard-whey",
     brand: "Optimum Nutrition",
     name: "Gold Standard 100% Whey",
-    thirdPartyUrl: amazonSearch("Optimum Nutrition Gold Standard 100% Whey"),
+    thirdPartyUrl: amazonUrl("B000QSNYGI"),
     thirdPartyLabel: "Amazon",
     category: "protein",
     blurb:
@@ -398,7 +391,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Plant-Based Protein",
     thirdPartyUrl: "https://truvani.com/products/plant-based-protein-powder",
     thirdPartyLabel: "Truvani",
-    amazonUrl: amazonSearch("Truvani plant based protein powder"),
+    amazonUrl: amazonUrl("B07JG7VS62"),
     category: "protein",
     blurb:
       "Short-ingredient pea-protein blend, ~20 g protein, no added sugar. A clean plant option for whey-sensitive or dairy-avoiding readers.",
@@ -407,7 +400,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "orgain-plant",
     brand: "Orgain",
     name: "Organic Plant Protein",
-    thirdPartyUrl: amazonSearch("Orgain organic plant protein powder"),
+    thirdPartyUrl: amazonUrl("B00J074W7Q"),
     thirdPartyLabel: "Amazon",
     category: "protein",
     blurb:
@@ -419,7 +412,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     name: "Essential Protein Daily Shake 18+",
     thirdPartyUrl: "https://ritual.com/products/protein-powder-18plus",
     thirdPartyLabel: "Ritual",
-    amazonUrl: amazonSearch("Ritual Essential Protein Daily Shake 18+"),
+    amazonUrl: amazonUrl("B0DQ68JDSC"),
     category: "protein",
     blurb:
       "Traceable pea protein, ~20 g, third-party tested with a clean label. Subscription-first brand; premium-priced.",
@@ -428,7 +421,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "gol-sport-plant",
     brand: "Garden of Life",
     name: "Sport Organic Plant-Based Protein",
-    thirdPartyUrl: amazonSearch("Garden of Life Sport organic plant based protein"),
+    thirdPartyUrl: amazonUrl("B01N7DTD98"),
     thirdPartyLabel: "Amazon",
     category: "protein",
     blurb:
@@ -438,7 +431,7 @@ export const AFFILIATES: Record<string, AffiliateLink> = {
     productKey: "quest-protein",
     brand: "Quest",
     name: "Protein Powder",
-    thirdPartyUrl: amazonSearch("Quest protein powder whey casein"),
+    thirdPartyUrl: amazonUrl("B07L94L214"),
     thirdPartyLabel: "Amazon",
     category: "protein",
     blurb:

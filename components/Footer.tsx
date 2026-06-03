@@ -2,12 +2,19 @@ import { Link } from "@/i18n/navigation";
 import { hubs } from "@/lib/content/hubs";
 import { SITE } from "@/lib/content/site";
 import { PeptipsMark } from "./Header";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 const tools = [
   { slug: "/methodology", name: "Methodology v1.2" },
   { slug: "/pipeline", name: "What we are researching" },
   { slug: "/editorial-standards", name: "Editorial standards" },
   { slug: "/medical-disclaimer", name: "Medical disclaimer" },
+];
+
+const bestProducts = [
+  { slug: "/best-electrolytes-for-glp1", name: "Best electrolytes" },
+  { slug: "/best-fiber-supplements-for-glp1", name: "Best fiber for constipation" },
+  { slug: "/best-protein-powders-for-glp1", name: "Best protein powders" },
 ];
 
 /**
@@ -24,7 +31,7 @@ export function Footer() {
         {/* Brand row */}
         <div className="grid md:grid-cols-12 gap-8 pb-10 border-b border-rule">
           <div className="md:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-2" aria-label="Peptips — home">
+            <Link href="/" className="inline-flex items-center gap-2" aria-label="Peptips, home">
               <PeptipsMark size={32} />
               <span className="font-serif font-semibold text-[20px] tracking-tight text-pine">peptips</span>
             </Link>
@@ -33,13 +40,26 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <h4 className="eyebrow mb-3">The five hubs</h4>
             <ul className="space-y-2 text-[14px]">
               {hubs.map((hub) => (
                 <li key={hub.slug}>
                   <Link href={`/guides/${hub.slug}`} className="text-ink hover:text-pine-deep transition-colors">
                     {hub.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="eyebrow mb-3">Best products</h4>
+            <ul className="space-y-2 text-[14px]">
+              {bestProducts.map((b) => (
+                <li key={b.slug}>
+                  <Link href={b.slug} className="text-ink hover:text-pine-deep transition-colors">
+                    {b.name}
                   </Link>
                 </li>
               ))}
@@ -59,7 +79,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <h4 className="eyebrow mb-3">Company</h4>
             <ul className="space-y-2 text-[14px]">
               <li><Link href="/about" className="text-ink hover:text-pine-deep">About</Link></li>
@@ -88,7 +108,7 @@ export function Footer() {
             <div className="md:col-span-5">
               <h4 className="eyebrow mb-2">Newsletter</h4>
               <p className="text-[13px] text-ink-muted leading-relaxed">
-                Calm, cited GLP-1 patient education — every week. New
+                Calm, cited GLP-1 patient education, every week. New
                 week-by-week guides, side-effect explainers, comparison
                 deep-dives. No vendor pitches.{" "}
                 <Link
@@ -98,15 +118,9 @@ export function Footer() {
                   Subscribe →
                 </Link>
               </p>
-              <div className="mt-4">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1.5 text-[13px] text-ink-muted hover:text-ink"
-                  aria-label="Change language"
-                >
-                  <GlobeIcon className="w-4 h-4" />
-                  English (US)
-                </button>
+              <div className="mt-4 flex items-center gap-2 text-ink-muted">
+                <GlobeIcon className="w-4 h-4 shrink-0" />
+                <LocaleSwitcher />
               </div>
             </div>
           </div>

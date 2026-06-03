@@ -13,7 +13,7 @@
 export function PostReviewStamp({
   reviewedOn,
   reviewer = "The Peptips Editorial Team",
-  credential = "Researchers · Brand book §8",
+  credential = "checked against FDA labels & the trials",
 }: {
   reviewedOn: string;
   reviewer?: string;
@@ -37,7 +37,7 @@ export function PostReviewStamp({
             aria-hidden
             className="review-pulse-dot h-2 w-2 rounded-full bg-sage-deep"
           />
-          <span className="caps-label text-pine">Last medically reviewed</span>
+          <span className="caps-label text-pine">Last reviewed</span>
         </span>
         <span className="text-[13.5px] text-pine font-medium tnum">
           {formatted}

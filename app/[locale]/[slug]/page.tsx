@@ -69,6 +69,7 @@ export async function generateMetadata({
     path: `/${post.slug}`,
     locale,
     ogType: "article",
+    image: `/heroes/${post.slug}.jpg`,
   });
 }
 

@@ -18,7 +18,7 @@ export const hubs: Hub[] = [
     name: "GLP-1 101",
     shortName: "GLP-1 101",
     oneLiner:
-      "Beginner education. What GLP-1s are, how they work, who they are for, and which drugs are on the market — in plain language.",
+      "Beginner education. What GLP-1s are, how they work, who they are for, and which drugs are on the market, in plain language.",
     thesis:
       "You heard about GLP-1s last week. You got a prescription yesterday. You are weighing whether to ask your doctor next month. This hub builds the foundation calmly, without the hype and without the lecture.",
     i18n: {
@@ -28,7 +28,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "Einstieg verständlich erklärt. Was GLP-1 sind, wie sie wirken, für wen sie gedacht sind und welche Wirkstoffe es gibt.",
         thesis:
-          "Sie haben letzte Woche zum ersten Mal von GLP-1 gehört. Sie haben gestern ein Rezept bekommen. Sie überlegen, das Thema bei der nächsten Sprechstunde anzusprechen. Hier wird die Grundlage ruhig gelegt — ohne Hype und ohne Belehrung.",
+          "Sie haben letzte Woche zum ersten Mal von GLP-1 gehört. Sie haben gestern ein Rezept bekommen. Sie überlegen, das Thema bei der nächsten Sprechstunde anzusprechen. Hier wird die Grundlage ruhig gelegt, ohne Hype und ohne Belehrung.",
       },
       fr: {
         name: "GLP-1, les bases",
@@ -55,60 +55,28 @@ export const hubs: Hub[] = [
           "Oyó hablar de los GLP-1 la semana pasada. Recibió una receta ayer. Está pensando si preguntarle a su médico el mes que viene. Aquí construimos los cimientos con calma, sin sensacionalismo y sin sermones.",
       },
       nl: {
-        name: "GLP-1 — de basis",
-        shortName: "GLP-1 — de basis",
+        name: "GLP-1, de basis",
+        shortName: "GLP-1, de basis",
         oneLiner:
-          "Om te beginnen. Wat GLP-1's zijn, hoe ze werken, voor wie ze bedoeld zijn en het landschap van de beschikbare middelen — in heldere taal.",
+          "Om te beginnen. Wat GLP-1's zijn, hoe ze werken, voor wie ze bedoeld zijn en het landschap van de beschikbare middelen, in heldere taal.",
         thesis:
-          "U hoorde vorige week voor het eerst van GLP-1's. U kreeg gisteren een recept. U overweegt het volgende maand bij uw arts ter sprake te brengen. Hier leggen we het fundament rustig — zonder hype en zonder belerende toon.",
+          "U hoorde vorige week voor het eerst van GLP-1's. U kreeg gisteren een recept. U overweegt het volgende maand bij uw arts ter sprake te brengen. Hier leggen we het fundament rustig, zonder hype en zonder belerende toon.",
       },
       pl: {
-        name: "GLP-1 — podstawy",
-        shortName: "GLP-1 — podstawy",
+        name: "GLP-1, podstawy",
+        shortName: "GLP-1, podstawy",
         oneLiner:
-          "Edukacja od podstaw. Czym są GLP-1, jak działają, dla kogo są przeznaczone i jak wygląda krajobraz dostępnych leków — prostym językiem.",
+          "Edukacja od podstaw. Czym są GLP-1, jak działają, dla kogo są przeznaczone i jak wygląda krajobraz dostępnych leków, prostym językiem.",
         thesis:
-          "Usłyszała Pani o GLP-1 w ubiegłym tygodniu. Wczoraj dostała Pani receptę. Zastanawia się Pani, czy zapytać o to lekarza w przyszłym miesiącu. Tutaj spokojnie budujemy podstawę — bez sensacji i bez moralizowania.",
+          "Usłyszała Pani o GLP-1 w ubiegłym tygodniu. Wczoraj dostała Pani receptę. Zastanawia się Pani, czy zapytać o to lekarza w przyszłym miesiącu. Tutaj spokojnie budujemy podstawę, bez sensacji i bez moralizowania.",
       },
       sv: {
-        name: "GLP-1 — grunderna",
-        shortName: "GLP-1 — grunderna",
+        name: "GLP-1, grunderna",
+        shortName: "GLP-1, grunderna",
         oneLiner:
           "För nybörjaren. Vad GLP-1 är, hur de verkar, vilka de är till för och kartan över de tillgängliga läkemedlen, på vanlig svenska.",
         thesis:
-          "Du hörde talas om GLP-1 förra veckan. Du fick ett recept i går. Du funderar på att ta upp det med din läkare nästa månad. Här bygger vi grunden lugnt — utan hype och utan pekpinnar.",
-      },
-      pt: {
-        name: "GLP-1 — fundamentos",
-        shortName: "GLP-1 — fundamentos",
-        oneLiner:
-          "Para começar. O que são os GLP-1, como atuam, a quem se destinam e o panorama dos fármacos disponíveis, em linguagem simples.",
-        thesis:
-          "Ouviu falar dos GLP-1 a semana passada. Recebeu uma receita ontem. Está a ponderar falar com o seu médico no próximo mês. Aqui construímos a base com calma — sem alarde e sem sermões.",
-      },
-      ro: {
-        name: "GLP-1 — bazele",
-        shortName: "GLP-1 — bazele",
-        oneLiner:
-          "Pentru începători. Ce sunt GLP-1-urile, cum acționează, cui se adresează și peisajul medicamentelor disponibile, în cuvinte simple.",
-        thesis:
-          "Ați auzit despre GLP-1 săptămâna trecută. Ați primit ieri o rețetă. Vă gândiți dacă să-l întrebați pe medic luna viitoare. Aici punem bazele liniștit — fără agitație și fără morală.",
-      },
-      cs: {
-        name: "GLP-1 — základy",
-        shortName: "GLP-1 — základy",
-        oneLiner:
-          "Pro začátečníky. Co GLP-1 jsou, jak působí, komu jsou určené a jaké léky jsou na trhu, srozumitelně.",
-        thesis:
-          "O GLP-1 jste slyšeli minulý týden. Recept jste dostali včera. Zvažujete, zda se na to v příštím měsíci zeptat lékaře. Tady klidně pokládáme základ — bez hysterie a bez kázání.",
-      },
-      no: {
-        name: "GLP-1 — det grunnleggende",
-        shortName: "GLP-1 — grunnleggende",
-        oneLiner:
-          "For nybegynnere. Hva GLP-1 er, hvordan de virker, hvem de er for, og kartet over tilgjengelige legemidler, på vanlig norsk.",
-        thesis:
-          "Du hørte om GLP-1 forrige uke. Du fikk en resept i går. Du vurderer å ta det opp med legen neste måned. Her legger vi grunnlaget rolig — uten oppstyr og uten moralsk pekefinger.",
+          "Du hörde talas om GLP-1 förra veckan. Du fick ett recept i går. Du funderar på att ta upp det med din läkare nästa månad. Här bygger vi grunden lugnt, utan hype och utan pekpinnar.",
       },
     },
   },
@@ -135,7 +103,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "Nausées, constipation, éructations sulfureuses, perte de cheveux. Pourquoi ça arrive et ce qui aide vraiment.",
         thesis:
-          "Les effets secondaires sont la première cause d'arrêt des GLP-1 dans les quatre-vingt-dix premiers jours. Chacun mérite une réponse posée, pratique et sourcée — pas une page de mise en garde générique.",
+          "Les effets secondaires sont la première cause d'arrêt des GLP-1 dans les quatre-vingt-dix premiers jours. Chacun mérite une réponse posée, pratique et sourcée, pas une page de mise en garde générique.",
       },
       it: {
         name: "Effetti collaterali e gestione",
@@ -176,38 +144,6 @@ export const hubs: Hub[] = [
           "Illamående, förstoppning, svavelrapningar, glesare hår. Varför det händer och vad som faktiskt hjälper.",
         thesis:
           "Biverkningar är den främsta orsaken till att människor slutar med GLP-1 under de första nittio dagarna. Varje biverkning är en egen sökfråga och förtjänar ett lugnt, praktiskt svar med källor.",
-      },
-      pt: {
-        name: "Efeitos secundários e gestão",
-        shortName: "Efeitos secundários",
-        oneLiner:
-          "Náuseas, obstipação, arrotos sulfurosos, queda de cabelo. Porque acontece e o que ajuda de facto.",
-        thesis:
-          "Os efeitos secundários são a principal razão para se desistir dos GLP-1 nos primeiros noventa dias. Cada um é uma pesquisa por si só e merece uma resposta calma, prática e com fontes.",
-      },
-      ro: {
-        name: "Efecte secundare și gestionare",
-        shortName: "Efecte secundare",
-        oneLiner:
-          "Greață, constipație, eructații cu miros de sulf, păr mai subțire. De ce apar și ce ajută cu adevărat.",
-        thesis:
-          "Efectele secundare sunt principalul motiv pentru care oamenii renunță la GLP-1 în primele nouăzeci de zile. Fiecare efect este o căutare în sine și merită un răspuns calm, practic și documentat.",
-      },
-      cs: {
-        name: "Nežádoucí účinky a jejich zvládání",
-        shortName: "Nežádoucí účinky",
-        oneLiner:
-          "Nevolnost, zácpa, sirné říhání, řídnoucí vlasy. Proč k tomu dochází a co skutečně pomáhá.",
-        thesis:
-          "Nežádoucí účinky jsou hlavním důvodem, proč lidé v prvních devadesáti dnech GLP-1 vysadí. Každý je samostatným hledáním a každý si zaslouží klidnou, praktickou odpověď se zdroji.",
-      },
-      no: {
-        name: "Bivirkninger og håndtering",
-        shortName: "Bivirkninger",
-        oneLiner:
-          "Kvalme, forstoppelse, svovelraping, tynnere hår. Hvorfor det skjer og hva som faktisk hjelper.",
-        thesis:
-          "Bivirkninger er hovedgrunnen til at folk slutter med GLP-1 i de første nitti dagene. Hver enkelt er sitt eget søk og fortjener et rolig, praktisk svar med kilder.",
       },
     },
   },
@@ -276,38 +212,6 @@ export const hubs: Hub[] = [
         thesis:
           "Det svåraste med en GLP-1 är inte att gå ner i vikt. Det är att gå ner väl. Det här är den praktiska matkompanjonen för dig som vill skydda musklerna och nå näringsmålen med mindre aptit.",
       },
-      pt: {
-        name: "Alimentação, nutrição e músculo",
-        shortName: "Alimentação",
-        oneLiner:
-          "Com um GLP-1 o apetite cai 60-80 %, por isso cada dentada conta. Metas de proteína, preservação muscular e o que pôr no prato.",
-        thesis:
-          "A parte mais difícil de um GLP-1 não é perder peso. É perdê-lo bem. Este é o companheiro prático para quem quer proteger o músculo e atingir as metas nutricionais com menos apetite.",
-      },
-      ro: {
-        name: "Alimentație, nutriție și mușchi",
-        shortName: "Alimentație",
-        oneLiner:
-          "Cu un GLP-1 pofta de mâncare scade cu 60-80 %, așa că fiecare îmbucătură contează. Țintele de proteine, păstrarea masei musculare, ce pui în farfurie.",
-        thesis:
-          "Cea mai grea parte a unui GLP-1 nu este să slăbești. Este să slăbești bine. Acesta este însoțitorul practic pentru oricine vrea să-și protejeze mușchii și să atingă țintele nutriționale cu un apetit redus.",
-      },
-      cs: {
-        name: "Strava, výživa a svaly",
-        shortName: "Strava",
-        oneLiner:
-          "Na GLP-1 chuť k jídlu klesá o 60-80 %, takže každé sousto musí mít smysl. Cíle bílkovin, ochrana svalů, co dát na talíř.",
-        thesis:
-          "Nejtěžší na GLP-1 není zhubnout. Je zhubnout dobře. Toto je praktický stravovací průvodce pro každého, kdo chce chránit svaly a plnit výživové cíle při menší chuti k jídlu.",
-      },
-      no: {
-        name: "Mat, ernæring og muskler",
-        shortName: "Mat og muskler",
-        oneLiner:
-          "Appetitten faller 60-80 % på en GLP-1, så hver bit må telle. Proteinmål, muskelbevaring og hva som havner på tallerkenen.",
-        thesis:
-          "Det vanskeligste med en GLP-1 er ikke å gå ned i vekt. Det er å gå ned godt. Dette er den praktiske matfølgesvennen for deg som vil beskytte muskelmassen og nå ernæringsmålene med mindre appetitt.",
-      },
     },
   },
   {
@@ -325,7 +229,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "Alkohol wirkt anders. Sport fühlt sich anders an. Reisen will geplant sein. Das gesellschaftliche Leben wird etwas seltsamer.",
         thesis:
-          "Jenseits von Ernährung und Nebenwirkungen verändert sich das Leben unter GLP-1. Dieser Bereich ist der gelebte Alltag: Alkohol, Sport, Reisen, Verabredungen, gesellschaftliche Anlässe — und die Identitäts­verschiebung, wenn das ständige Essens­rauschen verstummt.",
+          "Jenseits von Ernährung und Nebenwirkungen verändert sich das Leben unter GLP-1. Dieser Bereich ist der gelebte Alltag: Alkohol, Sport, Reisen, Verabredungen, gesellschaftliche Anlässe, und die Identitäts­verschiebung, wenn das ständige Essens­rauschen verstummt.",
       },
       fr: {
         name: "Mode de vie sous GLP-1",
@@ -333,7 +237,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "L'alcool frappe différemment. Le sport se ressent différemment. Les voyages se préparent. La vie sociale devient un peu étrange.",
         thesis:
-          "Au-delà de l'alimentation et des effets secondaires, la vie change sous GLP-1. Cette rubrique est celle du vécu : alcool, sport, voyages, sorties, repas en famille — et le déplacement identitaire qui suit la disparition du bruit alimentaire.",
+          "Au-delà de l'alimentation et des effets secondaires, la vie change sous GLP-1. Cette rubrique est celle du vécu : alcool, sport, voyages, sorties, repas en famille, et le déplacement identitaire qui suit la disparition du bruit alimentaire.",
       },
       it: {
         name: "Stile di vita con i GLP-1",
@@ -341,7 +245,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "L'alcol colpisce in modo diverso. Lo sport si sente diverso. I viaggi vanno pianificati. La vita sociale si fa un po' strana.",
         thesis:
-          "Oltre al cibo e agli effetti collaterali, la vita cambia con i GLP-1. Questa è la sezione del vissuto: alcol, sport, viaggi, appuntamenti, eventi sociali — e lo spostamento identitario che segue la scomparsa del rumore alimentare.",
+          "Oltre al cibo e agli effetti collaterali, la vita cambia con i GLP-1. Questa è la sezione del vissuto: alcol, sport, viaggi, appuntamenti, eventi sociali, e lo spostamento identitario che segue la scomparsa del rumore alimentare.",
       },
       es: {
         name: "Estilo de vida con GLP-1",
@@ -349,7 +253,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "El alcohol pega distinto. El ejercicio se siente distinto. Los viajes piden planificación. La vida social se vuelve un poco rara.",
         thesis:
-          "Más allá de la comida y los efectos secundarios, la vida cambia con un GLP-1. Esta sección es la del día a día: alcohol, ejercicio, viajes, citas, eventos sociales — y el desplazamiento identitario que llega cuando se apaga el ruido de la comida.",
+          "Más allá de la comida y los efectos secundarios, la vida cambia con un GLP-1. Esta sección es la del día a día: alcohol, ejercicio, viajes, citas, eventos sociales, y el desplazamiento identitario que llega cuando se apaga el ruido de la comida.",
       },
       nl: {
         name: "Leven met een GLP-1",
@@ -357,7 +261,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "Alcohol komt anders binnen. Sport voelt anders. Reizen vraagt planning. Het sociale leven wordt iets wonderlijker.",
         thesis:
-          "Naast voeding en bijwerkingen verschuift het leven op een GLP-1. Deze rubriek gaat over geleefde ervaring: alcohol, sport, reizen, afspraakjes, sociale gelegenheden — en de identiteitsverschuiving die volgt als de voedselruis verdwijnt.",
+          "Naast voeding en bijwerkingen verschuift het leven op een GLP-1. Deze rubriek gaat over geleefde ervaring: alcohol, sport, reizen, afspraakjes, sociale gelegenheden, en de identiteitsverschuiving die volgt als de voedselruis verdwijnt.",
       },
       pl: {
         name: "Życie z GLP-1",
@@ -365,7 +269,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "Alkohol działa inaczej. Sport czuje się inaczej. Podróże wymagają planowania. Życie towarzyskie staje się trochę dziwne.",
         thesis:
-          "Poza jedzeniem i działaniami niepożądanymi życie z GLP-1 się przesuwa. To sekcja o doświadczeniu: alkohol, sport, podróże, randki, spotkania — i przesunięcie tożsamościowe, które przychodzi, gdy gaśnie szum jedzenia.",
+          "Poza jedzeniem i działaniami niepożądanymi życie z GLP-1 się przesuwa. To sekcja o doświadczeniu: alkohol, sport, podróże, randki, spotkania, i przesunięcie tożsamościowe, które przychodzi, gdy gaśnie szum jedzenia.",
       },
       sv: {
         name: "Livet på en GLP-1",
@@ -373,39 +277,7 @@ export const hubs: Hub[] = [
         oneLiner:
           "Alkohol slår annorlunda. Träning känns annorlunda. Resor kräver planering. Det sociala livet blir lite märkligt.",
         thesis:
-          "Bortom mat och biverkningar förskjuts livet på en GLP-1. Det här är den levda erfarenheten: alkohol, träning, resor, dejter, sociala tillställningar — och identitetsförskjutningen som kommer när matbruset tystnar.",
-      },
-      pt: {
-        name: "Vida com um GLP-1",
-        shortName: "Vida",
-        oneLiner:
-          "O álcool bate diferente. O exercício sente-se diferente. Viajar pede planeamento. A vida social fica um pouco estranha.",
-        thesis:
-          "Para lá da comida e dos efeitos secundários, a vida muda com um GLP-1. Esta secção é a da experiência vivida: álcool, exercício, viagens, encontros, eventos sociais — e a deslocação identitária que vem quando o ruído da comida silencia.",
-      },
-      ro: {
-        name: "Viața cu un GLP-1",
-        shortName: "Viața",
-        oneLiner:
-          "Alcoolul lovește altfel. Mișcarea se simte altfel. Călătoriile cer planificare. Viața socială devine puțin ciudată.",
-        thesis:
-          "Dincolo de mâncare și efecte secundare, viața se schimbă cu un GLP-1. Aici este experiența trăită: alcool, mișcare, călătorii, întâlniri, evenimente — și deplasarea de identitate care vine când zgomotul alimentar se stinge.",
-      },
-      cs: {
-        name: "Život s GLP-1",
-        shortName: "Život",
-        oneLiner:
-          "Alkohol působí jinak. Pohyb se cítí jinak. Cesty chtějí plán. Společenský život je trochu zvláštnější.",
-        thesis:
-          "Mimo jídlo a nežádoucí účinky se život s GLP-1 posouvá. Tady je o prožité zkušenosti: alkohol, pohyb, cestování, schůzky, společenské akce — a posun identity, který přijde, když utichne potravinový šum.",
-      },
-      no: {
-        name: "Livet med en GLP-1",
-        shortName: "Hverdagen",
-        oneLiner:
-          "Alkohol slår annerledes. Trening kjennes annerledes. Reiser krever planlegging. Det sosiale livet blir litt rart.",
-        thesis:
-          "Forbi mat og bivirkninger forskyves livet på en GLP-1. Dette er om den levde erfaringen: alkohol, trening, reiser, dater, sosiale anledninger — og identitetsforskyvningen som kommer når matstøyen blir borte.",
+          "Bortom mat och biverkningar förskjuts livet på en GLP-1. Det här är den levda erfarenheten: alkohol, träning, resor, dejter, sociala tillställningar, och identitetsförskjutningen som kommer när matbruset tystnar.",
       },
     },
   },
@@ -473,38 +345,6 @@ export const hubs: Hub[] = [
           "Platåer, underhållsdos, att sluta, viktåtergång. Andra årets frågor som ingen ännu svarar bra på.",
         thesis:
           "Första året är smekmånaden. Andra året bor de svåra frågorna: platåer, dosjusteringar, underhåll, att sluta, viktåtergång. Det här är den långsiktiga följeslagaren de flesta läsare inte hittat någon annanstans.",
-      },
-      pt: {
-        name: "Patamares e longo prazo",
-        shortName: "Longo prazo",
-        oneLiner:
-          "Patamares, dose de manutenção, interromper, recuperar peso. As perguntas do segundo ano a que ninguém ainda responde bem.",
-        thesis:
-          "O primeiro ano é a lua de mel. No segundo vivem as perguntas difíceis: patamares, alterações de dose, manutenção, interrupção, recuperação de peso. É o companheiro de longo prazo que a maioria dos leitores não encontrou noutro lado.",
-      },
-      ro: {
-        name: "Platouri și termen lung",
-        shortName: "Termen lung",
-        oneLiner:
-          "Platouri, doză de întreținere, oprire, recâștigarea greutății. Întrebările din anul doi la care nimeni nu răspunde încă bine.",
-        thesis:
-          "Primul an e luna de miere. Al doilea e unde locuiesc întrebările grele: platouri, modificări de doză, întreținere, oprire, recâștig. Acesta este însoțitorul pe termen lung pe care majoritatea cititorilor nu l-au găsit în altă parte.",
-      },
-      cs: {
-        name: "Stagnace a dlouhodobý horizont",
-        shortName: "Dlouhodobě",
-        oneLiner:
-          "Stagnace, udržovací dávka, vysazení, znovunabývání. Otázky druhého roku, na které zatím nikdo neumí dobře odpovědět.",
-        thesis:
-          "První rok je líbánky. Ve druhém roce bydlí těžké otázky: stagnace, úpravy dávky, udržování, vysazení, znovunabývání. Tohle je dlouhodobý průvodce, který většina čtenářů jinde nenašla.",
-      },
-      no: {
-        name: "Platåer og langsiktig",
-        shortName: "Langsiktig",
-        oneLiner:
-          "Platåer, vedlikeholdsdose, å slutte, gjenvunnet vekt. Spørsmålene fra andre år som ingen ennå svarer godt på.",
-        thesis:
-          "Første år er hvetebrødsdagene. Andre år bor de vanskelige spørsmålene: platåer, doseendringer, vedlikehold, avslutning, gjenvunnet vekt. Dette er den langsiktige følgesvennen de fleste leserne ikke har funnet andre steder.",
       },
     },
   },

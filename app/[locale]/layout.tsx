@@ -31,8 +31,7 @@ const sourceSerif = Source_Serif_4({
 
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US", de: "de_DE", fr: "fr_FR", it: "it_IT", es: "es_ES",
-  nl: "nl_NL", pl: "pl_PL", sv: "sv_SE", pt: "pt_PT", ro: "ro_RO",
-  cs: "cs_CZ", no: "no_NO",
+  nl: "nl_NL", pl: "pl_PL", sv: "sv_SE",
 };
 
 export function generateStaticParams() {
@@ -59,8 +58,8 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE.url),
     title: {
-      default: `${SITE.name} — ${tagline}`,
-      template: `%s — ${SITE.name}`,
+      default: `${SITE.name} · ${tagline}`,
+      template: `%s · ${SITE.name}`,
     },
     description,
     alternates: {

@@ -1,8 +1,9 @@
 import type { Post } from "@/lib/content/posts";
 import { getHub } from "@/lib/content/hubs";
 import { relatedPosts } from "@/lib/content/posts";
-import { AffiliateLink } from "../AffiliateLink";
-import { getRetailers } from "@/lib/affiliate/registry";
+import { Link } from "@/i18n/navigation";
+import { autolink } from "@/lib/content/autolink";
+import { RetailerButtons } from "../RetailerButtons";
 import { ReviewStamp } from "../ReviewStamp";
 import { AffiliateDisclosure } from "../AffiliateDisclosure";
 import { AuthorBio } from "../AuthorBio";
@@ -16,45 +17,9 @@ import { FaqJsonLd } from "../schema/FaqJsonLd";
 import { ItemListJsonLd } from "../schema/ItemListJsonLd";
 import { ProductReviewJsonLd } from "../schema/ProductReviewJsonLd";
 import { MethodologyByline } from "../editorial/MethodologyByline";
-import { BodyImageSlot } from "../editorial/BodyImageSlot";
+import { HowWeEvaluate } from "../editorial/HowWeEvaluate";
 import { EvidenceScore } from "../editorial/EvidenceScore";
 import { TierBadge } from "../editorial/TierBadge";
-
-/**
- * Buy buttons for a product, sourced from the affiliate registry via its
- * productKey. Primary retailer is filled; any secondary (e.g. Amazon) is
- * outlined. All links carry rel="sponsored nofollow" (AffiliateLink) and
- * hop through the cloaked /go/[key] redirect.
- */
-function RetailerButtons({
-  productKey,
-  size = "sm",
-}: {
-  productKey?: string;
-  size?: "sm" | "lg";
-}) {
-  if (!productKey) return null;
-  const retailers = getRetailers(productKey);
-  if (retailers.length === 0) return null;
-  const pad = size === "lg" ? "px-5 py-2.5 text-[15px]" : "px-3 py-1.5 text-[13px]";
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      {retailers.map((r, i) => (
-        <AffiliateLink
-          key={r.url}
-          href={i === 0 ? `/go/${productKey}` : `/go/${productKey}?i=${i}`}
-          className={
-            i === 0
-              ? `inline-flex items-center gap-1 rounded-pill bg-pine text-cream font-semibold ${pad} hover:bg-pine-deep transition-colors no-underline`
-              : `inline-flex items-center gap-1 rounded-pill border border-pine/40 text-pine-deep font-semibold ${pad} hover:border-pine transition-colors no-underline`
-          }
-        >
-          {i === 0 ? `Check price · ${r.label}` : r.label}
-        </AffiliateLink>
-      ))}
-    </div>
-  );
-}
 
 /**
  * ComparisonTemplate — pliability long-form shell with one comparison table
@@ -70,6 +35,8 @@ export function ComparisonTemplate({ post }: { post: Post }) {
   ];
   const related = relatedPosts(post);
   const isoDate = new Date(post.publishedAt).toLocaleDateString("en-CA");
+  // Shared across the page so each cross-link target is used at most once.
+  const used = new Set<string>();
 
   const skips = (post.products ?? []).filter((p) =>
     p.tier.toLowerCase().includes("skip")
@@ -133,7 +100,14 @@ export function ComparisonTemplate({ post }: { post: Post }) {
           <span className="tnum">{isoDate}</span>
         </div>
 
-        <BodyImageSlot aspect="16:10" variant="pine" className="mt-10 !my-0" />
+        <div className="mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[#ECECEC] bg-surface-alt">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/heroes/${post.slug}.jpg`}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {post.medicalDisclaimer === "required" && (
           <div className="mt-12">
@@ -170,11 +144,11 @@ export function ComparisonTemplate({ post }: { post: Post }) {
                   src={pickProduct.image}
                   alt={post.ourPick.name}
                   loading="lazy"
-                  className="float-right ml-6 mb-4 h-40 w-40 rounded-lg border border-[#ECECEC] bg-white object-contain p-2"
+                  className="float-right ml-4 mb-3 h-24 w-24 sm:ml-6 sm:mb-4 sm:h-40 sm:w-40 rounded-lg border border-[#ECECEC] bg-white object-contain p-2"
                 />
               )}
               <p className="text-[1.125rem] leading-[1.7] text-ink-soft max-w-prose">
-                {post.ourPick.reason}
+                {autolink(post.ourPick.reason, post.slug, used)}
               </p>
               {pickProduct?.productKey && (
                 <div className="mt-5">
@@ -185,6 +159,11 @@ export function ComparisonTemplate({ post }: { post: Post }) {
                 </div>
               )}
             </section>
+          )}
+
+          {/* How we evaluate — honest, spec-based methodology (no fake testing) */}
+          {picks.length > 0 && (
+            <HowWeEvaluate slug={post.slug} productCount={picks.length} />
           )}
 
           {/* The comparison table — one section in the long-form story */}
@@ -200,60 +179,72 @@ export function ComparisonTemplate({ post }: { post: Post }) {
               >
                 Side by side
               </h2>
-              <div className="overflow-x-auto -mx-6 px-6">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-y border-[#D6D6D6]">
-                      <th className="caps-meta py-3 pr-4 font-medium">Rank</th>
-                      <th className="caps-meta py-3 pr-4 font-medium">Name</th>
-                      <th className="caps-meta py-3 pr-4 font-medium">Tier</th>
-                      <th className="caps-meta py-3 pr-4 font-medium">Evidence</th>
-                      <th className="caps-meta py-3 pr-4 font-medium">Notes</th>
-                      <th className="caps-meta py-3 font-medium">Where to buy</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {picks.map((p, i) => (
-                      <tr
-                        key={p.rank}
-                        className="border-b border-[#D6D6D6] align-top"
-                      >
-                        <td className="py-5 pr-4 text-ink-soft tnum text-[15px]">
-                          {String(p.rank).padStart(2, "0")}
-                        </td>
-                        <td className="py-5 pr-4 text-ink font-medium text-[16px]">
-                          <div className="flex items-center gap-3">
-                            {p.image && (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img
-                                src={p.image}
-                                alt={p.name}
-                                loading="lazy"
-                                className="w-12 h-12 flex-none rounded-md border border-[#ECECEC] bg-white object-contain p-1"
-                              />
+              <p className="-mt-3 mb-6 text-[13px] text-ink-muted">
+                Prices are approximate per-serving estimates, last checked{" "}
+                {new Date(post.updatedAt).toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+                . Tap “Check price” for the current cost.
+              </p>
+              <div className="space-y-4">
+                {picks.map((p, i) => (
+                  <div
+                    key={p.rank}
+                    className="rounded-2xl border border-[#E4E4E0] bg-white p-4 sm:p-5"
+                  >
+                    <div className="flex gap-4">
+                      {p.image && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          loading="lazy"
+                          className="w-20 h-20 sm:w-24 sm:h-24 flex-none rounded-lg border border-[#ECECEC] bg-white object-contain p-1.5"
+                        />
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="flex-none inline-flex items-center justify-center w-6 h-6 rounded-full bg-pine/10 text-pine-deep text-[12px] font-semibold tnum">
+                            {p.rank}
+                          </span>
+                          <h3 className="text-[17px] font-semibold text-ink leading-snug">
+                            {p.productKey ? (
+                              <Link
+                                href={`/picks/${p.productKey}`}
+                                className="!no-underline hover:text-pine"
+                              >
+                                {p.name}
+                              </Link>
+                            ) : (
+                              p.name
                             )}
-                            <span>{p.name}</span>
-                          </div>
-                        </td>
-                        <td className="py-5 pr-4">
+                          </h3>
+                        </div>
+                        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
                           <TierBadge tier={p.tier} />
-                        </td>
-                        <td className="py-5 pr-4">
+                          {p.price && (
+                            <span className="text-[14px] text-ink-soft tnum">
+                              {p.price}
+                            </span>
+                          )}
                           <EvidenceScore
                             score={Math.max(60, 92 - i * 4)}
                             size="sm"
                           />
-                        </td>
-                        <td className="py-5 pr-4 text-[15px] leading-[1.6] text-ink-soft">
-                          {p.summary}
-                        </td>
-                        <td className="py-5 align-middle">
-                          <RetailerButtons productKey={p.productKey} />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
+                      {autolink(p.summary, post.slug, used)}
+                    </p>
+                    {p.productKey && (
+                      <div className="mt-4">
+                        <RetailerButtons productKey={p.productKey} />
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </section>
           )}
@@ -281,7 +272,7 @@ export function ComparisonTemplate({ post }: { post: Post }) {
                       <TierBadge tier={p.tier} />
                     </div>
                     <p className="text-[1.125rem] leading-[1.7] text-ink-soft max-w-prose">
-                      {p.summary}
+                      {autolink(p.summary, post.slug, used)}
                     </p>
                   </div>
                 ))}
@@ -309,7 +300,7 @@ export function ComparisonTemplate({ post }: { post: Post }) {
                       {f.q}
                     </h3>
                     <p className="mt-3 text-[1.125rem] leading-[1.7] text-ink-soft max-w-prose">
-                      {f.a}
+                      {autolink(f.a, post.slug, used)}
                     </p>
                   </div>
                 ))}

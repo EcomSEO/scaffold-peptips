@@ -1,6 +1,8 @@
 /**
- * Last-reviewed line — small text-secondary under article meta.
- * Healthline's "Last medically reviewed on ..." pattern.
+ * Last-reviewed line — small text-secondary under article meta. Honest wording:
+ * the editorial team checks every claim against the FDA labels and the trials,
+ * so we say "Last reviewed", not "Last medically reviewed" (which would imply a
+ * named clinician signed off, which we do not claim).
  */
 export function LastReviewedLine({ date }: { date: string }) {
   const d = new Date(date);
@@ -11,7 +13,7 @@ export function LastReviewedLine({ date }: { date: string }) {
   });
   return (
     <div className="text-[13px] text-ink-muted">
-      Last medically reviewed on <time dateTime={date}>{formatted}</time>
+      Last reviewed on <time dateTime={date}>{formatted}</time>
     </div>
   );
 }

@@ -43,10 +43,6 @@ const OG_LOCALE: Record<Locale, string> = {
   nl: "nl_NL",
   pl: "pl_PL",
   sv: "sv_SE",
-  pt: "pt_PT",
-  ro: "ro_RO",
-  cs: "cs_CZ",
-  no: "no_NO",
 };
 
 export function canonical(path: string): string {
@@ -58,18 +54,33 @@ export function canonical(path: string): string {
  * `alternates.languages` map (twelve locales plus `x-default`), and an
  * `openGraph.locale` tag in the right region format.
  */
+/** Clamp a description to a SERP-safe length at a word boundary (meta only). */
+function clampDescription(text: string, max = 158): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).replace(/[,;:]\s*$/, "");
+}
+
 export function pageMetadata(opts: {
   title: string;
   description: string;
   path: string;
   locale?: Locale;
   ogType?: "website" | "article";
+  /** Path under /public for the social/OG image (e.g. /heroes/slug.jpg).
+   *  Falls back to the generated branded /opengraph-image when omitted. */
+  image?: string;
   /** Force noindex,nofollow regardless of SITE.launched. Used by the
    *  Sweden compound stub on /sv/{restricted-slug}. */
   noindex?: boolean;
 }): Metadata {
   const locale = opts.locale ?? defaultLocale;
   const url = localeUrl(locale, opts.path);
+  const metaDescription = clampDescription(opts.description);
+  const ogImage = opts.image
+    ? `${SITE.url}${opts.image}`
+    : `${SITE.url}/opengraph-image`;
 
   const languages: Record<string, string> = {};
   for (const l of locales) {
@@ -79,7 +90,7 @@ export function pageMetadata(opts: {
 
   return {
     title: opts.title,
-    description: opts.description,
+    description: metaDescription,
     alternates: {
       canonical: url,
       languages,
@@ -89,17 +100,19 @@ export function pageMetadata(opts: {
       type: opts.ogType ?? "website",
       url,
       title: opts.title,
-      description: opts.description,
+      description: metaDescription,
       siteName: SITE.name,
       locale: OG_LOCALE[locale],
       alternateLocale: locales
         .filter((l) => l !== locale)
         .map((l) => OG_LOCALE[l]),
+      images: [{ url: ogImage, alt: opts.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: opts.title,
-      description: opts.description,
+      description: metaDescription,
+      images: [ogImage],
     },
   };
 }

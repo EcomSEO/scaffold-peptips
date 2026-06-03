@@ -59,7 +59,7 @@ export function Wordmark({
 
   if (!asLink) return inner;
   return (
-    <Link href="/" aria-label="Peptips — home" className="inline-block">
+    <Link href="/" aria-label="Peptips, home" className="inline-block">
       {inner}
     </Link>
   );

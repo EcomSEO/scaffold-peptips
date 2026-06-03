@@ -1,28 +1,29 @@
 import Link from "next/link";
 
 /**
- * Healthline-style trust badge — pine palette.
- * Pill: pine-50 bg, pine text, check icon, links the reviewer name.
+ * Honest editorial trust badge. Peptips content is written by the editorial
+ * team and checked against the FDA prescribing information and the published
+ * trials — it is not individually reviewed by a named clinician (we do not
+ * claim that until a credentialed reviewer is on file). So the badge signals
+ * the real, verifiable thing: it's evidence-based and cited.
  */
 export function MedicallyReviewedBadge({
-  reviewerName,
-  credentials,
   reviewerHref = "/editorial-standards",
 }: {
-  reviewerName: string;
-  credentials: string;
+  reviewerName?: string;
+  credentials?: string;
   reviewerHref?: string;
 }) {
   return (
     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill bg-reviewed-bg text-reviewed-text text-[13px] font-medium">
       <CheckShield className="w-4 h-4 shrink-0" />
       <span>
-        Medically reviewed by{" "}
+        Evidence-based ·{" "}
         <Link
           href={reviewerHref}
           className="underline decoration-pine/30 hover:decoration-pine underline-offset-2"
         >
-          {reviewerName}, {credentials}
+          checked against FDA labels &amp; the trials
         </Link>
       </span>
     </div>

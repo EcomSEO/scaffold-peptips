@@ -69,30 +69,6 @@ export const POST_I18N: Record<string, PostI18n> = {
       description:
         "En tidslinje vecka för vecka av det första året på semaglutid. Vad som är normalt. Vad som inte är det. Och när du ringer läkaren.",
     },
-    pt: {
-      title: "Ozempic semana a semana: o que esperar",
-      h1: "Ozempic semana a semana: o que esperar",
-      description:
-        "Uma cronologia semana a semana do primeiro ano com semaglutido. O que é normal, o que não é, e quando ligar ao seu médico.",
-    },
-    ro: {
-      title: "Ozempic săptămână cu săptămână: la ce să te aștepți",
-      h1: "Ozempic săptămână cu săptămână: la ce să te aștepți",
-      description:
-        "Cronologia săptămânală a primului an cu semaglutidă. Ce este normal, ce nu este, și momentul în care trebuie să-ți suni medicul.",
-    },
-    cs: {
-      title: "Ozempic týden po týdnu: co očekávat",
-      h1: "Ozempic týden po týdnu: co očekávat",
-      description:
-        "Týdenní časová osa prvního roku se semaglutidem. Co je normální, co není a kdy zavolat lékaři.",
-    },
-    no: {
-      title: "Ozempic uke for uke: hva du kan vente deg",
-      h1: "Ozempic uke for uke: hva du kan vente deg",
-      description:
-        "En tidslinje uke for uke gjennom det første året på semaglutid. Hva som er normalt, hva som ikke er det, og når du skal ringe legen.",
-    },
   },
   "glp1-guide-for-beginners": {
     de: {
@@ -136,30 +112,6 @@ export const POST_I18N: Record<string, PostI18n> = {
       h1: "Den kompletta GLP-1-guiden för nybörjare",
       description:
         "Vad GLP-1 är. Hur de verkar i kroppen. För vem de är godkända. De fyra läkemedlen på marknaden. Förklarat utan hype.",
-    },
-    pt: {
-      title: "O guia completo dos GLP-1 para começar",
-      h1: "O guia completo dos GLP-1 para começar",
-      description:
-        "O que são os GLP-1. Como agem no corpo. A quem estão aprovados. Os quatro fármacos no mercado. Explicado sem alarde.",
-    },
-    ro: {
-      title: "Ghidul complet GLP-1 pentru începători",
-      h1: "Ghidul complet GLP-1 pentru începători",
-      description:
-        "Ce sunt GLP-1-urile. Cum acționează în organism. Pentru cine sunt aprobate. Cele patru medicamente de pe piață. Explicat fără agitație.",
-    },
-    cs: {
-      title: "Kompletní průvodce GLP-1 pro začátečníky",
-      h1: "Kompletní průvodce GLP-1 pro začátečníky",
-      description:
-        "Co jsou GLP-1. Jak působí v těle. Komu jsou schválené. Čtyři léky na trhu. Vysvětleno bez hysterie.",
-    },
-    no: {
-      title: "Den komplette GLP-1-guiden for nybegynnere",
-      h1: "Den komplette GLP-1-guiden for nybegynnere",
-      description:
-        "Hva GLP-1 er. Hvordan de virker i kroppen. Hvem de er godkjent for. De fire legemidlene på markedet. Forklart uten oppstyr.",
     },
   },
   "glp1-side-effect-guide": {
@@ -205,30 +157,6 @@ export const POST_I18N: Record<string, PostI18n> = {
       description:
         "Varje vanlig GLP-1-biverkning, veckan då den oftast dyker upp, varför den uppstår och vad som faktiskt hjälper. Med hänvisningar till studiedata och produktresuméer.",
     },
-    pt: {
-      title: "O guia completo dos efeitos secundários dos GLP-1, semana a semana",
-      h1: "O guia completo dos efeitos secundários dos GLP-1, semana a semana",
-      description:
-        "Cada efeito secundário comum dos GLP-1, a semana em que costuma surgir, porque acontece e o que ajuda de facto. Com referências aos ensaios e às bulas.",
-    },
-    ro: {
-      title: "Ghidul complet al efectelor secundare ale GLP-1, săptămână cu săptămână",
-      h1: "Ghidul complet al efectelor secundare ale GLP-1, săptămână cu săptămână",
-      description:
-        "Fiecare efect secundar frecvent al GLP-1, săptămâna în care apare de obicei, de ce se întâmplă și ce ajută cu adevărat. Cu referințe din studii și prospecte.",
-    },
-    cs: {
-      title: "Kompletní průvodce nežádoucími účinky GLP-1, týden po týdnu",
-      h1: "Kompletní průvodce nežádoucími účinky GLP-1, týden po týdnu",
-      description:
-        "Každý běžný nežádoucí účinek GLP-1, týden, kdy se obvykle objeví, proč k tomu dochází a co skutečně pomáhá. S odkazy na data ze studií a souhrny údajů o přípravku.",
-    },
-    no: {
-      title: "Den komplette GLP-1-bivirkningsguiden, uke for uke",
-      h1: "Den komplette GLP-1-bivirkningsguiden, uke for uke",
-      description:
-        "Hver vanlige GLP-1-bivirkning, uken den vanligvis dukker opp, hvorfor det skjer og hva som faktisk hjelper. Med kilder fra studiedata og preparatomtaler.",
-    },
   },
   "glp1-nutrition-guide": {
     de: {
@@ -273,37 +201,13 @@ export const POST_I18N: Record<string, PostI18n> = {
       description:
         "Proteinmål, muskelbevarande, elektrolyter, mikronäring och exempeldagar. Den praktiska matkompanjonen för livet på en GLP-1.",
     },
-    pt: {
-      title: "O guia nutricional completo com GLP-1: proteína, músculo e o que pôr no prato",
-      h1: "O guia nutricional completo com GLP-1",
-      description:
-        "Metas de proteína, preservação muscular, eletrólitos, micronutrientes e dias-tipo. O companheiro alimentar prático para a vida com um GLP-1.",
-    },
-    ro: {
-      title: "Ghidul nutrițional complet cu GLP-1: proteine, mușchi și ce pui în farfurie",
-      h1: "Ghidul nutrițional complet cu GLP-1",
-      description:
-        "Țintele de proteine, păstrarea masei musculare, electroliți, micronutrienți și zile-model. Însoțitorul alimentar practic pentru viața cu un GLP-1.",
-    },
-    cs: {
-      title: "Kompletní průvodce výživou s GLP-1: bílkoviny, svaly a co dát na talíř",
-      h1: "Kompletní průvodce výživou s GLP-1",
-      description:
-        "Cíle bílkovin, ochrana svalů, elektrolyty, mikroživiny a vzorové dny. Praktický stravovací průvodce pro život s GLP-1.",
-    },
-    no: {
-      title: "Den komplette GLP-1-ernæringsguiden: protein, muskler og hva som havner på tallerkenen",
-      h1: "Den komplette GLP-1-ernæringsguiden",
-      description:
-        "Proteinmål, muskelbevaring, elektrolytter, mikronæring og eksempeldager. Den praktiske matfølgesvennen for livet på en GLP-1.",
-    },
   },
   "mounjaro-vs-ozempic-vs-wegovy-vs-zepbound": {
     de: {
       title: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound: ein ruhiger Vergleich",
       h1: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound",
       description:
-        "Die vier großen GLP-1-Medikamente im Vergleich: Wirkmechanismus, Wirksamkeit, Nebenwirkungen, Kosten. Was die Studien tatsächlich zeigten — Seite an Seite.",
+        "Die vier großen GLP-1-Medikamente im Vergleich: Wirkmechanismus, Wirksamkeit, Nebenwirkungen, Kosten. Was die Studien tatsächlich zeigten, Seite an Seite.",
     },
     fr: {
       title: "Mounjaro, Ozempic, Wegovy, Zepbound : une comparaison posée",
@@ -333,37 +237,13 @@ export const POST_I18N: Record<string, PostI18n> = {
       title: "Mounjaro vs Ozempic vs Wegovy vs Zepbound: spokojne porównanie",
       h1: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
       description:
-        "Cztery duże leki GLP-1 porównane pod kątem mechanizmu, skuteczności, działań niepożądanych i kosztu. Co naprawdę pokazały badania — obok siebie.",
+        "Cztery duże leki GLP-1 porównane pod kątem mechanizmu, skuteczności, działań niepożądanych i kosztu. Co naprawdę pokazały badania, obok siebie.",
     },
     sv: {
       title: "Mounjaro mot Ozempic mot Wegovy mot Zepbound: en lugn jämförelse",
       h1: "Mounjaro mot Ozempic mot Wegovy mot Zepbound",
       description:
         "De fyra stora GLP-1-läkemedlen jämförda på verkningsmekanism, effekt, biverkningar och kostnad. Vad studierna faktiskt visade, sida vid sida.",
-    },
-    pt: {
-      title: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound: uma comparação calma",
-      h1: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound",
-      description:
-        "Os quatro grandes fármacos GLP-1 comparados em mecanismo, eficácia, efeitos secundários e custo. O que os ensaios mostraram de facto, lado a lado.",
-    },
-    ro: {
-      title: "Mounjaro vs Ozempic vs Wegovy vs Zepbound: o comparație calmă",
-      h1: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
-      description:
-        "Cele patru mari medicamente GLP-1 comparate pe mecanism, eficacitate, efecte secundare și cost. Ce au arătat studiile cu adevărat, una lângă alta.",
-    },
-    cs: {
-      title: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound: klidné srovnání",
-      h1: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound",
-      description:
-        "Čtyři velké léky GLP-1 srovnané podle mechanismu, účinnosti, nežádoucích účinků a ceny. Co studie skutečně ukázaly — vedle sebe.",
-    },
-    no: {
-      title: "Mounjaro mot Ozempic mot Wegovy mot Zepbound: en rolig sammenligning",
-      h1: "Mounjaro mot Ozempic mot Wegovy mot Zepbound",
-      description:
-        "De fire store GLP-1-legemidlene sammenlignet på virkemåte, effekt, bivirkninger og kostnad. Hva studiene faktisk viste, side om side.",
     },
   },
   "best-protein-powders-for-glp1": {
@@ -409,30 +289,6 @@ export const POST_I18N: Record<string, PostI18n> = {
       description:
         "Proteinpulvren som når 30 g per skopa, sitter bra på en magsäck som tömmer sig långsammare och klarar sig utan de konstgjorda sötningsmedel många läsare vill undvika.",
     },
-    pt: {
-      title: "Os melhores proteínas em pó para utilizadores de GLP-1",
-      h1: "Os melhores proteínas em pó para utilizadores de GLP-1",
-      description:
-        "As proteínas em pó que atingem 30 g por dose, assentam bem num estômago de esvaziamento lento e dispensam os adoçantes artificiais que muitos leitores não querem.",
-    },
-    ro: {
-      title: "Cele mai bune pudre proteice pentru utilizatorii de GLP-1",
-      h1: "Cele mai bune pudre proteice pentru utilizatorii de GLP-1",
-      description:
-        "Pudrele proteice care ating ținta de 30 g pe doză, cad bine pe un stomac care se golește mai lent și se descurcă fără îndulcitorii artificiali pe care mulți cititori îi evită.",
-    },
-    cs: {
-      title: "Nejlepší proteinové prášky pro uživatele GLP-1",
-      h1: "Nejlepší proteinové prášky pro uživatele GLP-1",
-      description:
-        "Proteinové prášky, které trefí cíl 30 g na dávku, dobře leží na pomaleji se vyprazdňujícím žaludku a obejdou se bez umělých sladidel, která čtenáři nechtějí.",
-    },
-    no: {
-      title: "Beste proteinpulver for GLP-1-brukere",
-      h1: "Beste proteinpulver for GLP-1-brukere",
-      description:
-        "Proteinpulvrene som når målet på 30 g per måleskje, ligger godt på en magesekk som tømmer seg langsommere, og klarer seg uten de kunstige søtstoffene mange lesere vil unngå.",
-    },
   },
   "best-electrolytes-for-glp1": {
     de: {
@@ -476,30 +332,6 @@ export const POST_I18N: Record<string, PostI18n> = {
       h1: "Bästa elektrolytprodukter för GLP-1-användare",
       description:
         "När aptiten sjunker sjunker också elektrolytintaget. Här är vad som är värt att köpa, vad du kan hoppa över och vilka formler som ligger lugnt på magen.",
-    },
-    pt: {
-      title: "Os melhores produtos de eletrólitos para utilizadores de GLP-1",
-      h1: "Os melhores produtos de eletrólitos para utilizadores de GLP-1",
-      description:
-        "Quando o apetite desce, desce também a ingestão de eletrólitos. Aqui ficam os que valem a compra, os que dispensa, e as fórmulas mais calmas para o estômago.",
-    },
-    ro: {
-      title: "Cele mai bune produse cu electroliți pentru utilizatorii de GLP-1",
-      h1: "Cele mai bune produse cu electroliți pentru utilizatorii de GLP-1",
-      description:
-        "Când pofta scade, scade și aportul de electroliți. Iată ce merită cumpărat, ce poți sări și ce formule rămân calme pe stomac.",
-    },
-    cs: {
-      title: "Nejlepší elektrolytové produkty pro uživatele GLP-1",
-      h1: "Nejlepší elektrolytové produkty pro uživatele GLP-1",
-      description:
-        "Když klesá chuť k jídlu, klesá i příjem elektrolytů. Tady je, co stojí za nákup, co vynechat a které směsi zůstávají klidné v žaludku.",
-    },
-    no: {
-      title: "Beste elektrolyttprodukter for GLP-1-brukere",
-      h1: "Beste elektrolyttprodukter for GLP-1-brukere",
-      description:
-        "Når appetitten faller, faller også elektrolyttinntaket. Her er hva som er verdt å kjøpe, hva du kan hoppe over, og hvilke blandinger som ligger rolig i magen.",
     },
   },
   "why-does-ozempic-make-you-nauseous": {
@@ -545,97 +377,49 @@ export const POST_I18N: Record<string, PostI18n> = {
       description:
         "Mekanismen med fördröjd magsäckstömning bakom illamåendet på semaglutid, hur länge det brukar vara, elva saker som faktiskt hjälper och punkten där du ringer läkaren.",
     },
-    pt: {
-      title: "Porque é que o Ozempic causa náuseas?",
-      h1: "Porque é que o Ozempic causa náuseas?",
-      description:
-        "O mecanismo de esvaziamento gástrico lento por trás das náuseas com semaglutido, quanto tempo costuma durar, onze coisas que ajudam de facto e o ponto em que se liga ao médico.",
-    },
-    ro: {
-      title: "De ce dă Ozempic greață?",
-      h1: "De ce dă Ozempic greață?",
-      description:
-        "Mecanismul golirii gastrice încetinite din spatele greții cu semaglutidă, cât durează de obicei, unsprezece lucruri care ajută cu adevărat și momentul în care îți suni medicul.",
-    },
-    cs: {
-      title: "Proč po Ozempicu bývá nevolno?",
-      h1: "Proč po Ozempicu bývá nevolno?",
-      description:
-        "Mechanismus zpomaleného vyprazdňování žaludku za nevolností po semaglutidu, jak dlouho obvykle trvá, jedenáct věcí, které skutečně pomáhají, a bod, kdy zavolat lékaři.",
-    },
-    no: {
-      title: "Hvorfor gir Ozempic kvalme?",
-      h1: "Hvorfor gir Ozempic kvalme?",
-      description:
-        "Mekanismen med forsinket magesekkstømming bak kvalmen på semaglutid, hvor lenge det vanligvis varer, elleve ting som faktisk hjelper, og punktet der du ringer legen.",
-    },
   },
   "how-much-protein-on-a-glp1": {
     de: {
       title: "Wie viel Eiweiß brauchen Sie unter GLP-1 wirklich?",
       h1: "Wie viel Eiweiß brauchen Sie unter GLP-1 wirklich?",
       description:
-        "Der Zielbereich (1,2-1,6 g pro kg Körpergewicht), warum er für den Muskel­erhalt zählt und wie er sich bei kleinem Appetit erreichen lässt — mit konkreten Beispielen.",
+        "Der Zielbereich (1,2-1,6 g pro kg Körpergewicht), warum er für den Muskel­erhalt zählt und wie er sich bei kleinem Appetit erreichen lässt, mit konkreten Beispielen.",
     },
     fr: {
       title: "Quel apport en protéines vous faut-il vraiment sous GLP-1 ?",
       h1: "Quel apport en protéines vous faut-il vraiment sous GLP-1 ?",
       description:
-        "La fourchette cible (1,2 à 1,6 g par kg de poids), pourquoi elle compte pour préserver le muscle, et comment l'atteindre avec un appétit réduit — avec des exemples concrets.",
+        "La fourchette cible (1,2 à 1,6 g par kg de poids), pourquoi elle compte pour préserver le muscle, et comment l'atteindre avec un appétit réduit, avec des exemples concrets.",
     },
     it: {
       title: "Di quante proteine ha davvero bisogno con un GLP-1?",
       h1: "Di quante proteine ha davvero bisogno con un GLP-1?",
       description:
-        "L'intervallo obiettivo (1,2-1,6 g per kg di peso corporeo), perché conta per la preservazione muscolare e come raggiungerlo con l'appetito ridotto — con esempi concreti.",
+        "L'intervallo obiettivo (1,2-1,6 g per kg di peso corporeo), perché conta per la preservazione muscolare e come raggiungerlo con l'appetito ridotto, con esempi concreti.",
     },
     es: {
       title: "¿Cuánta proteína necesita realmente con un GLP-1?",
       h1: "¿Cuánta proteína necesita realmente con un GLP-1?",
       description:
-        "El rango objetivo (1,2-1,6 g por kg de peso corporal), por qué importa para preservar músculo y cómo alcanzarlo con un apetito reducido — con ejemplos resueltos.",
+        "El rango objetivo (1,2-1,6 g por kg de peso corporal), por qué importa para preservar músculo y cómo alcanzarlo con un apetito reducido, con ejemplos resueltos.",
     },
     nl: {
       title: "Hoeveel eiwit heeft u eigenlijk nodig op een GLP-1?",
       h1: "Hoeveel eiwit heeft u eigenlijk nodig op een GLP-1?",
       description:
-        "Het richtbereik (1,2-1,6 g per kg lichaamsgewicht), waarom het telt voor spierbehoud, en hoe u het haalt met een kleinere eetlust — met uitgewerkte voorbeelden.",
+        "Het richtbereik (1,2-1,6 g per kg lichaamsgewicht), waarom het telt voor spierbehoud, en hoe u het haalt met een kleinere eetlust, met uitgewerkte voorbeelden.",
     },
     pl: {
       title: "Ile białka faktycznie potrzebujesz na GLP-1?",
       h1: "Ile białka faktycznie potrzebujesz na GLP-1?",
       description:
-        "Zakres docelowy (1,2-1,6 g na kg masy ciała), dlaczego ma znaczenie dla ochrony mięśni i jak go osiągnąć przy mniejszym apetycie — z policzonymi przykładami.",
+        "Zakres docelowy (1,2-1,6 g na kg masy ciała), dlaczego ma znaczenie dla ochrony mięśni i jak go osiągnąć przy mniejszym apetycie, z policzonymi przykładami.",
     },
     sv: {
       title: "Hur mycket protein behöver du egentligen på en GLP-1?",
       h1: "Hur mycket protein behöver du egentligen på en GLP-1?",
       description:
-        "Målintervallet (1,2-1,6 g per kg kroppsvikt), varför det spelar roll för muskelbevarandet och hur du når det med mindre aptit — med uträknade exempel.",
-    },
-    pt: {
-      title: "De quanta proteína precisa, afinal, num GLP-1?",
-      h1: "De quanta proteína precisa, afinal, num GLP-1?",
-      description:
-        "O intervalo-alvo (1,2-1,6 g por kg de peso corporal), porque conta para a preservação muscular, e como atingi-lo com menos apetite — com exemplos resolvidos.",
-    },
-    ro: {
-      title: "De câtă proteină ai cu adevărat nevoie pe un GLP-1?",
-      h1: "De câtă proteină ai cu adevărat nevoie pe un GLP-1?",
-      description:
-        "Intervalul-țintă (1,2-1,6 g pe kg corp), de ce contează pentru păstrarea masei musculare și cum îl atingi cu un apetit redus — cu exemple lucrate.",
-    },
-    cs: {
-      title: "Kolik bílkovin opravdu potřebujete na GLP-1?",
-      h1: "Kolik bílkovin opravdu potřebujete na GLP-1?",
-      description:
-        "Cílové rozmezí (1,2-1,6 g na kg tělesné hmotnosti), proč záleží na ochraně svalů a jak ho splnit při menší chuti k jídlu — s propočtenými příklady.",
-    },
-    no: {
-      title: "Hvor mye protein trenger du egentlig på en GLP-1?",
-      h1: "Hvor mye protein trenger du egentlig på en GLP-1?",
-      description:
-        "Målområdet (1,2-1,6 g per kg kroppsvekt), hvorfor det er viktig for muskelbevaring, og hvordan du når det med mindre appetitt — med konkrete eksempler.",
+        "Målintervallet (1,2-1,6 g per kg kroppsvikt), varför det spelar roll för muskelbevarandet och hur du når det med mindre aptit, med uträknade exempel.",
     },
   },
   "12-questions-to-ask-your-doctor-before-glp1": {
@@ -643,7 +427,7 @@ export const POST_I18N: Record<string, PostI18n> = {
       title: "12 Fragen, die Sie vor dem GLP-1-Start mit Ihrem Arzt klären sollten",
       h1: "12 Fragen, die Sie vor dem GLP-1-Start mit Ihrem Arzt klären sollten",
       description:
-        "Vorbereitung auf den ersten GLP-1-Termin: zwölf Fragen, die sich lohnen, warum jede zählt — und wie eine gute Antwort aussieht.",
+        "Vorbereitung auf den ersten GLP-1-Termin: zwölf Fragen, die sich lohnen, warum jede zählt, und wie eine gute Antwort aussieht.",
     },
     fr: {
       title: "12 questions à poser à votre médecin avant de commencer un GLP-1",
@@ -680,30 +464,6 @@ export const POST_I18N: Record<string, PostI18n> = {
       h1: "12 frågor att ställa till din läkare innan du börjar med en GLP-1",
       description:
         "Förberedelser inför ditt första GLP-1-besök: tolv frågor som är värda att ställa, varför var och en spelar roll och hur ett bra svar låter.",
-    },
-    pt: {
-      title: "12 perguntas a fazer ao seu médico antes de começar um GLP-1",
-      h1: "12 perguntas a fazer ao seu médico antes de começar um GLP-1",
-      description:
-        "Preparação para a primeira consulta de GLP-1: doze perguntas que valem a pena, porque cada uma importa, e como soa uma boa resposta.",
-    },
-    ro: {
-      title: "12 întrebări de pus medicului înainte să începi un GLP-1",
-      h1: "12 întrebări de pus medicului înainte să începi un GLP-1",
-      description:
-        "Pregătire pentru prima consultație GLP-1: douăsprezece întrebări care merită puse, de ce contează fiecare și cum sună un răspuns bun.",
-    },
-    cs: {
-      title: "12 otázek pro lékaře, než začnete s GLP-1",
-      h1: "12 otázek pro lékaře, než začnete s GLP-1",
-      description:
-        "Příprava na první návštěvu kvůli GLP-1: dvanáct otázek, které stojí za to položit, proč každá záleží a jak vypadá dobrá odpověď.",
-    },
-    no: {
-      title: "12 spørsmål å stille legen før du begynner på en GLP-1",
-      h1: "12 spørsmål å stille legen før du begynner på en GLP-1",
-      description:
-        "Forberedelse til din første GLP-1-time: tolv spørsmål som er verdt å stille, hvorfor hvert enkelt betyr noe, og hvordan et godt svar høres ut.",
     },
   },
 };
