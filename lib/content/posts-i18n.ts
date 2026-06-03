@@ -21,6 +21,10 @@ export type LocalePost = {
   title?: string;
   h1?: string;
   description?: string;
+  /** Full body translation. When present, the page renders these instead of
+   *  the English body and suppresses the TranslationPendingBanner. */
+  items?: Array<{ rank: number; name: string; summary: string }>;
+  faq?: Array<{ q: string; a: string }>;
 };
 
 export type PostI18n = Partial<Record<Locale, LocalePost>>;
@@ -72,10 +76,40 @@ export const POST_I18N: Record<string, PostI18n> = {
   },
   "glp1-guide-for-beginners": {
     de: {
-      title: "Der vollständige GLP-1-Leitfaden für Einsteiger",
+      title: "Was ist Ozempic? Der vollständige GLP-1-Leitfaden für Einsteiger",
       h1: "Der vollständige GLP-1-Leitfaden für Einsteiger",
       description:
         "Was GLP-1 sind. Wie sie im Körper wirken. Für wen sie zugelassen sind. Die vier Wirkstoffe auf dem Markt. Ohne Hype erklärt.",
+      faq: [
+        {
+          q: "Was ist ein GLP-1, einfach erklärt?",
+          a: "GLP-1 steht für Glucagon-like Peptide-1. Es ist ein Hormon, das Ihr Darm nach dem Essen ohnehin bildet. Es signalisiert der Bauchspeicheldrüse, Insulin auszuschütten, sagt dem Gehirn, dass Sie satt sind, und verlangsamt die Magenentleerung. Die Wirkstoffe dieser Klasse (Semaglutid, Tirzepatid, Liraglutid) sind im Labor hergestellte Varianten, die deutlich länger im Körper bleiben als das natürliche Hormon. Tirzepatid aktiviert zusätzlich ein zweites Darmhormon namens GIP, weshalb es oft als dualer Agonist bezeichnet wird.",
+        },
+        {
+          q: "Für wen sind GLP-1 zugelassen?",
+          a: "Das hängt vom jeweiligen Wirkstoff ab. Ozempic und Mounjaro sind von der FDA für Erwachsene mit Typ-2-Diabetes zugelassen. Wegovy und Zepbound sind zum chronischen Gewichtsmanagement bei Erwachsenen mit einem BMI ab 30 zugelassen, oder ab 27 mit mindestens einer gewichtsbedingten Begleiterkrankung (etwa Bluthochdruck oder Schlafapnoe). Wegovy hat zudem Zulassungen für Jugendliche ab 12 Jahren, die die BMI-Kriterien erfüllen, sowie zur Senkung des kardiovaskulären Risikos bei Erwachsenen mit bestehender Herzerkrankung und Adipositas. Ihre Ärztin oder Ihr Arzt prüft die jeweilige Zulassung für Ihre Situation.",
+        },
+        {
+          q: "Was ist der Unterschied zwischen Original und Generikum?",
+          a: "Ein echtes Generikum von Semaglutid oder Tirzepatid gibt es noch nicht, die Patente sind aktiv. Was existiert, ist sogenanntes kompoundiertes (in einer Apotheke individuell hergestelltes) Semaglutid statt des Originals des Herstellers. Solche Zubereitungen waren während des von der FDA erklärten Lieferengpasses weit verbreitet; mit dem Abklingen der Engpässe verändert sich das Bild laufend. Kompoundierte Präparate sind nicht im selben Sinne behördlich zugelassen wie das Original, und die FDA hat öffentlich Bedenken zu Salzformen, Dosierungsfehlern und Qualitätskontrolle bei einigen Herstellern geäußert.",
+        },
+        {
+          q: "Wirkt es, wenn ich meine Ernährung nicht umstelle?",
+          a: "Es wirkt, aber es wirkt besser mit unterstützenden Ernährungsänderungen. Die STEP-1-Studie kombinierte Semaglutid 2,4 mg mit Lebensstilberatung und berichtete rund 15 % durchschnittliche Gewichtsabnahme nach 68 Wochen. Ergebnisse ohne Ernährungsumstellung gibt es, sie sind aber schlechter untersucht. Was typischerweise passiert: Der Wirkstoff dämpft den Appetit, und wenn man mit dem verbleibenden Appetit vor allem stark verarbeitete Lebensmittel isst, nimmt man zwar ab, verliert aber auch Muskeln und fühlt sich schlechter. Die meisten Ernährungsfachkräfte, die mit GLP-1-Patientinnen und -Patienten arbeiten, stellen Eiweiß an die erste Stelle, dann Gemüse, dann alles Übrige.",
+        },
+        {
+          q: "Was passiert, wenn ich absetze?",
+          a: "Die Verlängerungsphase der STEP-1-Studie begleitete Teilnehmende, die Semaglutid nach 68 Wochen absetzten. Im Durchschnitt nahmen sie im folgenden Jahr etwa zwei Drittel des verlorenen Gewichts wieder zu. Der Appetit kehrte zurück, die Magenentleerung normalisierte sich, und die Stoffwechseleffekte des Wirkstoffs ließen nach. Das ist die ehrliche Botschaft, die niemand hören will: Der Wirkstoff behandelt die Erkrankung, solange man ihn nimmt. Erhaltungskonzepte und schrittweises Ausschleichen werden untersucht, aber es gibt für die meisten Menschen noch keinen etablierten Ausstieg, der eine erneute Zunahme verhindert.",
+        },
+        {
+          q: "Sind GLP-1 langfristig sicher?",
+          a: "Die längsten Humandaten zu Semaglutid stammen aus den SUSTAIN- und STEP-Studien und reichen für manche Teilnehmende inzwischen über 5 Jahre. In diesem Zeitraum sind für die zugelassenen Gruppen keine neuen Sicherheitssignale aufgetreten. Zu den bekannten Risiken laut FDA-Fachinformation zählen Bauchspeicheldrüsenentzündung, Gallenblasenerkrankungen, Nierenschäden durch Dehydrierung sowie ein Warnhinweis zu C-Zell-Tumoren der Schilddrüse (auf Basis von Nagetierstudien; keine bestätigten Fälle beim Menschen unter therapeutischen Dosen). Daten über 10 bis 20 Jahre gibt es für keinen Wirkstoff dieser Klasse.",
+        },
+        {
+          q: "Was kosten sie?",
+          a: "Ohne Versicherung liegen die Listenpreise Anfang 2026 für die Originalpräparate grob bei 1.000 bis 1.400 US-Dollar pro Monat. Die Kostenübernahme ist der große Unsicherheitsfaktor: Ozempic und Mounjaro werden bei Diabetes häufig erstattet, Wegovy und Zepbound bei Adipositas uneinheitlich. Es gibt Sparkarten der Hersteller (die Zepbound- und Wegovy-Karten können den Eigenanteil mit privater Versicherung deutlich senken). Kompoundierte Varianten kosten erheblich weniger, kommen aber mit den oben genannten Vorbehalten. Die Preise ändern sich von Monat zu Monat; die Herstellerseiten sind die zuverlässigste Quelle. (Hinweis: Preise und Erstattung unterscheiden sich in Deutschland; fragen Sie Ihre Krankenkasse.)",
+        },
+      ],
     },
     fr: {
       title: "Le guide complet des GLP-1 pour débuter",
@@ -116,10 +150,40 @@ export const POST_I18N: Record<string, PostI18n> = {
   },
   "glp1-side-effect-guide": {
     de: {
-      title: "Der vollständige GLP-1-Nebenwirkungs-Leitfaden: Woche für Woche",
-      h1: "Der vollständige GLP-1-Nebenwirkungs-Leitfaden: Woche für Woche",
+      title: "Ozempic Nebenwirkungen: der vollständige GLP-1-Leitfaden, Woche für Woche",
+      h1: "Ozempic-Nebenwirkungen: der vollständige GLP-1-Leitfaden",
       description:
-        "Jede gängige GLP-1-Nebenwirkung, in welcher Woche sie typischerweise auftritt, warum sie auftritt und was tatsächlich hilft. Mit Belegen aus Studiendaten und Fachinformationen.",
+        "Jede häufige GLP-1-Nebenwirkung, wann sie typischerweise auftritt, warum, und was tatsächlich hilft. Mit Belegen aus den Zulassungsstudien und den Fachinformationen.",
+      faq: [
+        {
+          q: "Welche Nebenwirkungen sind am häufigsten?",
+          a: "In den Studienprogrammen STEP und SURMOUNT waren die am häufigsten berichteten Nebenwirkungen von Semaglutid (Ozempic, Wegovy) und Tirzepatid (Mounjaro, Zepbound) den Magen-Darm-Trakt betreffend: Übelkeit, Durchfall, Verstopfung, Erbrechen und Bauchschmerzen. Die meisten wurden als leicht bis mittelschwer und vorübergehend beschrieben, mit Beginn nach der ersten Dosis oder einer Dosissteigerung und Abklingen innerhalb von Tagen bis wenigen Wochen. Schwere Ereignisse waren selten, dazu zählten Bauchspeicheldrüsenentzündung, Gallenblasenerkrankungen und durch Dehydrierung bedingte Nierenprobleme.",
+        },
+        {
+          q: "Warum verursachen GLP-1 so viele Magen-Darm-Beschwerden?",
+          a: "Derselbe Mechanismus, der bei Gewicht und Blutzucker hilft, verlangsamt auch die Magenentleerung und wirkt auf Rezeptoren in der Übelkeitsbahn des Gehirns. Die Nahrung bleibt länger im Magen, weshalb man schneller satt ist und fettige oder schwere Mahlzeiten echtes Unwohlsein auslösen können. Die FDA-Fachinformation aller vier Wirkstoffe nennt die verzögerte Magenentleerung als Teil des Wirkmechanismus. Die meisten Magen-Darm-Effekte lassen nach, sobald sich der Körper an die jeweilige Dosis gewöhnt.",
+        },
+        {
+          q: "Was ist mit Muskelverlust?",
+          a: "Wenn man schnell abnimmt, ist ein Teil des Verlusts Muskelmasse. Die Teilstudie zur Körperzusammensetzung von STEP-1 berichtete, dass Teilnehmende unter Semaglutid rund 39 % des verlorenen Gewichts als fettfreie Masse verloren, ein höherer Anteil als bei reiner Diät. Die SURMOUNT-1-Teilstudie berichtete für Tirzepatid eher etwa 25 %. Was hilft: ein höheres Eiweißziel (die Literatur zum Muskelerhalt im Kaloriendefizit nennt oft 1,2 bis 1,6 g pro kg Körpergewicht und Tag, nach Phillips 2017) und Krafttraining zwei- bis dreimal pro Woche.",
+        },
+        {
+          q: "Was ist das sogenannte „Ozempic-Gesicht“?",
+          a: "Das ist ein Medienbegriff, kein klinischer. Er beschreibt den Verlust an Gesichtsvolumen, der bei jeder deutlichen Gewichtsabnahme auftreten kann: Die Fettpolster in den Wangen schrumpfen, die Haut kann schlaffer wirken. Es ist nicht spezifisch für Semaglutid, es passiert auch nach operativer oder diätbedingter Gewichtsabnahme. Es gibt keine veröffentlichten Studiendaten, die das speziell für GLP-1 beziffern. Betroffene berichten, dass langsameres Abnehmen, ausreichend Eiweiß und eine dermatologische Beratung helfen.",
+        },
+        {
+          q: "Was ist mit dünner werdendem Haar?",
+          a: "Haarausfall bei deutlicher Gewichtsabnahme ist gut dokumentiert, bei Diäten, nach Operationen und nun auch unter GLP-1. Meist handelt es sich um ein telogenes Effluvium: eine vorübergehende Verschiebung im Haarzyklus, ausgelöst durch den körperlichen Stress einer raschen Gewichtsveränderung oder Kalorienrestriktion. Die STEP- und SURMOUNT-Studien berichteten Haarausfall häufiger als unter Placebo, in absoluten Zahlen aber selten. Er zeigt sich meist 2 bis 4 Monate nach der großen Veränderung und bildet sich in der Regel innerhalb von 6 bis 9 Monaten zurück. Eine ausreichende Eiweißzufuhr und die Kontrolle der Eisenwerte sind die übliche Abklärung.",
+        },
+        {
+          q: "Wann sollte ich ärztlichen Rat einholen?",
+          a: "Die FDA-Fachinformationen nennen mehrere Warnzeichen für einen zeitnahen Anruf: starke oder anhaltende Bauchschmerzen (besonders mit Ausstrahlung in den Rücken, ein mögliches Zeichen einer Bauchspeicheldrüsenentzündung), Anzeichen einer Gallenblasenerkrankung (Schmerzen im rechten Oberbauch, Fieber, Gelbfärbung der Haut), heftiges Erbrechen, bei dem keine Flüssigkeit bei sich behalten werden kann, Anzeichen von Dehydrierung (dunkler Urin, Schwindel), Sehveränderungen (bei Diabetes ein Hinweis auf diabetische Retinopathie) sowie jegliche suizidale Gedanken. Die Fachinformation führt diese ausdrücklich auf. Wenn Ihnen etwas Angst macht, ist ein Anruf gerechtfertigt.",
+        },
+        {
+          q: "Werden die Nebenwirkungen mit der Zeit besser?",
+          a: "Die Studiendaten sagen für die meisten Menschen ja. In der STEP-1-Veröffentlichung nahm der Anteil der Teilnehmenden mit Magen-Darm-Ereignissen über die 68 Wochen ab, wobei sich die meisten Ereignisse um Dosissteigerungen herum häuften und innerhalb von 1 bis 2 Wochen abklangen. Eine Minderheit (etwa 5 bis 7 % über diese Studien hinweg) brach die Behandlung wegen Magen-Darm-Nebenwirkungen ab, was bedeutet, dass die Mehrheit sie als beherrschbar und nachlassend empfand. Wenn Ihre Beschwerden nach Woche 3 einer Dosis schlimmer statt besser werden, ist das das Signal, die Praxis einzubeziehen.",
+        },
+      ],
     },
     fr: {
       title: "Le guide complet des effets secondaires des GLP-1, semaine par semaine",
@@ -340,6 +404,36 @@ export const POST_I18N: Record<string, PostI18n> = {
       h1: "Warum macht Ozempic übel?",
       description:
         "Der Mechanismus der verzögerten Magen­entleerung hinter der Semaglutid-Übelkeit, wie lange sie typischerweise anhält, elf Dinge, die tatsächlich helfen, und der Punkt, an dem ein Anruf in der Praxis fällig ist.",
+      faq: [
+        {
+          q: "Wie lange hält die Ozempic-Übelkeit an?",
+          a: "Bei den meisten Menschen ist die Übelkeit in den ersten 1 bis 2 Wochen einer neuen Dosis am stärksten und lässt nach, sobald sich der Körper anpasst. Die Ozempic-Fachinformation beschreibt Übelkeit als typischerweise vorübergehend. Die STEP-1-Studie berichtete, dass die meisten Magen-Darm-Ereignisse innerhalb von Tagen bis wenigen Wochen abklangen. Jede Dosissteigerung (Woche 5, 9 und darüber hinaus) kann eine kleinere Wiederholung der ersten Woche bringen. Mehr als 3 Wochen gleiche Dosis ohne Besserung sind ein Grund, die Praxis anzurufen.",
+        },
+        {
+          q: "Warum tritt sie überhaupt auf?",
+          a: "Semaglutid (der Wirkstoff in Ozempic und Wegovy) verlangsamt die Magenentleerung: Die Nahrung bleibt länger im Magen als gewohnt. Es wirkt außerdem auf GLP-1-Rezeptoren in der Übelkeitsbahn des Gehirns. Beide Effekte sind in der FDA-Fachinformation als Teil des Mechanismus aufgeführt. Die verlangsamte Entleerung ist ein wesentlicher Grund, warum das Mittel bei Gewicht und Blutzucker hilft; die Übelkeit ist derselbe Mechanismus, nur als Symptom spürbar.",
+        },
+        {
+          q: "Was hilft, das auch belegt ist?",
+          a: "Kleinere, langsam gegessene Mahlzeiten; fettärmere Mahlzeiten (Fett wird am langsamsten verdaut, und die verlangsamte Entleerung macht das unangenehmer); ausreichend trinken mit kühlen, langsamen Schlucken; sich nach dem Essen nicht sofort hinlegen. Die Patientenmaterialien von Novo Nordisk zu Ozempic und Wegovy nennen all das. Ingwer (frisch, als Tee oder als Kaubonbon) hat moderate Belege bei allgemeiner Übelkeit und kommt in Patientengesprächen ständig vor. Verschreibungspflichtige Mittel gegen Übelkeit (Ondansetron, Metoclopramid) sind eine Option, die Ihre Ärztin oder Ihr Arzt für schwierige Wochen besprechen kann.",
+        },
+        {
+          q: "Was sollte ich nicht essen?",
+          a: "Die am häufigsten als Auslöser genannten Muster: schwere frittierte Speisen, große fleischlastige Mahlzeiten, sahnige oder fettige Saucen, kohlensäurehaltige Getränke, Alkohol und sehr zuckrige Desserts. Nichts davon ist verboten. Was meist funktioniert: die Portionen klein halten, wenn diese Dinge doch vorkommen. Ein Löffel Eis ist in der Regel in Ordnung; eine ganze Schüssel nach einem fettigen Abendessen ist der Punkt, an dem die unangenehme Nacht beginnt.",
+        },
+        {
+          q: "Wann wird Übelkeit zum Grund, ärztlichen Rat einzuholen?",
+          a: "Die FDA-Fachinformation für Ozempic nennt mehrere Warnzeichen: starke oder anhaltende Bauchschmerzen (besonders mit Ausstrahlung in den Rücken, ein möglicher Hinweis auf eine Bauchspeicheldrüsenentzündung), Erbrechen, bei dem keine Flüssigkeit bei sich behalten werden kann, Anzeichen von Dehydrierung (dunkler Urin, Schwindel, kein Wasserlassen über 8 Stunden), Schmerzen im rechten Oberbauch mit Fieber oder Gelbfärbung der Haut (mögliches Gallenblasenproblem) und anhaltendes Erbrechen über 48 bis 72 Stunden. Das ist kein „Abwarten“, sondern ein Grund, noch am selben Tag anzurufen.",
+        },
+        {
+          q: "Kann ich eine niedrigere Dosis nehmen, um durchzukommen?",
+          a: "Das ist ein Gespräch mit der Praxis, kein Alleingang. Aber ja, eine Dosisreduktion oder das Verbleiben auf einer niedrigeren Dosis ist üblich und in der FDA-Fachinformation ausdrücklich erlaubt. Viele Behandelnde halten Sie bei 0,25 mg für weitere 4 Wochen, wenn der Sprung auf 0,5 mg schwierig ist, oder gehen wieder eine Stufe zurück, wenn sich der Sprung auf 1 mg nicht beruhigt. Der Kalender in der Fachinformation ist eine Richtlinie, keine Vorschrift.",
+        },
+        {
+          q: "Wird es immer so sein?",
+          a: "Mit ziemlicher Sicherheit nicht. Die Daten aus STEP-1 und SURMOUNT-1 zeigen beide, dass die Rate der Magen-Darm-Ereignisse nach den ersten Monaten unter jedem Wirkstoff deutlich abnimmt. Eine kleine Gruppe (über diese Studien hinweg etwa 5 bis 7 %) brach wegen Magen-Darm-Nebenwirkungen ab, was bedeutet, dass die große Mehrheit in einen erträglichen Rhythmus fand. Die Erhaltungsdosis nach den ersten 6 Monaten ist meist deutlich milder als die Einstellungsphase.",
+        },
+      ],
     },
     fr: {
       title: "Pourquoi l'Ozempic donne-t-il la nausée ?",
@@ -484,5 +578,28 @@ export function localizePost(
     title: tr.title ?? fallback.title,
     h1: tr.h1 ?? fallback.h1,
     description: tr.description ?? fallback.description,
+  };
+}
+
+/**
+ * Returns the translated body (items/faq) for a post+locale when a full
+ * translation exists. `hasBody` gates the TranslationPendingBanner: true means
+ * the locale has a real body translation, so no "translation pending" notice.
+ */
+export function localizeBody(
+  slug: string,
+  locale: Locale
+): {
+  items?: Array<{ rank: number; name: string; summary: string }>;
+  faq?: Array<{ q: string; a: string }>;
+  hasBody: boolean;
+} {
+  const tr = POST_I18N[slug]?.[locale];
+  const items = tr?.items;
+  const faq = tr?.faq;
+  return {
+    items,
+    faq,
+    hasBody: Boolean((items && items.length) || (faq && faq.length)),
   };
 }

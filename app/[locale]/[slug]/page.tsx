@@ -6,7 +6,7 @@ import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { ComparisonTemplate } from "@/components/templates/ComparisonTemplate";
 import { TranslationPendingBanner } from "@/components/TranslationPendingBanner";
 import { pageMetadata } from "@/lib/seo";
-import { localizePost } from "@/lib/content/posts-i18n";
+import { localizePost, localizeBody } from "@/lib/content/posts-i18n";
 import { type Locale, defaultLocale } from "@/i18n/routing";
 import {
   isRestrictedInSweden,
@@ -119,10 +119,22 @@ export default async function PostPage({
     h1: post.h1,
     description: post.description,
   });
-  const localizedPost = { ...post, title: li.title, h1: li.h1, description: li.description };
+  const body = localizeBody(slug, locale);
+  const localizedPost = {
+    ...post,
+    title: li.title,
+    h1: li.h1,
+    description: li.description,
+    items: body.items ?? post.items,
+    faq: body.faq ?? post.faq,
+  };
 
+  // Show the "translation pending" notice only when the locale has metadata
+  // translated but not the full body. Fully-translated locales get no banner.
   const banner =
-    locale !== defaultLocale ? <TranslationPendingBanner /> : null;
+    locale !== defaultLocale && !body.hasBody ? (
+      <TranslationPendingBanner />
+    ) : null;
 
   return (
     <>
