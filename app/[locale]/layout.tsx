@@ -68,6 +68,11 @@ export async function generateMetadata({
       template: `%s · ${SITE.name}`,
     },
     description,
+    // Google Search Console ownership verification (URL-prefix property,
+    // https://peptips.com). Do not remove — GSC re-checks periodically.
+    verification: {
+      google: "qvwT29ZDQHaN18y5iqDrD5VPDLUmLiWIj6FtFNr43Bw",
+    },
     alternates: {
       canonical: localeUrl(locale, "/"),
       languages,
