@@ -2720,6 +2720,305 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "retatrutide",
+    title: "Retatrutide: The Triple Agonist, Explained",
+    h1: "Retatrutide, explained calmly",
+    description:
+      "The 'triple G' drug everyone is asking about: what retatrutide is, what the Phase 2 trial actually showed, where the Phase 3 program stands, and why there is no safe or legal way to take it yet.",
+    hub: "glp1-101",
+    postType: "pillar",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 11,
+    status: "published",
+    medicalDisclaimer: "required",
+    featured: false,
+    evidenceDimensions: {
+      trialStrength: 4,
+      sampleSize: 3,
+      mechanism: 4,
+      reproducibility: 2,
+      realWorldFit: 2,
+      rationale: {
+        trialStrength:
+          "A well-run randomized, placebo-controlled Phase 2 trial published in NEJM, but Phase 2 is a dose-finding stage, not the final word.",
+        sampleSize:
+          "The obesity Phase 2 enrolled 338 adults, an order of magnitude smaller than the Phase 3 programs behind the approved drugs.",
+        mechanism:
+          "GIP and GLP-1 agonism are well understood from tirzepatide; the added glucagon agonism has a clear rationale (energy expenditure, liver fat) but less human history.",
+        reproducibility:
+          "One Phase 2 program; the Phase 3 TRIUMPH trials are what will or will not reproduce it.",
+        realWorldFit:
+          "No approved product exists, so real-world fit is unknowable; trial conditions, with supervised titration, are the only data.",
+      },
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The short answer",
+        summary:
+          "Retatrutide is Eli Lilly's investigational once-weekly injection that activates three receptors at once: GLP-1, GIP, and glucagon. Semaglutide (Ozempic, Wegovy) hits one of those, tirzepatide (Mounjaro, Zepbound) hits two, and retatrutide adds the third, which is why people call it the 'triple G.' In its Phase 2 obesity trial it produced the largest average weight reduction reported for any anti-obesity medication at that stage, roughly 24 percent at 48 weeks on the highest dose. It is not FDA approved, it is not legally for sale anywhere, and the Phase 3 trials that will decide its future are still the gate it has to pass.",
+      },
+      {
+        rank: 2,
+        name: "What a third receptor adds",
+        summary:
+          "The GLP-1 and GIP parts work the way readers of this site already know: appetite reduction, slower gastric emptying, better insulin response after meals. The new ingredient is glucagon receptor agonism. Glucagon is usually thought of as the hormone that raises blood sugar, but activating its receptor also increases energy expenditure and drives the liver to burn fat. The bet behind retatrutide is that adding a calorie-burning signal to two appetite-reducing signals beats appetite reduction alone. The Phase 2 liver-fat data was striking: among participants with fatty liver disease, most saw liver fat drop to normal ranges. The trade-off is that glucagon agonism also nudges heart rate up, which is one of the things Phase 3 is watching closely.",
+      },
+      {
+        rank: 3,
+        name: "What the Phase 2 trial actually showed",
+        summary:
+          "The trial that created the headlines was published in the New England Journal of Medicine in 2023: 338 adults with obesity, randomized to placebo or one of four retatrutide doses for 48 weeks. The highest dose averaged about 24 percent body-weight reduction, and the trial had not plateaued when it ended, meaning the final number with longer treatment could be higher. For calibration against the approved drugs: semaglutide's flagship trial averaged about 15 percent at 68 weeks and tirzepatide's about 21 percent at 72 weeks. Those are different trials with different durations and populations, not a head-to-head, and Phase 2 results regularly shrink in Phase 3. Impressive is the honest word; proven is not yet available.",
+      },
+      {
+        rank: 4,
+        name: "Where Phase 3 stands",
+        summary:
+          "Lilly's Phase 3 program, called TRIUMPH, is running multiple large trials in obesity and related conditions, including obstructive sleep apnea and knee osteoarthritis, alongside diabetes studies. These trials enroll thousands of participants and run well over a year each. As of mid-2026 retatrutide remains investigational: no FDA submission has been approved, and any timeline you read is an estimate that moves with the data. When the TRIUMPH results publish, this page gets updated with a dated note, that is our standing practice. Until then, every concrete claim about retatrutide rests on 338 people followed for 48 weeks.",
+      },
+      {
+        rank: 5,
+        name: "The side-effect picture so far",
+        summary:
+          "Phase 2 looked familiar to anyone who knows this drug class: nausea, diarrhea, vomiting and constipation led the list, dose-dependent and concentrated during dose escalation. Two signals stand out as retatrutide-specific watch items. Heart rate rose measurably, peaking mid-trial and partly settling by week 48, a known glucagon-receptor effect. And a subset of participants reported unusual skin sensitivity. Neither derailed the program; both are exactly what Phase 3 safety monitoring exists to settle. We keep a fuller, sourced breakdown in our retatrutide side-effects guide.",
+      },
+      {
+        rank: 6,
+        name: "Why you cannot buy it, and why 'reta' vials are not it",
+        summary:
+          "There is no legal retatrutide outside clinical trials. It has no FDA approval, no approved manufacturing, and no pharmacy can dispense it. The 'reta' sold by research-chemical sites and gray-market sellers is an unregulated powder of unverified identity, purity and dose, sold with a research-use label as legal cover, and dosing yourself with an investigational metabolic hormone, without the ECG monitoring and dose-titration protocols the trials use, is the kind of risk no honest site will help you take. We do not link to those sellers, ever. If retatrutide interests you, the legitimate paths are joining a clinical trial or waiting for approval.",
+      },
+      {
+        rank: 7,
+        name: "What to do with this information today",
+        summary:
+          "If you are already on semaglutide or tirzepatide and it is working, the existence of a possibly-stronger future drug changes nothing about a treatment plan that is succeeding. If current options have not worked for you, retatrutide is a reason for genuine hope on a two-ish year horizon, and clinicaltrials.gov lists the TRIUMPH studies that are recruiting. The boring, accurate summary: the most promising obesity drug in the pipeline, one strong mid-stage trial, final evidence pending, nothing to buy, and anyone selling it to you today is selling something else.",
+      },
+    ],
+    faq: [
+      {
+        q: "What is retatrutide?",
+        a: "An investigational once-weekly injectable from Eli Lilly that activates three receptors: GLP-1, GIP and glucagon, one more than tirzepatide (Mounjaro, Zepbound) and two more than semaglutide (Ozempic, Wegovy). In its Phase 2 trial it averaged roughly 24 percent weight reduction at 48 weeks at the top dose. It is not approved and not legally available.",
+      },
+      {
+        q: "When will retatrutide be approved?",
+        a: "Unknown. The Phase 3 TRIUMPH trials are the gate, and approval depends on their results and FDA review afterward. Public estimates have generally pointed toward the later 2020s, but any specific date you see is speculation. We update this page with a dated note when the program reports.",
+      },
+      {
+        q: "Is retatrutide better than tirzepatide (Zepbound)?",
+        a: "Nobody knows yet. Retatrutide's Phase 2 number (about 24 percent at 48 weeks) tops tirzepatide's Phase 3 number (about 21 percent at 72 weeks), but those are different trials of different sizes and lengths, and Phase 2 results often shrink in Phase 3. Tirzepatide is approved, available and proven; retatrutide is promising and unfinished. We compare them properly in retatrutide vs tirzepatide.",
+      },
+      {
+        q: "Can I buy retatrutide online?",
+        a: "Not legally, and not safely. No approved product exists, so everything sold as retatrutide is unregulated gray-market material of unverified content, usually labeled 'for research use only' as legal cover. Self-dosing an investigational hormone without the monitoring used in its trials is a genuine risk to your health. The legitimate options are a clinical trial or waiting.",
+      },
+      {
+        q: "How much weight do people lose on retatrutide?",
+        a: "In the only completed efficacy trial, adults with obesity on the highest dose lost about 24 percent of body weight on average over 48 weeks, and the curve had not flattened when the trial ended. Averages hide wide individual variation, the trial was mid-stage, and the Phase 3 numbers that actually matter are still pending.",
+      },
+    ],
+    sources: [
+      {
+        label:
+          "Jastreboff AM et al. Triple-Hormone-Receptor Agonist Retatrutide for Obesity (Phase 2). NEJM 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+      },
+      {
+        label:
+          "Rosenstock J et al. Retatrutide, a GIP, GLP-1 and glucagon receptor agonist, for people with type 2 diabetes (Phase 2). Lancet 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37385280/",
+      },
+      {
+        label: "ClinicalTrials.gov: TRIUMPH Phase 3 program (retatrutide)",
+        url: "https://clinicaltrials.gov/search?term=retatrutide%20TRIUMPH",
+      },
+      {
+        label:
+          "FDA: Human drug compounding, unapproved drugs and safety risks",
+        url: "https://www.fda.gov/drugs/human-drug-compounding",
+      },
+    ],
+  },
+  {
+    slug: "retatrutide-side-effects",
+    title: "Retatrutide Side Effects: What the Trial Reported",
+    h1: "Retatrutide side effects, from the trial data",
+    description:
+      "Everything known about retatrutide's side effects comes from one 48-week Phase 2 trial. The GI profile, the heart-rate signal, the skin-sensitivity reports, and what nobody can know yet.",
+    hub: "side-effects-and-management",
+    postType: "cluster",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 8,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "Read this first: the data is Phase 2 data",
+        summary:
+          "Retatrutide is investigational, so its entire human side-effect record comes from controlled trials, chiefly the 338-person, 48-week Phase 2 obesity study published in NEJM and a similarly sized diabetes study in The Lancet. That cuts both ways. The data is high quality: randomized, placebo-controlled, systematically collected, better than the anecdote soup around most new drugs. And it is thin: a few hundred people followed for under a year cannot surface rare events or long-term effects. The approved GLP-1 drugs have millions of patient-years behind their labels; retatrutide has hundreds of patient-years, full stop.",
+      },
+      {
+        rank: 2,
+        name: "The GI profile: familiar, dose-dependent",
+        summary:
+          "The most common side effects were exactly what this drug class always produces: nausea first, then diarrhea, vomiting and constipation, mild to moderate for most, concentrated during dose escalation, and clearly dose-dependent, with the highest doses producing the most. Slower titration reduced them, which is why the trial protocols escalate gradually. Anyone who has read our guides on Ozempic nausea or diarrhea knows this playbook; retatrutide simply runs it with three hormones instead of one or two.",
+      },
+      {
+        rank: 3,
+        name: "The two retatrutide-specific signals",
+        summary:
+          "First, heart rate. Glucagon-receptor agonism raises it, and the trial measured an increase that peaked around the middle of the study and partially declined by week 48. For most healthy participants it was a number on a monitor rather than a symptom, but it is precisely the kind of signal that demands Phase 3's larger cardiovascular picture before anyone can call it benign. Second, skin sensitivity: a subset of participants reported unusual skin sensations, a finding distinctive enough that the investigators noted it. Neither stopped the program; both are open questions, and honest coverage says so.",
+      },
+      {
+        rank: 4,
+        name: "What nobody can know yet, and the gray-market multiplier",
+        summary:
+          "Unknowns at this stage: long-term effects past one year, rare events, interactions, effects in people the trial excluded, and whether the heart-rate signal matters clinically at scale. That is the normal state of a Phase 3 drug and the reason it is not approved. One more thing belongs in a side-effects article: every risk above was measured in supervised trials with verified drug, ECGs and structured titration. Gray-market 'reta' carries all of those risks plus unverified identity, purity and dose, with no monitoring. The side-effect profile of an unregulated vial is unknowable, and we do not link to anyone selling them.",
+      },
+    ],
+    faq: [
+      {
+        q: "What are the most common retatrutide side effects?",
+        a: "In the Phase 2 trials: nausea, diarrhea, vomiting and constipation, the standard incretin-class profile, mostly mild to moderate, worst during dose increases, and clearly dose-dependent. Slower titration schedules reduced them.",
+      },
+      {
+        q: "Does retatrutide raise heart rate?",
+        a: "Yes, measurably, in the Phase 2 data: an increase that peaked mid-trial and partly settled by 48 weeks, consistent with its glucagon-receptor action. Whether this matters clinically over years is exactly what the larger Phase 3 program is designed to answer; it is the most-watched safety question on the drug.",
+      },
+      {
+        q: "Is retatrutide safe?",
+        a: "The only honest answer for any investigational drug: safety is not established. Phase 2 reported manageable, mostly GI side effects plus the heart-rate and skin-sensitivity signals, with no result that stopped development. 'No red flags in 338 people over 48 weeks' and 'safe' are different claims, and only Phase 3 plus regulatory review can close that gap.",
+      },
+      {
+        q: "Are gray-market retatrutide side effects the same as in the trials?",
+        a: "Nobody can say, and that is the problem. Trial data describes verified retatrutide given under medical monitoring. An unregulated vial may contain the wrong dose, impurities, or something else entirely, and the user has no ECG monitoring or titration protocol. Whatever risk the real drug carries, the gray-market version carries it plus unknowns.",
+      },
+    ],
+    sources: [
+      {
+        label:
+          "Jastreboff AM et al. Triple-Hormone-Receptor Agonist Retatrutide for Obesity (Phase 2). NEJM 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+      },
+      {
+        label:
+          "Rosenstock J et al. Retatrutide for people with type 2 diabetes (Phase 2). Lancet 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37385280/",
+      },
+      {
+        label: "ClinicalTrials.gov: TRIUMPH Phase 3 program (retatrutide)",
+        url: "https://clinicaltrials.gov/search?term=retatrutide%20TRIUMPH",
+      },
+    ],
+  },
+  {
+    slug: "retatrutide-vs-tirzepatide",
+    title: "Retatrutide vs Tirzepatide: An Honest Comparison",
+    h1: "Retatrutide vs tirzepatide, honestly compared",
+    description:
+      "One is approved, available and proven over 72 weeks. The other posted a bigger number in a smaller, shorter trial and is still in Phase 3. How the triple agonist compares with Mounjaro and Zepbound, without the hype.",
+    hub: "glp1-101",
+    postType: "pillar",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 9,
+    status: "published",
+    medicalDisclaimer: "required",
+    featured: false,
+    evidenceDimensions: {
+      trialStrength: 3,
+      sampleSize: 3,
+      mechanism: 4,
+      reproducibility: 2,
+      realWorldFit: 3,
+      rationale: {
+        trialStrength:
+          "Tirzepatide's side rests on completed Phase 3 RCTs; retatrutide's on a single Phase 2. No head-to-head exists, which caps the comparison itself.",
+        sampleSize:
+          "SURMOUNT-1 randomized 2,539 adults; retatrutide's Phase 2 randomized 338.",
+        mechanism:
+          "Both build on established incretin pharmacology; retatrutide's added glucagon agonism is rational but has the least human history of the three receptors.",
+        reproducibility:
+          "Tirzepatide's effects replicate across SURPASS and SURMOUNT; retatrutide awaits its first replication in TRIUMPH.",
+        realWorldFit:
+          "Tirzepatide has real-world use at scale; retatrutide has none, so half of this comparison describes a drug no patient can take.",
+      },
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The short answer",
+        summary:
+          "Tirzepatide (Mounjaro, Zepbound) is an approved dual agonist, GIP plus GLP-1, with completed Phase 3 trials, FDA labels, and millions of prescriptions behind it. Retatrutide adds a third receptor, glucagon, and posted a larger average weight reduction in its mid-stage trial, about 24 percent at 48 weeks versus tirzepatide's roughly 21 percent at 72 weeks in its own flagship trial. Those numbers come from different trials and cannot be read as a race result. Today the comparison is simple: one of these you can be prescribed; the other you can only read about. The interesting question is what happens if retatrutide's Phase 3 confirms its Phase 2.",
+      },
+      {
+        rank: 2,
+        name: "Two receptors versus three",
+        summary:
+          "Tirzepatide pairs GLP-1's appetite-and-glucose effects with GIP, which appears to amplify weight effects and may ease nausea. Retatrutide keeps both and adds glucagon-receptor agonism, which raises energy expenditure and pushes the liver to burn fat, attacking weight from the spending side as well as the intake side. The same addition explains retatrutide's distinctive watch item, a measurable heart-rate increase, which tirzepatide does not produce to the same degree. More receptors is a hypothesis about better results, not a guarantee; the third receptor has to pay for its side effects in Phase 3.",
+      },
+      {
+        rank: 3,
+        name: "The numbers, with their asterisks",
+        summary:
+          "Retatrutide Phase 2: about 24 percent average reduction at 48 weeks, 338 participants, curve still falling at the end. Tirzepatide SURMOUNT-1: about 21 percent at 72 weeks at the top dose, 2,539 participants, Phase 3 rigor. The asterisks matter more than the decimals. Phase 2 trials select responsive populations and regularly overstate what Phase 3 confirms; the trials differ in length, size and design; and 'average' hides enormous individual spread on every drug in this class. The defensible statement: retatrutide's early data is the strongest the field has produced at that stage, and tirzepatide's data is the strongest that has actually finished.",
+      },
+      {
+        rank: 4,
+        name: "Side effects compared",
+        summary:
+          "The shared profile is the class profile: nausea, diarrhea, vomiting, constipation, worst during titration, dose-dependent on both drugs. Tirzepatide's profile is documented at Phase 3 scale and in years of real-world use, with the boxed warnings and label cautions readers can check today. Retatrutide adds the glucagon-driven heart-rate increase and the skin-sensitivity reports from Phase 2, both unresolved questions rather than settled risks. On current knowledge, tirzepatide is the better-characterized drug by an order of magnitude, which is exactly what approval means.",
+      },
+      {
+        rank: 5,
+        name: "The decision nobody actually faces yet",
+        summary:
+          "No patient chooses between these drugs today, because only one is purchasable. The real-world versions of the question: if you qualify for tirzepatide now, waiting years for a possibly-stronger drug means years of untreated obesity, which is rarely the right trade, and switching later remains possible. If tirzepatide has not worked for you, retatrutide is a concrete reason for hope and the TRIUMPH trials are recruiting on clinicaltrials.gov. And if your plan covers neither, our cost guides on the approved drugs are the practical reading. When retatrutide's Phase 3 publishes, this page gets rewritten with the real numbers, dated.",
+      },
+    ],
+    faq: [
+      {
+        q: "Is retatrutide stronger than tirzepatide?",
+        a: "Its early trial number is bigger: about 24 percent average weight reduction at 48 weeks in Phase 2, versus tirzepatide's 21 percent at 72 weeks in Phase 3. But cross-trial comparisons flatter the smaller, shorter, earlier-stage study, and Phase 2 results routinely shrink in Phase 3. Until TRIUMPH reports, 'probably at least comparable, possibly stronger, not yet proven' is the honest reading.",
+      },
+      {
+        q: "Should I wait for retatrutide instead of starting Zepbound?",
+        a: "That is a conversation for your prescriber, but the arithmetic is worth knowing: retatrutide's approval is plausibly years away and not guaranteed, while untreated obesity carries costs every one of those years. Starting an approved drug now and revisiting when the pipeline matures is the path most clinicians describe; treatment plans are not marriage vows.",
+      },
+      {
+        q: "What is the difference between retatrutide and tirzepatide?",
+        a: "Receptors and status. Tirzepatide activates GIP and GLP-1 and is FDA approved as Mounjaro (diabetes) and Zepbound (weight management, sleep apnea). Retatrutide activates those two plus glucagon, adding an energy-expenditure mechanism, and is an investigational Phase 3 drug with no approval and no legal availability.",
+      },
+      {
+        q: "Will retatrutide replace tirzepatide?",
+        a: "Even in the best case it would join rather than replace it. Different patients tolerate different drugs, payers steer coverage, and tirzepatide will have years of price and safety history by the time retatrutide could launch. The likelier future is a menu of options at different strengths and prices, which is good news regardless of which drug wins the headline number.",
+      },
+    ],
+    sources: [
+      {
+        label:
+          "Jastreboff AM et al. Triple-Hormone-Receptor Agonist Retatrutide for Obesity (Phase 2). NEJM 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+      },
+      {
+        label:
+          "Jastreboff AM et al. Tirzepatide Once Weekly for the Treatment of Obesity (SURMOUNT-1). NEJM 2022",
+        url: "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+      },
+      {
+        label: "FDA Prescribing Information: Zepbound (tirzepatide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217806",
+      },
+      {
+        label: "ClinicalTrials.gov: TRIUMPH Phase 3 program (retatrutide)",
+        url: "https://clinicaltrials.gov/search?term=retatrutide%20TRIUMPH",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
