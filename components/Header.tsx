@@ -2,6 +2,8 @@
 
 import { Link } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
+import type { Locale } from "@/i18n/routing";
 import { MegaMenu, type MegaMenuColumn } from "./MegaMenu";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
@@ -26,117 +28,275 @@ function isMega(item: NavItem): item is MegaNav {
   return (item as MegaNav).megaMenu !== undefined;
 }
 
-const NAV: NavItem[] = [
-  {
-    label: "Guides",
-    megaMenu: [
-      {
-        title: "Get oriented",
-        items: [
-          { label: "GLP-1 101", href: "/guides/glp1-101" },
-          { label: "The complete beginner guide", href: "/glp1-guide-for-beginners" },
-          { label: "Ozempic week by week", href: "/ozempic-week-by-week" },
-        ],
+/**
+ * Nav + chrome strings per locale. English is the base; locales without
+ * an entry fall back to English (same pattern as HOME_COPY / FOOTER_COPY).
+ */
+const NAV_BY_LOCALE: Partial<Record<Locale, NavItem[]>> = {
+  en: [
+    {
+      label: "Guides",
+      megaMenu: [
+        {
+          title: "Get oriented",
+          items: [
+            { label: "GLP-1 101", href: "/guides/glp1-101" },
+            { label: "The complete beginner guide", href: "/glp1-guide-for-beginners" },
+            { label: "Ozempic week by week", href: "/ozempic-week-by-week" },
+          ],
+        },
+        {
+          title: "Living on a GLP-1",
+          items: [
+            { label: "Side effects & management", href: "/guides/side-effects-and-management" },
+            { label: "Food, nutrition & muscle", href: "/guides/food-nutrition-and-muscle" },
+            { label: "Lifestyle on GLP-1", href: "/guides/lifestyle-on-glp1" },
+          ],
+        },
+        {
+          title: "Long-term & lifestyle",
+          items: [
+            { label: "Plateaus & long-term", href: "/guides/plateaus-and-long-term" },
+            { label: "Lifestyle on GLP-1", href: "/guides/lifestyle-on-glp1" },
+            {
+              label: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
+              href: "/mounjaro-vs-ozempic-vs-wegovy-vs-zepbound",
+            },
+          ],
+        },
+      ],
+      featured: {
+        eyebrow: "Field notes",
+        title: "Ozempic week by week, what to expect, what is normal, when to call.",
+        href: "/ozempic-week-by-week",
+        dek: "A calm, week-numbered companion to the first year on semaglutide.",
       },
-      {
-        title: "Living on a GLP-1",
-        items: [
-          { label: "Side effects & management", href: "/guides/side-effects-and-management" },
-          { label: "Food, nutrition & muscle", href: "/guides/food-nutrition-and-muscle" },
-          { label: "Lifestyle on GLP-1", href: "/guides/lifestyle-on-glp1" },
-        ],
-      },
-      {
-        title: "Long-term & lifestyle",
-        items: [
-          { label: "Plateaus & long-term", href: "/guides/plateaus-and-long-term" },
-          { label: "Lifestyle on GLP-1", href: "/guides/lifestyle-on-glp1" },
-          {
-            label: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
-            href: "/mounjaro-vs-ozempic-vs-wegovy-vs-zepbound",
-          },
-        ],
-      },
-    ],
-    featured: {
-      eyebrow: "Field notes",
-      title: "Ozempic week by week, what to expect, what is normal, when to call.",
-      href: "/ozempic-week-by-week",
-      dek: "A calm, week-numbered companion to the first year on semaglutide.",
     },
-  },
-  {
-    label: "Best products",
-    megaMenu: [
-      {
-        title: "Buying guides",
-        items: [
-          { label: "Best electrolytes for GLP-1", href: "/best-electrolytes-for-glp1" },
-          { label: "Best fiber for constipation", href: "/best-fiber-supplements-for-glp1" },
-          { label: "Best protein powders", href: "/best-protein-powders-for-glp1" },
-        ],
+    {
+      label: "Best products",
+      megaMenu: [
+        {
+          title: "Buying guides",
+          items: [
+            { label: "Best electrolytes for GLP-1", href: "/best-electrolytes-for-glp1" },
+            { label: "Best fiber for constipation", href: "/best-fiber-supplements-for-glp1" },
+            { label: "Best protein powders", href: "/best-protein-powders-for-glp1" },
+          ],
+        },
+        {
+          title: "Why trust our picks",
+          items: [
+            { label: "How we evaluate & score", href: "/methodology" },
+            { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
+          ],
+        },
+      ],
+      featured: {
+        eyebrow: "Evidence-based picks",
+        title: "The best electrolytes for GLP-1 users, scored and compared.",
+        href: "/best-electrolytes-for-glp1",
+        dek: "Eight products compared on sodium, sugar, and how they sit on a slow-emptying stomach.",
       },
-      {
-        title: "Why trust our picks",
-        items: [
-          { label: "How we test & score", href: "/methodology" },
-          { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
-        ],
-      },
-    ],
-    featured: {
-      eyebrow: "Reviewed by an RN",
-      title: "The best electrolytes for GLP-1 users, scored and compared.",
-      href: "/best-electrolytes-for-glp1",
-      dek: "Eight products compared on sodium, sugar, and how they sit on a slow-emptying stomach.",
     },
+    {
+      label: "Side effects",
+      megaMenu: [
+        {
+          title: "Manage the common ones",
+          items: [
+            { label: "Side effects & management", href: "/guides/side-effects-and-management" },
+            { label: "The complete side-effect guide", href: "/glp1-side-effect-guide" },
+            { label: "Why Ozempic makes you nauseous", href: "/why-does-ozempic-make-you-nauseous" },
+          ],
+        },
+        {
+          title: "Eat & protect muscle",
+          items: [
+            { label: "Food, nutrition & muscle", href: "/guides/food-nutrition-and-muscle" },
+            { label: "How much protein on a GLP-1", href: "/how-much-protein-on-a-glp1" },
+            { label: "Best fiber for constipation", href: "/best-fiber-supplements-for-glp1" },
+          ],
+        },
+      ],
+    },
+    {
+      label: "About",
+      megaMenu: [
+        {
+          title: "How we work",
+          items: [
+            { label: "About peptips", href: "/about" },
+            { label: "Methodology v1.2", href: "/methodology" },
+            { label: "Editorial standards", href: "/editorial-standards" },
+            { label: "What we are researching", href: "/pipeline" },
+          ],
+        },
+        {
+          title: "Fine print",
+          items: [
+            { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
+            { label: "Medical disclaimer", href: "/medical-disclaimer" },
+            { label: "Contact & corrections", href: "/contact" },
+          ],
+        },
+      ],
+    },
+  ],
+  de: [
+    {
+      label: "Ratgeber",
+      megaMenu: [
+        {
+          title: "Erste Orientierung",
+          items: [
+            { label: "GLP-1-Grundlagen", href: "/guides/glp1-101" },
+            { label: "Der komplette Einsteiger-Guide", href: "/glp1-guide-for-beginners" },
+            { label: "Ozempic Woche für Woche", href: "/ozempic-week-by-week" },
+          ],
+        },
+        {
+          title: "Alltag mit einem GLP-1",
+          items: [
+            { label: "Nebenwirkungen & Umgang", href: "/guides/side-effects-and-management" },
+            { label: "Ernährung & Muskelerhalt", href: "/guides/food-nutrition-and-muscle" },
+            { label: "Alltag mit GLP-1", href: "/guides/lifestyle-on-glp1" },
+          ],
+        },
+        {
+          title: "Langfristig & Alltag",
+          items: [
+            { label: "Plateaus & langfristig", href: "/guides/plateaus-and-long-term" },
+            { label: "Alltag mit GLP-1", href: "/guides/lifestyle-on-glp1" },
+            {
+              label: "Mounjaro vs. Ozempic vs. Wegovy vs. Zepbound",
+              href: "/mounjaro-vs-ozempic-vs-wegovy-vs-zepbound",
+            },
+          ],
+        },
+      ],
+      featured: {
+        eyebrow: "Feldnotizen",
+        title: "Ozempic Woche für Woche: Was Sie erwartet, was normal ist, wann Sie anrufen sollten.",
+        href: "/ozempic-week-by-week",
+        dek: "Ein ruhiger Begleiter durch das erste Jahr mit Semaglutid, Woche für Woche.",
+      },
+    },
+    {
+      label: "Produktempfehlungen",
+      megaMenu: [
+        {
+          title: "Kaufratgeber",
+          items: [
+            { label: "Beste Elektrolyte für GLP-1", href: "/best-electrolytes-for-glp1" },
+            { label: "Beste Ballaststoffe bei Verstopfung", href: "/best-fiber-supplements-for-glp1" },
+            { label: "Beste Proteinpulver", href: "/best-protein-powders-for-glp1" },
+          ],
+        },
+        {
+          title: "Warum Sie unseren Empfehlungen vertrauen können",
+          items: [
+            { label: "Wie wir prüfen & bewerten", href: "/methodology" },
+            { label: "Affiliate-Hinweis", href: "/affiliate-disclosure" },
+          ],
+        },
+      ],
+      featured: {
+        eyebrow: "Evidenzbasierte Auswahl",
+        title: "Die besten Elektrolyte für GLP-1-Nutzerinnen und -Nutzer, bewertet und verglichen.",
+        href: "/best-electrolytes-for-glp1",
+        dek: "Acht Produkte im Vergleich: Natrium, Zucker und wie gut sie ein verlangsamt entleerter Magen verträgt.",
+      },
+    },
+    {
+      label: "Nebenwirkungen",
+      megaMenu: [
+        {
+          title: "Die häufigsten im Griff",
+          items: [
+            { label: "Nebenwirkungen & Umgang", href: "/guides/side-effects-and-management" },
+            { label: "Der komplette Nebenwirkungs-Guide", href: "/glp1-side-effect-guide" },
+            { label: "Warum Ozempic Übelkeit auslöst", href: "/why-does-ozempic-make-you-nauseous" },
+          ],
+        },
+        {
+          title: "Essen & Muskeln schützen",
+          items: [
+            { label: "Ernährung & Muskelerhalt", href: "/guides/food-nutrition-and-muscle" },
+            { label: "Wie viel Protein mit einem GLP-1", href: "/how-much-protein-on-a-glp1" },
+            { label: "Beste Ballaststoffe bei Verstopfung", href: "/best-fiber-supplements-for-glp1" },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Über uns",
+      megaMenu: [
+        {
+          title: "Wie wir arbeiten",
+          items: [
+            { label: "Über peptips", href: "/about" },
+            { label: "Methodik v1.2", href: "/methodology" },
+            { label: "Redaktionelle Standards", href: "/editorial-standards" },
+            { label: "Was wir gerade recherchieren", href: "/pipeline" },
+          ],
+        },
+        {
+          title: "Kleingedrucktes",
+          items: [
+            { label: "Affiliate-Hinweis", href: "/affiliate-disclosure" },
+            { label: "Medizinischer Hinweis", href: "/medical-disclaimer" },
+            { label: "Kontakt & Korrekturen", href: "/contact" },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+type HeaderUi = {
+  searchPlaceholder: string;
+  searchPlaceholderShort: string;
+  searchAria: string;
+  newsletter: string;
+  newsletterSignup: string;
+  language: string;
+  openMenu: string;
+  closeMenu: string;
+  navAria: string;
+  homeAria: string;
+};
+
+const UI_BY_LOCALE: Partial<Record<Locale, HeaderUi>> = {
+  en: {
+    searchPlaceholder: "Search GLP-1 questions, drugs, side effects…",
+    searchPlaceholderShort: "Search GLP-1 questions…",
+    searchAria: "Search the site",
+    newsletter: "Newsletter",
+    newsletterSignup: "Sign up for the newsletter",
+    language: "Language",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    navAria: "Site navigation",
+    homeAria: "Peptips, home",
   },
-  {
-    label: "Side effects",
-    megaMenu: [
-      {
-        title: "Manage the common ones",
-        items: [
-          { label: "Side effects & management", href: "/guides/side-effects-and-management" },
-          { label: "The complete side-effect guide", href: "/glp1-side-effect-guide" },
-          { label: "Why Ozempic makes you nauseous", href: "/why-does-ozempic-make-you-nauseous" },
-        ],
-      },
-      {
-        title: "Eat & protect muscle",
-        items: [
-          { label: "Food, nutrition & muscle", href: "/guides/food-nutrition-and-muscle" },
-          { label: "How much protein on a GLP-1", href: "/how-much-protein-on-a-glp1" },
-          { label: "Best fiber for constipation", href: "/best-fiber-supplements-for-glp1" },
-        ],
-      },
-    ],
+  de: {
+    searchPlaceholder: "GLP-1-Fragen, Wirkstoffe, Nebenwirkungen suchen…",
+    searchPlaceholderShort: "GLP-1-Fragen suchen…",
+    searchAria: "Website durchsuchen",
+    newsletter: "Newsletter",
+    newsletterSignup: "Newsletter abonnieren",
+    language: "Sprache",
+    openMenu: "Menü öffnen",
+    closeMenu: "Menü schließen",
+    navAria: "Seitennavigation",
+    homeAria: "Peptips, Startseite",
   },
-  {
-    label: "About",
-    megaMenu: [
-      {
-        title: "How we work",
-        items: [
-          { label: "About peptips", href: "/about" },
-          { label: "Methodology v1.2", href: "/methodology" },
-          { label: "Editorial standards", href: "/editorial-standards" },
-          { label: "What we are researching", href: "/pipeline" },
-        ],
-      },
-      {
-        title: "Fine print",
-        items: [
-          { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
-          { label: "Medical disclaimer", href: "/medical-disclaimer" },
-          { label: "Contact & corrections", href: "/contact" },
-        ],
-      },
-    ],
-  },
-];
+};
 
 export function Header() {
+  const locale = useLocale() as Locale;
+  const NAV = NAV_BY_LOCALE[locale] ?? NAV_BY_LOCALE.en!;
+  const ui = UI_BY_LOCALE[locale] ?? UI_BY_LOCALE.en!;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -162,7 +322,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-rule">
       <div className="mx-auto max-w-container px-6 h-16 flex items-center gap-6">
-        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Peptips, home">
+        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label={ui.homeAria}>
           <PeptipsMark />
           <span className="font-serif font-semibold text-[18px] tracking-tight text-pine group-hover:text-pine-deep transition-colors">
             peptips
@@ -218,9 +378,9 @@ export function Header() {
           <input
             type="search"
             name="q"
-            placeholder="Search GLP-1 questions, drugs, side effects…"
+            placeholder={ui.searchPlaceholder}
             className="ml-2 bg-transparent w-full text-[14px] text-ink placeholder:text-ink-soft outline-none"
-            aria-label="Search the site"
+            aria-label={ui.searchAria}
           />
         </form>
 
@@ -232,12 +392,12 @@ export function Header() {
             href="/newsletter"
             className="hidden md:inline-flex items-center h-9 px-4 rounded-pill bg-pine text-white text-[14px] font-semibold hover:bg-pine-deep transition-colors"
           >
-            Newsletter
+            {ui.newsletter}
           </Link>
 
           <button
             type="button"
-            aria-label="Search"
+            aria-label={ui.searchAria}
             className="md:hidden inline-flex items-center justify-center w-10 h-10 text-ink rounded-md"
           >
             <SearchIcon className="w-5 h-5" />
@@ -245,7 +405,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
+            aria-label={ui.openMenu}
             className="lg:hidden inline-flex items-center justify-center w-10 h-10 text-ink rounded-md"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -271,7 +431,7 @@ export function Header() {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="Site navigation"
+          aria-label={ui.navAria}
           className="fixed inset-0 z-50 bg-white overflow-auto lg:hidden"
         >
           <div className="flex items-center justify-between px-6 h-16 border-b border-rule">
@@ -282,7 +442,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
+              aria-label={ui.closeMenu}
               className="inline-flex items-center justify-center w-10 h-10 -mr-2 text-ink"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -297,9 +457,9 @@ export function Header() {
               <input
                 type="search"
                 name="q"
-                placeholder="Search GLP-1 questions…"
+                placeholder={ui.searchPlaceholderShort}
                 className="ml-3 bg-transparent w-full text-[15px] outline-none"
-                aria-label="Search the site"
+                aria-label={ui.searchAria}
               />
             </form>
             <nav className="flex flex-col">
@@ -351,10 +511,10 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="mt-8 inline-flex w-full items-center justify-center h-12 px-4 rounded-pill bg-pine text-white text-[15px] font-semibold"
             >
-              Sign up for the newsletter
+              {ui.newsletterSignup}
             </Link>
             <div className="mt-8 pt-6 border-t border-rule">
-              <div className="eyebrow eyebrow-muted mb-2">Language</div>
+              <div className="eyebrow eyebrow-muted mb-2">{ui.language}</div>
               <LocaleSwitcher onNavigate={() => setMobileOpen(false)} />
             </div>
           </div>
