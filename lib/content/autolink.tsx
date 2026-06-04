@@ -18,6 +18,7 @@ const RULES: { re: RegExp; href: string }[] = [
   { re: /\bnause(?:a|ous|ated)\b/i, href: "/why-does-ozempic-make-you-nauseous" },
   { re: /\bweek[- ]by[- ]week\b/i, href: "/ozempic-week-by-week" },
   { re: /\b(?:dosing schedule|titration schedule|titration)\b/i, href: "/glp1-dosing-schedule" },
+  { re: /\bozempic face\b/i, href: "/ozempic-face" },
   { re: /\bhair (?:loss|shedding|thinning)\b/i, href: "/ozempic-hair-loss" },
   { re: /\balcohol\b/i, href: "/ozempic-and-alcohol" },
   { re: /\bdiarrh(?:ea|oea)\b/i, href: "/ozempic-diarrhea" },

@@ -30,6 +30,147 @@ export type LocalePost = {
 export type PostI18n = Partial<Record<Locale, LocalePost>>;
 
 export const POST_I18N: Record<string, PostI18n> = {
+  "ozempic-face": {
+    de: {
+      title: "Ozempic-Gesicht: was es ist und was hilft",
+      h1: "Ozempic-Gesicht: was es ist und was hilft",
+      description:
+        "„Ozempic-Gesicht“ ist ein Medienbegriff für den Verlust an Gesichtsvolumen bei schneller Gewichtsabnahme, kein Effekt des Wirkstoffs auf die Haut. Warum es passiert, ob es zurückkommt und was wirklich hilft.",
+      items: [
+        {
+          rank: 1,
+          name: "Was „Ozempic-Gesicht“ wirklich bedeutet",
+          summary:
+            "Es ist ein Medienbegriff, keine klinische Diagnose. Er beschreibt den Verlust an Gesichtsvolumen, der mit einer deutlichen Gewichtsabnahme einhergehen kann: Die Fettpolster in Wangen und Schläfen schrumpfen, und zuvor ausgefüllte Haut kann schlaffer, eingefallener oder faltiger wirken. Es ist nichts, was Semaglutid direkt mit Ihrer Haut macht. Genau dieselbe Veränderung tritt nach operativer Gewichtsabnahme oder einer großen Diät auf, was zeigt: Es geht um das verlorene Gewicht, nicht um das Medikament.",
+        },
+        {
+          rank: 2,
+          name: "Warum es passiert",
+          summary:
+            "Das Gesicht hat eigene Fettpolster, die ihm Form und jugendliche Fülle geben. Wenn man schnell abnimmt, schrumpfen diese zusammen mit dem Fett überall sonst, man kann sich nicht aussuchen, woher der Verlust kommt. Zwei Dinge machen es auffälliger: das Tempo der Abnahme (schneller lässt der Haut weniger Zeit, sich zurückzubilden) und die Hautelastizität, die mit dem Alter natürlicherweise abnimmt, da Kollagen und Elastin zurückgehen. Deshalb kann dieselbe Gewichtsabnahme bei einer 35-jährigen und einer 60-jährigen Person sehr unterschiedlich aussehen.",
+        },
+        {
+          rank: 3,
+          name: "Kommt es zurück?",
+          summary:
+            "Das verlorene Gesichtsvolumen kehrt von allein meist nicht zurück, außer Sie nehmen wieder zu, denn es ist schlicht weniger Fett im Gesicht. Der eingefallene Eindruck mildert sich aber oft über die folgenden Monate, wenn sich Ihr Gewicht stabilisiert und die Haut sich teilweise zurückbildet. Es ist eine kosmetische Veränderung, keine schädliche, und es gibt keine veröffentlichten Studiendaten, die das speziell für GLP-1 beziffern. Für viele Menschen wird es zu einem neuen Normalzustand, den sie irgendwann nicht mehr bemerken.",
+        },
+        {
+          rank: 4,
+          name: "Was tatsächlich hilft",
+          summary:
+            "Der wichtigste Hebel ist das Tempo der Gewichtsabnahme: langsamer und gleichmäßiger gibt der Haut mehr Zeit, mitzukommen. Darüber hinaus helfen die Grundlagen, die überall helfen, auch dem Gesicht: genug Eiweiß, um Muskeln zu erhalten und die Haut zu unterstützen, gute Flüssigkeitszufuhr und Krafttraining zum Schutz der Körperzusammensetzung. Keine Creme baut Gesichtsfett wieder auf. Wenn die Veränderung Sie stört und sich stabilisiert hat, kann eine Fachärztin oder ein Facharzt für Dermatologie Optionen wie Filler oder energiebasierte Hautstraffung besprechen, das ist aber ein optionales, fachliches Gespräch, keine notwendige Behandlung.",
+        },
+      ],
+      faq: [
+        {
+          q: "Was ist das Ozempic-Gesicht?",
+          a: "Es ist ein umgangssprachlicher Begriff, kein medizinischer, für den Verlust an Gesichtsvolumen, der mit der Gewichtsabnahme unter GLP-1-Medikamenten wie Ozempic und Wegovy auftreten kann. Wangen und Schläfen können eingefallener und die Haut schlaffer wirken. Es spiegelt wider, dass Fett zusammen mit dem übrigen Körper auch aus dem Gesicht verschwindet, nicht dass das Mittel auf Ihre Haut wirkt.",
+        },
+        {
+          q: "Liegt es am Medikament oder an der Gewichtsabnahme?",
+          a: "An der Gewichtsabnahme. Dieselbe Gesichtsveränderung tritt bei jeder raschen oder deutlichen Gewichtsabnahme auf, auch nach Operationen oder Diäten. Semaglutid und Tirzepatid sind in ihrer FDA-Fachinformation nicht als Ursache eines Haut- oder Gesichtseffekts aufgeführt; was sie bewirken, ist die Gewichtsabnahme, und die Veränderung des Gesichtsvolumens folgt daraus.",
+        },
+        {
+          q: "Ist das Ozempic-Gesicht dauerhaft oder reversibel?",
+          a: "Das Volumen selbst kehrt in der Regel nicht zurück, außer Sie nehmen wieder zu, denn es ist einfach weniger Gesichtsfett. Der eingefallene Eindruck mildert sich aber meist über Monate, wenn sich Ihr Gewicht stabilisiert und die Haut sich zurückbildet. Wie gut die Haut sich erholt, hängt stark von Alter und Hautelastizität ab. Es ist eine kosmetische Veränderung, kein Gesundheitsproblem.",
+        },
+        {
+          q: "Wie kann ich es verhindern oder verringern?",
+          a: "Nehmen Sie nach Möglichkeit langsamer ab (das ist der größte Faktor), achten Sie auf ausreichend Eiweiß, trinken Sie genug und machen Sie Krafttraining zum Schutz der Körperzusammensetzung. Nichts davon baut Gesichtsfett wieder auf, aber langsamere Abnahme und gute Ernährung geben der Haut die beste Chance mitzukommen. Bei anhaltenden Bedenken, sobald das Gewicht stabil ist, kann eine dermatologische Praxis Filler oder Hautstraffung besprechen, völlig optional.",
+        },
+        {
+          q: "Sollte ich Ozempic deswegen absetzen?",
+          a: "Das ist ein Gespräch mit Ihrer Ärztin oder Ihrem Arzt, und eine Veränderung des Gesichtsvolumens allein ist selten ein medizinischer Grund zum Absetzen, da sie kosmetisch ist und mit der Gewichtsabnahme zusammenhängt, nicht mit dem Wirkstoff. Wenn es Sie beunruhigt, sprechen Sie es an und erwägen Sie, das Tempo der Abnahme zu verlangsamen. Ein Absetzen würde bedeuten, den Nutzen für die Erkrankung zu verlieren, für die es verordnet wurde.",
+        },
+      ],
+    },
+  },
+  "glp1-dosing-schedule": {
+    de: {
+      title:
+        "Ozempic Dosierung: die Schemata für Semaglutid & Tirzepatid (Wegovy, Mounjaro, Zepbound)",
+      h1: "GLP-1-Dosierung, einfach erklärt",
+      description:
+        "Die Titrationsschemata aus der FDA-Fachinformation für Semaglutid (Ozempic, Wegovy) und Tirzepatid (Mounjaro, Zepbound), warum jede Dosis niedrig beginnt und langsam steigt, die Höchstdosen und was die Fachinformation zum Halten oder Vergessen einer Dosis sagt.",
+      items: [
+        {
+          rank: 1,
+          name: "Die eine Regel hinter jeder GLP-1-Dosis",
+          summary:
+            "Niedrig anfangen, langsam steigern. Jedes GLP-1 folgt demselben Muster: eine niedrige Anfangsdosis, die eigentlich noch nicht viel bewirken soll, dann etwa alle vier Wochen eine Steigerung, bis eine Dosis erreicht ist, die wirkt und die Sie vertragen. Der Sinn des langsamen Anstiegs ist es, Übelkeit, Durchfall und andere Magen-Darm-Effekte zu begrenzen, die immer direkt nach einer Dosisänderung am stärksten sind. Die folgenden Schemata sind die Standardvorgaben aus der FDA-Fachinformation. Sie sind ein Rahmen zum Einstieg, keine persönliche Verordnung, Ihre Ärztin oder Ihr Arzt legt Ihre tatsächliche Dosis fest und passt sie an, und den Anstieg zu verlangsamen ist normal und üblich.",
+        },
+        {
+          rank: 2,
+          name: "Ozempic (Semaglutid, Typ-2-Diabetes)",
+          summary:
+            "Das von der FDA zugelassene Ozempic-Schema beginnt mit 0,25 mg einmal wöchentlich über 4 Wochen. Diese 0,25-mg-Dosis dient der Verträglichkeit, sie gilt allein noch nicht als wirksam für den Blutzucker. In Woche 5 geht es auf 0,5 mg wöchentlich. Wird nach mindestens 4 Wochen mehr Blutzuckerkontrolle benötigt, kann auf 1 mg und dann auf maximal 2 mg erhöht werden. Die Leiter lautet also 0,25, dann 0,5, dann 1, dann 2 mg, jede Stufe mindestens vier Wochen, bevor die nächste folgt.",
+        },
+        {
+          rank: 3,
+          name: "Wegovy (Semaglutid, Gewichtsmanagement)",
+          summary:
+            "Wegovy ist dasselbe Molekül wie Ozempic, wird aber höher und nach einem festen monatlichen Schema für das Gewichtsmanagement titriert. Die FDA-Fachinformation steigert etwa alle 4 Wochen: 0,25 mg, dann 0,5, dann 1,0, dann 1,7 und schließlich die Erhaltungsdosis von 2,4 mg, die meist um Woche 16 bis 20 erreicht wird. Wird eine Stufe nicht vertragen, erlaubt die Fachinformation, die Steigerung zu verschieben. Die 2,4-mg-Dosis ist das Erhaltungsziel, das die STEP-Studien verwendet haben.",
+        },
+        {
+          rank: 4,
+          name: "Mounjaro (Tirzepatid, Typ-2-Diabetes)",
+          summary:
+            "Tirzepatid steigt in 2,5-mg-Schritten. Das Mounjaro-Schema beginnt mit 2,5 mg einmal wöchentlich über 4 Wochen (auch das eine Einstiegsdosis, nicht die wirksame Dosis), dann 5 mg. Danach kann die Dosis um jeweils 2,5 mg erhöht werden, frühestens alle 4 Wochen, über 7,5, 10, 12,5 bis maximal 15 mg. Viele Menschen landen und bleiben bei 5, 10 oder 15 mg, je nach Ansprechen und Verträglichkeit.",
+        },
+        {
+          rank: 5,
+          name: "Zepbound (Tirzepatid, Gewichtsmanagement)",
+          summary:
+            "Zepbound ist Tirzepatid zum Gewichtsmanagement und nutzt dieselbe 2,5-mg-Leiter wie Mounjaro: Start mit 2,5 mg wöchentlich über 4 Wochen, dann 5 mg, dann nach Bedarf alle 4 Wochen um 2,5 mg erhöhen. Die FDA-Fachinformation nennt 5 mg, 10 mg und 15 mg als Erhaltungsdosen, mit 15 mg als Maximum. Wie bei den anderen ist die richtige Erhaltungsdosis die niedrigste, die das Ergebnis bringt, nicht automatisch das obere Ende der Leiter.",
+        },
+        {
+          rank: 6,
+          name: "Wenn eine Dosis zu hart ist",
+          summary:
+            "Der Kalender ist eine Richtlinie, kein Befehl. Die Fachinformation aller vier Wirkstoffe erlaubt es, auf der aktuellen Dosis zu bleiben oder eine Stufe zurückzugehen, wenn die Nebenwirkungen schwer zu vertragen sind. Ein sehr häufiges Muster ist, einen zusätzlichen Monat auf einer niedrigeren Dosis zu bleiben, bevor die nächste Steigerung kommt, oder den Anstieg ganz zu pausieren, sobald eine Dosis wirkt. Das ist ein Gespräch mit der Praxis, kein Alleingang, aber ein normaler, erwarteter Teil der GLP-1-Dosierung, kein Versagen.",
+        },
+        {
+          rank: 7,
+          name: "Die Höchstdosis zu erreichen ist nicht das Ziel",
+          summary:
+            "Es gibt die stille Annahme, man müsse bis zum Maximum steigern. Das müssen Sie nicht zwingend. Das Ziel ist die niedrigste Dosis, die Ihren Blutzucker kontrolliert oder Ihr Gewichtsziel unterstützt, mit Nebenwirkungen, mit denen Sie leben können. Viele Menschen kommen gut zurecht und bleiben bei einer mittleren Dosis. Bis zum Maximum zu gehen ergibt nur Sinn, wenn die niedrigere Dosis Sie nicht ans Ziel bringt, und diese Entscheidung treffen Sie gemeinsam mit Ihrer Ärztin oder Ihrem Arzt.",
+        },
+        {
+          rank: 8,
+          name: "Eine Dosis vergessen?",
+          summary:
+            "Jede Fachinformation hat eine eigene Vorgabe. Für die einmal wöchentlichen Semaglutid- und Tirzepatid-Präparate lautet die allgemeine Regel: Wenn Sie eine Dosis vergessen und die nächste planmäßige Dosis mehr als etwa 48 Stunden entfernt ist, holen Sie sie nach, sobald Sie daran denken; andernfalls lassen Sie sie aus und machen mit Ihrem normalen Wochenrhythmus weiter. Den Injektionstag können Sie verschieben, solange seit der letzten Dosis mindestens 48 Stunden vergangen sind. Halten Sie sich immer an die genauen Angaben in der Packungsbeilage Ihres Medikaments und fragen Sie im Zweifel in der Apotheke.",
+        },
+      ],
+      faq: [
+        {
+          q: "Mit welcher Dosis beginnen Ozempic oder Wegovy?",
+          a: "Beide Semaglutid-Präparate beginnen mit 0,25 mg einmal wöchentlich in den ersten 4 Wochen. Diese Anfangsdosis dient der Verträglichkeit, sie ist nicht die Dosis, die die Hauptarbeit leistet. Ozempic geht dann auf 0,5 mg und kann bis 1 mg und maximal 2 mg steigen; Wegovy steigert über 0,5, 1,0 und 1,7 mg bis zu einer Erhaltungsdosis von 2,4 mg. Das genaue Schema steht in der FDA-Fachinformation.",
+        },
+        {
+          q: "Was ist die Höchstdosis von Tirzepatid?",
+          a: "Für Mounjaro und Zepbound (Tirzepatid) liegt das Maximum bei 15 mg einmal wöchentlich. Die Leiter steigt in 2,5-mg-Schritten (2,5, 5, 7,5, 10, 12,5, 15), mit mindestens 4 Wochen zwischen den Steigerungen. Die Erhaltungsdosis ist oft 5, 10 oder 15 mg. Das Maximum ist eine Obergrenze, kein Ziel, die richtige Dosis ist die niedrigste, die für Sie wirkt.",
+        },
+        {
+          q: "Wie schnell wird die Dosis gesteigert?",
+          a: "Die Standardschemata steigern frühestens alle 4 Wochen, damit sich der Körper anpassen kann und die Nebenwirkungen beherrschbar bleiben. Behandelnde gehen bei Bedarf routinemäßig langsamer vor. Schneller als alle 4 Wochen ist nicht Teil der zugelassenen Schemata.",
+        },
+        {
+          q: "Kann ich einfach auf einer niedrigeren Dosis bleiben?",
+          a: "Oft ja, und das ist ein Gespräch mit Ihrer Ärztin oder Ihrem Arzt. Die Fachinformation erlaubt es, auf einer Dosis zu bleiben oder zur Verträglichkeit eine Stufe zurückzugehen. Wenn eine niedrigere Dosis Ihren Blutzucker kontrolliert oder Ihr Ziel unterstützt, mit Nebenwirkungen, mit denen Sie leben können, muss man nicht zwingend höher steigen. Die Höchstdosis ist keine Pflicht.",
+        },
+        {
+          q: "Was passiert, wenn ich meine wöchentliche Spritze vergesse?",
+          a: "Für diese einmal wöchentlichen Mittel lautet die allgemeine Vorgabe der Fachinformation: Ist Ihre nächste Dosis mehr als etwa 48 Stunden entfernt, holen Sie die vergessene Dosis nach, sobald Sie daran denken; ist es früher, lassen Sie sie aus und kehren zu Ihrem regulären Wochentag zurück. Sie können Ihren Injektionstag verschieben, solange seit der letzten Dosis mindestens 48 Stunden vergangen sind. Prüfen Sie die Packungsbeilage Ihres Medikaments und fragen Sie im Zweifel in der Apotheke.",
+        },
+        {
+          q: "Ist die Dosierung bei Gewichtsabnahme anders als bei Diabetes?",
+          a: "Ja. Dasselbe Molekül wird unter verschiedenen Markennamen mit unterschiedlichen Schemata verkauft. Semaglutid ist Ozempic (Diabetes, bis 2 mg) und Wegovy (Gewichtsmanagement, bis 2,4 mg). Tirzepatid ist Mounjaro (Diabetes) und Zepbound (Gewichtsmanagement), beide bis 15 mg. Die Marken zum Gewichtsmanagement titrieren in der Regel auf eine höhere oder feste Erhaltungsdosis. Welche Marke und welches Schema für Sie gelten, hängt von Ihrer Indikation und Ihrer Ärztin oder Ihrem Arzt ab.",
+        },
+      ],
+    },
+  },
   "ozempic-week-by-week": {
     de: {
       title: "Ozempic Woche für Woche: was zu erwarten ist",

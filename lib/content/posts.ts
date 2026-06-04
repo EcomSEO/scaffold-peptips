@@ -2257,6 +2257,83 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "ozempic-face",
+    title: "Ozempic Face: What It Is and What Actually Helps",
+    h1: "Ozempic face: what it is, and what helps",
+    description:
+      "\"Ozempic face\" is a media term for the facial volume loss that comes with fast weight loss, not a drug effect on the skin itself. Here is why it happens, whether it comes back, and what genuinely helps.",
+    hub: "side-effects-and-management",
+    postType: "cluster",
+    publishedAt: "2026-06-03",
+    updatedAt: "2026-06-03",
+    readingTime: 8,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "What \"Ozempic face\" actually means",
+        summary:
+          "It is a media term, not a clinical diagnosis. It describes the loss of facial volume that can accompany significant weight loss: the fat pads in the cheeks and temples shrink, and skin that was filled out can look looser, more hollow, or more lined. It is not something semaglutide does to your skin directly. The exact same change happens after surgical weight loss or a major diet, which is the giveaway that this is about the weight coming off, not the medication.",
+      },
+      {
+        rank: 2,
+        name: "Why it happens",
+        summary:
+          "Your face has its own fat pads that give it shape and youthful fullness. When you lose weight quickly, those shrink along with fat everywhere else, you cannot choose where the loss comes from. Two things make it more noticeable: the speed of the loss (faster gives skin less time to retract) and skin elasticity, which naturally declines with age as collagen and elastin drop. That is why the same amount of weight loss can look very different on a 35-year-old and a 60-year-old.",
+      },
+      {
+        rank: 3,
+        name: "Does it come back?",
+        summary:
+          "The lost facial volume does not usually return on its own unless you regain weight, since it is simply less fat in the face. But the deflated, gaunt look often softens over the following months as your weight stabilizes and skin partially retracts. It is a cosmetic change, not a harmful one, and there is no published trial data quantifying it specifically for GLP-1s. For many people it settles into a new normal they stop noticing.",
+      },
+      {
+        rank: 4,
+        name: "What actually helps",
+        summary:
+          "The single biggest lever is the pace of weight loss: slower, steadier loss gives skin more time to keep up. Beyond that, the basics that help everywhere also help the face, enough protein to preserve muscle and support skin, good hydration, and resistance training to protect overall body composition. There is no cream that rebuilds facial fat. If the change bothers you and has stabilized, a board-certified dermatologist can talk through options like dermal fillers or energy-based skin-tightening, but that is an optional, professional conversation, not a fix you need.",
+      },
+    ],
+    faq: [
+      {
+        q: "What is Ozempic face?",
+        a: "It is a popular nickname, not a medical term, for the loss of facial volume that can come with the weight loss people experience on GLP-1 medications like Ozempic and Wegovy. The cheeks and temples can look hollower and the skin looser. It reflects fat leaving the face along with the rest of the body, not the drug acting on your skin.",
+      },
+      {
+        q: "Is it caused by the drug or the weight loss?",
+        a: "The weight loss. The same facial change happens with any rapid or significant weight loss, including from surgery or dieting. Semaglutide and tirzepatide are not listed as causing a skin or facial effect in their FDA prescribing information; what they cause is the weight loss, and the facial volume change follows from that.",
+      },
+      {
+        q: "Is Ozempic face permanent or reversible?",
+        a: "The volume itself does not typically return unless you regain weight, because it is simply less facial fat. But the gaunt look usually softens over months as your weight stabilizes and the skin retracts somewhat. How well skin bounces back depends a lot on age and skin elasticity. It is a cosmetic change, not a health problem.",
+      },
+      {
+        q: "How can I prevent or reduce it?",
+        a: "Lose weight more slowly if you can (it is the biggest factor), keep your protein intake up, stay well hydrated, and do resistance training to protect overall composition. None of this rebuilds facial fat, but slower loss and good nutrition give skin the best chance to keep up. For persistent concerns once your weight is stable, a board-certified dermatologist can discuss fillers or skin-tightening, entirely optional.",
+      },
+      {
+        q: "Should I stop Ozempic because of it?",
+        a: "That is a conversation for your prescriber, and facial volume change alone is rarely a medical reason to stop, since it is cosmetic and tied to the weight loss rather than the drug. If it concerns you, raise it with your prescriber and consider slowing the pace of loss. Stopping the medication would mean losing its benefits for the condition it was prescribed for.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Wegovy (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+      },
+      {
+        label: "FDA Prescribing Information: Ozempic (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+      {
+        label:
+          "Wilding JPH et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP-1). NEJM 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
