@@ -22,10 +22,15 @@ const RULES: { re: RegExp; href: string }[] = [
   { re: /\bhair (?:loss|shedding|thinning)\b/i, href: "/ozempic-hair-loss" },
   { re: /\balcohol\b/i, href: "/ozempic-and-alcohol" },
   { re: /\bdiarrh(?:ea|oea)\b/i, href: "/ozempic-diarrhea" },
+  { re: /\bmounjaro vs\.? zepbound\b/i, href: "/mounjaro-vs-zepbound" },
+  { re: /\bmounjaro\b/i, href: "/mounjaro-vs-zepbound" },
   { re: /\bzepbound\b/i, href: "/wegovy-vs-zepbound" },
   { re: /\btirzepatide\b/i, href: "/semaglutide-vs-tirzepatide" },
   { re: /\bfatigue\b/i, href: "/ozempic-fatigue" },
   { re: /\bsupplements?\b/i, href: "/best-supplements-for-glp1" },
+  { re: /\bburp(?:s|ing)?\b/i, href: "/ozempic-burps" },
+  { re: /\bheadaches?\b/i, href: "/ozempic-headache" },
+  { re: /\bcosts?\b/i, href: "/ozempic-cost" },
 ];
 
 const LINK_CLASS =

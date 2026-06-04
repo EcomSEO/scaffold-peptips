@@ -2334,6 +2334,392 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "mounjaro-vs-zepbound",
+    title: "Mounjaro vs Zepbound: Same Drug, Two Names, One Real Difference",
+    h1: "Mounjaro vs Zepbound: what is actually different",
+    description:
+      "Mounjaro and Zepbound are the same molecule, tirzepatide, sold under two names for two FDA-approved uses. Here is why both exist, how the dosing compares, and why the label on the box can decide what your insurance pays.",
+    hub: "glp1-101",
+    postType: "pillar",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 9,
+    status: "published",
+    medicalDisclaimer: "required",
+    featured: false,
+    evidenceDimensions: {
+      trialStrength: 5,
+      sampleSize: 5,
+      mechanism: 5,
+      reproducibility: 5,
+      realWorldFit: 4,
+      rationale: {
+        trialStrength:
+          "Both brands rest on large randomized programs for the same molecule: SURPASS for the diabetes indication, SURMOUNT for weight management.",
+        sampleSize:
+          "The SURPASS and SURMOUNT programs together randomized many thousands of adults across multiple trials.",
+        mechanism:
+          "Tirzepatide's dual GIP/GLP-1 receptor pharmacology is well characterized and identical in both products.",
+        reproducibility:
+          "Effects replicate across multiple trials within each program and across the two programs.",
+        realWorldFit:
+          "Trial populations match the prescribed populations well, though trial adherence and support run higher than routine care.",
+      },
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The short answer",
+        summary:
+          "Mounjaro and Zepbound contain exactly the same active drug: tirzepatide, a once-weekly injection that activates two incretin receptors, GIP and GLP-1. The difference is the label. Mounjaro is FDA-approved for type 2 diabetes. Zepbound is FDA-approved for chronic weight management, and also for moderate-to-severe obstructive sleep apnea in adults with obesity. Same molecule, same doses, same manufacturer (Lilly), different approved uses. Which one you are prescribed usually comes down to your diagnosis and what your insurance will cover, not to any difference in the drug itself.",
+      },
+      {
+        rank: 2,
+        name: "Why one drug has two names",
+        summary:
+          "Drug companies apply to the FDA for one indication at a time, and each approved use gets marketed under its own brand. Lilly first won approval for tirzepatide in type 2 diabetes in 2022, and that product is Mounjaro. When the SURMOUNT trials showed large weight-loss effects in people without diabetes, Lilly sought a separate approval for chronic weight management, granted in late 2023, and launched the same molecule as Zepbound. Novo Nordisk did the same thing with semaglutide, which is why Ozempic and Wegovy both exist. It is a regulatory and insurance structure, not a scientific one.",
+      },
+      {
+        rank: 3,
+        name: "The dosing is identical",
+        summary:
+          "Both products start at 2.5 mg once weekly for four weeks, then step up in 2.5 mg increments as tolerated, with a maximum of 15 mg weekly. The full titration calendar is in each product's FDA prescribing information, and we walk through it in our dosing schedule guide. Maintenance doses differ by person, not by brand: the right dose is the lowest one that controls what it was prescribed for, and prescribers routinely hold or slow the climb when side effects are rough. There is no strength available in one brand that is missing from the other in the pen form, though Zepbound is also sold in single-dose vials through Lilly's self-pay channel.",
+      },
+      {
+        rank: 4,
+        name: "Side effects: the same list",
+        summary:
+          "Because the molecule is the same, the side-effect profile is the same: nausea, diarrhea, constipation, vomiting, and reduced appetite lead both labels, heaviest in the weeks after a dose increase, and both carry the same boxed warning about thyroid C-cell tumors seen in rodents. Fatigue, burping, and injection-site reactions show up on both labels too. If you tolerate one, you would be expected to tolerate the other at the same dose, and the management playbook for nausea, constipation, and diarrhea is identical.",
+      },
+      {
+        rank: 5,
+        name: "What the trials showed, briefly",
+        summary:
+          "Mounjaro's diabetes approval rests on the SURPASS program, where tirzepatide lowered A1C more than comparators including semaglutide 1 mg (SURPASS-2). Zepbound's weight approval rests on the SURMOUNT program, where adults with obesity lost around a fifth of body weight on average at the higher doses over 72 weeks (SURMOUNT-1), and the head-to-head SURMOUNT-5 trial found more average weight loss on tirzepatide than on semaglutide 2.4 mg. The OSA approval came from the SURMOUNT-OSA trials, where tirzepatide reduced breathing interruptions during sleep. All of that is the same molecule you get under either name.",
+      },
+      {
+        rank: 6,
+        name: "Insurance is the real difference",
+        summary:
+          "This is the part that decides most prescriptions. Many insurance plans cover GLP-1 medications for type 2 diabetes but not for weight management, so Mounjaro with a diabetes diagnosis is often covered while Zepbound for weight is not, or carries a separate, stricter approval process. Using Mounjaro for weight loss without diabetes is off-label prescribing, which is legal and common, but plans usually will not pay for it. Zepbound is the on-label route for weight management and for OSA, and Lilly sells it directly to self-pay patients in vial form at a lower price than the pen's list price. Ask your plan what it covers before assuming either way, the answer often makes the decision for you.",
+      },
+      {
+        rank: 7,
+        name: "Switching between them",
+        summary:
+          "Because the molecule and doses are identical, moving between Mounjaro and Zepbound is not a pharmacological switch at all, there is no re-titration for tolerance reasons. It is an administrative change: a new prescription with a different indication on it, usually driven by a coverage change or a new diagnosis. That is different from switching between tirzepatide and semaglutide, which are different drugs and do require restarting low. If your prescriber moves you from one tirzepatide brand to the other at the same dose, expect things to feel the same.",
+      },
+      {
+        rank: 8,
+        name: "Which one you will get",
+        summary:
+          "If you have type 2 diabetes, you will likely be prescribed Mounjaro, because that is the approved indication and the covered one. If you do not have diabetes and the goal is weight management or treating obstructive sleep apnea with obesity, Zepbound is the on-label product. If coverage fails on both, Lilly's self-pay vial program for Zepbound is the manufacturer's own lower-cost channel. None of this changes what the drug does in your body. The right brand is a paperwork question; the right dose and whether tirzepatide suits you at all are clinical ones for your prescriber.",
+      },
+    ],
+    faq: [
+      {
+        q: "Are Mounjaro and Zepbound the same drug?",
+        a: "Yes. Both contain tirzepatide, the same dual GIP/GLP-1 receptor agonist, made by the same company (Lilly), at the same once-weekly doses from 2.5 mg to 15 mg. The difference is the FDA-approved indication: Mounjaro for type 2 diabetes, Zepbound for chronic weight management and for obstructive sleep apnea in adults with obesity.",
+      },
+      {
+        q: "Can I take Mounjaro for weight loss if I don't have diabetes?",
+        a: "Only as an off-label prescription, which a clinician can legally write but insurance rarely pays for without a diabetes diagnosis. Zepbound is the version approved specifically for weight management, so it is the on-label route, and the one a plan that covers weight-management drugs would cover. The drug in the pen is the same either way.",
+      },
+      {
+        q: "Is one stronger or more effective than the other?",
+        a: "No. Same molecule, same dose range, same effect at the same dose. The trial programs differ because they studied different populations for different approvals (SURPASS for diabetes, SURMOUNT for weight), but there is no strength or formulation advantage of one brand over the other in the pens. Zepbound additionally comes in single-dose vials through Lilly's self-pay program.",
+      },
+      {
+        q: "Why does insurance cover one and not the other?",
+        a: "Coverage follows the indication on the prescription. Many plans, and traditional Medicare for most of its history, cover GLP-1 class drugs for diabetes but exclude or restrict weight-management drugs as a category. So Mounjaro billed for type 2 diabetes often goes through, while Zepbound for weight needs a plan that specifically covers anti-obesity medication. Coverage rules change often, so check your own plan rather than assuming.",
+      },
+      {
+        q: "Can I switch from Mounjaro to Zepbound, or back?",
+        a: "Yes, and because the molecule and doses are identical, there is no medical re-titration needed for the switch itself, your prescriber simply writes the other brand at your current dose. People switch mainly for coverage reasons or when a diagnosis changes. Switching to or from a semaglutide product (Ozempic, Wegovy) is different, that is a new drug and usually means restarting at a low dose.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Mounjaro (tirzepatide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215866",
+      },
+      {
+        label: "FDA Prescribing Information: Zepbound (tirzepatide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217806",
+      },
+      {
+        label:
+          "Jastreboff AM et al. Tirzepatide Once Weekly for the Treatment of Obesity (SURMOUNT-1). NEJM 2022",
+        url: "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+      },
+      {
+        label:
+          "Frías JP et al. Tirzepatide versus Semaglutide Once Weekly in Patients with Type 2 Diabetes (SURPASS-2). NEJM 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/34170647/",
+      },
+      {
+        label:
+          "Aronne LJ et al. Tirzepatide versus Semaglutide for the Treatment of Obesity (SURMOUNT-5). NEJM 2025",
+        url: "https://pubmed.ncbi.nlm.nih.gov/?term=SURMOUNT-5+tirzepatide+semaglutide+obesity",
+      },
+      {
+        label:
+          "Malhotra A et al. Tirzepatide for the Treatment of Obstructive Sleep Apnea and Obesity (SURMOUNT-OSA). NEJM 2024",
+        url: "https://pubmed.ncbi.nlm.nih.gov/38912654/",
+      },
+    ],
+  },
+  {
+    slug: "ozempic-burps",
+    title: "Ozempic Burps: Why the Sulfur Burps Happen and What Helps",
+    h1: "Ozempic burps: why they happen, what helps",
+    description:
+      "Burping, sometimes with a rotten-egg taste, is a documented side effect of semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound). Here is why slowed digestion causes it, what genuinely helps, and when a burp is a signal to call.",
+    hub: "side-effects-and-management",
+    postType: "cluster",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 7,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "Yes, it is the medication",
+        summary:
+          "Burping is not in your head and it is not just something you ate. Eructation, the clinical word for burping, is listed among the gastrointestinal adverse reactions for semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound) in their FDA prescribing information. Some people get ordinary extra burping; a subset get the notorious sulfur burps, belches that taste or smell like rotten eggs. Like most GI effects on these drugs, it tends to show up or flare after a dose increase and ease as your body adapts.",
+      },
+      {
+        rank: 2,
+        name: "Why the rotten-egg taste",
+        summary:
+          "GLP-1 medications slow gastric emptying, which means food sits in your stomach much longer than it used to. Food that sits ferments, and gut bacteria working on slow-moving food, especially protein and fat, produce gases including hydrogen sulfide, the compound that smells of rotten eggs. A burp that escapes during this slow digestion carries that smell up with it. That is the whole mechanism: not damage, not an allergy, just chemistry happening on a slower conveyor belt. It is the same reason large or fatty meals, which slow digestion further, make the burps noticeably worse.",
+      },
+      {
+        rank: 3,
+        name: "What actually helps",
+        summary:
+          "Work with the slow stomach instead of against it. Smaller meals, eaten slowly, give the fermentation less raw material at once, this is the single biggest lever. Go easier on heavy, fatty, and fried food, which sits longest. Carbonated drinks add gas directly, so swapping them out helps quickly. Some people find sulfur-rich foods, eggs, cruciferous vegetables, and some protein supplements, make the smell worse, and easing back is a reasonable experiment. Stay upright for a couple of hours after eating, and keep up your water. If burps come with reflux or heartburn, mention it to your prescriber or pharmacist, there are over-the-counter options they can point you to, matched to your situation.",
+      },
+      {
+        rank: 4,
+        name: "When a burp is more than a burp",
+        summary:
+          "Call your prescriber if burping comes with severe or persistent abdominal pain, repeated vomiting, a swollen or tender belly, or you cannot keep fluids down, those are the symptoms that need a clinical eye rather than a home fix, because they can signal pancreatitis or significant gastroparesis rather than ordinary slow digestion. Also worth a call: burping plus black stools or vomiting blood, which is about your stomach lining, not the drug's usual behavior. Ordinary sulfur burps are unpleasant, not dangerous. The red flags above are a different category, treat them as out of our lane and into your prescriber's.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why does Ozempic give me sulfur burps?",
+        a: "Semaglutide (Ozempic, Wegovy) slows your stomach's emptying, so food sits and ferments longer. Gut bacteria digesting slow-moving food, especially protein and fat, release hydrogen sulfide gas, which smells of rotten eggs, and burps carry it upward. Burping (eructation) is a documented adverse reaction in the FDA prescribing information for both semaglutide and tirzepatide.",
+      },
+      {
+        q: "How do I get rid of them?",
+        a: "Smaller, slower meals are the biggest lever, with less fatty and fried food, fewer carbonated drinks, and staying upright after eating. Some people find cutting back on sulfur-rich foods like eggs and cruciferous vegetables helps the smell. Most burping eases as your body adapts after a dose change. If it persists or comes with reflux, ask your pharmacist or prescriber about over-the-counter options for your situation.",
+      },
+      {
+        q: "Do the burps go away on their own?",
+        a: "Usually, yes. Like nausea and most other GI effects of these medications, burping is worst in the weeks after starting or increasing a dose and settles as your body adapts. If it stays severe, your prescriber can slow the titration or hold your dose, the schedules in the FDA labels are designed to be stretched when side effects are rough.",
+      },
+      {
+        q: "Are sulfur burps dangerous?",
+        a: "On their own, no, they are unpleasant but harmless, a byproduct of slower digestion. The time to call your prescriber is when burping arrives with severe or persistent abdominal pain, repeated vomiting, inability to keep fluids down, or black stools, those need clinical evaluation and are not something to wait out at home.",
+      },
+      {
+        q: "Does Mounjaro or Zepbound cause sulfur burps too?",
+        a: "Yes. Tirzepatide (Mounjaro, Zepbound) slows gastric emptying the same way semaglutide does, and eructation appears among the gastrointestinal adverse reactions in its FDA prescribing information as well. The mechanism and the fixes are the same regardless of which GLP-1 medication you take.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Ozempic (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+      {
+        label: "FDA Prescribing Information: Wegovy (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+      },
+      {
+        label: "FDA Prescribing Information: Zepbound (tirzepatide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217806",
+      },
+      {
+        label:
+          "Wilding JPH et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP-1). NEJM 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+      },
+    ],
+  },
+  {
+    slug: "ozempic-headache",
+    title: "Ozempic Headaches: The Four Usual Causes and What Helps",
+    h1: "Headaches on Ozempic: the four usual causes",
+    description:
+      "Headache is a documented adverse reaction with semaglutide (Wegovy), and on a GLP-1 it usually traces back to one of four things: dehydration, low blood sugar, caffeine withdrawal, or simply eating less. Here is how to tell which one is yours.",
+    hub: "side-effects-and-management",
+    postType: "cluster",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 7,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "What the labels actually say",
+        summary:
+          "Headache appears among the common adverse reactions in the FDA prescribing information for semaglutide 2.4 mg (Wegovy), reported more often than on placebo in the STEP trials. The interesting part is the mechanism: these drugs do not act on your head, they act on your gut and appetite. Which is why most headaches on a GLP-1 are not a direct drug effect at all, they are downstream of eating less, drinking less, and changing habits all at once. That is good news, because downstream causes are fixable.",
+      },
+      {
+        rank: 2,
+        name: "The four usual suspects",
+        summary:
+          "First, dehydration: appetite suppression quietly removes the food that used to carry much of your fluid and salt, and nausea or diarrhea drain more. A dehydration headache often comes with dark urine, dry mouth, and feeling worse as the day goes on. Second, low blood sugar: rare on semaglutide alone but a real risk if you also take insulin or a sulfonylurea, that headache arrives with shakiness, sweating, and sudden hunger. Third, caffeine withdrawal: when coffee intake drops because your appetite did, the classic dull, gripping withdrawal headache follows a day or two later. Fourth, plain under-fueling, long gaps without food on a newly small appetite. Most headaches in the first weeks are one of these four, or two stacked.",
+      },
+      {
+        rank: 3,
+        name: "What actually helps",
+        summary:
+          "Match the fix to the suspect. For dehydration, drink steadily through the day rather than in one sitting, and on rough days an electrolyte mix helps replace the sodium that skipped meals took with them. For blood sugar, if you take insulin or a sulfonylurea, check your glucose when a headache hits and talk to your prescriber, dose adjustments of the other medication are common and expected. For caffeine, keep your usual intake steady on purpose, or taper slowly instead of crashing. For under-fueling, set meal reminders, small regular protein-forward meals beat one large one on a slowed stomach. An occasional over-the-counter pain reliever is reasonable for most people, your pharmacist can confirm which one fits your medication list.",
+      },
+      {
+        rank: 4,
+        name: "When a headache needs a call",
+        summary:
+          "A sudden, severe, worst-of-your-life headache, a headache with vision changes, weakness, confusion, fever and stiff neck, or one that follows a head injury, those are emergency-department symptoms, full stop, GLP-1 or no GLP-1. Call your prescriber, rather than waiting, if headaches are frequent enough to need a pain reliever most days, if they arrive with repeated vomiting or signs you cannot stay hydrated, or if you take diabetes medications and keep catching low glucose readings. An ordinary, occasional headache that answers to water, food, and rest can be watched at home.",
+      },
+    ],
+    faq: [
+      {
+        q: "Does Ozempic cause headaches?",
+        a: "Headache is listed among the common adverse reactions in the FDA prescribing information for semaglutide 2.4 mg (Wegovy), and people on Ozempic report them too. In practice most headaches on a GLP-1 trace back to dehydration, low blood sugar (mainly when combined with insulin or a sulfonylurea), caffeine withdrawal, or eating too little, all downstream of reduced appetite rather than a direct drug effect.",
+      },
+      {
+        q: "How do I make an Ozempic headache go away?",
+        a: "Start with water and something to eat, that treats the two most common causes at once. If you suspect dehydration, an electrolyte drink helps replace the sodium skipped meals took with them. Keep caffeine steady rather than letting it crash with your appetite. An occasional over-the-counter pain reliever is reasonable for most people; your pharmacist can confirm the right one for your medication list.",
+      },
+      {
+        q: "Do the headaches go away over time?",
+        a: "Usually. Like most early GLP-1 effects, headaches cluster in the first weeks and after dose increases, while your eating, drinking, and caffeine habits are shifting fastest. Once intake stabilizes and you have a hydration routine, most people find they fade. If they persist or need a pain reliever most days, bring it to your prescriber rather than pushing through.",
+      },
+      {
+        q: "Can Ozempic cause low blood sugar headaches?",
+        a: "Semaglutide alone rarely causes true hypoglycemia, its insulin effect is glucose-dependent. The risk rises meaningfully when it is combined with insulin or a sulfonylurea, and the FDA label flags that combination. A low-sugar headache typically comes with shakiness, sweating, and sudden hunger. If that pattern fits, check your glucose when it happens and tell your prescriber, adjusting the other medication is the usual fix.",
+      },
+      {
+        q: "When should I worry about a headache on Ozempic?",
+        a: "Seek emergency care for a sudden worst-ever headache, or one with vision changes, weakness, confusion, stiff neck with fever, or after a head injury, regardless of any medication. Call your prescriber for headaches that are frequent, that come with repeated vomiting or trouble staying hydrated, or alongside low glucose readings if you take diabetes medication.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Wegovy (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+      },
+      {
+        label: "FDA Prescribing Information: Ozempic (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+      {
+        label:
+          "Wilding JPH et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP-1). NEJM 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+      },
+    ],
+  },
+  {
+    slug: "ozempic-cost",
+    title: "How Much Does Ozempic Cost? List Price, Insurance, and Self-Pay",
+    h1: "What Ozempic actually costs, in plain language",
+    description:
+      "The list price, what people actually pay with insurance, the manufacturer's own self-pay channel, and why the same pen has five different prices. A calm map of the money side, with no affiliate stake in any of it.",
+    hub: "glp1-101",
+    postType: "cluster",
+    publishedAt: "2026-06-04",
+    updatedAt: "2026-06-04",
+    readingTime: 8,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "The honest disclaimer first",
+        summary:
+          "Drug prices in the United States move constantly, programs open and close, and what you pay depends on your insurance, your diagnosis, and the channel you buy through. Everything below is accurate as of June 2026 and framed in ranges for exactly that reason. Treat this page as a map of the system, then verify the current number for your situation with your pharmacy, your plan, and the manufacturer's own pricing pages. Peptips takes no money from drug makers, pharmacies, or telehealth sellers, so nothing here is steering you toward a buying path.",
+      },
+      {
+        rank: 2,
+        name: "The list price, and why almost nobody pays it",
+        summary:
+          "Ozempic's U.S. list price has sat near one thousand dollars for a month's supply, around 936 to 998 dollars depending on the year, and Wegovy's has been in the same neighborhood. The list price is the sticker on the system, the starting point for negotiations between the manufacturer, insurers, and pharmacy middlemen. Most people pay something very different: a copay if insurance covers it, a program price if they qualify for one, or a direct self-pay price from the manufacturer. The useful question is never what does it list for, it is what would I pay through each door I can actually walk through.",
+      },
+      {
+        rank: 3,
+        name: "Door one: insurance",
+        summary:
+          "Coverage follows the indication. Ozempic is approved for type 2 diabetes, and plans that cover it for diabetes often bring the monthly cost down to a manageable copay, with a manufacturer savings card on top for the commercially insured, sometimes as low as 25 dollars a month while the card's terms last. Wegovy, the weight-management semaglutide, is covered far less consistently, many employer plans and many state programs still exclude anti-obesity medication as a category, though that has been shifting year by year. Medicare historically could not cover weight-loss drugs, and the rules have been loosening in stages, so check the current year's position rather than an old article, including this one.",
+      },
+      {
+        rank: 4,
+        name: "Door two: manufacturer self-pay",
+        summary:
+          "Novo Nordisk sells directly to self-pay patients through its NovoCare pharmacy channel, launched in 2025, with Ozempic and Wegovy offered at flat monthly self-pay prices that began around 499 dollars, roughly half of list. Lilly does the same for its tirzepatide products through LillyDirect, including lower-priced Zepbound vials. In late 2025 the manufacturers also reached federal pricing agreements that are expected to push direct-purchase prices further down during 2026 for some channels and bring negotiated prices into Medicare. The honest summary: the self-pay direct price is the number to check first if insurance says no, and it has been moving in the patient's favor.",
+      },
+      {
+        rank: 5,
+        name: "The door we would skip: compounded semaglutide",
+        summary:
+          "During the shortage years, compounded semaglutide from pharmacies and telehealth sellers was often the cheapest door, sometimes 100 to 300 dollars a month. The FDA's position is worth knowing: compounded versions are not FDA-approved, the agency has warned about dosing errors and unverified ingredients, and once the shortage was declared resolved, the legal basis for mass-compounding copies largely ended. With manufacturer self-pay prices now far below the old list prices, the gap that made compounding tempting has narrowed. We do not link to or take money from any seller in this space, and our honest read is that the approved product through a legitimate channel is the option your prescriber can actually stand behind.",
+      },
+      {
+        rank: 6,
+        name: "How to find your real number",
+        summary:
+          "Three calls, in order. First, your insurance: ask whether your plan covers the specific brand for your specific diagnosis, what the copay is, and whether a prior authorization is needed. Second, the manufacturer: check the savings-card terms if you are commercially insured, and the current NovoCare or LillyDirect self-pay price if you are not. Third, your pharmacy: cash prices vary, and discount cards sometimes beat a bad insurance tier. Write the numbers down side by side and take them to your prescriber, sometimes the covered molecule, not the preferred one, is the workable answer, and that is a clinical conversation as much as a financial one.",
+      },
+    ],
+    faq: [
+      {
+        q: "How much does Ozempic cost without insurance?",
+        a: "The U.S. list price has been around 936 to 998 dollars per month in recent years. But the practical self-pay floor is lower: Novo Nordisk's direct NovoCare pharmacy channel has offered Ozempic to self-pay patients at flat monthly prices that started around 499 dollars in 2025, with federal pricing agreements announced in late 2025 expected to push some direct prices lower during 2026. Check the manufacturer's current pricing page for today's number.",
+      },
+      {
+        q: "How much is Ozempic with insurance?",
+        a: "If your plan covers it for type 2 diabetes, you pay your plan's copay, and commercially insured patients may stack the manufacturer savings card on top, historically bringing it as low as 25 dollars a month while the card's terms apply. Coverage for weight management (Wegovy) is much less consistent. The only reliable way to know is to ask your plan about your specific brand and diagnosis.",
+      },
+      {
+        q: "Why is Ozempic covered but Wegovy isn't?",
+        a: "Same molecule, different indication, and insurance follows the indication. Ozempic carries the type 2 diabetes approval, a category nearly all plans cover. Wegovy carries the weight-management approval, a category many plans still exclude or restrict, though coverage has been expanding. That asymmetry, not the chemistry, is why the two prices can differ so much for the same person.",
+      },
+      {
+        q: "Is compounded semaglutide a safe way to save money?",
+        a: "The FDA has warned about compounded semaglutide: it is not FDA-approved, dosing errors have caused harm, and after the shortage was declared resolved, the legal window for mass-produced copies largely closed. With manufacturer self-pay channels now pricing far below list, the savings gap has narrowed. We have no financial stake in any answer here, and our read of the FDA's position is that the approved product through a legitimate channel is the defensible choice.",
+      },
+      {
+        q: "Will the price of Ozempic come down?",
+        a: "It has been moving down through specific doors rather than on the sticker. Manufacturer self-pay channels launched in 2025 at roughly half of list price, and federal pricing agreements announced in late 2025 are expected to lower some direct-purchase and Medicare prices during 2026. Prices and programs change quickly, which is why we date-stamp this page (June 2026) and recommend verifying current numbers with the manufacturer and your plan.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Ozempic (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+      {
+        label: "NovoCare Pharmacy: official Novo Nordisk direct pricing",
+        url: "https://www.novocare.com/",
+      },
+      {
+        label: "LillyDirect: official Lilly direct pharmacy channel",
+        url: "https://lillydirect.lilly.com/",
+      },
+      {
+        label: "FDA: Compounded semaglutide and safety concerns (FDA drug information page)",
+        url: "https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/medications-containing-semaglutide-marketed-type-2-diabetes-or-weight-loss",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
