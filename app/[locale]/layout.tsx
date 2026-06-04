@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { MedicalDisclaimerFooter } from "@/components/MedicalDisclaimer";
 import { OrganizationJsonLd } from "@/components/schema/OrganizationJsonLd";
-import { SITE, siteTagline, siteDescription } from "@/lib/content/site";
+import { SITE, siteDescription } from "@/lib/content/site";
 import { robotsMeta, localeUrl } from "@/lib/seo";
 import { routing, locales, type Locale } from "@/i18n/routing";
 
@@ -46,7 +46,13 @@ export async function generateMetadata({
   const { locale: raw } = await params;
   if (!hasLocale(routing.locales, raw)) return {};
   const locale = raw as Locale;
-  const tagline = siteTagline(locale);
+  // Compact homepage <title> (SERP truncates ~60 chars); the full tagline
+  // stays in the meta description and on-page hero copy.
+  const SHORT_TITLE: Partial<Record<Locale, string>> = {
+    en: "GLP-1 Guides: Ozempic, Wegovy & Side Effects",
+    de: "GLP-1-Ratgeber: Ozempic, Wegovy & Nebenwirkungen",
+  };
+  const shortTitle = SHORT_TITLE[locale] ?? SHORT_TITLE.en!;
   const description = siteDescription(locale);
 
   const languages: Record<string, string> = {};
@@ -58,7 +64,7 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE.url),
     title: {
-      default: `${SITE.name} · ${tagline}`,
+      default: `${SITE.name} · ${shortTitle}`,
       template: `%s · ${SITE.name}`,
     },
     description,

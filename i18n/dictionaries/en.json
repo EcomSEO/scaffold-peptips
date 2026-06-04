@@ -246,8 +246,8 @@
   },
   "trustPages": {
     "about": {
-      "metaTitle": "About Peptips",
-      "metaDescription": "Who we are, what we do, and why we built this.",
+      "metaTitle": "About Peptips: Who Writes These Guides",
+      "metaDescription": "Peptips publishes calm, cited GLP-1 patient education. Who the editorial team is, how every claim is checked against FDA labels and trials, and why we built it.",
       "h1": "About Peptips",
       "body": [
         "Peptips is the friend who already went through it.",
@@ -267,8 +267,8 @@
       ]
     },
     "editorialStandards": {
-      "metaTitle": "Editorial standards",
-      "metaDescription": "How Peptips reports, sources, and reviews every post.",
+      "metaTitle": "Editorial Standards: How Peptips Reports",
+      "metaDescription": "Two independent sources before a sentence ships, every figure checked against the original FDA label or trial, and dated corrections. The full standards we write by.",
       "h1": "Editorial standards",
       "body": [
         "Peptips publishes educational content about GLP-1 medications. The reader trust we need to earn is different from other health-adjacent sites, so our rules are stricter.",
@@ -327,8 +327,8 @@
       ]
     },
     "privacy": {
-      "metaTitle": "Privacy policy",
-      "metaDescription": "What we collect, what we don't, and how we keep your data safe.",
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "What peptips.com collects and what it never does: no health data, no ad trackers without consent, no selling of reader information. The full privacy policy in plain language.",
       "h1": "Privacy policy",
       "body": [
         "This Privacy Policy describes how Peptips collects, uses, and shares information when you visit peptips.com.",
@@ -352,8 +352,8 @@
       ]
     },
     "terms": {
-      "metaTitle": "Terms of service",
-      "metaDescription": "The terms that apply when you use peptips.com.",
+      "metaTitle": "Terms of Service",
+      "metaDescription": "The terms that apply when you use peptips.com: educational content only, no medical advice, affiliate-link disclosure, and your rights as a reader. Plain-language version included.",
       "h1": "Terms of service",
       "body": [
         "By accessing peptips.com, you agree to these Terms. If you do not agree, do not use the Site.",
@@ -374,8 +374,8 @@
       ]
     },
     "contact": {
-      "metaTitle": "Contact & tips",
-      "metaDescription": "Found a mistake? Have a question we haven't answered? Tell us.",
+      "metaTitle": "Contact Peptips: Corrections & Questions",
+      "metaDescription": "Found a mistake or have a GLP-1 question we have not answered? How to reach the Peptips editorial team, and what happens to correction reports once you send them.",
       "h1": "Contact & tips",
       "body": [
         "## General",

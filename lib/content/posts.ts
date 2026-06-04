@@ -54,7 +54,7 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "best-fiber-supplements-for-glp1",
-    title: "Ozempic Constipation: What Helps, Plus the Best Fiber Supplements",
+    title: "Ozempic Constipation: Best Fiber Picks",
     h1: "Ozempic constipation: what helps, and the best fiber supplements",
     description:
       "Yes, Ozempic and other GLP-1s commonly cause constipation, here's why it happens, how long it usually lasts, and what actually relieves it, including which fiber to buy and which to skip.",
@@ -562,7 +562,7 @@ export const posts: Post[] = [
   {
     slug: "glp1-nutrition-guide",
     title:
-      "The Complete GLP-1 Nutrition Guide: Protein, Muscle, and What to Eat",
+      "GLP-1 Nutrition Guide: Protein & What to Eat",
     h1: "The complete GLP-1 nutrition guide",
     description:
       "Protein targets, muscle preservation, electrolytes, micronutrients, and sample days of eating. The practical food companion for life on a GLP-1.",
@@ -631,7 +631,7 @@ export const posts: Post[] = [
   },
   {
     slug: "mounjaro-vs-ozempic-vs-wegovy-vs-zepbound",
-    title: "Mounjaro vs Ozempic vs Wegovy vs Zepbound: A Calm Comparison",
+    title: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
     h1: "Mounjaro vs Ozempic vs Wegovy vs Zepbound",
     description:
       "The four big GLP-1 drugs compared on mechanism, efficacy, side effects, and cost. What the trials actually showed, side by side.",
@@ -880,7 +880,7 @@ export const posts: Post[] = [
   },
   {
     slug: "best-electrolytes-for-glp1",
-    title: "Best Electrolytes for GLP-1 Users (and Ozempic Fatigue)",
+    title: "Best Electrolytes for GLP-1 Users",
     h1: "Best electrolyte products for GLP-1 users",
     description:
       "When appetite drops on a GLP-1, sodium, potassium, and magnesium drop with it, and that shortfall is behind a lot of the first-month fatigue. Here's what's worth buying, what to skip, and which formulas are calm on the stomach.",
@@ -1175,7 +1175,7 @@ export const posts: Post[] = [
   },
   {
     slug: "12-questions-to-ask-your-doctor-before-glp1",
-    title: "12 Questions to Ask Your Doctor Before Starting a GLP-1",
+    title: "12 Questions to Ask Before Starting a GLP-1",
     h1: "12 questions to ask your doctor before starting a GLP-1",
     description:
       "Prep for your first GLP-1 appointment: 12 questions worth asking, why each matters, and what a good answer looks like.",
@@ -1317,8 +1317,7 @@ export const posts: Post[] = [
   },
   {
     slug: "semaglutide-vs-tirzepatide",
-    title:
-      "Semaglutide vs Tirzepatide: How Ozempic, Wegovy, Mounjaro, and Zepbound Compare",
+    title: "Semaglutide vs Tirzepatide: The Real Differences",
     h1: "Semaglutide vs tirzepatide: how they actually compare",
     description:
       "Two different molecules, two different receptor targets, and one head-to-head trial. What the SURPASS-2, STEP-1, and SURMOUNT-1 data show on weight, blood sugar, side effects, dosing, and cost, in plain language.",
@@ -1468,7 +1467,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ozempic-fatigue",
-    title: "Ozempic Fatigue: Why You're Tired on a GLP-1 and What Helps",
+    title: "Ozempic Fatigue: Why You're Tired, What Helps",
     h1: "Ozempic fatigue: why you're tired, and what actually helps",
     description:
       "Fatigue is listed on the GLP-1 labels, but most of the tiredness traces to things you can address: a sharp drop in food intake, dehydration and low electrolytes, and the occasional low blood sugar. Here is how to tell them apart and what to do.",
@@ -1549,7 +1548,7 @@ export const posts: Post[] = [
   },
   {
     slug: "best-supplements-for-glp1",
-    title: "The Best Supplements for GLP-1 Users: A Starter Stack",
+    title: "Best Supplements for GLP-1 Users",
     h1: "The best supplements for GLP-1 users",
     description:
       "You do not need a cabinet full of pills on a GLP-1. You need a short, evidence-led stack that covers the three things the medication actually changes: hydration, protein, and bowel regularity. Here is what to add, what to skip, and why.",
@@ -1676,7 +1675,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ozempic-diarrhea",
-    title: "Ozempic Diarrhea: Why It Happens and What Actually Helps",
+    title: "Ozempic Diarrhea: Why It Happens, What Helps",
     h1: "Ozempic diarrhea: why it happens, and what helps",
     description:
       "Diarrhea is on the Ozempic label, and it usually shows up around a dose change. Here is the mechanism, how long it tends to last, what settles it, and the dehydration signs that mean you should call your prescriber.",
@@ -1763,7 +1762,7 @@ export const posts: Post[] = [
   },
   {
     slug: "wegovy-vs-zepbound",
-    title: "Wegovy vs Zepbound: How the Two Weight-Loss Shots Compare",
+    title: "Wegovy vs Zepbound: How the Two Compare",
     h1: "Wegovy vs Zepbound: how the two compare",
     description:
       "Both are FDA-approved for weight management, but they are different molecules, and one head-to-head trial put them in the ring. What SURMOUNT-5 found on weight loss, plus side effects, dosing, cost, and how to choose, in plain language.",
@@ -1900,7 +1899,7 @@ export const posts: Post[] = [
   {
     slug: "glp1-dosing-schedule",
     title:
-      "Semaglutide & Tirzepatide Dosing: The Ozempic, Wegovy, Mounjaro & Zepbound Schedules",
+      "Semaglutide & Tirzepatide Dosing Schedules",
     h1: "GLP-1 dosing schedules, in plain language",
     description:
       "The FDA-label titration schedules for semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound), why every dose starts low and climbs slowly, the maximum doses, and what the label says about holding a dose or missing one.",
@@ -2336,7 +2335,7 @@ export const posts: Post[] = [
   },
   {
     slug: "mounjaro-vs-zepbound",
-    title: "Mounjaro vs Zepbound: Same Drug, Two Names, One Real Difference",
+    title: "Mounjaro vs Zepbound: Same Drug, Two Names",
     h1: "Mounjaro vs Zepbound: what is actually different",
     description:
       "Mounjaro and Zepbound are the same molecule, tirzepatide, sold under two names for two FDA-approved uses. Here is why both exist, how the dosing compares, and why the label on the box can decide what your insurance pays.",
@@ -2472,7 +2471,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ozempic-burps",
-    title: "Ozempic Burps: Why the Sulfur Burps Happen and What Helps",
+    title: "Ozempic Burps: Why Sulfur Burps Happen",
     h1: "Ozempic burps: why they happen, what helps",
     description:
       "Burping, sometimes with a rotten-egg taste, is a documented side effect of semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound). Here is why slowed digestion causes it, what genuinely helps, and when a burp is a signal to call.",
@@ -2553,7 +2552,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ozempic-headache",
-    title: "Ozempic Headaches: The Four Usual Causes and What Helps",
+    title: "Ozempic Headaches: The Four Usual Causes",
     h1: "Headaches on Ozempic: the four usual causes",
     description:
       "Headache is a documented adverse reaction with semaglutide (Wegovy), and on a GLP-1 it usually traces back to one of four things: dehydration, low blood sugar, caffeine withdrawal, or simply eating less. Here is how to tell which one is yours.",
@@ -2630,7 +2629,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ozempic-cost",
-    title: "How Much Does Ozempic Cost? List Price, Insurance, and Self-Pay",
+    title: "How Much Does Ozempic Cost in 2026?",
     h1: "What Ozempic actually costs, in plain language",
     description:
       "The list price, what people actually pay with insurance, the manufacturer's own self-pay channel, and why the same pen has five different prices. A calm map of the money side, with no affiliate stake in any of it.",

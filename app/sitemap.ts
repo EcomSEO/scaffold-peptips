@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { hubs } from "@/lib/content/hubs";
 import { posts } from "@/lib/content/posts";
+import { productPageKeys } from "@/lib/content/products-meta";
 import { defaultLocale, locales } from "@/i18n/routing";
 import { localeUrl } from "@/lib/seo";
 
@@ -52,6 +53,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly",
         priority:
           p.postType === "pillar" || p.postType === "comparison" ? 0.9 : 0.7,
+      })
+    ),
+    // Per-product pick pages — previously missing from the sitemap entirely.
+    ...productPageKeys().flatMap((key) =>
+      buildEntry(`/picks/${key}`, {
+        changeFrequency: "monthly",
+        priority: 0.6,
       })
     ),
     ...[
