@@ -3018,6 +3018,94 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "retatrutide-dosing",
+    title: "Retatrutide Dosing: The Trial Schedule, Explained",
+    h1: "Retatrutide dosing, from the trial protocols",
+    description:
+      "Retatrutide is investigational, so there is no prescribed dose. Here are the doses the Phase 2 trial actually used, how the titration worked, and why there is no safe take-home number yet.",
+    hub: "glp1-101",
+    postType: "cluster",
+    publishedAt: "2026-06-05",
+    updatedAt: "2026-06-05",
+    readingTime: 8,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "Read this first: there is no prescribed dose",
+        summary:
+          "Retatrutide is not approved by the FDA or any regulator, which means there is no official dose, no prescribing label, and no pharmacy that can fill it. Everything on this page describes the doses used inside controlled clinical trials, under medical supervision, with monitoring and slow escalation. It is here so you can understand what the research actually tested, not so you can copy it. There is no safe take-home retatrutide dose, because the only legitimate retatrutide today is inside a trial.",
+      },
+      {
+        rank: 2,
+        name: "The doses the Phase 2 trial used",
+        summary:
+          "The Phase 2 obesity trial (Jastreboff and colleagues, NEJM 2023) tested four maintenance dose levels against placebo: 1 mg, 4 mg, 8 mg and 12 mg, given as a once-weekly subcutaneous injection. The largest average weight reduction, roughly 24 percent at 48 weeks, came from the 12 mg group, and the curve had not flattened when the trial ended. The lower doses produced smaller effects, a clean dose-response. These are research maintenance targets reached by careful escalation, not starting doses, which is the detail the research-channel marketing leaves out.",
+      },
+      {
+        rank: 3,
+        name: "How the titration worked, and why",
+        summary:
+          "Nobody in the trial started at 12 mg. Participants began low and stepped up gradually over several weeks toward their assigned maintenance dose, the same logic behind every GLP-1 drug's titration: the gut side effects (nausea, vomiting, diarrhea) are worst right after a dose increase, so slow escalation keeps them tolerable. The trial used structured monthly steps with the option to slow down or hold when side effects were rough. Jumping straight to a high dose, which is exactly what someone self-dosing grey-market vials cannot calibrate, is how you turn a manageable side effect into a reason for the emergency room.",
+      },
+      {
+        rank: 4,
+        name: "Why the trial doses do not transfer to real life",
+        summary:
+          "Three reasons the numbers above are not a recipe. First, the drug: trial retatrutide is verified for identity, purity and concentration, while grey-market 'reta' is an unregulated powder of unknown dose, so a number in milligrams is meaningless when you cannot trust what is in the vial. Second, the monitoring: trial participants had heart-rate checks (retatrutide raises heart rate via its glucagon action), lab work and clinician oversight that a kitchen-table injection does not. Third, the titration judgment: knowing when to hold or slow a dose is a clinical skill, not a chart. The dose is the least dangerous unknown; the supply and the supervision are the dangerous ones.",
+      },
+      {
+        rank: 5,
+        name: "What to do with this if you are interested in retatrutide",
+        summary:
+          "The legitimate ways to access retatrutide at a real dose are to enroll in one of the Phase 3 TRIUMPH trials (listed on clinicaltrials.gov, where dosing is managed by the study team) or to wait for approval, which would come with an FDA-reviewed label and proper titration guidance. If you are already on an approved GLP-1 and it is working, the dosing details of an unapproved drug change nothing for you today. We keep the full picture in the retatrutide overview and the side-effect breakdown, and we will update this page with the real label schedule if and when retatrutide is approved.",
+      },
+    ],
+    faq: [
+      {
+        q: "What is the dose of retatrutide?",
+        a: "There is no approved dose, because retatrutide is investigational. In the Phase 2 obesity trial the maintenance doses tested were 1 mg, 4 mg, 8 mg and 12 mg once weekly, reached by gradual escalation under medical supervision, with 12 mg producing the most weight loss. Those are research doses, not a prescription, and there is no safe take-home retatrutide dose today.",
+      },
+      {
+        q: "How do you titrate retatrutide?",
+        a: "In the trials, participants started at a low dose and stepped up gradually over several weeks toward their assigned maintenance level, slowing or holding when gut side effects were severe. This is the same titration logic as approved GLP-1 drugs. The exact schedule was managed by the study team with monitoring, which is precisely what self-dosing cannot replicate.",
+      },
+      {
+        q: "Is 12 mg the best retatrutide dose?",
+        a: "In the Phase 2 trial the 12 mg group had the largest average weight loss (about 24 percent at 48 weeks), and the effect had not plateaued. But 'best' is a trial-population average reached by careful escalation with monitoring, not a target you can safely aim for on your own, and Phase 3 will refine the real maintenance dosing. Higher also meant more dose-dependent side effects.",
+      },
+      {
+        q: "Can I inject retatrutide at home?",
+        a: "There is no legal, approved retatrutide to inject, and the material sold as 'reta' by research-chemical sellers is unregulated, of unverified dose and purity, and meant to be used without the heart-rate and lab monitoring the trials required. We do not link to those sellers. The legitimate routes are a clinical trial or waiting for approval.",
+      },
+      {
+        q: "When will retatrutide have an official dose?",
+        a: "When and if the FDA approves it after the Phase 3 TRIUMPH program reports. Approval would come with a prescribing label specifying starting dose, titration steps and maintenance dose. Until then, the only dosing information that exists is the research schedule above. We will update this page with the approved label when it lands.",
+      },
+    ],
+    sources: [
+      {
+        label:
+          "Jastreboff AM et al. Triple-Hormone-Receptor Agonist Retatrutide for Obesity (Phase 2). NEJM 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+      },
+      {
+        label:
+          "Rosenstock J et al. Retatrutide for people with type 2 diabetes (Phase 2). Lancet 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37385280/",
+      },
+      {
+        label: "ClinicalTrials.gov: TRIUMPH Phase 3 program (retatrutide)",
+        url: "https://clinicaltrials.gov/search?term=retatrutide%20TRIUMPH",
+      },
+      {
+        label: "FDA: Human drug compounding, unapproved drugs and safety risks",
+        url: "https://www.fda.gov/drugs/human-drug-compounding",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
