@@ -3106,6 +3106,130 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "orforglipron",
+    title: "Orforglipron: The Oral GLP-1 Pill, Explained",
+    h1: "Orforglipron, the oral GLP-1, explained",
+    description:
+      "Orforglipron is a once-daily GLP-1 pill, no injection and no food rules. What it is, what the trials show, how it compares to the shots, and where its approval stands as of June 2026.",
+    hub: "glp1-101",
+    postType: "pillar",
+    publishedAt: "2026-06-07",
+    updatedAt: "2026-06-07",
+    readingTime: 10,
+    status: "published",
+    medicalDisclaimer: "required",
+    featured: false,
+    evidenceDimensions: {
+      trialStrength: 4,
+      sampleSize: 4,
+      mechanism: 5,
+      reproducibility: 3,
+      realWorldFit: 3,
+      rationale: {
+        trialStrength:
+          "A published randomized Phase 2 program plus a large Phase 3 program (ATTAIN for obesity, ACHIEVE for diabetes) with topline results reported; full Phase 3 publications were still arriving as of mid-2026.",
+        sampleSize:
+          "Phase 2 enrolled hundreds; the Phase 3 program enrolled thousands across multiple trials.",
+        mechanism:
+          "A non-peptide small molecule that activates the GLP-1 receptor, the same well-validated target as semaglutide and the other approved drugs.",
+        reproducibility:
+          "Phase 2 obesity and diabetes results pointed the same direction and Phase 3 topline broadly confirmed them; independent real-world replication does not exist yet.",
+        realWorldFit:
+          "No approved product exists, so all data comes from trial conditions; the oral route may change adherence in real life, for better or worse.",
+      },
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The short answer",
+        summary:
+          "Orforglipron is a once-daily GLP-1 receptor agonist that you swallow as a pill, developed by Eli Lilly. It does the same core job as semaglutide (Ozempic, Wegovy), reducing appetite and slowing the stomach through the GLP-1 pathway, but in a tablet rather than a weekly injection. The detail that makes it notable: unlike the existing oral GLP-1 (oral semaglutide, sold as Rybelsus), orforglipron is a non-peptide small molecule, which means it does not need the strict empty-stomach, small-sip-of-water, wait-30-minutes routine that limits Rybelsus. As of June 2026 it is not yet FDA-approved; its large Phase 3 program has reported topline results and a regulatory decision is the next milestone.",
+      },
+      {
+        rank: 2,
+        name: "Why a pill is a big deal",
+        summary:
+          "Two reasons. First, the needle barrier is real: a meaningful share of people who would benefit from a GLP-1 never start or quietly quit because of weekly self-injection, and a daily pill removes that hurdle entirely. Second, manufacturing: peptide drugs like semaglutide are complex and supply-constrained, while a small molecule like orforglipron is cheaper and easier to make at scale, which could ease the shortages and, eventually, the price pressure that have defined the GLP-1 era. A pill that is easier to start, easier to make, and easier to distribute could widen access more than any incremental gain in potency.",
+      },
+      {
+        rank: 3,
+        name: "Oral semaglutide already exists, so what is different",
+        summary:
+          "Rybelsus, the oral form of semaglutide, has been available for years, so orforglipron is not the first GLP-1 pill. The difference is chemistry and convenience. Rybelsus is the same peptide as Ozempic, and peptides survive the gut poorly, so it requires an absorption enhancer plus a rigid routine: take it on an empty stomach with no more than a sip of water and wait at least 30 minutes before anything else. Orforglipron is a non-peptide molecule designed to be absorbed without those gymnastics, so the pitch is once-daily dosing with no food or water restrictions. Whether real-world results match that promise is what the rollout will show.",
+      },
+      {
+        rank: 4,
+        name: "What the trials actually show",
+        summary:
+          "The published Phase 2 obesity trial (Wharton and colleagues, NEJM 2023) tested orforglipron against placebo and reported meaningful weight reduction at the higher doses over 36 weeks, with the familiar GLP-1 side-effect pattern. A parallel Phase 2 diabetes trial showed A1C reductions. The much larger Phase 3 program, ATTAIN for obesity and ACHIEVE for type 2 diabetes, reported topline results during 2025 that broadly confirmed the effect. The honest framing on the numbers: orforglipron's average weight loss in the readouts has generally landed in the low double digits as a percentage, real and clinically useful, but below what the strongest injectables (tirzepatide, and the investigational retatrutide) reach. Full Phase 3 publications were still arriving as of mid-2026, and we will update this page as they land.",
+      },
+      {
+        rank: 5,
+        name: "How it compares to the injections",
+        summary:
+          "Think of it as a trade between convenience and peak potency. On average weight loss, the published and topline data put orforglipron below tirzepatide (Mounjaro, Zepbound) and roughly in the conversation with, or modestly behind, injectable semaglutide, though cross-trial comparisons are unreliable and no clean head-to-head against the shots has been published. What orforglipron offers in return is a daily pill with no needles and no food rules, plus the prospect of better supply and pricing from small-molecule manufacturing. For someone who would never start an injection, a somewhat smaller effect they will actually take beats a larger effect they will not. That is a real clinical calculation, not a marketing line.",
+      },
+      {
+        rank: 6,
+        name: "Side effects: the same class story",
+        summary:
+          "Because orforglipron works through the GLP-1 receptor, its side-effect profile in the trials looked like the rest of the class: nausea, diarrhea, vomiting and constipation led the list, were dose-dependent, and clustered during dose escalation. As with the injectables, slow titration is the lever that keeps them tolerable. Being oral and once-daily does not exempt it from GLP-1 gut effects, the mechanism is the same. The long-term safety record that the approved injectables have built over years does not exist for orforglipron yet, which is part of what approval and post-marketing surveillance are for.",
+      },
+      {
+        rank: 7,
+        name: "Where approval stands, and what to do now",
+        summary:
+          "As of June 2026, orforglipron is investigational: the Phase 3 program has reported topline results and Lilly has moved toward regulatory submission, but there is no approved product you can be prescribed or buy, and any 'orforglipron' offered by a research-chemical or grey-market seller is unregulated and not the real path. If you are waiting for an oral option, the honest advice is that orforglipron is genuinely coming and worth watching, on a timeline measured in quarters, not weeks, while oral semaglutide (Rybelsus) is the GLP-1 pill that exists today if a pill is the priority. If an approved drug is already working for you, none of this changes your plan. We will update this page with the approved label and dosing when it is available.",
+      },
+    ],
+    faq: [
+      {
+        q: "What is orforglipron?",
+        a: "A once-daily GLP-1 receptor agonist from Eli Lilly taken as a pill. It reduces appetite through the same GLP-1 pathway as semaglutide (Ozempic, Wegovy), but it is a non-peptide small molecule, so unlike the existing GLP-1 pill (Rybelsus) it does not require an empty stomach or food-timing rules. As of June 2026 it is investigational and not yet FDA-approved.",
+      },
+      {
+        q: "Is orforglipron approved by the FDA?",
+        a: "Not as of June 2026. Its Phase 3 program (ATTAIN for obesity, ACHIEVE for diabetes) has reported topline results and Lilly has moved toward regulatory submission, but no approved product exists yet. Any orforglipron sold online today is unregulated grey-market material, not a legitimate supply. We update this page when an approval and label arrive.",
+      },
+      {
+        q: "How does orforglipron compare to Ozempic?",
+        a: "Both activate the GLP-1 receptor, but orforglipron is a daily pill with no food rules while Ozempic (semaglutide) is a weekly injection. On average weight loss the trial data puts orforglipron in the conversation with or modestly behind injectable semaglutide and below tirzepatide, with no clean head-to-head published. The trade is convenience and likely supply versus peak potency.",
+      },
+      {
+        q: "How much weight do people lose on orforglipron?",
+        a: "In the published Phase 2 obesity trial and the 2025 Phase 3 topline readouts, average weight loss generally landed in the low double digits as a percentage of body weight at the higher doses, real and useful but below the strongest injectables. Averages hide wide individual variation, and full Phase 3 publications were still arriving as of mid-2026.",
+      },
+      {
+        q: "Is orforglipron better than Rybelsus?",
+        a: "It is designed to be more convenient. Rybelsus (oral semaglutide) is a peptide that needs an empty stomach, a sip of water and a 30-minute wait; orforglipron is a non-peptide small molecule meant to work without those restrictions. On raw efficacy the two are broadly comparable in the GLP-1-pill category. Rybelsus is approved and available now; orforglipron is not yet.",
+      },
+      {
+        q: "Can I buy orforglipron now?",
+        a: "No. There is no FDA-approved orforglipron, so no pharmacy can dispense it, and anything sold as orforglipron by a research-chemical or telehealth-adjacent seller is unregulated and unverified. We do not link to those sellers. If you want a GLP-1 pill today, oral semaglutide (Rybelsus) is the approved option to discuss with a clinician.",
+      },
+    ],
+    sources: [
+      {
+        label:
+          "Wharton S et al. Daily Oral GLP-1 Receptor Agonist Orforglipron for Adults with Obesity (Phase 2). NEJM 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37351564/",
+      },
+      {
+        label:
+          "Frias JP et al. Efficacy and safety of oral orforglipron in patients with type 2 diabetes (Phase 2). Lancet 2023",
+        url: "https://pubmed.ncbi.nlm.nih.gov/37356473/",
+      },
+      {
+        label: "ClinicalTrials.gov: ATTAIN and ACHIEVE Phase 3 program (orforglipron)",
+        url: "https://clinicaltrials.gov/search?term=orforglipron",
+      },
+      {
+        label: "FDA Prescribing Information: Rybelsus (oral semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=213051",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {

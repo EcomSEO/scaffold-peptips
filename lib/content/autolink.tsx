@@ -22,6 +22,7 @@ const RULES: { re: RegExp; href: string }[] = [
   { re: /\bhair (?:loss|shedding|thinning)\b/i, href: "/ozempic-hair-loss" },
   { re: /\balcohol\b/i, href: "/ozempic-and-alcohol" },
   { re: /\bdiarrh(?:ea|oea)\b/i, href: "/ozempic-diarrhea" },
+  { re: /\borforglipron\b/i, href: "/orforglipron" },
   { re: /\bretatrutide (?:dosing|dose|titration)\b/i, href: "/retatrutide-dosing" },
   { re: /\bretatrutide\b/i, href: "/retatrutide" },
   { re: /\bmounjaro vs\.? zepbound\b/i, href: "/mounjaro-vs-zepbound" },
