@@ -2,66 +2,77 @@ import type { MetadataRoute } from "next";
 import { hubs } from "@/lib/content/hubs";
 import { posts } from "@/lib/content/posts";
 import { productPageKeys } from "@/lib/content/products-meta";
-import { defaultLocale, locales } from "@/i18n/routing";
+import { localizeBody } from "@/lib/content/posts-i18n";
 import { localeUrl } from "@/lib/seo";
+import type { Locale } from "@/i18n/routing";
 
 /**
- * Locale-aware sitemap. For every URL we emit one entry per locale and
- * mirror the others (plus x-default → English) into `alternates.languages`,
- * which Next translates into proper xhtml:link hreflang entries.
+ * Clean sitemap: every URL is a real, unique, indexable page.
  *
- * Phase one paths are identical across locales (English slugs). When we
- * add translated slugs later, swap the path string per-locale here.
+ * Policy (2026-06-08 rewrite):
+ *  - English is the canonical version of every page and is always listed.
+ *  - A locale variant is listed ONLY when that page has genuinely translated
+ *    content, not English fallback. Submitting fallback-only locale URLs is
+ *    duplicate content, so the six untranslated locales (fr/it/es/nl/pl/sv)
+ *    are intentionally excluded until they carry real translations.
+ *  - German (de) is listed for the homepage and for posts whose translated
+ *    body exists (detected via localizeBody().hasBody). Those entries carry
+ *    hreflang alternates (en/de/x-default); English-only pages carry none.
+ *  - No priority or changeFrequency: Google ignores priority and largely
+ *    ignores changeFrequency. lastModified is the one signal worth sending.
  */
+
+const TRANSLATED_LOCALES: Locale[] = ["de"];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
-  const buildEntry = (
-    path: string,
-    opts: {
-      lastModified?: string;
-      changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
-      priority?: number;
-    } = {}
-  ): MetadataRoute.Sitemap => {
-    const languages: Record<string, string> = {};
-    for (const l of locales) {
-      languages[l] = localeUrl(l, path);
-    }
-    languages["x-default"] = localeUrl(defaultLocale, path);
+  // English-only entry: one clean URL, no hreflang noise.
+  const en = (path: string, lastModified: string = now): MetadataRoute.Sitemap[number] => ({
+    url: localeUrl("en", path),
+    lastModified,
+  });
 
-    return locales.map((l) => ({
+  // Bilingual entry set: emit the English URL plus each translated-locale URL,
+  // every one carrying the same en/de/x-default hreflang map.
+  const withTranslations = (
+    path: string,
+    translated: Locale[],
+    lastModified: string = now
+  ): MetadataRoute.Sitemap => {
+    const languages: Record<string, string> = { en: localeUrl("en", path) };
+    for (const l of translated) languages[l] = localeUrl(l, path);
+    languages["x-default"] = localeUrl("en", path);
+
+    return (["en", ...translated] as Locale[]).map((l) => ({
       url: localeUrl(l, path),
-      lastModified: opts.lastModified ?? now,
-      changeFrequency: opts.changeFrequency,
-      priority: opts.priority,
+      lastModified,
       alternates: { languages },
     }));
   };
 
   const entries: MetadataRoute.Sitemap = [
-    ...buildEntry("/", { changeFrequency: "weekly", priority: 1 }),
-    ...hubs.flatMap((h) =>
-      buildEntry(`/guides/${h.slug}`, {
-        changeFrequency: "weekly",
-        priority: 0.8,
-      })
-    ),
-    ...posts.flatMap((p) =>
-      buildEntry(`/${p.slug}`, {
-        lastModified: p.updatedAt,
-        changeFrequency: "monthly",
-        priority:
-          p.postType === "pillar" || p.postType === "comparison" ? 0.9 : 0.7,
-      })
-    ),
-    // Per-product pick pages — previously missing from the sitemap entirely.
-    ...productPageKeys().flatMap((key) =>
-      buildEntry(`/picks/${key}`, {
-        changeFrequency: "monthly",
-        priority: 0.6,
-      })
-    ),
+    // Home — German homepage is fully localized, so list both with hreflang.
+    ...withTranslations("/", TRANSLATED_LOCALES),
+
+    // Hubs — masthead is localized but body chrome is not yet, so English only.
+    ...hubs.map((h) => en(`/guides/${h.slug}`)),
+
+    // Posts — English always; add a German URL only where a real translated
+    // body exists (TranslationPendingBanner would otherwise show on the rest).
+    ...posts.flatMap((p) => {
+      const de = TRANSLATED_LOCALES.filter(
+        (l) => localizeBody(p.slug, l).hasBody
+      );
+      return de.length
+        ? withTranslations(`/${p.slug}`, de, p.updatedAt)
+        : [en(`/${p.slug}`, p.updatedAt)];
+    }),
+
+    // Per-product pick pages — English only (no translations yet).
+    ...productPageKeys().map((key) => en(`/picks/${key}`)),
+
+    // Trust and utility pages — English only.
     ...[
       "/about",
       "/editorial-standards",
@@ -74,9 +85,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/affiliate-disclosure",
       "/contact",
       "/newsletter",
-    ].flatMap((path) =>
-      buildEntry(path, { changeFrequency: "yearly", priority: 0.3 })
-    ),
+    ].map((path) => en(path)),
   ];
+
   return entries;
 }
