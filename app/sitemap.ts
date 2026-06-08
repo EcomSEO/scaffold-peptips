@@ -25,7 +25,10 @@ import type { Locale } from "@/i18n/routing";
 const TRANSLATED_LOCALES: Locale[] = ["de"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  // Date-only (YYYY-MM-DD) lastmod: the cleanest, most universally accepted
+  // W3C-datetime form, and it avoids the millisecond-precision timestamps
+  // some sitemap parsers dislike.
+  const now = new Date().toISOString().slice(0, 10);
 
   // English-only entry: one clean URL, no hreflang noise.
   const en = (path: string, lastModified: string = now): MetadataRoute.Sitemap[number] => ({
