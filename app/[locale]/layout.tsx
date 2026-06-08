@@ -69,9 +69,13 @@ export async function generateMetadata({
     },
     description,
     // Google Search Console ownership verification (URL-prefix property,
-    // https://peptips.com). Do not remove — GSC re-checks periodically.
+    // https://peptips.com). Array = multiple GSC accounts can verify; the
+    // second token is Gjorgi's correct account. Do not remove — GSC re-checks.
     verification: {
-      google: "qvwT29ZDQHaN18y5iqDrD5VPDLUmLiWIj6FtFNr43Bw",
+      google: [
+        "9lzfy2wJoaOa-Xmu0f_BWObAbImUOqZIaGfDtJxS1WI",
+        "qvwT29ZDQHaN18y5iqDrD5VPDLUmLiWIj6FtFNr43Bw",
+      ],
     },
     alternates: {
       canonical: localeUrl(locale, "/"),
