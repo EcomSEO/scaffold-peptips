@@ -3230,6 +3230,131 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "rybelsus",
+    title: "Rybelsus: Oral Semaglutide, Explained",
+    h1: "Rybelsus, the semaglutide pill, explained",
+    description:
+      "Rybelsus is Ozempic's active drug in a daily pill: semaglutide, FDA-approved for type 2 diabetes. How it works, the strict way you have to take it, and how it compares to the injection.",
+    hub: "glp1-101",
+    postType: "pillar",
+    publishedAt: "2026-06-08",
+    updatedAt: "2026-06-08",
+    readingTime: 10,
+    status: "published",
+    medicalDisclaimer: "required",
+    featured: false,
+    evidenceDimensions: {
+      trialStrength: 5,
+      sampleSize: 5,
+      mechanism: 5,
+      reproducibility: 5,
+      realWorldFit: 4,
+      rationale: {
+        trialStrength:
+          "Approved on the large randomized PIONEER Phase 3 program for type 2 diabetes, with completed trials and an FDA label.",
+        sampleSize:
+          "The PIONEER program enrolled thousands of adults across ten trials.",
+        mechanism:
+          "Semaglutide is a well-characterized GLP-1 receptor agonist; the only novelty here is oral delivery via an absorption enhancer.",
+        reproducibility:
+          "Glucose and weight effects replicate across PIONEER and align with the injectable semaglutide data.",
+        realWorldFit:
+          "Approved and prescribed at scale; the main real-world gap is adherence to the strict dosing routine, which trials supervised more tightly than daily life does.",
+      },
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The short answer",
+        summary:
+          "Rybelsus is semaglutide in a daily tablet, the same active drug as the Ozempic and Wegovy injections, made by Novo Nordisk. It is FDA-approved for type 2 diabetes, taken once a day by mouth, and it was the first GLP-1 receptor agonist available as a pill rather than an injection. The catch that defines the whole experience is absorption: semaglutide is a peptide, and peptides survive the stomach poorly, so Rybelsus comes with a strict dosing routine that the injectables do not need. If you want the science of the molecule itself, it is the same one we cover across our semaglutide guides; this page is about what changes when you swallow it instead of inject it.",
+      },
+      {
+        rank: 2,
+        name: "Same molecule, different delivery",
+        summary:
+          "Rybelsus and Ozempic both contain semaglutide and work the same way: they activate the GLP-1 receptor to reduce appetite, slow gastric emptying and improve the body's insulin response after meals. The engineering problem Novo had to solve was getting a fragile peptide across the gut wall, which it does by pairing semaglutide with an absorption enhancer called SNAC that briefly helps it cross the stomach lining. That enhancer is also why the routine is so particular: the conditions in your stomach when you take the pill directly determine how much drug actually gets into you. The drug is not weaker than the injection by design; the delivery is just harder to get right.",
+      },
+      {
+        rank: 3,
+        name: "The routine you cannot skip",
+        summary:
+          "This is the single most important practical fact about Rybelsus, straight from the FDA label: take it on an empty stomach when you first wake up, with no more than about 4 ounces of plain water, and then wait at least 30 minutes before any food, other drinks, or other medications. Food and even extra water in the stomach sharply reduce how much semaglutide is absorbed, so a casual approach can mean you are taking far less drug than the label dose. Adherence to this routine is the difference between Rybelsus working and quietly underperforming, and it is the main reason some people find the injection simpler despite the needle. This routine is exactly what the coming non-peptide pill, orforglipron, is designed to avoid.",
+      },
+      {
+        rank: 4,
+        name: "Diabetes drug first, weight effects second",
+        summary:
+          "Rybelsus is FDA-approved for type 2 diabetes, not for weight loss. It does produce some weight reduction, because semaglutide does, but the dedicated weight-management semaglutide is the higher-dose injection Wegovy, and the oral doses approved for diabetes are lower than what the weight trials used. Doctors do sometimes prescribe Rybelsus off-label with weight in mind, which is legal and common, but the honest framing is that this is a blood-sugar drug with a weight side effect, not a weight-loss drug. If weight is the main goal, that is a different conversation with your prescriber about the drugs actually approved for it.",
+      },
+      {
+        rank: 5,
+        name: "Dosing, as the label describes it",
+        summary:
+          "Rybelsus comes in 3 mg, 7 mg and 14 mg tablets and follows a fixed escalation, not because higher is automatically better but to limit gut side effects. The label starts at 3 mg once daily for 30 days, a dose meant to build tolerance rather than to treat, then steps up to 7 mg, with 14 mg available if more glucose control is needed. Each tablet is taken under the same empty-stomach routine, and tablets are not interchangeable by splitting or combining, two 7 mg tablets do not equal one 14 mg dose because of how absorption works. The exact schedule is your prescriber's call against your blood sugar and tolerance; this is the shape of it, not a personal prescription.",
+      },
+      {
+        rank: 6,
+        name: "Side effects: the familiar GLP-1 list",
+        summary:
+          "Because it is semaglutide, Rybelsus brings the same side-effect profile as the rest of the class: nausea, diarrhea, vomiting and constipation lead the list, are usually mild to moderate, and cluster during the first weeks and after each dose increase. The same management playbook applies, which is why our guides on nausea and constipation are as relevant to Rybelsus as to the injection. It carries the same class warnings too, including the boxed thyroid C-cell tumor warning seen in rodent studies. Being a pill does not change the biology, the GLP-1 effects on your gut are identical.",
+      },
+      {
+        rank: 7,
+        name: "Rybelsus vs the injection vs what is coming",
+        summary:
+          "Against Ozempic, the trade is convenience for routine: no needle, but a once-daily empty-stomach ritual instead of a once-weekly shot you can take any time with food. On average glucose and weight effects, the injection generally edges the approved oral doses, partly because of those higher injectable doses. The more interesting comparison is the future: orforglipron, the non-peptide oral GLP-1 in late-stage trials, is designed to deliver pill convenience without the food rules, which would remove Rybelsus's biggest drawback. For now, Rybelsus is the GLP-1 pill that actually exists and is approved, which counts for a lot if a pill is what gets you to start treatment at all.",
+      },
+    ],
+    faq: [
+      {
+        q: "What is Rybelsus?",
+        a: "Rybelsus is oral semaglutide, the same active drug as the Ozempic and Wegovy injections, in a once-daily tablet from Novo Nordisk. It is FDA-approved for type 2 diabetes and was the first GLP-1 receptor agonist available as a pill. It must be taken on an empty stomach with a small sip of water, waiting 30 minutes before anything else.",
+      },
+      {
+        q: "Is Rybelsus the same as Ozempic?",
+        a: "Same drug, different form. Both are semaglutide and work the same way; Ozempic is a once-weekly injection, Rybelsus is a once-daily pill. Ozempic's weekly dosing is simpler to adhere to, while Rybelsus avoids the needle but requires a strict empty-stomach routine. The injectable doses also tend to produce somewhat larger average effects.",
+      },
+      {
+        q: "How do you take Rybelsus?",
+        a: "Per the FDA label: first thing in the morning on an empty stomach, with no more than about 4 ounces (half a cup) of plain water, then wait at least 30 minutes before eating, drinking anything else, or taking other medicines. Food and extra water in the stomach sharply cut absorption, so the routine is not optional, it determines whether the dose works.",
+      },
+      {
+        q: "Is Rybelsus for weight loss?",
+        a: "It is approved for type 2 diabetes, not weight loss, though it does cause some weight reduction because semaglutide does. The dedicated weight-management semaglutide is the higher-dose injection Wegovy. Prescribers sometimes use Rybelsus off-label with weight in mind, but it is best understood as a blood-sugar drug with a weight side effect.",
+      },
+      {
+        q: "What are the doses of Rybelsus?",
+        a: "It comes in 3 mg, 7 mg and 14 mg tablets, started at 3 mg once daily for 30 days (to build tolerance), then increased to 7 mg, with 14 mg if more glucose control is needed. Tablets cannot be combined or split to reach a dose because of how absorption works. The exact schedule is set by your prescriber.",
+      },
+      {
+        q: "Rybelsus vs orforglipron, what is the difference?",
+        a: "Both are GLP-1 pills, but Rybelsus is a peptide (semaglutide) that needs the strict empty-stomach routine, while orforglipron is a non-peptide small molecule designed to work without food rules. Rybelsus is approved and available now; orforglipron is investigational and not yet approved as of mid-2026.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Rybelsus (oral semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=213051",
+      },
+      {
+        label:
+          "Aroda VR et al. PIONEER 1: efficacy and safety of oral semaglutide in type 2 diabetes. Diabetes Care 2019",
+        url: "https://pubmed.ncbi.nlm.nih.gov/31186300/",
+      },
+      {
+        label:
+          "Husain M et al. Oral Semaglutide and Cardiovascular Outcomes in Type 2 Diabetes (PIONEER 6). NEJM 2019",
+        url: "https://pubmed.ncbi.nlm.nih.gov/31185157/",
+      },
+      {
+        label:
+          "FDA Prescribing Information: Ozempic (semaglutide injection)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {

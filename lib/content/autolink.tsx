@@ -23,6 +23,7 @@ const RULES: { re: RegExp; href: string }[] = [
   { re: /\balcohol\b/i, href: "/ozempic-and-alcohol" },
   { re: /\bdiarrh(?:ea|oea)\b/i, href: "/ozempic-diarrhea" },
   { re: /\borforglipron\b/i, href: "/orforglipron" },
+  { re: /\brybelsus\b/i, href: "/rybelsus" },
   { re: /\bretatrutide (?:dosing|dose|titration)\b/i, href: "/retatrutide-dosing" },
   { re: /\bretatrutide\b/i, href: "/retatrutide" },
   { re: /\bmounjaro vs\.? zepbound\b/i, href: "/mounjaro-vs-zepbound" },
