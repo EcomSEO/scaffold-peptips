@@ -3355,6 +3355,101 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "ozempic-foods-to-avoid",
+    title: "Foods to Avoid on Ozempic (and Why)",
+    h1: "Foods to avoid on Ozempic, and why",
+    description:
+      "There is no FDA list of banned foods on Ozempic. But some foods reliably worsen the side effects or work against the medication. The ones worth limiting, and the reasons.",
+    hub: "food-nutrition-and-muscle",
+    postType: "cluster",
+    publishedAt: "2026-06-09",
+    updatedAt: "2026-06-09",
+    readingTime: 8,
+    status: "published",
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "First, the honest framing: nothing is forbidden",
+        summary:
+          "There is no official list of foods you cannot eat on semaglutide (Ozempic, Wegovy). The FDA label does not ban any food, and your prescriber has not handed you a forbidden list. What exists instead is a shorter, more useful idea: certain foods reliably make the side effects worse or quietly work against what the medication is doing. Ozempic slows how fast your stomach empties, so food sits longer, and that single fact explains almost every food that causes trouble. This is about limiting what predictably backfires, not policing your plate.",
+      },
+      {
+        rank: 2,
+        name: "Fatty and fried foods",
+        summary:
+          "These are the most common trigger. Fat is already the slowest thing to leave the stomach, and Ozempic slows gastric emptying further, so a heavy, greasy meal sits and sits, which is what turns into nausea, reflux, and that uncomfortable over-full feeling hours later. Fried food, fast food, creamy sauces and fatty cuts of meat are the usual culprits. You do not have to eliminate fat, your body needs it, but the people who struggle most with nausea are very often the ones eating the richest meals. Smaller portions of leaner food is the single highest-impact change.",
+      },
+      {
+        rank: 3,
+        name: "Large portions of anything",
+        summary:
+          "This is less a food than a quantity, and it matters more than any specific ingredient. A stomach that empties slowly has less room and less patience, so the portion size that felt normal before the medication is often the actual cause of the nausea blamed on a particular food. The fix is mechanical: smaller plates, eat slowly, and stop at comfortably-satisfied rather than full, because on a GLP-1 the fullness signal arrives late and hits hard. Many people find the medication itself shrinks their appetite enough that this happens naturally; forcing a pre-Ozempic-sized meal is what causes grief.",
+      },
+      {
+        rank: 4,
+        name: "Sugary foods, sweet drinks, and refined carbs",
+        summary:
+          "Two reasons to limit these. First, comfort: large hits of sugar can worsen nausea and, for anyone also on insulin or a sulfonylurea, swing blood sugar around. Second, and bigger picture, sugary drinks and refined carbs are easy calories that slip past the appetite suppression the drug is providing, quietly working against the whole point of treatment. A sweet latte or a soda does not fill you up but does add the calories Ozempic is helping you avoid. This is the category where moderation protects results, not just comfort.",
+      },
+      {
+        rank: 5,
+        name: "Alcohol",
+        summary:
+          "Worth its own line. Alcohol irritates the stomach lining, can deepen nausea on a GLP-1, and for people on insulin or a sulfonylurea it raises the risk of low blood sugar. It is also liquid calories with no satiety. None of this means strict abstinence for everyone, but alcohol tends to feel different on these medications than it did before, often hitting harder on a smaller appetite and an emptier-sitting stomach. We cover the full picture in our guide on Ozempic and alcohol.",
+      },
+      {
+        rank: 6,
+        name: "Carbonated drinks and very spicy food",
+        summary:
+          "Two smaller, individual triggers. Carbonated drinks add gas to a stomach that is already emptying slowly, which compounds bloating and the burping many people notice on a GLP-1. Very spicy food can aggravate reflux and an already-sensitive stomach. Neither is universal, plenty of people tolerate both fine, but if you are tracking down what sets off your symptoms, these are common, easily-tested culprits. Cutting them for a week and reintroducing one at a time tells you more than any generic list.",
+      },
+      {
+        rank: 7,
+        name: "What to lean into instead",
+        summary:
+          "The flip side is more useful than the avoid-list. Protein first protects muscle while you lose weight and digests more comfortably than fat, fiber and water help with the constipation the slow gut causes, and smaller, regular meals beat one large one. That positive playbook is the real GLP-1 eating strategy, and we lay it out in the GLP-1 nutrition guide. Think of the foods above as the ones to limit when symptoms flare, and protein, vegetables and hydration as the foundation to build on. If a food consistently makes you miserable, that is your answer, regardless of any list.",
+      },
+    ],
+    faq: [
+      {
+        q: "What foods should you avoid on Ozempic?",
+        a: "There is no FDA list of banned foods, but the ones that reliably cause trouble are fatty and fried foods, very large portions, sugary foods and sweet drinks, refined carbs, alcohol, carbonated drinks, and very spicy food. Most cause problems because Ozempic slows stomach emptying, so heavy or large meals sit longer and turn into nausea and reflux.",
+      },
+      {
+        q: "Why does fatty food make me feel sick on Ozempic?",
+        a: "Fat is the slowest food to leave the stomach, and semaglutide slows gastric emptying further, so a greasy meal lingers far longer than it used to. That lingering is what becomes nausea, reflux and an over-full feeling. Smaller portions of leaner food is the single most effective change for GLP-1 nausea.",
+      },
+      {
+        q: "Can I drink alcohol on Ozempic?",
+        a: "There is no absolute ban, but alcohol irritates the stomach, can worsen nausea, adds calories without fullness, and raises low-blood-sugar risk if you also take insulin or a sulfonylurea. Many people find it hits harder on a GLP-1. See our Ozempic and alcohol guide for the full picture.",
+      },
+      {
+        q: "What should I eat instead on Ozempic?",
+        a: "Lead with protein to protect muscle, add fiber and plenty of water to ease constipation, and eat smaller, regular meals rather than one large one. Protein and vegetables digest more comfortably than fat on a slow-emptying stomach. Our GLP-1 nutrition guide covers the full eating strategy.",
+      },
+      {
+        q: "Do I have to give up sugar and carbs completely on Ozempic?",
+        a: "No, but limiting sugary drinks and refined carbs matters, because they are easy calories that slip past the appetite suppression the drug provides, working against your results, and large sugar hits can worsen nausea. Moderation, not elimination, is the goal, with the bigger focus on protein and whole foods.",
+      },
+    ],
+    sources: [
+      {
+        label: "FDA Prescribing Information: Ozempic (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209637",
+      },
+      {
+        label: "FDA Prescribing Information: Wegovy (semaglutide)",
+        url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215256",
+      },
+      {
+        label:
+          "Wilding JPH et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP-1). NEJM 2021",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
